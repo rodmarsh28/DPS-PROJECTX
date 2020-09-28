@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="sales_ds" targetNamespace="http://tempuri.org/sales_ds.xsd" xmlns:mstns="http://tempuri.org/sales_ds.xsd" xmlns="http://tempuri.org/sales_ds.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="sales_ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="sales_ds" msprop:Generator_UserDSName="sales_ds">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="JOTABLE" msprop:Generator_TableClassName="JOTABLEDataTable" msprop:Generator_TableVarName="tableJOTABLE" msprop:Generator_TablePropName="JOTABLE" msprop:Generator_RowDeletingName="JOTABLERowDeleting" msprop:Generator_RowChangingName="JOTABLERowChanging" msprop:Generator_RowEvHandlerName="JOTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="JOTABLERowDeleted" msprop:Generator_UserTableName="JOTABLE" msprop:Generator_RowChangedName="JOTABLERowChanged" msprop:Generator_RowEvArgName="JOTABLERowChangeEvent" msprop:Generator_RowClassName="JOTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JONO" msprop:Generator_ColumnVarNameInTable="columnJONO" msprop:Generator_ColumnPropNameInRow="JONO" msprop:Generator_ColumnPropNameInTable="JONOColumn" msprop:Generator_UserColumnName="JONO" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="CUSTOMER" msprop:Generator_ColumnVarNameInTable="columnCUSTOMER" msprop:Generator_ColumnPropNameInRow="CUSTOMER" msprop:Generator_ColumnPropNameInTable="CUSTOMERColumn" msprop:Generator_UserColumnName="CUSTOMER" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPTION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPTION" msprop:Generator_ColumnPropNameInRow="DESCRIPTION" msprop:Generator_ColumnPropNameInTable="DESCRIPTIONColumn" msprop:Generator_UserColumnName="DESCRIPTION" type="xs:string" minOccurs="0" />
+              <xs:element name="QTY" msprop:Generator_ColumnVarNameInTable="columnQTY" msprop:Generator_ColumnPropNameInRow="QTY" msprop:Generator_ColumnPropNameInTable="QTYColumn" msprop:Generator_UserColumnName="QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="REMARKS" msprop:Generator_ColumnVarNameInTable="columnREMARKS" msprop:Generator_ColumnPropNameInRow="REMARKS" msprop:Generator_ColumnPropNameInTable="REMARKSColumn" msprop:Generator_UserColumnName="REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="APPROVEDBY" msprop:Generator_ColumnVarNameInTable="columnAPPROVEDBY" msprop:Generator_ColumnPropNameInRow="APPROVEDBY" msprop:Generator_ColumnPropNameInTable="APPROVEDBYColumn" msprop:Generator_UserColumnName="APPROVEDBY" type="xs:string" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="header" msprop:Generator_ColumnVarNameInTable="columnheader" msprop:Generator_ColumnPropNameInRow="header" msprop:Generator_ColumnPropNameInTable="headerColumn" msprop:Generator_UserColumnName="header" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

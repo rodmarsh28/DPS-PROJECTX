@@ -169,6 +169,14 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DataClasses1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataClasses1.vb">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="HR Information System\databaseConnection.Designer.vb">
       <DependentUpon>databaseConnection.vb</DependentUpon>
     </Compile>
@@ -795,6 +803,7 @@
     <Compile Include="Accessable Form\itemSelectorForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="print_class.vb" />
     <Compile Include="Production System\Class\production_class.vb" />
     <Compile Include="Production System\Datasets\Attendace_DS.Designer.vb">
       <DependentUpon>Attendace_DS.xsd</DependentUpon>
@@ -1292,6 +1301,7 @@
     <Compile Include="Purchases\PurchaseMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="qry_class.vb" />
     <Compile Include="reportViewer.Designer.vb">
       <DependentUpon>reportViewer.vb</DependentUpon>
     </Compile>
@@ -1377,6 +1387,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\sales_class.vb" />
+    <Compile Include="Sales\sales_ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sales_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Setups\frmSetupCompany.designer.vb">
       <DependentUpon>frmSetupCompany.vb</DependentUpon>
     </Compile>
@@ -1423,6 +1438,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cashRequisition.vb</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="HR Information System\databaseConnection.resx">
       <DependentUpon>databaseConnection.vb</DependentUpon>
     </EmbeddedResource>
@@ -2081,6 +2099,22 @@
     <EmbeddedResource Include="Users\frmUserList.resx">
       <DependentUpon>frmUserList.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Sales\sales_ds.xsc">
+      <DependentUpon>sales_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Sales\sales_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sales_ds.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Sales\sales_ds.xss">
+      <DependentUpon>sales_ds.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Accounting\accounting.dbml">

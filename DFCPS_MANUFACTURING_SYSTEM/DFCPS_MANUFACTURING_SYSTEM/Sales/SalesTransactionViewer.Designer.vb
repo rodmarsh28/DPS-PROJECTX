@@ -45,11 +45,17 @@ Partial Class SalesTransactionViewer
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.cmsJobOrder = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CancelJobToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSalesOrder.SuspendLayout()
         Me.cmsSalesQuotation.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.cmsJobOrder.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtSearch
@@ -199,6 +205,36 @@ Partial Class SalesTransactionViewer
         'PrintDocument1
         '
         '
+        'cmsJobOrder
+        '
+        Me.cmsJobOrder.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.UpdateToolStripMenuItem, Me.ToolStripMenuItem5, Me.CancelJobToolStripMenuItem})
+        Me.cmsJobOrder.Name = "cmsSalesOrder"
+        Me.cmsJobOrder.Size = New System.Drawing.Size(153, 114)
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(139, 22)
+        Me.ToolStripMenuItem3.Text = "Print"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(139, 22)
+        Me.ToolStripMenuItem5.Text = "Job Finished"
+        '
+        'CancelJobToolStripMenuItem
+        '
+        Me.CancelJobToolStripMenuItem.Name = "CancelJobToolStripMenuItem"
+        Me.CancelJobToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.CancelJobToolStripMenuItem.Text = "Cancel Job"
+        '
+        'UpdateToolStripMenuItem
+        '
+        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UpdateToolStripMenuItem.Text = "Update"
+        '
         'SalesTransactionViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -216,6 +252,7 @@ Partial Class SalesTransactionViewer
         Me.cmsSalesOrder.ResumeLayout(False)
         Me.cmsSalesQuotation.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.cmsJobOrder.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -241,4 +278,9 @@ Partial Class SalesTransactionViewer
     Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents cmsJobOrder As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CancelJobToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

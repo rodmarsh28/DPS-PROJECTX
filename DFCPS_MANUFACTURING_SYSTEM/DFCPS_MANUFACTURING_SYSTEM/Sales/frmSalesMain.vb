@@ -53,4 +53,9 @@
     Private Sub ReceivePaymentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReceivePaymentsToolStripMenuItem.Click
         'prepare_job.Show()
     End Sub
+
+    Private Sub JobOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles JobOrderToolStripMenuItem.Click
+        SalesTransactionViewer.MODE = "JOB ORDER"
+        SalesTransactionViewer.Show()
+    End Sub
 End Class

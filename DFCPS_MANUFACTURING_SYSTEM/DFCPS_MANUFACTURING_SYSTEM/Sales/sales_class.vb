@@ -29,6 +29,7 @@ Public Class sales_class
     Public searchValue As String
     Public cost As Decimal
     Public collectionNo As String
+    Public dt As DataTable
     Sub insert_update_sales()
         Dim cmd As New SqlCommand("insert_update_sales", conn)
         conn.Close()
@@ -123,5 +124,33 @@ Public Class sales_class
         Dim da As New SqlDataAdapter(cmd)
         da.SelectCommand = cmd
         da.Fill(dtable)
+    End Sub
+
+    Sub print_job_order(ByVal jono As String)
+        checkConn()
+        Dim ds As New sales_ds
+        Dim dt As New DataTable
+        Dim cmd As New SqlCommand(
+        "SELECT " & _
+        "tblJobOrder.JONO, " & _
+        "convert(varchar,tblJobOrder.[DATE],101), " & _
+        "tblJobOrder.CARDID, " & _
+        "tblJobOrder.ITEMNO, " & _
+        "tblJobOrder.QTY, " & _
+        "tblJobOrder.REMARKS " & _
+        "FROM " & _
+        "tblJobOrder " & _
+        "where jono = '" & jono & "'", conn)
+        Dim da As New SqlDataAdapter(cmd)
+        da.SelectCommand = cmd
+        da.Fill(dt)
+        For Each row As DataRow In dt.Rows
+            ds.Tables("JOTABLE").Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), "", MainForm.logo, MainForm.header)
+        Next
+        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+        rptDoc = New rpt_JO
+        rptDoc.SetDataSource(ds.Tables("JOTABLE"))
+        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        print_slip_viewer.ShowDialog()
     End Sub
 End Class
