@@ -38,6 +38,7 @@ Partial Class frmSalesMain
         Me.PreparePurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrepareSalesChargeInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrepareSalesDeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReceivePaymentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseRequisitionHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseOrderHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,7 +47,7 @@ Partial Class frmSalesMain
         Me.SalesDeliverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReceivePaymentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.JobOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -80,7 +81,7 @@ Partial Class frmSalesMain
         'ToolStripStatusLabel6
         '
         Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
-        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(36, 17)
         Me.ToolStripStatusLabel6.Text = "Time:"
         '
         'lblTime
@@ -153,9 +154,15 @@ Partial Class frmSalesMain
         Me.PrepareSalesDeliveryToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.PrepareSalesDeliveryToolStripMenuItem.Text = "Prepare Sales Delivery"
         '
+        'ReceivePaymentsToolStripMenuItem
+        '
+        Me.ReceivePaymentsToolStripMenuItem.Name = "ReceivePaymentsToolStripMenuItem"
+        Me.ReceivePaymentsToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.ReceivePaymentsToolStripMenuItem.Text = "Receive Payments"
+        '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseRequisitionHistoryToolStripMenuItem, Me.PurchaseOrderHistoryToolStripMenuItem, Me.PurchaseInvoiceHistoryToolStripMenuItem, Me.SalesChargeInvoiceHistoryToolStripMenuItem, Me.SalesDeliverToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseRequisitionHistoryToolStripMenuItem, Me.PurchaseOrderHistoryToolStripMenuItem, Me.JobOrderToolStripMenuItem, Me.PurchaseInvoiceHistoryToolStripMenuItem, Me.SalesChargeInvoiceHistoryToolStripMenuItem, Me.SalesDeliverToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.TransactionToolStripMenuItem.Text = "View"
@@ -202,11 +209,11 @@ Partial Class frmSalesMain
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'ReceivePaymentsToolStripMenuItem
+        'JobOrderToolStripMenuItem
         '
-        Me.ReceivePaymentsToolStripMenuItem.Name = "ReceivePaymentsToolStripMenuItem"
-        Me.ReceivePaymentsToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
-        Me.ReceivePaymentsToolStripMenuItem.Text = "Receive Payments"
+        Me.JobOrderToolStripMenuItem.Name = "JobOrderToolStripMenuItem"
+        Me.JobOrderToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.JobOrderToolStripMenuItem.Text = "Job Order"
         '
         'frmSalesMain
         '
@@ -254,4 +261,5 @@ Partial Class frmSalesMain
     Friend WithEvents SalesChargeInvoiceHistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalesDeliverToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReceivePaymentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents JobOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

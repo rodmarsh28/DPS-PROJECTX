@@ -71,7 +71,7 @@ Public Class prepare_job
     Sub insert_update_jo()
         If mode = "Save" Then
             For Each r As DataGridViewRow In dgv.Rows
-                Dim cmd As New SqlCommand("insert into tblJobOrder values('" & TXTJONO.Text & "', '" & Now & "','" & TXTREF.Text & "', '" & cardid & "','', '" & r.Cells(0).Value & "', '" & r.Cells(3).Value & "', '" & r.Cells(4).Value & "',)", conn)
+                Dim cmd As New SqlCommand("insert into tblJobOrder values('" & TXTJONO.Text & "', '" & Now & "','" & TXTREF.Text & "', '" & cardid & "','', '" & r.Cells(0).Value & "', '" & r.Cells(3).Value & "', '" & r.Cells(4).Value & "')", conn)
                 checkConn()
                 cmd.ExecuteNonQuery()
             Next
@@ -83,8 +83,18 @@ Public Class prepare_job
     Public cardAddress As String
    
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        mode = "Save"
-        insert_update_jo()
+        If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
+            Try
+                Dim sc As New sales_class
+                mode = "Save"
+                insert_update_jo()
+                sc.print_job_order(TXTJONO.Text)
+                MsgBox("Success", MsgBoxStyle.Information, "System Information")
+                Me.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub prepare_job_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

@@ -205,8 +205,81 @@ Public Class SalesTransactionViewer
                     DGV.ContextMenuStrip = cmsSalesQuotation
                 ElseIf MODE = "SALES ORDER" Then
                     DGV.ContextMenuStrip = cmsSalesOrder
+                ElseIf MODE = "JOB ORDER" Then
+                    DGV.ContextMenuStrip = cmsJobOrder
                 End If
             End If
         End If
+    End Sub
+    Sub get_data_update(ByVal param As List(Of String))
+        Dim qc As qry_class
+        qc.qry = "SELECT " & _
+        "tblJobOrder.JONO, " & _
+        "tblJobOrder.[DATE], " & _
+        "tblJobOrder.REFNO, " & _
+        "tblJobOrder.CARDID, " & _
+        "tblJobOrder.REMARKS, " & _
+        "tblJobOrder.ITEMNO, " & _
+        "tblJobOrder.QTY, " & _
+        "tblJobOrder.ONHAND_QTY " & _
+        "FROM " & _
+        "tblJobOrder where JONO = '" & DGV.CurrentRow.Cells(1).Value & "'"
+        Dim dt As DataTable = qc.get_qry_data
+        Dim cdt As New DataTable
+        cdt.Columns.Add("dbcolName")
+        cdt.Columns.Add("parName")
+        cdt.Columns.Add("dbValue")
+        cdt.Columns.Add("parType")
+        Dim res As String()
+        For Each c As DataColumn In dt.Columns
+            If IsNumeric(param.IndexOf(c.ColumnName)) = True Then
+                Dim e As Integer = param.IndexOf(c.ColumnName)
+                res = param.Item(e).Split(",")
+                cdt.Rows.Add(c.ColumnName, res(1), dt.Rows(0).Item(c).ToString, res(2))
+                CType(Me.Controls(res(1)), TextBox).Text = dt.Rows(0).Item(c).ToString
+            End If
+
+        Next
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
+
+        'Dim sc As New sales_class
+        'sc.print_job_order(DGV.CurrentRow.Cells(1).Value)
+        Dim pc As New print_class
+        pc.rptForm = New rpt_JO
+        pc.rptViewer = print_slip_viewer.CrystalReportViewer1
+        pc.reportForm = print_slip_viewer
+        pc.qry = "SELECT " & _
+        "tblJobOrder.JONO, " & _
+        "convert(varchar,tblJobOrder.[DATE],101) as DATE, " & _
+        "tblJobOrder.CARDID, " & _
+        "tblJobOrder.CARDNAME, " & _
+        "tblJobOrder.ITEMNO, " & _
+        "tblJobOrder.DESC, " &
+        "tblJobOrder.QTY, " & _
+        "tblJobOrder.REMARKS " & _
+        "FROM " & _
+        "INNER JOIN tblInvtry ON tblJobOrder.ITEMNO = tblInvtry.ITEMNO INNER JOIN tblCardsProfile ON tblJobOrder.CARDID = tblCardsProfile.cardID " & _
+        "where jono = '" & DGV.CurrentRow.Cells(1).Value & "'"
+        Dim ds As New sales_ds
+        Dim dt As DataTable = ds.Tables("JOTABLE")
+        For Each row As DataRow In pc.get_print_data.Rows
+            dt.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), MainForm.logo, MainForm.header)
+        Next
+        pc.print_data(dt)
+    End Sub
+
+    Private Sub UpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UpdateToolStripMenuItem.Click
+        Dim param As New List(Of String)
+        param.Add("JONO,txtjono.text,textbox")
+        param.Add("REFNO,txtref.text,textbox")
+        param.Add("CARDID,CARDID,var")
+        param.Add("CARDID,txtcus.text,textbox")
+        param.Add("ITEMNO,dgv.r.cells(0).value,datagrid")
+        param.Add("DESC,dgv.r.cells(1.value,datagrid")
+        param.Add("qty,dgv.r.cells(2).value,datagrid")
+        param.Add("remarks,txtremarks.text,textbox")
+        get_data_update(param)
     End Sub
 End Class
