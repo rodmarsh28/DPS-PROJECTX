@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="accountingDS" targetNamespace="http://tempuri.org/accountingDS.xsd" xmlns:mstns="http://tempuri.org/accountingDS.xsd" xmlns="http://tempuri.org/accountingDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="accountingDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="accountingDS" msprop:Generator_UserDSName="accountingDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CVTABLE" msprop:Generator_TableClassName="CVTABLEDataTable" msprop:Generator_TableVarName="tableCVTABLE" msprop:Generator_TablePropName="CVTABLE" msprop:Generator_RowDeletingName="CVTABLERowDeleting" msprop:Generator_RowChangingName="CVTABLERowChanging" msprop:Generator_RowEvHandlerName="CVTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="CVTABLERowDeleted" msprop:Generator_UserTableName="CVTABLE" msprop:Generator_RowChangedName="CVTABLERowChanged" msprop:Generator_RowEvArgName="CVTABLERowChangeEvent" msprop:Generator_RowClassName="CVTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="REF" msprop:Generator_ColumnVarNameInTable="columnREF" msprop:Generator_ColumnPropNameInRow="REF" msprop:Generator_ColumnPropNameInTable="REFColumn" msprop:Generator_UserColumnName="REF" type="xs:string" minOccurs="0" />
+              <xs:element name="TYPE" msprop:Generator_ColumnVarNameInTable="columnTYPE" msprop:Generator_ColumnPropNameInRow="TYPE" msprop:Generator_ColumnPropNameInTable="TYPEColumn" msprop:Generator_UserColumnName="TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="TIN" msprop:Generator_ColumnVarNameInTable="columnTIN" msprop:Generator_ColumnPropNameInRow="TIN" msprop:Generator_ColumnPropNameInTable="TINColumn" msprop:Generator_UserColumnName="TIN" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDID" msprop:Generator_ColumnVarNameInTable="columnCARDID" msprop:Generator_ColumnPropNameInRow="CARDID" msprop:Generator_ColumnPropNameInTable="CARDIDColumn" msprop:Generator_UserColumnName="CARDID" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDNAME" msprop:Generator_ColumnVarNameInTable="columnCARDNAME" msprop:Generator_ColumnPropNameInRow="CARDNAME" msprop:Generator_ColumnPropNameInTable="CARDNAMEColumn" msprop:Generator_UserColumnName="CARDNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="ADDRESS" msprop:Generator_ColumnVarNameInTable="columnADDRESS" msprop:Generator_ColumnPropNameInRow="ADDRESS" msprop:Generator_ColumnPropNameInTable="ADDRESSColumn" msprop:Generator_UserColumnName="ADDRESS" type="xs:string" minOccurs="0" />
+              <xs:element name="BANKNAME" msprop:Generator_ColumnVarNameInTable="columnBANKNAME" msprop:Generator_ColumnPropNameInRow="BANKNAME" msprop:Generator_ColumnPropNameInTable="BANKNAMEColumn" msprop:Generator_UserColumnName="BANKNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHECKNO" msprop:Generator_ColumnVarNameInTable="columnCHECKNO" msprop:Generator_ColumnPropNameInRow="CHECKNO" msprop:Generator_ColumnPropNameInTable="CHECKNOColumn" msprop:Generator_UserColumnName="CHECKNO" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTALAMOUNT" msprop:Generator_ColumnVarNameInTable="columnTOTALAMOUNT" msprop:Generator_ColumnPropNameInRow="TOTALAMOUNT" msprop:Generator_ColumnPropNameInTable="TOTALAMOUNTColumn" msprop:Generator_UserColumnName="TOTALAMOUNT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AMOUNTINWORDS" msprop:Generator_ColumnVarNameInTable="columnAMOUNTINWORDS" msprop:Generator_ColumnPropNameInRow="AMOUNTINWORDS" msprop:Generator_ColumnPropNameInTable="AMOUNTINWORDSColumn" msprop:Generator_UserColumnName="AMOUNTINWORDS" type="xs:string" minOccurs="0" />
+              <xs:element name="REMARKS" msprop:Generator_ColumnVarNameInTable="columnREMARKS" msprop:Generator_ColumnPropNameInRow="REMARKS" msprop:Generator_ColumnPropNameInTable="REMARKSColumn" msprop:Generator_UserColumnName="REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="REFNO" msprop:Generator_ColumnVarNameInTable="columnREFNO" msprop:Generator_ColumnPropNameInRow="REFNO" msprop:Generator_ColumnPropNameInTable="REFNOColumn" msprop:Generator_UserColumnName="REFNO" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCNO" msprop:Generator_ColumnVarNameInTable="columnACCNO" msprop:Generator_ColumnPropNameInRow="ACCNO" msprop:Generator_ColumnPropNameInTable="ACCNOColumn" msprop:Generator_UserColumnName="ACCNO" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCNAME" msprop:Generator_ColumnVarNameInTable="columnACCNAME" msprop:Generator_ColumnPropNameInRow="ACCNAME" msprop:Generator_ColumnPropNameInTable="ACCNAMEColumn" msprop:Generator_UserColumnName="ACCNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="DEBIT" msprop:Generator_ColumnVarNameInTable="columnDEBIT" msprop:Generator_ColumnPropNameInRow="DEBIT" msprop:Generator_ColumnPropNameInTable="DEBITColumn" msprop:Generator_UserColumnName="DEBIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CREDIT" msprop:Generator_ColumnVarNameInTable="columnCREDIT" msprop:Generator_ColumnPropNameInRow="CREDIT" msprop:Generator_ColumnPropNameInTable="CREDITColumn" msprop:Generator_UserColumnName="CREDIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PREPAREDBY" msprop:Generator_ColumnVarNameInTable="columnPREPAREDBY" msprop:Generator_ColumnPropNameInRow="PREPAREDBY" msprop:Generator_ColumnPropNameInTable="PREPAREDBYColumn" msprop:Generator_UserColumnName="PREPAREDBY" type="xs:string" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="header" msprop:Generator_ColumnVarNameInTable="columnheader" msprop:Generator_ColumnPropNameInRow="header" msprop:Generator_ColumnPropNameInTable="headerColumn" msprop:Generator_UserColumnName="header" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VOUCHERTABLE" msprop:Generator_TableClassName="VOUCHERTABLEDataTable" msprop:Generator_TableVarName="tableVOUCHERTABLE" msprop:Generator_TablePropName="VOUCHERTABLE" msprop:Generator_RowDeletingName="VOUCHERTABLERowDeleting" msprop:Generator_RowChangingName="VOUCHERTABLERowChanging" msprop:Generator_RowEvHandlerName="VOUCHERTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="VOUCHERTABLERowDeleted" msprop:Generator_UserTableName="VOUCHERTABLE" msprop:Generator_RowChangedName="VOUCHERTABLERowChanged" msprop:Generator_RowEvArgName="VOUCHERTABLERowChangeEvent" msprop:Generator_RowClassName="VOUCHERTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDID" msprop:Generator_ColumnVarNameInTable="columnCARDID" msprop:Generator_ColumnPropNameInRow="CARDID" msprop:Generator_ColumnPropNameInTable="CARDIDColumn" msprop:Generator_UserColumnName="CARDID" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDNAME" msprop:Generator_ColumnVarNameInTable="columnCARDNAME" msprop:Generator_ColumnPropNameInRow="CARDNAME" msprop:Generator_ColumnPropNameInTable="CARDNAMEColumn" msprop:Generator_UserColumnName="CARDNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="REMARKS" msprop:Generator_ColumnVarNameInTable="columnREMARKS" msprop:Generator_ColumnPropNameInRow="REMARKS" msprop:Generator_ColumnPropNameInTable="REMARKSColumn" msprop:Generator_UserColumnName="REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCNO" msprop:Generator_ColumnVarNameInTable="columnACCNO" msprop:Generator_ColumnPropNameInRow="ACCNO" msprop:Generator_ColumnPropNameInTable="ACCNOColumn" msprop:Generator_UserColumnName="ACCNO" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCNAME" msprop:Generator_ColumnVarNameInTable="columnACCNAME" msprop:Generator_ColumnPropNameInRow="ACCNAME" msprop:Generator_ColumnPropNameInTable="ACCNAMEColumn" msprop:Generator_UserColumnName="ACCNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="DEBIT" msprop:Generator_ColumnVarNameInTable="columnDEBIT" msprop:Generator_ColumnPropNameInRow="DEBIT" msprop:Generator_ColumnPropNameInTable="DEBITColumn" msprop:Generator_UserColumnName="DEBIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CREDIT" msprop:Generator_ColumnVarNameInTable="columnCREDIT" msprop:Generator_ColumnPropNameInRow="CREDIT" msprop:Generator_ColumnPropNameInTable="CREDITColumn" msprop:Generator_UserColumnName="CREDIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PREPAREDBY" msprop:Generator_ColumnVarNameInTable="columnPREPAREDBY" msprop:Generator_ColumnPropNameInRow="PREPAREDBY" msprop:Generator_ColumnPropNameInTable="PREPAREDBYColumn" msprop:Generator_UserColumnName="PREPAREDBY" type="xs:string" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnLOGO" msprop:Generator_ColumnPropNameInRow="LOGO" msprop:Generator_ColumnPropNameInTable="LOGOColumn" msprop:Generator_UserColumnName="logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="header" msprop:Generator_ColumnVarNameInTable="columnHEADER" msprop:Generator_ColumnPropNameInRow="HEADER" msprop:Generator_ColumnPropNameInTable="HEADERColumn" msprop:Generator_UserColumnName="header" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GLTABLE" msprop:Generator_TableClassName="GLTABLEDataTable" msprop:Generator_TableVarName="tableGLTABLE" msprop:Generator_RowChangedName="GLTABLERowChanged" msprop:Generator_TablePropName="GLTABLE" msprop:Generator_RowDeletingName="GLTABLERowDeleting" msprop:Generator_RowChangingName="GLTABLERowChanging" msprop:Generator_RowEvHandlerName="GLTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="GLTABLERowDeleted" msprop:Generator_RowClassName="GLTABLERow" msprop:Generator_UserTableName="GLTABLE" msprop:Generator_RowEvArgName="GLTABLERowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DFROM" msprop:Generator_ColumnVarNameInTable="columnDFROM" msprop:Generator_ColumnPropNameInRow="DFROM" msprop:Generator_ColumnPropNameInTable="DFROMColumn" msprop:Generator_UserColumnName="DFROM" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DTO" msprop:Generator_ColumnVarNameInTable="columnDTO" msprop:Generator_ColumnPropNameInRow="DTO" msprop:Generator_ColumnPropNameInTable="DTOColumn" msprop:Generator_UserColumnName="DTO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ACCNO" msprop:Generator_ColumnVarNameInTable="columnACCNO" msprop:Generator_ColumnPropNameInRow="ACCNO" msprop:Generator_ColumnPropNameInTable="ACCNOColumn" msprop:Generator_UserColumnName="ACCNO" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCNAME" msprop:Generator_ColumnVarNameInTable="columnACCNAME" msprop:Generator_ColumnPropNameInRow="ACCNAME" msprop:Generator_ColumnPropNameInTable="ACCNAMEColumn" msprop:Generator_UserColumnName="ACCNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="REFNO" msprop:Generator_ColumnVarNameInTable="columnREFNO" msprop:Generator_ColumnPropNameInRow="REFNO" msprop:Generator_ColumnPropNameInTable="REFNOColumn" msprop:Generator_UserColumnName="REFNO" type="xs:string" minOccurs="0" />
+              <xs:element name="SRC" msprop:Generator_ColumnVarNameInTable="columnSRC" msprop:Generator_ColumnPropNameInRow="SRC" msprop:Generator_ColumnPropNameInTable="SRCColumn" msprop:Generator_UserColumnName="SRC" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO" type="xs:string" minOccurs="0" />
+              <xs:element name="BEGINNINGBALANCE" msprop:Generator_ColumnVarNameInTable="columnBEGINNINGBALANCE" msprop:Generator_ColumnPropNameInRow="BEGINNINGBALANCE" msprop:Generator_ColumnPropNameInTable="BEGINNINGBALANCEColumn" msprop:Generator_UserColumnName="BEGINNINGBALANCE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEBIT" msprop:Generator_ColumnVarNameInTable="columnDEBIT" msprop:Generator_ColumnPropNameInRow="DEBIT" msprop:Generator_ColumnPropNameInTable="DEBITColumn" msprop:Generator_UserColumnName="DEBIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CREDIT" msprop:Generator_ColumnVarNameInTable="columnCREDIT" msprop:Generator_ColumnPropNameInRow="CREDIT" msprop:Generator_ColumnPropNameInTable="CREDITColumn" msprop:Generator_UserColumnName="CREDIT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ENDINGBALANCE" msprop:Generator_ColumnVarNameInTable="columnENDINGBALANCE" msprop:Generator_ColumnPropNameInRow="ENDINGBALANCE" msprop:Generator_ColumnPropNameInTable="ENDINGBALANCEColumn" msprop:Generator_UserColumnName="ENDINGBALANCE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="header" msprop:Generator_ColumnVarNameInTable="columnheader" msprop:Generator_ColumnPropNameInRow="header" msprop:Generator_ColumnPropNameInTable="headerColumn" msprop:Generator_UserColumnName="header" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CHECKTABLE" msprop:Generator_TableClassName="CHECKTABLEDataTable" msprop:Generator_TableVarName="tableCHECKTABLE" msprop:Generator_TablePropName="CHECKTABLE" msprop:Generator_RowDeletingName="CHECKTABLERowDeleting" msprop:Generator_RowChangingName="CHECKTABLERowChanging" msprop:Generator_RowEvHandlerName="CHECKTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="CHECKTABLERowDeleted" msprop:Generator_UserTableName="CHECKTABLE" msprop:Generator_RowChangedName="CHECKTABLERowChanged" msprop:Generator_RowEvArgName="CHECKTABLERowChangeEvent" msprop:Generator_RowClassName="CHECKTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDNAME" msprop:Generator_ColumnVarNameInTable="columnCARDNAME" msprop:Generator_ColumnPropNameInRow="CARDNAME" msprop:Generator_ColumnPropNameInTable="CARDNAMEColumn" msprop:Generator_UserColumnName="CARDNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:string" minOccurs="0" />
+              <xs:element name="AMOUNTINWORDS" msprop:Generator_ColumnVarNameInTable="columnAMOUNTINWORDS" msprop:Generator_ColumnPropNameInRow="AMOUNTINWORDS" msprop:Generator_ColumnPropNameInTable="AMOUNTINWORDSColumn" msprop:Generator_UserColumnName="AMOUNTINWORDS" type="xs:string" minOccurs="0" />
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CASHREQTABLE" msprop:Generator_TableClassName="CASHREQTABLEDataTable" msprop:Generator_TableVarName="tableCASHREQTABLE" msprop:Generator_RowChangedName="CASHREQTABLERowChanged" msprop:Generator_TablePropName="CASHREQTABLE" msprop:Generator_RowDeletingName="CASHREQTABLERowDeleting" msprop:Generator_RowChangingName="CASHREQTABLERowChanging" msprop:Generator_RowEvHandlerName="CASHREQTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="CASHREQTABLERowDeleted" msprop:Generator_RowClassName="CASHREQTABLERow" msprop:Generator_UserTableName="CASHREQTABLE" msprop:Generator_RowEvArgName="CASHREQTABLERowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CRSNO" msprop:Generator_ColumnVarNameInTable="columnCRSNO" msprop:Generator_ColumnPropNameInRow="CRSNO" msprop:Generator_ColumnPropNameInTable="CRSNOColumn" msprop:Generator_UserColumnName="CRSNO" type="xs:string" minOccurs="0" />
+              <xs:element name="TRANSDATE" msprop:Generator_ColumnVarNameInTable="columnTRANSDATE" msprop:Generator_ColumnPropNameInRow="TRANSDATE" msprop:Generator_ColumnPropNameInTable="TRANSDATEColumn" msprop:Generator_UserColumnName="TRANSDATE" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDID" msprop:Generator_ColumnVarNameInTable="columnCARDID" msprop:Generator_ColumnPropNameInRow="CARDID" msprop:Generator_ColumnPropNameInTable="CARDIDColumn" msprop:Generator_UserColumnName="CARDID" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDNAME" msprop:Generator_ColumnVarNameInTable="columnCARDNAME" msprop:Generator_ColumnPropNameInRow="CARDNAME" msprop:Generator_ColumnPropNameInTable="CARDNAMEColumn" msprop:Generator_UserColumnName="CARDNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDADRESS" msprop:Generator_ColumnVarNameInTable="columnCARDADRESS" msprop:Generator_ColumnPropNameInRow="CARDADRESS" msprop:Generator_ColumnPropNameInTable="CARDADRESSColumn" msprop:Generator_UserColumnName="CARDADRESS" type="xs:string" minOccurs="0" />
+              <xs:element name="PARTICULARS" msprop:Generator_ColumnVarNameInTable="columnPARTICULARS" msprop:Generator_ColumnPropNameInRow="PARTICULARS" msprop:Generator_ColumnPropNameInTable="PARTICULARSColumn" msprop:Generator_UserColumnName="PARTICULARS" type="xs:string" minOccurs="0" />
+              <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AMOUNTAPPLIED" msprop:Generator_ColumnVarNameInTable="columnAMOUNTAPPLIED" msprop:Generator_ColumnPropNameInRow="AMOUNTAPPLIED" msprop:Generator_ColumnPropNameInTable="AMOUNTAPPLIEDColumn" msprop:Generator_UserColumnName="AMOUNTAPPLIED" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTALAMOUNT" msprop:Generator_ColumnVarNameInTable="columnTOTALAMOUNT" msprop:Generator_ColumnPropNameInRow="TOTALAMOUNT" msprop:Generator_ColumnPropNameInTable="TOTALAMOUNTColumn" msprop:Generator_UserColumnName="TOTALAMOUNT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REMARKS" msprop:Generator_ColumnVarNameInTable="columnREMARKS" msprop:Generator_ColumnPropNameInRow="REMARKS" msprop:Generator_ColumnPropNameInTable="REMARKSColumn" msprop:Generator_UserColumnName="REMARKS" type="xs:string" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnPropNameInTable="logoColumn" msprop:Generator_UserColumnName="logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="header" msprop:Generator_ColumnVarNameInTable="columnheader" msprop:Generator_ColumnPropNameInRow="header" msprop:Generator_ColumnPropNameInTable="headerColumn" msprop:Generator_UserColumnName="header" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="openVoucherTable" msprop:Generator_TableClassName="openVoucherTableDataTable" msprop:Generator_TableVarName="tableopenVoucherTable" msprop:Generator_RowChangedName="openVoucherTableRowChanged" msprop:Generator_TablePropName="openVoucherTable" msprop:Generator_RowDeletingName="openVoucherTableRowDeleting" msprop:Generator_RowChangingName="openVoucherTableRowChanging" msprop:Generator_RowEvHandlerName="openVoucherTableRowChangeEventHandler" msprop:Generator_RowDeletedName="openVoucherTableRowDeleted" msprop:Generator_RowClassName="openVoucherTableRow" msprop:Generator_UserTableName="openVoucherTable" msprop:Generator_RowEvArgName="openVoucherTableRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cardID" msprop:Generator_ColumnVarNameInTable="columncardID" msprop:Generator_ColumnPropNameInRow="cardID" msprop:Generator_ColumnPropNameInTable="cardIDColumn" msprop:Generator_UserColumnName="cardID" type="xs:string" minOccurs="0" />
+              <xs:element name="CARDNAME" msprop:Generator_ColumnVarNameInTable="columncardname" msprop:Generator_ColumnPropNameInRow="cardname" msprop:Generator_ColumnPropNameInTable="cardnameColumn" msprop:Generator_UserColumnName="CARDNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="voucherNo" msprop:Generator_ColumnVarNameInTable="columnvoucherNo" msprop:Generator_ColumnPropNameInRow="voucherNo" msprop:Generator_ColumnPropNameInTable="voucherNoColumn" msprop:Generator_UserColumnName="voucherNo" type="xs:string" minOccurs="0" />
+              <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DFCPS_MANAGEMENT_DB" Class="accountingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;Persist Security Info=True;User ID=sa" SettingsObjectName="DFCPS_MANUFACTURING_SYSTEM.My.MySettings" SettingsPropertyName="DFCPS_MANAGEMENT_DBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblBuildInventory" Member="tblBuildInventories">
+    <Type Name="tblBuildInventory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="buildInvNo" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="dateBuild" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="itemcode" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
