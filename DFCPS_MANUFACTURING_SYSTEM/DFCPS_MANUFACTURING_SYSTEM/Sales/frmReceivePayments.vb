@@ -69,7 +69,9 @@ Public Class frmReceivePayments
             sc.totAmount = CDec(lblTotalAmountReceived.Text)
             sc.outBalance = CDec(lblOutBalance.Text)
             sc.overallBal = CDec(lblTotalAmountApplied.Text)
-            sc.accNo = txtDepositAcc.Text
+        sc.accNo = txtDepositAcc.Text
+
+
         For Each row As DataGridViewRow In dgv.Rows
 
             If CDec(row.Cells(6).Value) <> 0 Then

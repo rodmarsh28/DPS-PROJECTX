@@ -2,6 +2,7 @@
 Imports System.Drawing.Printing
 
 Public Class SalesTransactionViewer
+
     Dim rowIndex As Integer
     Public MODE As String
     Dim cardID As String
@@ -17,7 +18,7 @@ Public Class SalesTransactionViewer
     Private pages As Dictionary(Of Integer, pageDetails)
     Dim maxPagesWide As Integer
     Dim maxPagesTall As Integer
-    
+
     Sub GET_SALE_LIST()
         Dim dt As New DataTable
         Try
@@ -33,13 +34,11 @@ Public Class SalesTransactionViewer
             dt.Rows.Clear()
             da.Fill(dt)
             DGV.DataSource = dt
-            DGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-            DGV.AutoResizeColumns()
-            DGV.Columns(1).Width = 100
+            DGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         Catch ex As Exception
         End Try
     End Sub
-    
+
 
     Private Sub txtSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSearch.TextChanged
         GET_SALE_LIST()
@@ -53,7 +52,7 @@ Public Class SalesTransactionViewer
     Private Sub PrintPreviewDialog1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintPreviewDialog1.Load
 
     End Sub
- 
+
     Private mRow As Integer = 0
     Private newpage As Boolean = True
     Private Sub PrintDocument1_BeginPrint(ByVal sender As Object,
@@ -271,15 +270,10 @@ Public Class SalesTransactionViewer
     End Sub
 
     Private Sub UpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UpdateToolStripMenuItem.Click
-        Dim param As New List(Of String)
-        param.Add("JONO,txtjono.text,textbox")
-        param.Add("REFNO,txtref.text,textbox")
-        param.Add("CARDID,CARDID,var")
-        param.Add("CARDID,txtcus.text,textbox")
-        param.Add("ITEMNO,dgv.r.cells(0).value,datagrid")
-        param.Add("DESC,dgv.r.cells(1.value,datagrid")
-        param.Add("qty,dgv.r.cells(2).value,datagrid")
-        param.Add("remarks,txtremarks.text,textbox")
-        get_data_update(param)
+        prepare_job.mode = "Update"
+        prepare_job.get_info_data(DGV.CurrentRow.Cells(1).Value)
+        prepare_job.MdiParent = frmSalesMain
+        prepare_job.StartPosition = FormStartPosition.CenterParent
+        prepare_job.Show()
     End Sub
 End Class

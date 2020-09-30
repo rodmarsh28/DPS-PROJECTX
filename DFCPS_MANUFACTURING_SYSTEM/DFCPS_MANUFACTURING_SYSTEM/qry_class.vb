@@ -79,4 +79,6 @@ Public Class qry_class
         End Try
 
     End Function
+
+   
 End Class

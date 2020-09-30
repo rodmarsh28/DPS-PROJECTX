@@ -63,9 +63,9 @@ Public Class frmCardListForSelection
         itemClick = True
         Try
             If formMode = "ReceivePayments" Then
-                'prepare_job.cardID = LV.SelectedItems(0).SubItems(0).Text
-                'prepare_job.txtCustomerName.Text = LV.SelectedItems(0).SubItems(1).Text
-                'prepare_job.totalBalance = LV.SelectedItems(0).SubItems(4).Text
+                frmReceivePayments.cardID = LV.SelectedItems(0).SubItems(0).Text
+                frmReceivePayments.txtCustomerName.Text = LV.SelectedItems(0).SubItems(1).Text
+                frmReceivePayments.totalBalance = LV.SelectedItems(0).SubItems(4).Text
                 Me.Close()
             ElseIf formMode = "Sales Invoice" Then
                 frmSalesInvoice.CardID = LV.SelectedItems(0).SubItems(0).Text

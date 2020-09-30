@@ -38,11 +38,13 @@ Partial Class prepare_job
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.JOBBS = New System.Windows.Forms.BindingSource(Me.components)
         Me.TXTREF = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JOBBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TXTCUS
@@ -109,7 +111,6 @@ Partial Class prepare_job
         Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column6, Me.Column4, Me.Column7})
         Me.dgv.Location = New System.Drawing.Point(15, 112)
         Me.dgv.Name = "dgv"
-        Me.dgv.ReadOnly = True
         Me.dgv.Size = New System.Drawing.Size(912, 148)
         Me.dgv.TabIndex = 104
         '
@@ -118,14 +119,12 @@ Partial Class prepare_job
         Me.Column1.Frozen = True
         Me.Column1.HeaderText = "Item #"
         Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
         '
         'Column2
         '
         Me.Column2.Frozen = True
         Me.Column2.HeaderText = "Description"
         Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
         Me.Column2.Width = 350
         '
         'Column3
@@ -133,7 +132,6 @@ Partial Class prepare_job
         Me.Column3.Frozen = True
         Me.Column3.HeaderText = "Unit"
         Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
         Me.Column3.Width = 110
         '
         'Column6
@@ -141,20 +139,17 @@ Partial Class prepare_job
         Me.Column6.Frozen = True
         Me.Column6.HeaderText = "Request Qty"
         Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
         '
         'Column4
         '
         Me.Column4.Frozen = True
         Me.Column4.HeaderText = "Onhand Qty"
         Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
         '
         'Column7
         '
         Me.Column7.HeaderText = "Job order"
         Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
         '
         'TXTREF
         '
@@ -213,6 +208,7 @@ Partial Class prepare_job
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "    PREPARE JOB"
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JOBBS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -235,4 +231,5 @@ Partial Class prepare_job
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents JOBBS As System.Windows.Forms.BindingSource
 End Class

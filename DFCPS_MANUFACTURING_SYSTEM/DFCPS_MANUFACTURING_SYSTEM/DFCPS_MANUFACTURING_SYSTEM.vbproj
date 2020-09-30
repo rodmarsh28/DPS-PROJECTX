@@ -1308,6 +1308,11 @@
     <Compile Include="reportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sales.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sales.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmReceivePayments.Designer.vb">
       <DependentUpon>frmReceivePayments.vb</DependentUpon>
     </Compile>
@@ -2046,6 +2051,9 @@
     <EmbeddedResource Include="reportViewer.resx">
       <DependentUpon>reportViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="sales.dbml.layout">
+      <DependentUpon>sales.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Sales\frmReceivePayments.resx">
       <DependentUpon>frmReceivePayments.vb</DependentUpon>
     </EmbeddedResource>
@@ -2102,6 +2110,11 @@
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sales.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>sales.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Sales\sales_ds.xsc">

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DFCPS_MANAGEMENT_DB" Class="salesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;Persist Security Info=True;User ID=sa" SettingsObjectName="DFCPS_MANUFACTURING_SYSTEM.My.MySettings" SettingsPropertyName="DFCPS_MANAGEMENT_DBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblSalesCashInvoice" Member="tblSalesCashInvoices">
+    <Type Name="tblSalesCashInvoice">
+      <Column Name="salesCashInvoiceNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalFullAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="totalDiscount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesChargeInvoice" Member="tblSalesChargeInvoices">
+    <Type Name="tblSalesChargeInvoice">
+      <Column Name="salesChargeInvoiceNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalFullAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="totalDiscount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesDeliver" Member="tblSalesDelivers">
+    <Type Name="tblSalesDeliver">
+      <Column Name="salesDeliverNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesItemsTR" Member="tblSalesItemsTRs">
+    <Type Name="tblSalesItemsTR">
+      <Column Name="transNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="itemNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="uPrice" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="discount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="cost" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesOrder" Member="tblSalesOrders">
+    <Type Name="tblSalesOrder">
+      <Column Name="salesOrderNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="tblCardsProfile_tblSalesOrder" Member="tblCardsProfile" ThisKey="cardID" OtherKey="cardID" Type="tblCardsProfile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesQuotation" Member="tblSalesQuotations">
+    <Type Name="tblSalesQuotation">
+      <Column Name="quoteNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="tblCardsProfile_tblSalesQuotation" Member="tblCardsProfile" ThisKey="cardID" OtherKey="cardID" Type="tblCardsProfile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCardsProfile" Member="tblCardsProfiles">
+    <Type Name="tblCardsProfile">
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cardName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardAddress" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardCN" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardType" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="designation" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="allowCredit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="creditLimit" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardStatus" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="tblCardsProfile_tblSalesOrder" Member="tblSalesOrders" ThisKey="cardID" OtherKey="cardID" Type="tblSalesOrder" />
+      <Association Name="tblCardsProfile_tblSalesQuotation" Member="tblSalesQuotations" ThisKey="cardID" OtherKey="cardID" Type="tblSalesQuotation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblInvtry" Member="tblInvtries">
+    <Type Name="tblInvtry">
+      <Column Name="ITEMNO" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ITEMDESC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UNITCOST" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UNITPRICE" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="BUYABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SELLABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="INVENTORABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="COSTOFSALESACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="INCOMEACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ASSETACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MINIMUMSTOCK" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblJob_items" Member="tblJob_items">
+    <Type Name="tblJob_item">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JONO" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ITEMCODE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ONHAND_QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblJobOrder" Member="tblJobOrders">
+    <Type Name="tblJobOrder">
+      <Column Name="JONO" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="REFNO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CARDID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 
 Public Class prepare_job
     Public mode As String
@@ -44,7 +44,7 @@ Public Class prepare_job
             TXTCUS.Text = r(2)
             cardAddress = r(1)
         Next
-
+     
     End Sub
     Sub get_sales_order_items()
         Dim dt As New DataTable
@@ -82,14 +82,14 @@ Public Class prepare_job
     Public cardid As String
     Public cardname As String
     Public cardAddress As String
-
+   
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
 
             If mode = "Update" Then
 
                 For Each r As DataGridViewRow In dgv.Rows
-                    update_info_data(TXTJONO.Text, "")
+                    update_info_data(TXTJONO.Text, r.Cells(0).Value, r.Cells(5).Value, r.Cells(4).Value)
                 Next
                 MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
                 Me.Close()
@@ -119,7 +119,7 @@ Public Class prepare_job
             get_card_id()
         End If
 
-
+      
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
@@ -135,10 +135,10 @@ Public Class prepare_job
 
     Sub get_info_data(ByVal id As String)
         Dim db_sales As New salesDataContext
-        Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
-                   Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id
+        Dim data = From job In db_sales.tblJobOrders, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
+                   Where job.CARDID = card.cardID And job.ITEMNO = item.ITEMNO And job.JONO = id
                    Select JOB_NO = job.JONO, REFNO = job.REFNO, cardid = job.CARDID, CUSTOMER = card.cardName, _
-                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = item.UNIT, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS
+                                    ITEMNO = job.ITEMNO, DESCRIPTION = item.ITEMDESC, UNIT = item.UNIT, QTY = job.QTY, ONHAND_QTY = job.ONHAND_QTY, REMARKS = job.REMARKS
 
 
         For Each xdata In data
@@ -151,65 +151,47 @@ Public Class prepare_job
     End Sub
     Function insert_info_data() As String
         Dim db_sales As New salesDataContext
-
-        Dim jobs As New tblJobOrder
-        jobs.JONO = TXTJONO.Text
-        jobs.DATE = Now
-        jobs.REFNO = TXTREF.Text
-        jobs.CARDID = cardid
-        jobs.REMARKS = ""
-        db_sales.tblJobOrders.InsertOnSubmit(jobs)
-        db_sales.SubmitChanges()
         For Each row As DataGridViewRow In dgv.Rows
-            db_sales = New salesDataContext
-            Dim j = New tblJob_item
-            j.JONO = TXTJONO.Text
-            j.ITEMCODE = row.Cells(0).Value
-            j.QTY = CInt(row.Cells(5).Value)
-            j.ONHAND_QTY = CInt(row.Cells(4).Value)
-            db_sales.tblJob_items.InsertOnSubmit(j)
-            db_sales.SubmitChanges()
+            Dim jobs As New tblJobOrder
+            jobs.JONO = TXTJONO.Text
+            jobs.REFNO = TXTREF.Text
+            jobs.CARDID = cardid
+            jobs.REMARKS = ""
+
+            jobs.ITEMNO = row.Cells(0).Value
+            jobs.QTY = CInt(row.Cells(5).Value)
+            jobs.ONHAND_QTY = CInt(row.Cells(4).Value)
+            db_sales.tblJobOrders.InsertOnSubmit(jobs)
         Next
-
         Try
-
+            db_sales.SubmitChanges()
             Return "Success"
         Catch ex As Exception
             Return ex.Message
         End Try
 
     End Function
-    Function update_info_data(ByVal id As String, ByVal remarks As String) As String
+    Function update_info_data(ByVal id As String, ByVal itemno As String, ByVal qty As Integer, ByVal onhand_qty As Integer) As String
         Try
             Dim db_sales As New salesDataContext
-            Dim data = (From jo In db_sales.tblJobOrders _
-                        Where jo.JONO = id _
-                        Select jo).FirstOrDefault
+            Dim data As New tblJobOrder
+            data = db_sales.tblJobOrders.[Single](Function(x) x.JONO = id And x.ITEMNO = itemno)
             data.DATE = Now
-            data.JONO = id
+            data.JONO = TXTJONO.Text
             data.REFNO = TXTREF.Text
             data.CARDID = cardid
             data.REMARKS = ""
+
+            data.ITEMNO = itemno
+            data.QTY = qty
+            data.ONHAND_QTY = onhand_qty
             db_sales.SubmitChanges()
-            For Each row As DataGridViewRow In dgv.Rows
-                Dim ITEMCODE As String = row.Cells(0).Value
-                Dim dbx As New salesDataContext
-                Dim X = (From jo_item In dbx.tblJob_items _
-                        Where jo_item.JONO = id And jo_item.ITEMCODE = ITEMCODE _
-                        Select jo_item).FirstOrDefault
-                X.JONO = id
-                X.ITEMCODE = row.Cells(0).Value
-                X.QTY = CInt(row.Cells(5).Value)
-                X.ONHAND_QTY = CInt(row.Cells(4).Value)
-                dbx.SubmitChanges()
-            Next
             Return "Success"
         Catch ex As Exception
             Return ex.Message
         End Try
 
     End Function
-
 
     Private Sub dgv_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDoubleClick
         Try

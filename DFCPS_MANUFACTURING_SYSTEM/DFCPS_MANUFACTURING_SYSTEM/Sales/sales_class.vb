@@ -30,6 +30,7 @@ Public Class sales_class
     Public cost As Decimal
     Public collectionNo As String
     Public dt As DataTable
+    Public sales_db As New salesDataContext()
     Sub insert_update_sales()
         Dim cmd As New SqlCommand("insert_update_sales", conn)
         conn.Close()

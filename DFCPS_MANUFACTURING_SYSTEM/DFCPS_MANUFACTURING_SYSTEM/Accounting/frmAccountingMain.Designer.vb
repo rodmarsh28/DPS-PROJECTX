@@ -90,7 +90,7 @@ Partial Class frmAccountingMain
         'ToolStripStatusLabel6
         '
         Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
-        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(36, 17)
         Me.ToolStripStatusLabel6.Text = "Time:"
         '
         'lblTime
@@ -246,19 +246,19 @@ Partial Class frmAccountingMain
         'CardToolStripMenuItem
         '
         Me.CardToolStripMenuItem.Name = "CardToolStripMenuItem"
-        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.CardToolStripMenuItem.Text = "Card"
         '
         'BankToolStripMenuItem
         '
         Me.BankToolStripMenuItem.Name = "BankToolStripMenuItem"
-        Me.BankToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BankToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.BankToolStripMenuItem.Text = "Bank"
         '
         'CheckbookToolStripMenuItem
         '
         Me.CheckbookToolStripMenuItem.Name = "CheckbookToolStripMenuItem"
-        Me.CheckbookToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CheckbookToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.CheckbookToolStripMenuItem.Text = "Checkbook"
         '
         'PayrollToolStripMenuItem
