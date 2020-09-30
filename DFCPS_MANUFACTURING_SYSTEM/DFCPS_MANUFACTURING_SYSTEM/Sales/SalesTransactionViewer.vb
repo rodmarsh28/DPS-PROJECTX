@@ -241,30 +241,20 @@ Public Class SalesTransactionViewer
         Next
     End Sub
 
+
     Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
 
         'Dim sc As New sales_class
         'sc.print_job_order(DGV.CurrentRow.Cells(1).Value)
         Dim pc As New print_class
+        Dim sc As New sales_class
         pc.rptForm = New rpt_JO
         pc.rptViewer = print_slip_viewer.CrystalReportViewer1
         pc.reportForm = print_slip_viewer
-        pc.qry = "SELECT " & _
-        "tblJobOrder.JONO, " & _
-        "convert(varchar,tblJobOrder.[DATE],101) as DATE, " & _
-        "tblJobOrder.CARDID, " & _
-        "tblJobOrder.CARDNAME, " & _
-        "tblJobOrder.ITEMNO, " & _
-        "tblJobOrder.DESC, " &
-        "tblJobOrder.QTY, " & _
-        "tblJobOrder.REMARKS " & _
-        "FROM " & _
-        "INNER JOIN tblInvtry ON tblJobOrder.ITEMNO = tblInvtry.ITEMNO INNER JOIN tblCardsProfile ON tblJobOrder.CARDID = tblCardsProfile.cardID " & _
-        "where jono = '" & DGV.CurrentRow.Cells(1).Value & "'"
         Dim ds As New sales_ds
         Dim dt As DataTable = ds.Tables("JOTABLE")
-        For Each row As DataRow In pc.get_print_data.Rows
-            dt.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), MainForm.logo, MainForm.header)
+        For Each row In sc.get_info_data(DGV.CurrentRow.Cells(1).Value)
+            dt.Rows.Add(row.job_no, row.trDate, row.CUSTOMER, row.DESCRIPTION, row.QTY, row.REMARKS, MainForm.logo, MainForm.header)
         Next
         pc.print_data(dt)
     End Sub
@@ -275,5 +265,19 @@ Public Class SalesTransactionViewer
         prepare_job.MdiParent = frmSalesMain
         prepare_job.StartPosition = FormStartPosition.CenterParent
         prepare_job.Show()
+    End Sub
+
+    Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem5.Click
+
+    End Sub
+
+    Private Sub cmsJobOrder_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmsJobOrder.Opening
+        Try
+            Dim sc As New sales_class
+            sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished")
+            MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class

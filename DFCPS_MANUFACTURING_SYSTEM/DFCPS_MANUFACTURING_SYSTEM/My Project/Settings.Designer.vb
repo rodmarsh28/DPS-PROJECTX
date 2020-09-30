@@ -146,6 +146,27 @@ Namespace My
                 Return CType(Me("DFCPS_MANAGEMENT_DBConnectionString1"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;User ID=sa;Password=pas"& _ 
+            "swork")>  _
+        Public ReadOnly Property DFCPS_MANAGEMENT_DBConnectionString2() As String
+            Get
+                Return CType(Me("DFCPS_MANAGEMENT_DBConnectionString2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;User ID=sa")>  _
+        Public ReadOnly Property DFCPS_MANAGEMENT_DBConnectionString3() As String
+            Get
+                Return CType(Me("DFCPS_MANAGEMENT_DBConnectionString3"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

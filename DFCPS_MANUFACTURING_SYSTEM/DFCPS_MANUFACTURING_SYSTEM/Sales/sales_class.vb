@@ -126,7 +126,47 @@ Public Class sales_class
         da.SelectCommand = cmd
         da.Fill(dtable)
     End Sub
-
+    Public Overridable Function get_info_data(ByVal id As String)
+        Dim db_sales As New salesDataContext
+        Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
+                   Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id
+                   Select JOB_NO = job.JONO, REFNO = job.REFNO, trDATE = job.DATE, cardid = job.CARDID, CUSTOMER = card.cardName, _
+                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = item.UNIT, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS
+        Return data
+    End Function
+    Public Overridable Function update_job_data(ByVal id As String, ByVal ref As String, ByVal cardid As String, ByVal remarks As String) As String
+        Try
+            Dim db_sales As New salesDataContext
+            Dim data = (From jo In db_sales.tblJobOrders _
+                        Where jo.JONO = id _
+                        Select jo).FirstOrDefault
+            data.DATE = Now
+            data.JONO = id
+            data.REFNO = ref
+            data.CARDID = cardid
+            data.REMARKS = remarks
+            db_sales.SubmitChanges()
+            Return "Success"
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
+    Public Overridable Function update_job_items(ByVal id As String, ByVal itemcode As String, ByVal qty As String, ByVal onhand_qty As String, ByVal remarks As String) As String
+        Try
+            Dim dbx As New salesDataContext
+            Dim X = (From jo_item In dbx.tblJob_items _
+                    Where jo_item.JONO = id And jo_item.ITEMCODE = itemcode _
+                    Select jo_item).FirstOrDefault
+            X.JONO = id
+            X.ITEMCODE = itemcode
+            X.QTY = CInt(qty)
+            X.ONHAND_QTY = CInt(onhand_qty)
+            dbx.SubmitChanges()
+            Return "Success"
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
     Sub print_job_order(ByVal jono As String)
         checkConn()
         Dim ds As New sales_ds

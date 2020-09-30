@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class frmInventory
+
     Dim command As Integer = 0
     Dim rowIndex As Integer
     Dim dt As New DataTable
+
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         frmAddItemsInventory.btnAdd.Text = "Add Item"
         frmAddItemsInventory.ShowDialog()
@@ -32,17 +33,17 @@ Public Class frmInventory
             da.SelectCommand = cmd
             dt.Rows.Clear()
             da.Fill(dt)
-                LV.Items.Clear()
-                For Each row As DataRow In dt.Rows
-                    Dim lst As ListViewItem
-                    lst = LV.Items.Add(If(row(0) IsNot Nothing, row(0).ToString, ""))
+            LV.Items.Clear()
+            For Each row As DataRow In dt.Rows
+                Dim lst As ListViewItem
+                lst = LV.Items.Add(If(row(0) IsNot Nothing, row(0).ToString, ""))
                 For i As Integer = 1 To dt.Columns.Count - 1
                     lst.SubItems.Add(If(row(i) IsNot Nothing, row(i).ToString, ""))
                 Next
-                Next
-                If rowIndex < LV.Items.Count Then
-                    LV.Items(rowIndex).Selected = True
-                End If
+            Next
+            If rowIndex < LV.Items.Count Then
+                LV.Items(rowIndex).Selected = True
+            End If
             lblNoCountAll.Text = Format(LV.Items.Count, "N0")
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -76,7 +77,16 @@ Public Class frmInventory
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        frmAddItemsInventory.btnAdd.Text = "Save Item"
+        Dim ic As New inventory_class
+        Dim frm As frmAddItemsInventory
+        Dim al As New DataGridView
+        For Each r In ic.get_inv_item_info(LV.SelectedItems(0).SubItems(1).Text)
+
+        Next
+
+
+
+        frmAddItemsInventory.btnAdd.Text = "Update Item"
         frmAddItemsInventory.ShowDialog()
     End Sub
 

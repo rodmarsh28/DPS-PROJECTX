@@ -1,0 +1,64 @@
+ALTER PROCEDURE [dbo].[insert_update_inventory]
+@command as varchar(255),
+@itemNo as varchar(255),
+@itemdesc as varchar(255),
+@unitCost as decimal(20,2),
+@unit as varchar(255),
+@unitprice as decimal(20,2),
+@buy as varchar(255),
+@sell as varchar(255),
+@inv as varchar(255),
+@accCost as varchar(255),
+@accIncome as varchar(255),
+@accAsset as varchar(255),
+@minStock as decimal(20,1),
+@status as varchar(255),
+@balanceQty as decimal(20,1),
+@src as varchar(255)
+AS
+BEGIN
+if @command = 'Add' begin
+insert into tblInvtry values(@itemNo ,
+@itemdesc,
+@buy,
+@sell,
+@inv,
+@accCost,
+@accIncome,
+@accAsset,
+@minStock,
+@status)
+insert into tblItemTransaction values(GETDATE(),'BALANCE',
+@src,
+@itemNo ,
+@unitCost,
+@balanceqty,'')
+insert into tblSales_price values(
+@itemNo ,
+@unitCost,
+GETDATE(),'BALANCE')
+insert into tblItem_units values(
+@itemNo ,
+@unit,
+@unitprice)
+end
+else if @command = 'Update' begin
+update  tblInvtry set ITEMDESC = @itemdesc,
+BUYABLE = @buy,
+SELLABLE = @sell,
+INVENTORABLE = @inv,
+COSTOFSALESACC = @accCost,
+INCOMEACC = @accIncome,
+ASSETACC = @accAsset,
+MINIMUMSTOCK = @minStock,
+STATUS = @status
+where  ITEMDESC = @itemdesc
+update  tblItemTransaction set 
+QTY = @balanceQty
+where  itemNo = @itemNo and refNo = 'BALANCE'
+insert into tblSales_price values(
+@itemNo ,
+@unitprice,
+GETDATE(),'BALANCE')
+end
+END

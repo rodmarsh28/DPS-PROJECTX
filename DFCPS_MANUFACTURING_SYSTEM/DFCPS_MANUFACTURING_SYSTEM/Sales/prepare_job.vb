@@ -85,22 +85,20 @@ Public Class prepare_job
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
-
+            Try
             If mode = "Update" Then
-
-                For Each r As DataGridViewRow In dgv.Rows
-                    update_info_data(TXTJONO.Text, "")
-                Next
-                MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
-                Me.Close()
-
-
+                    update_info_data()
+                    MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+                    Me.Close()
             Else
                 If insert_info_data() = "Success" Then
                     MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
                     Me.Close()
                 End If
-            End If
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 
@@ -134,14 +132,8 @@ Public Class prepare_job
     End Sub
 
     Sub get_info_data(ByVal id As String)
-        Dim db_sales As New salesDataContext
-        Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
-                   Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id
-                   Select JOB_NO = job.JONO, REFNO = job.REFNO, cardid = job.CARDID, CUSTOMER = card.cardName, _
-                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = item.UNIT, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS
-
-
-        For Each xdata In data
+        Dim sc As New sales_class
+        For Each xdata In sc.get_info_data(id)
             TXTJONO.Text = xdata.JOB_NO
             TXTREF.Text = xdata.REFNO
             TXTCUS.Text = xdata.CUSTOMER
@@ -179,36 +171,16 @@ Public Class prepare_job
         End Try
 
     End Function
-    Function update_info_data(ByVal id As String, ByVal remarks As String) As String
-        Try
-            Dim db_sales As New salesDataContext
-            Dim data = (From jo In db_sales.tblJobOrders _
-                        Where jo.JONO = id _
-                        Select jo).FirstOrDefault
-            data.DATE = Now
-            data.JONO = id
-            data.REFNO = TXTREF.Text
-            data.CARDID = cardid
-            data.REMARKS = ""
-            db_sales.SubmitChanges()
+    Sub update_info_data()
+        Dim sc As New sales_class
+        If sc.update_job_data(TXTJONO.Text, TXTREF.Text, cardid, "") = "Success" Then
             For Each row As DataGridViewRow In dgv.Rows
-                Dim ITEMCODE As String = row.Cells(0).Value
-                Dim dbx As New salesDataContext
-                Dim X = (From jo_item In dbx.tblJob_items _
-                        Where jo_item.JONO = id And jo_item.ITEMCODE = ITEMCODE _
-                        Select jo_item).FirstOrDefault
-                X.JONO = id
-                X.ITEMCODE = row.Cells(0).Value
-                X.QTY = CInt(row.Cells(5).Value)
-                X.ONHAND_QTY = CInt(row.Cells(4).Value)
-                dbx.SubmitChanges()
+                If sc.update_job_items(TXTJONO.Text, row.Cells(0).Value, row.Cells(5).Value, row.Cells(4).Value, "") <> "Success" Then
+                    Exit Sub
+                End If
             Next
-            Return "Success"
-        Catch ex As Exception
-            Return ex.Message
-        End Try
-
-    End Function
+        End If
+    End Sub
 
 
     Private Sub dgv_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDoubleClick

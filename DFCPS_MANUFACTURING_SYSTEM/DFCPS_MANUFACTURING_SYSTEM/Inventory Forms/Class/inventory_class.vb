@@ -39,7 +39,7 @@ Public Class inventory_class
     Public ounit As String
     Public cardid As String
     Public dtable As New DataTable
-
+    Public qry_data
     Property SearchValue As String
 
 
@@ -76,6 +76,15 @@ Public Class inventory_class
             MsgBox(ex.Message)
         End Try
     End Sub
+    Public Overridable Function get_inv_item_info(ByVal id As String)
+        Dim inv_ds As New inventoryDataContext
+        Dim data = (From inv In inv_ds.tblInvtries
+                    Join inv_trans In inv_ds.tblItemTransactions On inv.ITEMNO Equals inv_trans.itemNo _
+                    Join inv_price In inv_ds.tblSales_prices On inv.ITEMNO Equals inv_price.itemcode _
+                    Where inv.ITEMNO = id
+                    Select ITEMCODE = inv.ITEMNO, DESC = inv.ITEMDESC, )
+        Return data
+    End Function
 
     Public Sub insert_Acc_entry_class()
         Try
