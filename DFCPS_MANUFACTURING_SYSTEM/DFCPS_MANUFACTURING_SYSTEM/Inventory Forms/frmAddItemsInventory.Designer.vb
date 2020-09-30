@@ -22,6 +22,7 @@ Partial Class frmAddItemsInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtItemno = New System.Windows.Forms.TextBox()
         Me.txtItemdesc = New System.Windows.Forms.TextBox()
@@ -43,27 +44,25 @@ Partial Class frmAddItemsInventory
         Me.chkboxInactive = New System.Windows.Forms.CheckBox()
         Me.chkInv = New System.Windows.Forms.CheckBox()
         Me.chkSell = New System.Windows.Forms.CheckBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.txtUnitCost = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtBalQty = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtUnit = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtUnitprice = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.txtMinStock = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
-        Me.txtOqty = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtOunit = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtUnitPrice = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtUnitCost = New System.Windows.Forms.TextBox()
+        Me.dgv = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -268,98 +267,10 @@ Partial Class frmAddItemsInventory
         Me.chkSell.Text = "I Sell this item"
         Me.chkSell.UseVisualStyleBackColor = True
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.txtOunit)
-        Me.GroupBox2.Controls.Add(Me.txtOqty)
-        Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.txtUnitCost)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.txtBalQty)
-        Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.txtUnit)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.txtUnitprice)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Location = New System.Drawing.Point(348, 37)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(198, 221)
-        Me.GroupBox2.TabIndex = 17
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Selling Details"
-        '
-        'txtUnitCost
-        '
-        Me.txtUnitCost.Location = New System.Drawing.Point(84, 122)
-        Me.txtUnitCost.Name = "txtUnitCost"
-        Me.txtUnitCost.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnitCost.TabIndex = 26
-        Me.txtUnitCost.Text = "0.00"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(16, 125)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(50, 13)
-        Me.Label7.TabIndex = 25
-        Me.Label7.Text = "Unit Cost"
-        '
-        'txtBalQty
-        '
-        Me.txtBalQty.Location = New System.Drawing.Point(84, 31)
-        Me.txtBalQty.Name = "txtBalQty"
-        Me.txtBalQty.Size = New System.Drawing.Size(87, 20)
-        Me.txtBalQty.TabIndex = 24
-        Me.txtBalQty.Text = "0"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(16, 34)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(65, 13)
-        Me.Label12.TabIndex = 23
-        Me.Label12.Text = "Balance Qty"
-        '
-        'txtUnit
-        '
-        Me.txtUnit.Location = New System.Drawing.Point(84, 152)
-        Me.txtUnit.Name = "txtUnit"
-        Me.txtUnit.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnit.TabIndex = 22
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(16, 155)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(26, 13)
-        Me.Label10.TabIndex = 21
-        Me.Label10.Text = "Unit"
-        '
-        'txtUnitprice
-        '
-        Me.txtUnitprice.Location = New System.Drawing.Point(84, 178)
-        Me.txtUnitprice.Name = "txtUnitprice"
-        Me.txtUnitprice.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnitprice.TabIndex = 20
-        Me.txtUnitprice.Text = "0.00"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(16, 181)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(53, 13)
-        Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Unit Price"
-        '
         'btnAdd
         '
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAdd.Location = New System.Drawing.Point(173, 328)
+        Me.btnAdd.Location = New System.Drawing.Point(240, 331)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(94, 35)
         Me.btnAdd.TabIndex = 17
@@ -369,29 +280,12 @@ Partial Class frmAddItemsInventory
         'btnClose
         '
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnClose.Location = New System.Drawing.Point(281, 328)
+        Me.btnClose.Location = New System.Drawing.Point(348, 331)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(94, 35)
         Me.btnClose.TabIndex = 18
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'txtMinStock
-        '
-        Me.txtMinStock.Location = New System.Drawing.Point(408, 288)
-        Me.txtMinStock.Name = "txtMinStock"
-        Me.txtMinStock.Size = New System.Drawing.Size(69, 20)
-        Me.txtMinStock.TabIndex = 24
-        Me.txtMinStock.Text = "0"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(364, 268)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(164, 13)
-        Me.Label11.TabIndex = 23
-        Me.Label11.Text = "Minimum Level of restocking alert"
         '
         'Label3
         '
@@ -412,49 +306,135 @@ Partial Class frmAddItemsInventory
         Me.cmbItemType.Size = New System.Drawing.Size(167, 21)
         Me.cmbItemType.TabIndex = 26
         '
-        'txtOqty
+        'GroupBox2
         '
-        Me.txtOqty.Location = New System.Drawing.Point(84, 57)
-        Me.txtOqty.Name = "txtOqty"
-        Me.txtOqty.Size = New System.Drawing.Size(87, 20)
-        Me.txtOqty.TabIndex = 28
-        Me.txtOqty.Text = "0"
+        Me.GroupBox2.Controls.Add(Me.Button5)
+        Me.GroupBox2.Controls.Add(Me.Button4)
+        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.txtUnitPrice)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.txtUnitCost)
+        Me.GroupBox2.Controls.Add(Me.dgv)
+        Me.GroupBox2.Location = New System.Drawing.Point(348, 37)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(329, 272)
+        Me.GroupBox2.TabIndex = 117
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Unit of Measurement"
         '
-        'Label8
+        'Button5
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(16, 60)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(52, 13)
-        Me.Label8.TabIndex = 27
-        Me.Label8.Text = "Other Qty"
+        Me.Button5.Location = New System.Drawing.Point(249, 3)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(33, 23)
+        Me.Button5.TabIndex = 122
+        Me.Button5.Text = "+"
+        Me.Button5.UseVisualStyleBackColor = True
         '
-        'Label13
+        'Button4
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(16, 86)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(55, 13)
-        Me.Label13.TabIndex = 27
-        Me.Label13.Text = "Other Unit"
+        Me.Button4.Location = New System.Drawing.Point(284, 3)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(33, 23)
+        Me.Button4.TabIndex = 123
+        Me.Button4.Text = "-"
+        Me.Button4.UseVisualStyleBackColor = True
         '
-        'txtOunit
+        'Label9
         '
-        Me.txtOunit.Location = New System.Drawing.Point(84, 83)
-        Me.txtOunit.Name = "txtOunit"
-        Me.txtOunit.Size = New System.Drawing.Size(87, 20)
-        Me.txtOunit.TabIndex = 29
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(52, 204)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(50, 13)
+        Me.Label9.TabIndex = 121
+        Me.Label9.Text = "Unit Cost"
+        '
+        'txtUnitPrice
+        '
+        Me.txtUnitPrice.Location = New System.Drawing.Point(108, 227)
+        Me.txtUnitPrice.Name = "txtUnitPrice"
+        Me.txtUnitPrice.Size = New System.Drawing.Size(121, 20)
+        Me.txtUnitPrice.TabIndex = 120
+        Me.txtUnitPrice.Text = "0.00"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(51, 230)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(53, 13)
+        Me.Label10.TabIndex = 119
+        Me.Label10.Text = "Unit Price"
+        '
+        'txtUnitCost
+        '
+        Me.txtUnitCost.Location = New System.Drawing.Point(108, 201)
+        Me.txtUnitCost.Name = "txtUnitCost"
+        Me.txtUnitCost.Size = New System.Drawing.Size(121, 20)
+        Me.txtUnitCost.TabIndex = 118
+        Me.txtUnitCost.Text = "0.00"
+        '
+        'dgv
+        '
+        Me.dgv.AllowUserToAddRows = False
+        Me.dgv.AllowUserToDeleteRows = False
+        Me.dgv.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column5, Me.Column3})
+        Me.dgv.Location = New System.Drawing.Point(22, 31)
+        Me.dgv.Name = "dgv"
+        Me.dgv.ReadOnly = True
+        Me.dgv.RowHeadersVisible = False
+        Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgv.Size = New System.Drawing.Size(295, 153)
+        Me.dgv.TabIndex = 117
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "UOM"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Balance Qty"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 70
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Min Stock Qty"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 70
+        '
+        'Column3
+        '
+        Me.Column3.FalseValue = "0"
+        Me.Column3.HeaderText = "Def Unit"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.TrueValue = "1"
+        Me.Column3.Width = 35
         '
         'frmAddItemsInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(592, 387)
+        Me.ClientSize = New System.Drawing.Size(683, 387)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cmbItemType)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtMinStock)
-        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtItemdesc)
@@ -462,7 +442,6 @@ Partial Class frmAddItemsInventory
         Me.Controls.Add(Me.txtItemno)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Name = "frmAddItemsInventory"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Inventory Items"
@@ -470,6 +449,7 @@ Partial Class frmAddItemsInventory
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -492,26 +472,23 @@ Partial Class frmAddItemsInventory
     Friend WithEvents chkboxInactive As System.Windows.Forms.CheckBox
     Friend WithEvents chkInv As System.Windows.Forms.CheckBox
     Friend WithEvents chkSell As System.Windows.Forms.CheckBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents txtUnit As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents txtUnitprice As System.Windows.Forms.TextBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents txtMinStock As System.Windows.Forms.TextBox
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents txtBalQty As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cmbItemType As System.Windows.Forms.ComboBox
-    Friend WithEvents txtUnitCost As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents lblAccAsset As System.Windows.Forms.TextBox
     Friend WithEvents lblAccIncome As System.Windows.Forms.TextBox
     Friend WithEvents lblAccCost As System.Windows.Forms.TextBox
-    Friend WithEvents txtOunit As System.Windows.Forms.TextBox
-    Friend WithEvents txtOqty As System.Windows.Forms.TextBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents txtUnitPrice As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtUnitCost As System.Windows.Forms.TextBox
+    Friend WithEvents dgv As System.Windows.Forms.DataGridView
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

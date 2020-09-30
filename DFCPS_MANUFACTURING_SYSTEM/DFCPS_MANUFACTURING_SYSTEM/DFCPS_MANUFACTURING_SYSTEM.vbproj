@@ -918,11 +918,6 @@
     <Compile Include="Inventory Forms\frmRawMaterialProduced.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory Forms\inventory.designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventory.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Inventory Forms\list_for_selected accounts.Designer.vb">
       <DependentUpon>list_for_selected accounts.vb</DependentUpon>
     </Compile>
@@ -1902,9 +1897,6 @@
     <EmbeddedResource Include="Inventory Forms\frmRawMaterialProduced.resx">
       <DependentUpon>frmRawMaterialProduced.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="Inventory Forms\inventory.dbml.layout">
-      <DependentUpon>inventory.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Inventory Forms\list_for_selected accounts.resx">
       <DependentUpon>list_for_selected accounts.vb</DependentUpon>
     </EmbeddedResource>
@@ -2186,11 +2178,6 @@
     <EmbeddedResource Include="reportViewer.resx">
       <DependentUpon>reportViewer.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="Inventory Forms\inventory.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>inventory.designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="sales.dbml.layout">
       <DependentUpon>sales.dbml</DependentUpon>

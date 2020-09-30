@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class inventory_class
+    Public pCount As String
     Public command As String
     Public itemNo As String
     Public itemdesc As String
@@ -40,6 +41,7 @@ Public Class inventory_class
     Public cardid As String
     Public dtable As New DataTable
     Public qry_data
+    Public isDefault As Integer
     Property SearchValue As String
 
 
@@ -51,6 +53,7 @@ Public Class inventory_class
             checkConn()
             With cmd
                 .CommandType = CommandType.StoredProcedure
+                .Parameters.AddWithValue("@pCount", SqlDbType.VarChar).Value = pCount
                 .Parameters.AddWithValue("@command", SqlDbType.VarChar).Value = command
                 .Parameters.AddWithValue("@itemNo", SqlDbType.VarChar).Value = itemNo
                 .Parameters.AddWithValue("@itemdesc", SqlDbType.VarChar).Value = itemdesc
@@ -66,24 +69,23 @@ Public Class inventory_class
                 .Parameters.AddWithValue("@minStock", SqlDbType.Int).Value = minStock
                 .Parameters.AddWithValue("@status", SqlDbType.VarChar).Value = status
                 .Parameters.AddWithValue("@balanceQty", SqlDbType.Int).Value = balanceQty
-                .Parameters.AddWithValue("@oqty", SqlDbType.Int).Value = oqty
-                .Parameters.AddWithValue("@ounit", SqlDbType.Int).Value = ounit
+                .Parameters.AddWithValue("@isDefault", SqlDbType.Int).Value = isDefault
                 .Parameters.AddWithValue("@src", SqlDbType.VarChar).Value = Form.ActiveForm.Text
             End With
             cmd.ExecuteNonQuery()
-            MsgBox("Item Saved !", MsgBoxStyle.Information, "Success")
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
     Public Overridable Function get_inv_item_info(ByVal id As String)
-        Dim inv_ds As New inventoryDataContext
+        Dim inv_ds As New salesDataContext
         Dim data = (From inv In inv_ds.tblInvtries
                     Join inv_trans In inv_ds.tblItemTransactions On inv.ITEMNO Equals inv_trans.itemNo _
                     Join inv_price In inv_ds.tblSales_prices On inv.ITEMNO Equals inv_price.itemcode _
                     Where inv.ITEMNO = id
-                    Select ITEMCODE = inv.ITEMNO, DESC = inv.ITEMDESC, )
-        Return data
+                    Select ITEMCODE = inv.ITEMNO, DESC = inv.ITEMDESC)
+        Return Data
     End Function
 
     Public Sub insert_Acc_entry_class()
