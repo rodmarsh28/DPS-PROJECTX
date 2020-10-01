@@ -38,11 +38,12 @@ Partial Class prepare_job
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.JOBBS = New System.Windows.Forms.BindingSource(Me.components)
         Me.TXTREF = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.JOBBS = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JOBBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -154,7 +155,7 @@ Partial Class prepare_job
         'TXTREF
         '
         Me.TXTREF.ForeColor = System.Drawing.Color.Maroon
-        Me.TXTREF.Location = New System.Drawing.Point(792, 12)
+        Me.TXTREF.Location = New System.Drawing.Point(753, 12)
         Me.TXTREF.Name = "TXTREF"
         Me.TXTREF.Size = New System.Drawing.Size(122, 20)
         Me.TXTREF.TabIndex = 116
@@ -162,7 +163,7 @@ Partial Class prepare_job
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(739, 15)
+        Me.Label1.Location = New System.Drawing.Point(709, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 115
@@ -186,12 +187,22 @@ Partial Class prepare_job
         Me.Button1.Text = "-"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(878, 10)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(35, 23)
+        Me.Button4.TabIndex = 119
+        Me.Button4.Text = ">>"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'prepare_job
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(939, 339)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TXTREF)
@@ -232,4 +243,5 @@ Partial Class prepare_job
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents JOBBS As System.Windows.Forms.BindingSource
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class

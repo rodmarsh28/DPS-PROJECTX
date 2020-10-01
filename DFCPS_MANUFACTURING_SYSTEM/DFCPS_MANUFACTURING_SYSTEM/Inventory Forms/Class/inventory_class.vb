@@ -7,6 +7,7 @@ Public Class inventory_class
     Public itemdesc As String
     Public unitCost As Double
     Public unit As String
+    Public unitWt As Double
     Public unitprice As Double
     Public buy As String
     Public sell As String
@@ -43,6 +44,7 @@ Public Class inventory_class
     Public qry_data
     Public isDefault As Integer
     Property SearchValue As String
+    Public rsltData
 
 
 
@@ -53,12 +55,13 @@ Public Class inventory_class
             checkConn()
             With cmd
                 .CommandType = CommandType.StoredProcedure
-                .Parameters.AddWithValue("@pCount", SqlDbType.VarChar).Value = pCount
+                .Parameters.AddWithValue("@REF", SqlDbType.VarChar).Value = refNo
                 .Parameters.AddWithValue("@command", SqlDbType.VarChar).Value = command
                 .Parameters.AddWithValue("@itemNo", SqlDbType.VarChar).Value = itemNo
                 .Parameters.AddWithValue("@itemdesc", SqlDbType.VarChar).Value = itemdesc
                 .Parameters.AddWithValue("@unitCost", SqlDbType.Decimal).Value = unitCost
                 .Parameters.AddWithValue("@unit", SqlDbType.VarChar).Value = unit
+                .Parameters.AddWithValue("@unitWT", SqlDbType.VarChar).Value = unitWt
                 .Parameters.AddWithValue("@unitprice", SqlDbType.Decimal).Value = unitprice
                 .Parameters.AddWithValue("@buy", SqlDbType.VarChar).Value = buy
                 .Parameters.AddWithValue("@sell", SqlDbType.VarChar).Value = sell
@@ -69,8 +72,7 @@ Public Class inventory_class
                 .Parameters.AddWithValue("@minStock", SqlDbType.Int).Value = minStock
                 .Parameters.AddWithValue("@status", SqlDbType.VarChar).Value = status
                 .Parameters.AddWithValue("@balanceQty", SqlDbType.Int).Value = balanceQty
-                .Parameters.AddWithValue("@isDefault", SqlDbType.Int).Value = isDefault
-                .Parameters.AddWithValue("@src", SqlDbType.VarChar).Value = Form.ActiveForm.Text
+                .Parameters.AddWithValue("@src", SqlDbType.VarChar).Value = src
             End With
             cmd.ExecuteNonQuery()
 
@@ -78,14 +80,30 @@ Public Class inventory_class
             MsgBox(ex.Message)
         End Try
     End Sub
-    Public Overridable Function get_inv_item_info(ByVal id As String)
+    Public Function get_inv_item_info(ByVal id As String) As DFCPS_MANUFACTURING_SYSTEM.InventoryListAllView
         Dim inv_ds As New salesDataContext
-        Dim data = (From inv In inv_ds.tblInvtries
-                    Join inv_trans In inv_ds.tblItemTransactions On inv.ITEMNO Equals inv_trans.itemNo _
-                    Join inv_price In inv_ds.tblSales_prices On inv.ITEMNO Equals inv_price.itemcode _
-                    Where inv.ITEMNO = id
-                    Select ITEMCODE = inv.ITEMNO, DESC = inv.ITEMDESC)
-        Return Data
+        Dim data = (From inv In inv_ds.InventoryListAllViews _
+                    Where inv.ITEMNO = id _
+                    Select inv).FirstOrDefault
+        Return data
+    End Function
+    Public Function get_ItemType(ByVal value As String) As String
+        If value.Contains("RM-") Then
+            Return "Raw Materials"
+        ElseIf value.Contains("WP-") Then
+            Return "Finish Product"
+        ElseIf value.Contains("IM-") Then
+            Return "Item, Materials & Supplies"
+        Else
+            Return "UNDEFINED ITEM TYPE"
+        End If
+    End Function
+    Public Function check_state(ByVal value As String) As Boolean
+        If value = 1 Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
 
     Public Sub insert_Acc_entry_class()

@@ -187,4 +187,32 @@
       <Column Name="ref" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.InventoryListAllView" Member="InventoryListAllViews">
+    <Type Name="InventoryListAllView">
+      <Column Name="ITEMNO" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ITEMDESC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UNITCOST" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="UNITPRICE" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="BUYABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SELLABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="INVENTORABLE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="COSTOFSALESACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="INCOMEACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ASSETACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MINQTY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UNIT_WT" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTrans_update_logs" Member="tblTrans_update_logs">
+    <Type Name="tblTrans_update_log">
+      <Column Name="UPDATE_LOG_ID" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SRC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TR_NO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DATE_OF_ACTION" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="REASON_OF_ACTION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

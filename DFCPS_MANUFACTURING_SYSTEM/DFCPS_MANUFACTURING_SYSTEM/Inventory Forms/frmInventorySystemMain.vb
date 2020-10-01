@@ -1,19 +1,15 @@
 ﻿Public Class frmInventorySystemMain
 
     Private Sub InventoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InventoryToolStripMenuItem.Click
-        frmInventory.ShowDialog()
+        Dim frm As New frmInventory
+        frm.MdiParent = Me
+        frm.StartPosition = FormStartPosition.CenterParent
+        frm.Show()
     End Sub
 
     Private Sub AddEmployeesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddEmployeesToolStripMenuItem.Click
         frmAddItemsInventory.btnAdd.Text = "Add Item"
         frmAddItemsInventory.ShowDialog()
-    End Sub
-
-    Private Sub frmInventorySystemMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-    End Sub
-
-    Private Sub AdjustInventoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AdjustInventoryToolStripMenuItem.Click
-
     End Sub
 
     Private Sub WidthrawItemsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

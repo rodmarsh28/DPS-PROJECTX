@@ -83,16 +83,6 @@ Public Class InventoryList
     Private Sub dgv_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDoubleClick
         clickedItem = True
         If mode = "Sales" Then
-            Dim r As Integer = frmSalesInvoice.dgv.Rows.Count
-            frmSalesInvoice.dgv.Rows.Add()
-            frmSalesInvoice.dgv.Item(0, r).Value = dgv.CurrentRow.Cells(0).Value
-            frmSalesInvoice.dgv.Item(1, r).Value = dgv.CurrentRow.Cells(1).Value
-            frmSalesInvoice.dgv.Item(2, r).Value = dgv.CurrentRow.Cells(2).Value
-            frmSalesInvoice.dgv.Item(3, r).Value = dgv.CurrentRow.Cells(3).Value
-            frmSalesInvoice.dgv.Item(4, r).Value = frmSalesInvoice.txtQty.Text
-            frmSalesInvoice.dgv.Item(5, r).Value = "0.00"
-            frmSalesInvoice.dgv.Item(6, r).Value = CDbl(dgv.CurrentRow.Cells(3).Value) * CDbl(frmSalesInvoice.txtQty.Text)
-            frmSalesInvoice.dgv.Item(7, r).Value = CDbl(dgv.CurrentRow.Cells(8).Value) * CDbl(frmSalesInvoice.txtQty.Text)
             Me.Close()
         ElseIf mode = "Purchases" Then
             Me.Close()
@@ -117,14 +107,6 @@ Public Class InventoryList
             frmItemsIssuance.dgv.Item(6, r).Value = dgv.CurrentRow.Cells(7).Value
             Me.Close()
         ElseIf mode = "Order" Then
-            Dim r As Integer = prepare_job.dgv.Rows.Count
-            prepare_job.dgv.Rows.Add()
-            prepare_job.dgv.Item(0, r).Value = dgv.CurrentRow.Cells(0).Value
-            prepare_job.dgv.Item(1, r).Value = dgv.CurrentRow.Cells(1).Value
-            prepare_job.dgv.Item(2, r).Value = dgv.CurrentRow.Cells(2).Value
-            prepare_job.dgv.Item(3, r).Value = "0"
-            prepare_job.dgv.Item(4, r).Value = dgv.CurrentRow.Cells(4).Value
-            prepare_job.dgv.Item(5, r).Value = "0"
             Me.Close()
         ElseIf mode = "Receiving" Then
             Me.Close()

@@ -304,6 +304,12 @@
     <Compile Include="DataClasses1.vb">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="frmReason.Designer.vb">
+      <DependentUpon>frmReason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReason.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HR Information System\databaseConnection.Designer.vb">
       <DependentUpon>databaseConnection.vb</DependentUpon>
     </Compile>
@@ -1573,6 +1579,9 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="frmReason.resx">
+      <DependentUpon>frmReason.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HR Information System\databaseConnection.resx">
       <DependentUpon>databaseConnection.vb</DependentUpon>
     </EmbeddedResource>

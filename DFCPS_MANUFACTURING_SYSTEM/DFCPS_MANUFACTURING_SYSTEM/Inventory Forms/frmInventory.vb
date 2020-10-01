@@ -52,8 +52,15 @@ Public Class frmInventory
         End Try
     End Sub
 
-    Private Sub frmInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmInventory_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         GetItemsinInventoryAll()
+    End Sub
+
+
+
+
+    Private Sub frmInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'GetItemsinInventoryAll()
     End Sub
 
     Private Declare Function GetActiveWindow Lib "user32" Alias "GetActiveWindow" () As IntPtr
@@ -77,20 +84,22 @@ Public Class frmInventory
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim ic As New inventory_class
-        Dim frm As frmAddItemsInventory
-        Dim al As New DataGridView
-        For Each r In ic.get_inv_item_info(LV.SelectedItems(0).SubItems(1).Text)
-
-        Next
-
-
-
-        frmAddItemsInventory.btnAdd.Text = "Update Item"
-        frmAddItemsInventory.ShowDialog()
+        Dim frm As New frmAddItemsInventory
+        frm.btnAdd.Text = "Save Item"
+        frm.MdiParent = frmInventorySystemMain
+        frm.StartPosition = FormStartPosition.CenterParent
+        frm.txtItemno.Text = LV.SelectedItems(0).SubItems(0).Text
+        frm.update_load()
+        frm.Show()
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         GetItemsinInventoryAll()
+    End Sub
+
+
+
+    Private Sub frmInventory_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
+
     End Sub
 End Class

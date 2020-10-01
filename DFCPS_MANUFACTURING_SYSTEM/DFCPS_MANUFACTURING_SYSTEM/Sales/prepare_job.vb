@@ -21,7 +21,7 @@ Public Class prepare_job
 
         End Try
     End Sub
-    Sub get_card_id()
+    Public Sub get_card_id(ByVal id As String)
         Dim dt As New DataTable
         checkConn()
         Dim cmd As New SqlCommand(
@@ -34,19 +34,19 @@ Public Class prepare_job
         "INNER JOIN " & _
         "dbo.tblCardsProfile ON " & _
         "dbo.tblSalesOrder.cardID = dbo.tblCardsProfile.cardID " & _
-        "where tblSalesOrder.salesOrderNo = '" & TXTREF.Text & "'", conn)
+        "where tblSalesOrder.salesOrderNo = '" & id & "'", conn)
         Dim da As New SqlDataAdapter(cmd)
         da.SelectCommand = cmd
         da.Fill(dt)
         For Each r As DataRow In dt.Rows
             cardid = r(0)
             cardname = r(1)
-            TXTCUS.Text = r(2)
-            cardAddress = r(1)
+            TXTCUS.Text = r(1)
+            cardAddress = r(2)
         Next
 
     End Sub
-    Sub get_sales_order_items()
+    Sub get_sales_order_items(ByVal id As String)
         Dim dt As New DataTable
         checkConn()
         Dim cmd As New SqlCommand(
@@ -60,10 +60,11 @@ Public Class prepare_job
         "dbo.tblSalesOrder " & _
          "INNER JOIN dbo.tblSalesItemsTR ON dbo.tblSalesOrder.salesOrderNo = dbo.tblSalesItemsTR.transNo " & _
          "INNER JOIN dbo.InventoryListAllView ON dbo.tblSalesItemsTR.itemNo = dbo.InventoryListAllView.ITEMNO " & _
-         "where dbo.tblSalesOrder.salesOrderNo = '" & TXTREF.Text & "'", conn)
+         "where dbo.tblSalesOrder.salesOrderNo = '" & id & "'", conn)
         Dim da As New SqlDataAdapter(cmd)
         da.SelectCommand = cmd
         da.Fill(dt)
+        dgv.Rows.Clear()
         For Each r As DataRow In dt.Rows
             dgv.Rows.Add(r(1), r(2), r(3), r(4), r(5), r(4))
         Next
@@ -113,8 +114,8 @@ Public Class prepare_job
     Private Sub TXTREF_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TXTREF.TextChanged
         If mode = "Update" Then
         Else
-            get_sales_order_items()
-            get_card_id()
+
+         
         End If
 
 
@@ -123,6 +124,18 @@ Public Class prepare_job
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         InventoryList.mode = "Order"
         InventoryList.ShowDialog()
+        If InventoryList.clickedItem = True Then
+            Dim r As Integer = dgv.Rows.Count
+            With dgv
+                .Rows.Add()
+                .Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
+                .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
+                .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
+                .Item(3, r).Value = "0"
+                .Item(4, r).Value = InventoryList.dgv.CurrentRow.Cells(4).Value
+                .Item(5, r).Value = "0"
+            End With
+        End If
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -191,5 +204,18 @@ Public Class prepare_job
             End If
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim sc As New sales_class
+        Dim frm As New frmsales_list_selector
+        frm.MODE = "SALES ORDER"
+        frm.GET_SALE_LIST()
+        frm.ShowDialog()
+        If frm.successClick = True Then
+            TXTREF.Text = frm.DGV.CurrentRow.Cells(1).Value
+            get_sales_order_items(TXTREF.Text)
+            get_card_id(TXTREF.Text)
+        End If
     End Sub
 End Class

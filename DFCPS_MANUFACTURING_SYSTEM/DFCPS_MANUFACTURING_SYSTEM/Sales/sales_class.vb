@@ -126,7 +126,7 @@ Public Class sales_class
         da.SelectCommand = cmd
         da.Fill(dtable)
     End Sub
-    Public Overridable Function get_info_data(ByVal id As String)
+    Public  Function get_info_data(ByVal id As String)
         Dim db_sales As New salesDataContext
         Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
                    Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id

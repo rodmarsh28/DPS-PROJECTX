@@ -45,8 +45,6 @@ Public Class SalesTransactionViewer
     End Sub
 
     Private Sub SalesTransactionViewer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.MdiParent = frmSalesMain
-        GET_SALE_LIST()
     End Sub
 
     Private Sub PrintPreviewDialog1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintPreviewDialog1.Load
@@ -187,10 +185,14 @@ Public Class SalesTransactionViewer
     End Sub
 
     Private Sub PrintJobOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintJobOrderToolStripMenuItem.Click
-        prepare_job.MdiParent = frmSalesMain
-        prepare_job.StartPosition = FormStartPosition.CenterParent
-        prepare_job.TXTREF.Text = DGV.CurrentRow.Cells(1).Value
-        prepare_job.Show()
+        Dim frm As New prepare_job
+        frm.MdiParent = frmSalesMain
+        frm.StartPosition = FormStartPosition.CenterParent
+        'frm.TXTREF.Text = DGV.CurrentRow.Cells(1).Value
+        frm.get_sales_order_items(DGV.CurrentRow.Cells(1).Value)
+        frm.get_card_id(DGV.CurrentRow.Cells(1).Value)
+        frm.generateNo()
+        frm.Show()
     End Sub
 
     Private Sub DGV_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGV.CellContentClick
@@ -205,6 +207,8 @@ Public Class SalesTransactionViewer
                 ElseIf MODE = "SALES ORDER" Then
                     DGV.ContextMenuStrip = cmsSalesOrder
                 ElseIf MODE = "JOB ORDER" Then
+                    DGV.ContextMenuStrip = cmsJobOrder
+                ElseIf MODE = "SALES DELIVER" Then
                     DGV.ContextMenuStrip = cmsJobOrder
                 End If
             End If

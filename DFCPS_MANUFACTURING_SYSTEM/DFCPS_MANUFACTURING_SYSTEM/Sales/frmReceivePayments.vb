@@ -122,7 +122,13 @@ Public Class frmReceivePayments
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         frmCardListForSelection.formMode = "ReceivePayments"
         frmCardListForSelection.ShowDialog()
-        get_invoice_list()
+        If frmCardListForSelection.itemClick = True Then
+            cardID = frmCardListForSelection.LV.SelectedItems(0).SubItems(0).Text
+            txtCustomerName.Text = frmCardListForSelection.LV.SelectedItems(0).SubItems(1).Text
+            totalBalance = frmCardListForSelection.LV.SelectedItems(0).SubItems(4).Text
+            get_invoice_list()
+        End If
+
     End Sub
     Private Declare Function GetActiveWindow Lib "user32" Alias "GetActiveWindow" () As IntPtr
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
@@ -150,14 +156,16 @@ Public Class frmReceivePayments
     End Sub
 
     Private Sub frmReceivePayments_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        Me.Dispose()
+        Me.Close()
     End Sub
-
-    Private Sub frmReceivePayments_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.MdiParent = frmSalesMain
+    Public Sub load_command()
+        'Me.MdiParent = frmSalesMain
         getAccountSettings()
         generatePaymentNo()
         succesPay = False
+    End Sub
+    Private Sub frmReceivePayments_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -172,7 +180,7 @@ Public Class frmReceivePayments
                         recordCollection()
                     End If
                     MsgBox(" PAYMENT POSTED !", MsgBoxStyle.Information, "SUCCESS")
-                    frmSalesInvoice.successpay = True
+                    succesPay = True
                     Me.Close()
                 Catch ex As Exception
                     MsgBox(ex.Message)

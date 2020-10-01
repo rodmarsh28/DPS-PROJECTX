@@ -104,6 +104,7 @@
     End Sub
     Sub disposeform()
         txtSalesNo.Text = ""
+        txtRefNo.Text = ""
         RefNo = ""
         CardID = ""
         txtName.Text = ""
@@ -169,12 +170,20 @@
                 Next
             End If
             If lblFormMode.Text = "SALES CASH INVOICE" Then
-                If successPay = True Then
+                frmReceivePayments.cardID = CardID
+                frmReceivePayments.txtCustomerName.Text = txtName.Text
+                frmReceivePayments.load_command()
+                frmReceivePayments.dgv.Rows.Clear()
+                frmReceivePayments.dgv.Rows.Add(lblSeries.Text & txtSalesNo.Text, "Open", Now.ToString("MM/dd/yyyy"), lblTotFAmnt.Text, lblTotDis.Text, lblTotAmount.Text, "0.00", txtARAcc.Text)
+                frmReceivePayments.ShowDialog()
+                If frmReceivePayments.succesPay = True Then
                     invAssetEntry()
                     insert_update_sales()
                     MsgBox(lblFormMode.Text & " Posted !", MsgBoxStyle.Information, "System Information")
                     Me.Close()
-                    successPay = False
+                    frmReceivePayments.succesPay = False
+                Else
+                    Exit Sub
                 End If
             Else
                 If lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
@@ -182,7 +191,19 @@
                 End If
                 insert_update_sales()
                 MsgBox(lblFormMode.Text & " Posted !", MsgBoxStyle.Information, "System Information")
-                Me.Close()
+                If lblFormMode.Text = "SALES ORDER" Then
+                    If MsgBox("DO YOU WANT TO CREATE JOB ORDER NOW?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
+                        Dim frm As New prepare_job
+                        frm.StartPosition = FormStartPosition.CenterScreen
+                        frm.Show()
+                        frm.TXTREF.Text = "SO-" & txtSalesNo.Text
+                        frm.get_sales_order_items("SO-" & txtSalesNo.Text)
+                        frm.get_card_id("SO-" & txtSalesNo.Text)
+                        frm.generateNo()
+                    End If
+                End If
+                disposeform()
+                load_commands()
             End If
         End If
     End Sub
@@ -198,7 +219,7 @@
         End If
         Try
             save()
-            update_date_row_changes()
+            'update_date_row_changes()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -242,8 +263,7 @@
             End If
             End If
     End Sub
-
-    Private Sub frmSales_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Sub load_commands()
         Me.MdiParent = frmSalesMain
         generateNo()
         lblTotal.Text = "Php 0.00"
@@ -273,6 +293,9 @@
             dgv.Columns("Job").Visible = False
         End If
     End Sub
+    Private Sub frmSales_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
+    End Sub
 
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
         If lblFormMode.Text = "SALES DELIVER" Or lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
@@ -285,7 +308,21 @@
         End If
         InventoryList.mode = "Sales"
         InventoryList.ShowDialog()
-        GET_TOTAL()
+        If InventoryList.clickedItem = True Then
+            Dim r As Integer = dgv.Rows.Count
+            With dgv
+                .Rows.Add()
+                .Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
+                .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
+                .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
+                .Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
+                .Item(4, r).Value = txtQty.Text
+                .Item(5, r).Value = "0.00"
+                .Item(6, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
+                .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
+            End With
+            GET_TOTAL()
+        End If
     End Sub
 
     Private Sub txtSearch_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtQty.KeyDown
@@ -336,6 +373,12 @@
     Private Sub btnSearchCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearchCustomer.Click
         frmCardListForSelection.formMode = "Sales Invoice"
         frmCardListForSelection.ShowDialog()
+        If frmCardListForSelection.itemClick = True Then
+            CardID = frmCardListForSelection.LV.SelectedItems(0).SubItems(0).Text
+            txtName.Text = frmCardListForSelection.LV.SelectedItems(0).SubItems(1).Text
+            totalBalance = frmCardListForSelection.LV.SelectedItems(0).SubItems(4).Text
+        End If
+
     End Sub
 
     Private Sub lblFormMode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblFormMode.Click

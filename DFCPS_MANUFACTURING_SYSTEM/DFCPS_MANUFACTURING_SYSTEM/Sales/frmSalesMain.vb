@@ -1,61 +1,99 @@
 ﻿Public Class frmSalesMain
 
     Private Sub AddEmployeesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddEmployeesToolStripMenuItem.Click
-        frmSalesInvoice.lblFormMode.Text = "QUOTATION"
-        frmSalesInvoice.Show()
+        Dim frm As New frmSalesInvoice
+        frm.lblFormMode.Text = "QUOTATION"
+        frm.Show()
+        frm.load_commands()
     End Sub
 
     Private Sub WidthrawItemsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WidthrawItemsToolStripMenuItem.Click
-        frmSalesInvoice.lblFormMode.Text = "SALES ORDER"
-        frmSalesInvoice.Show()
+        Dim frm As New frmSalesInvoice
+        frm.lblFormMode.Text = "SALES ORDER"
+        frm.Show()
+        frm.load_commands()
     End Sub
 
     Private Sub PreparePurchaseInvoiceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreparePurchaseInvoiceToolStripMenuItem.Click
-        frmSalesInvoice.lblFormMode.Text = "SALES CASH INVOICE"
-        frmSalesInvoice.Show()
+        Dim frm As New frmSalesInvoice
+        frm.lblFormMode.Text = "SALES CASH INVOICE"
+        frm.Show()
+        frm.load_commands()
     End Sub
 
     Private Sub PrepareSalesDeliveryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrepareSalesDeliveryToolStripMenuItem.Click
-        frmSalesInvoice.lblFormMode.Text = "SALES DELIVER"
-        frmSalesInvoice.Show()
+        Dim frm As New frmSalesInvoice
+        frm.lblFormMode.Text = "SALES DELIVER"
+        frm.Show()
+        frm.load_commands()
     End Sub
 
     Private Sub PrepareSalesChargeInvoiceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrepareSalesChargeInvoiceToolStripMenuItem.Click
-        frmSalesInvoice.lblFormMode.Text = "SALES CHARGE INVOICE"
-        frmSalesInvoice.Show()
+        Dim frm As New frmSalesInvoice
+        frm.lblFormMode.Text = "SALES CHARGE INVOICE"
+        frm.Show()
+        frm.load_commands()
     End Sub
 
     Private Sub PurchaseOrderHistoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseOrderHistoryToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "SALES ORDER"
-        SalesTransactionViewer.Show() 'show the child form
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "SALES ORDER"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
     End Sub
 
     Private Sub PurchaseRequisitionHistoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseRequisitionHistoryToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "QUOTATION"
-        SalesTransactionViewer.Show()
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "QUOTATION"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
     End Sub
 
     Private Sub PurchaseInvoiceHistoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseInvoiceHistoryToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "SALES CASH INVOICE"
-        SalesTransactionViewer.Show()
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "SALES CASH INVOICE"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
     End Sub
 
     Private Sub SalesChargeInvoiceHistoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SalesChargeInvoiceHistoryToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "SALES CHARGE INVOICE"
-        SalesTransactionViewer.Show()
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "SALES CHARGE INVOICE"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
     End Sub
 
     Private Sub SalesDeliverToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SalesDeliverToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "SALES DELIVER"
-        SalesTransactionViewer.Show()
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "SALES DELIVER"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
     End Sub
 
     Private Sub ReceivePaymentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReceivePaymentsToolStripMenuItem.Click
-        frmReceivePayments.Show()
+        Dim frm As New frmReceivePayments
+        frm.Show()
+        frm.load_command()
     End Sub
 
     Private Sub JobOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles JobOrderToolStripMenuItem.Click
-        SalesTransactionViewer.MODE = "JOB ORDER"
-        SalesTransactionViewer.Show()
+        Dim frm As New SalesTransactionViewer
+        frm.MODE = "JOB ORDER"
+        frm.MdiParent = Me
+        frm.Show()
+        frm.GET_SALE_LIST()
+    End Sub
+
+    Private Sub PrepareJobOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrepareJobOrderToolStripMenuItem.Click
+        Dim frm As New prepare_job
+        frm.MdiParent = Me
+        frm.StartPosition = FormStartPosition.CenterParent
+        frm.generateNo()
+        frm.Show()
     End Sub
 End Class

@@ -216,6 +216,11 @@ Public Class frmPurchases
     Private Sub btnSearchCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearchCustomer.Click
         frmCardListForSelection.formMode = "Purchase Invoice"
         frmCardListForSelection.ShowDialog()
+        If frmCardListForSelection.itemClick = True Then
+            CardID = frmCardListForSelection.LV.SelectedItems(0).SubItems(0).Text
+            txtName.Text = frmCardListForSelection.LV.SelectedItems(0).SubItems(1).Text
+            totalBalance = frmCardListForSelection.LV.SelectedItems(0).SubItems(4).Text
+        End If
     End Sub
 
     Private Sub lblFormMode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblFormMode.Click

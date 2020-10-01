@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 13.75" name="sales">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.375, 13.75" name="sales">
   <DataContextMoniker Name="/salesDataContext" />
   <nestedChildShapes>
     <classShape Id="1def5ad4-dba1-4f48-8325-d351146bb674" absoluteBounds="0.75, 0.75, 2, 2.7929076131184889">
@@ -104,6 +104,18 @@
       <DataClassMoniker Name="/salesDataContext/tblSales_price" />
       <nestedChildShapes>
         <elementListCompartment Id="67959320-95c5-4bd5-b13b-3887ed22d1e1" absoluteBounds="12.765, 1.21, 1.9700000000000002, 1.1423619588216145" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2bceafe-8f19-4a0e-9631-c748b3e54f9c" absoluteBounds="14.875, 3.875, 2, 3.3381804402669268">
+      <DataClassMoniker Name="/salesDataContext/InventoryListAllView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87766073-7946-4158-807b-6c9443b85648" absoluteBounds="14.89, 4.3350000000000009, 1.9700000000000002, 2.7781804402669268" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3aa59d96-7fdd-47f8-86ca-8afd94fbf35f" absoluteBounds="17.125, 11.125, 2, 1.8841195678710938">
+      <DataClassMoniker Name="/salesDataContext/tblTrans_update_log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f172e0d9-ad1f-454c-a4f7-aa5bbe0b5644" absoluteBounds="17.14, 11.585, 1.9700000000000002, 1.3241195678710938" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
