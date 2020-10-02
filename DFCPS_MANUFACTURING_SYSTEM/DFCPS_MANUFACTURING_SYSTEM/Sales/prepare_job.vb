@@ -54,8 +54,8 @@ Public Class prepare_job
          "dbo.tblSalesItemsTR.itemNo, " & _
          "dbo.InventoryListAllView.ITEMDESC, " & _
          "dbo.InventoryListAllView.UNIT, " & _
-         "dbo.tblSalesItemsTR.qty AS request_qty, " & _
-         "dbo.InventoryListAllView.QTY AS onhand_qty, dbo.tblSalesOrder.cardid  " & _
+         "dbo.tblSalesItemsTR.pc AS request_qty, " & _
+         "dbo.InventoryListAllView.PC_QTY AS onhand_qty, dbo.tblSalesOrder.cardid  " & _
         "FROM " & _
         "dbo.tblSalesOrder " & _
          "INNER JOIN dbo.tblSalesItemsTR ON dbo.tblSalesOrder.salesOrderNo = dbo.tblSalesItemsTR.transNo " & _

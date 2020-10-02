@@ -208,6 +208,15 @@ Public Class SalesTransactionViewer
                     DGV.ContextMenuStrip = cmsSalesOrder
                 ElseIf MODE = "JOB ORDER" Then
                     DGV.ContextMenuStrip = cmsJobOrder
+                    If DGV.CurrentRow.Cells(5).Value = "Job Finished" Then
+                        tmsJobFinished.Enabled = False
+                        tmsUpdate.Enabled = False
+                        tmsCancelJob.Enabled = False
+                    Else
+                        tmsJobFinished.Enabled = True
+                        tmsUpdate.Enabled = True
+                        tmsCancelJob.Enabled = True
+                    End If
                 ElseIf MODE = "SALES DELIVER" Then
                     DGV.ContextMenuStrip = cmsJobOrder
                 End If
@@ -246,7 +255,7 @@ Public Class SalesTransactionViewer
     End Sub
 
 
-    Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmsPrint.Click
 
         'Dim sc As New sales_class
         'sc.print_job_order(DGV.CurrentRow.Cells(1).Value)
@@ -263,7 +272,7 @@ Public Class SalesTransactionViewer
         pc.print_data(dt)
     End Sub
 
-    Private Sub UpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UpdateToolStripMenuItem.Click
+    Private Sub UpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmsUpdate.Click
         prepare_job.mode = "Update"
         prepare_job.get_info_data(DGV.CurrentRow.Cells(1).Value)
         prepare_job.MdiParent = frmSalesMain
@@ -271,17 +280,18 @@ Public Class SalesTransactionViewer
         prepare_job.Show()
     End Sub
 
-    Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem5.Click
+    Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmsJobFinished.Click
 
-    End Sub
-
-    Private Sub cmsJobOrder_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmsJobOrder.Opening
         Try
-            Dim sc As New sales_class
-            sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished")
-            MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+            If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
+                Dim sc As New sales_class
+                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished")
+                MsgBox("Transaction Saved", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+  
 End Class

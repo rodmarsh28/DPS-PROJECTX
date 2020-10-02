@@ -71,21 +71,21 @@
         Dim totDis As Decimal = 0
         Dim totAmount As Decimal = 0
         For Each row As DataGridViewRow In dgv.Rows
-            row.Cells(6).Value = (CDec(row.Cells(3).Value) * CDec(row.Cells(4).Value)).ToString("N")
-            totFA = totFA + (CDec(row.Cells(3).Value) * CDec(row.Cells(4).Value))
-            totDis = totDis + CDec(row.Cells(5).Value)
-            totAmount = totAmount + CDec(row.Cells(6).Value)
+            row.Cells(7).Value = (CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value)).ToString("N")
+            totFA = totFA + (CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value))
+            totDis = totDis + CDec(row.Cells(6).Value)
+            totAmount = totAmount + CDec(row.Cells(7).Value)
         Next
         lblTotFAmnt.Text = totFA.ToString("N")
         lblTotDis.Text = totDis.ToString("N")
-        lblTotAmount.Text = totAmount.ToString("N")
+        lblTotWt.Text = totAmount.ToString("N")
         lblTotal.Text = "Php " & totAmount.ToString("N")
         Dim ic As New inventory_class
         Try
             For Each row As DataGridViewRow In dgv.Rows
-                If row.Cells(8).Value.ToString <> "" Then
+                If row.Cells(9).Value.ToString <> "" Then
                     ic.itemNo = row.Cells(0).Value
-                    ic.job = row.Cells(8).Value
+                    ic.job = row.Cells(9).Value
                     ic.get_inventory_perjob()
                     row.Cells(4).Value = ic.dtable.Rows(0).Item(0).ToString
                 End If
@@ -119,9 +119,9 @@
 
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-   
+
     End Sub
-  
+
     Sub insert_update_sales()
         Try
             Dim sc As New sales_class
@@ -138,12 +138,24 @@
                 sc.itemCode = row.Cells(0).Value
                 sc.uprice = row.Cells(3).Value
                 sc.qty = row.Cells(4).Value
-                sc.discount = row.Cells(5).Value
-                sc.amount = row.Cells(6).Value
-                sc.cost = row.Cells(7).Value
+                sc.pc = row.Cells(5).Value
+                sc.discount = row.Cells(6).Value
+                sc.amount = row.Cells(7).Value
+                sc.cost = row.Cells(8).Value
                 sc.insert_update_sales()
                 sc.transcount += 1
             Next
+
+            If lblFormMode.Text = "SALES ORDER" Then
+                sc.update_salesQuotation_status(txtRefNo.Text, "Closed")
+            ElseIf lblFormMode.Text = "SALES CASH INVOICE" Then
+                sc.update_salesOrder_status(txtRefNo.Text, "Closed")
+            ElseIf lblFormMode.Text = "SALES CHARGE INVOICE" Then
+                sc.update_salesOrder_status(txtRefNo.Text, "Closed")
+            ElseIf lblFormMode.Text = "SALES DELIVER" Then
+                sc.update_salesCash_status(txtRefNo.Text, "Closed")
+                sc.update_salesCharge_status(txtRefNo.Text, "Closed")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -164,8 +176,10 @@
                 For Each row As DataGridViewRow In dgv.Rows
                     ic.refNo = seriesNo
                     ic.itemNo = row.Cells(0).Value
-                    ic.unitCost = CDec(row.Cells(7).Value) / CDec(row.Cells(4).Value)
+                    ic.unitCost = CDec(row.Cells(8).Value) / CDec(row.Cells(4).Value)
                     ic.qty = "-" & row.Cells(4).Value
+                    ic.pcQty = "-" & row.Cells(5).Value
+                    ic.job = "-" & row.Cells(9).Value
                     ic.insert_invItem_transaction()
                 Next
             End If
@@ -174,7 +188,7 @@
                 frmReceivePayments.txtCustomerName.Text = txtName.Text
                 frmReceivePayments.load_command()
                 frmReceivePayments.dgv.Rows.Clear()
-                frmReceivePayments.dgv.Rows.Add(lblSeries.Text & txtSalesNo.Text, "Open", Now.ToString("MM/dd/yyyy"), lblTotFAmnt.Text, lblTotDis.Text, lblTotAmount.Text, "0.00", txtARAcc.Text)
+                frmReceivePayments.dgv.Rows.Add(lblSeries.Text & txtSalesNo.Text, "Open", Now.ToString("MM/dd/yyyy"), lblTotFAmnt.Text, lblTotDis.Text, lblTotWt.Text, "0.00", txtARAcc.Text)
                 frmReceivePayments.ShowDialog()
                 If frmReceivePayments.succesPay = True Then
                     invAssetEntry()
@@ -307,8 +321,12 @@
             txtQty.Text = "1"
         End If
         InventoryList.mode = "Sales"
+        InventoryList.clickedItem = False
         InventoryList.ShowDialog()
+
         If InventoryList.clickedItem = True Then
+
+            Dim qty As Integer
             Dim r As Integer = dgv.Rows.Count
             With dgv
                 .Rows.Add()
@@ -316,10 +334,21 @@
                 .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
                 .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
                 .Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
-                .Item(4, r).Value = txtQty.Text
-                .Item(5, r).Value = "0.00"
-                .Item(6, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
-                .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
+                .Item(6, r).Value = "0.00"
+                If lblFormMode.Text = "SALES DELIVER" Then
+                    qty = InputBox("Please Enter Weight Qty", 0)
+                    .Item(4, r).Value = qty
+                    .Item(5, r).Value = txtQty.Text
+                    .Columns("Qty").Visible = True
+                    .Columns(5).HeaderText = "Pc"
+                Else
+                    .Columns("Qty").Visible = False
+                    .Columns(5).HeaderText = "Qty"
+                    .Item(4, r).Value = "0"
+                    .Item(5, r).Value = txtQty.Text
+                End If
+                .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
+                .Item(8, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
             End With
             GET_TOTAL()
         End If
@@ -415,6 +444,9 @@
             If dgv.CurrentCell.ColumnIndex = 4 Then
                 Dim qty As Decimal = InputBox("Qty", "System Information")
                 dgv.CurrentRow.Cells(4).Value = Format(qty, "N")
+            ElseIf dgv.CurrentCell.ColumnIndex = 5 Then
+                Dim qty As Decimal = InputBox("PC Qty", "System Information")
+                dgv.CurrentRow.Cells(5).Value = Format(qty, "N")
             ElseIf dgv.CurrentCell.ColumnIndex = 8 Then
                 frmsales_list_selector.MODE = "Job"
                 frmsales_list_selector.ShowDialog()
@@ -477,7 +509,9 @@
                 For Each row As DataRow In sc.dtable.Rows
                     CardID = row(1)
                     txtName.Text = row(2)
-                    dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N0"), CDec(row(8)).ToString("N"), row(9), row(10), order_no)
+                    If CInt(row(11)) > 0 Then
+                        dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(11)).ToString("N"), CDec(row(8)).ToString("N"), row(9), row(10), order_no)
+                    End If
                 Next
                 frmsales_list_selector.successClick = False
             End If

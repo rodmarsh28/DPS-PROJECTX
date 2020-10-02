@@ -28,18 +28,33 @@ Public Class InventoryList
     Sub getItemlist()
         Dim cmd
         If mode = "Sales" Then
+            dgv.Columns(4).Visible = False
+            dgv.Columns(9).Visible = True
+            dgv.Columns(9).HeaderText = "Onhand"
             cmd = New SqlCommand("get_item_sellable", conn)
             dgv.Columns(3).HeaderText = "Sell Price"
         ElseIf mode = "Purchases" Then
+            dgv.Columns(4).Visible = True
+            dgv.Columns(9).Visible = False
+            dgv.Columns(9).HeaderText = "Onhand"
             cmd = New SqlCommand("get_item_buyable", conn)
             dgv.Columns(3).HeaderText = "Sell Price"
         ElseIf mode = "Issuance" Or mode = "Item Requisition" Or mode = "Receiving" Then
+            dgv.Columns(4).Visible = True
+            dgv.Columns(9).Visible = False
+            dgv.Columns(9).HeaderText = "Onhand"
             cmd = New SqlCommand("get_item_inventoriable", conn)
             dgv.Columns(3).HeaderText = "Cost"
         ElseIf mode = "Rawmats" Then
+            dgv.Columns(4).Visible = True
+            dgv.Columns(9).Visible = True
+            dgv.Columns(9).HeaderText = "PC_QTY"
             cmd = New SqlCommand("get_item_rawmats", conn)
             dgv.Columns(3).HeaderText = "Cost"
         Else
+            dgv.Columns(4).Visible = True
+            dgv.Columns(9).Visible = False
+            dgv.Columns(9).HeaderText = "Onhand"
             cmd = New SqlCommand("get_item_inventoriable", conn)
             dgv.Columns(3).HeaderText = "Cost"
         End If
@@ -56,7 +71,7 @@ Public Class InventoryList
         da.Fill(dt)
         dgv.Rows.Clear()
         For Each row As DataRow In dt.Rows
-            dgv.Rows.Add(row(0), row(1), row(2), CDec(row(3)).ToString("N"), CDec(row(4)).ToString("N0"), row(5), row(6), row(7), CDec(row(8)).ToString("N"))
+            dgv.Rows.Add(row(0), row(1), row(2), CDec(row(3)).ToString("N"), CDec(row(4)).ToString("N0"), row(5), row(6), row(7), CDec(row(8)).ToString("N"), CDec(row(9)).ToString("N0"))
         Next
         dgv.ClearSelection()
         lblItemsCount.Text = Format(dgv.Rows.Count, "N0")

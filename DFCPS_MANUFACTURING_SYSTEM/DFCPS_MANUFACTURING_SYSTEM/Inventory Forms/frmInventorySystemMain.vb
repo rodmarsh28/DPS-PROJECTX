@@ -4,6 +4,7 @@
         Dim frm As New frmInventory
         frm.MdiParent = Me
         frm.StartPosition = FormStartPosition.CenterParent
+        frm.ComboBox1.SelectedIndex = 0
         frm.Show()
     End Sub
 

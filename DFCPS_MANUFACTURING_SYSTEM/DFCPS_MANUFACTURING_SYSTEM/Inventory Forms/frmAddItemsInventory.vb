@@ -2,6 +2,7 @@
     Public mode As String
     Public SeriesNo As String
     Dim cur_balQty As Integer
+    Dim cur_pcQty As Integer
     Sub ItemType()
         If cmbItemType.Text = "Raw Materials" Then
             SeriesNo = "RM-"
@@ -43,7 +44,10 @@
         txtAccCost.Text = ""
         txtAccIncome.Text = ""
         txtAccAsset.Text = ""
-        txtUnitprice.Text = ""
+        txtUnit.Text = ""
+        txtPC.Text = "0"
+        txtBalQty.Text = "0"
+        txtMinQTY.Text = "0"
         txtUnitCost.Text = "0.00"
         txtUnitPrice.Text = "0.00"
         chkBuy.Checked = False
@@ -74,6 +78,7 @@
                 Dim src As String = Form.ActiveForm.Text
                 Dim Ref As String = "BALANCE"
                 Dim tr_qty As Integer
+                Dim pcQTY As Integer
                 Dim inventoryClass As New inventory_class
                 Dim sc As New systemSettings_class
                 If btnAdd.Text = "Save Item" Then
@@ -83,10 +88,12 @@
                     End If
                     inventoryClass.command = "Update"
                     tr_qty = CInt(txtBalQty.Text) - cur_balQty
+                    pcQTY = CInt(txtPC.Text) - cur_pcQty
                     inventoryClass.memo = "ADJUST BALANCE"
                 ElseIf btnAdd.Text = "Add Item" Then
                     inventoryClass.command = "Add"
                     tr_qty = CInt(txtBalQty.Text)
+                    pcQTY = CInt(txtPC.Text)
                     inventoryClass.memo = "BEGINNING BALANCE"
                 End If
                 
@@ -117,7 +124,7 @@
                 inventoryClass.itemdesc = txtItemdesc.Text
                 inventoryClass.unitCost = txtUnitCost.Text
                 inventoryClass.unit = txtUnit.Text
-                inventoryClass.unitWt = txtWt.Text
+                inventoryClass.pcQty = pcQTY
                 inventoryClass.unitprice = txtUnitPrice.Text
                 inventoryClass.accCost = txtAccCost.Text
                 inventoryClass.accIncome = txtAccIncome.Text
@@ -181,8 +188,10 @@
         chkInv.Checked = ic.check_state(data.INVENTORABLE)
         txtUnit.Text = data.UNIT
         cur_balQty = data.QTY
+        cur_pcQty = data.PC_QTY
         txtBalQty.Text = data.QTY
-        txtWt.Text = data.UNIT_WT
+        txtPC.Text = data.PC_QTY
+        txtUnitPrice.Text = data.UNITPRICE
         txtMinQTY.Text = data.MINQTY
         txtUnitCost.Text = Format(data.UNITCOST, "N")
         cmbItemType.Text = ic.get_ItemType(txtItemno.Text)

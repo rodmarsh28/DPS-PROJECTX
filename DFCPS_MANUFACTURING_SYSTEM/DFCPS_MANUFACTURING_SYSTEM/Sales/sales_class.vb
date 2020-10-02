@@ -30,6 +30,7 @@ Public Class sales_class
     Public cost As Decimal
     Public collectionNo As String
     Public dt As DataTable
+    Public pc As Integer
     Public sales_db As New salesDataContext()
     Sub insert_update_sales()
         Dim cmd As New SqlCommand("insert_update_sales", conn)
@@ -53,6 +54,7 @@ Public Class sales_class
             .Parameters.AddWithValue("@amount", SqlDbType.Decimal).Value = amount
             .Parameters.AddWithValue("@discount", SqlDbType.Decimal).Value = discount
             .Parameters.AddWithValue("@cost", SqlDbType.Decimal).Value = cost
+            .Parameters.AddWithValue("@pcQTY", SqlDbType.Decimal).Value = pc
         End With
         cmd.ExecuteNonQuery()
     End Sub
@@ -119,6 +121,31 @@ Public Class sales_class
         da.SelectCommand = cmd
         da.Fill(dtable)
     End Sub
+    Public Sub update_salesQuotation_status(ByVal id As String, ByVal status As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update tblSalesQuotation set status = '" & status & "' where Quoteno = '" & id & "'", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
+    Public Sub update_salesOrder_status(ByVal id As String, ByVal status As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update tblSalesOrder set status = '" & status & "' where salesOrderNo = '" & id & "'", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
+    Public Sub update_salesCharge_status(ByVal id As String, ByVal status As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update tblSalesChargeInvoice set status = '" & status & "' where salesChargeInvoiceNo = '" & id & "'", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
+    Public Sub update_salesCash_status(ByVal id As String, ByVal status As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update tblSalesCashInvoice set status = '" & status & "' where salesCashInvoiceNo = '" & id & "'", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
+    Public Sub update_salesDeliver_status(ByVal id As String, ByVal status As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update tblSalesDeliver set status = '" & status & "' where salesDeliverNo = '" & id & "'", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
 
     Sub prepareJob()
         Dim cmd As New SqlCommand("SELECT * FROM JOB_PREPARATION_VIEW where TRNO = '" & searchValue & "'", conn)
@@ -128,10 +155,10 @@ Public Class sales_class
     End Sub
     Public  Function get_info_data(ByVal id As String)
         Dim db_sales As New salesDataContext
-        Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries _
+        Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries, u In db_sales.tblItem_units _
                    Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id
                    Select JOB_NO = job.JONO, REFNO = job.REFNO, trDATE = job.DATE, cardid = job.CARDID, CUSTOMER = card.cardName, _
-                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = item.UNIT, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS
+                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = u.unit_desc, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS Distinct
         Return data
     End Function
     Public Overridable Function update_job_data(ByVal id As String, ByVal ref As String, ByVal cardid As String, ByVal remarks As String) As String
@@ -167,6 +194,26 @@ Public Class sales_class
             Return ex.Message
         End Try
     End Function
+    Sub print_DR(ByVal id As String)
+        Dim sales_dc As New salesDataContext
+        Dim data = From dr In sales_dc.tblSalesDelivers _
+                   Join c In sales_dc.tblCardsProfiles On c.cardID Equals dr.cardID _
+                   Join u In sales_dc.tblUsers On u.userID Equals dr.userID _
+                   Join tr In sales_dc.tblSalesItemsTRs On tr.transNo Equals dr.salesDeliverNo _
+                   Join I In sales_dc.InventoryListAllViews On I.ITEMNO Equals tr.itemNo _
+                   Where dr.salesDeliverNo = id
+                   Select IDNO = dr.salesDeliverNo, REFNO = dr.refNo, NAME = c.cardName, PREPAREDBY = u.name, ITEMNO = tr.itemNo, _
+                ITEMDESC = I.ITEMDESC, UNIT = I.UNIT, UNITPRICE = tr.uPrice, AMOUNT = tr.amount, PC = tr.pc, QTY = tr.qty
+        For Each x In data
+            ds.Tables("DRTABLE").Rows.Add(x.IDNO, x.REFNO, x.NAME, x.ITEMDESC, x.UNIT, x.PC, x.UNITPRICE, x.AMOUNT, x.PREPAREDBY, "", MainForm.logo, MainForm.header)
+        Next
+        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+        rptDoc = New rpt_drandgp
+        rptDoc.SetDataSource(ds.Tables("DRTABLE"))
+        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        print_slip_viewer.ShowDialog()
+    End Sub
+   
     Sub print_job_order(ByVal jono As String)
         checkConn()
         Dim ds As New sales_ds

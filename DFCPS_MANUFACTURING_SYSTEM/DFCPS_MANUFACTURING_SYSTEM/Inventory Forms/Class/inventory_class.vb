@@ -19,6 +19,7 @@ Public Class inventory_class
     Public status As String
     Public balanceQty As Integer
     Public qty As Integer
+    Public pcQty As Integer
     Public src As String
 
     Public entryMode As String
@@ -61,7 +62,7 @@ Public Class inventory_class
                 .Parameters.AddWithValue("@itemdesc", SqlDbType.VarChar).Value = itemdesc
                 .Parameters.AddWithValue("@unitCost", SqlDbType.Decimal).Value = unitCost
                 .Parameters.AddWithValue("@unit", SqlDbType.VarChar).Value = unit
-                .Parameters.AddWithValue("@unitWT", SqlDbType.VarChar).Value = unitWt
+                .Parameters.AddWithValue("@pcQTY", SqlDbType.VarChar).Value = pcQty
                 .Parameters.AddWithValue("@unitprice", SqlDbType.Decimal).Value = unitprice
                 .Parameters.AddWithValue("@buy", SqlDbType.VarChar).Value = buy
                 .Parameters.AddWithValue("@sell", SqlDbType.VarChar).Value = sell
@@ -139,7 +140,7 @@ Public Class inventory_class
                 .Parameters.AddWithValue("@unitCost", SqlDbType.Decimal).Value = unitCost
                 .Parameters.AddWithValue("@qty", SqlDbType.Int).Value = qty
                 .Parameters.AddWithValue("@job", SqlDbType.Int).Value = job
-                .Parameters.AddWithValue("@oqty", SqlDbType.Int).Value = oqty
+                .Parameters.AddWithValue("@pcQty", SqlDbType.Int).Value = pcQty
             End With
             cmd.ExecuteNonQuery()
         Catch ex As Exception

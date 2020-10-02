@@ -43,12 +43,6 @@ Partial Public Class salesDataContext
     End Sub
   Partial Private Sub DeletetblSalesChargeInvoice(instance As tblSalesChargeInvoice)
     End Sub
-  Partial Private Sub InserttblSalesDeliver(instance As tblSalesDeliver)
-    End Sub
-  Partial Private Sub UpdatetblSalesDeliver(instance As tblSalesDeliver)
-    End Sub
-  Partial Private Sub DeletetblSalesDeliver(instance As tblSalesDeliver)
-    End Sub
   Partial Private Sub InserttblSalesOrder(instance As tblSalesOrder)
     End Sub
   Partial Private Sub UpdatetblSalesOrder(instance As tblSalesOrder)
@@ -109,6 +103,18 @@ Partial Public Class salesDataContext
     End Sub
   Partial Private Sub DeletetblTrans_update_log(instance As tblTrans_update_log)
     End Sub
+  Partial Private Sub InserttblSalesDeliver(instance As tblSalesDeliver)
+    End Sub
+  Partial Private Sub UpdatetblSalesDeliver(instance As tblSalesDeliver)
+    End Sub
+  Partial Private Sub DeletetblSalesDeliver(instance As tblSalesDeliver)
+    End Sub
+  Partial Private Sub InserttblUser(instance As tblUser)
+    End Sub
+  Partial Private Sub UpdatetblUser(instance As tblUser)
+    End Sub
+  Partial Private Sub DeletetblUser(instance As tblUser)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -145,18 +151,6 @@ Partial Public Class salesDataContext
 	Public ReadOnly Property tblSalesChargeInvoices() As System.Data.Linq.Table(Of tblSalesChargeInvoice)
 		Get
 			Return Me.GetTable(Of tblSalesChargeInvoice)
-		End Get
-	End Property
-	
-	Public ReadOnly Property tblSalesDelivers() As System.Data.Linq.Table(Of tblSalesDeliver)
-		Get
-			Return Me.GetTable(Of tblSalesDeliver)
-		End Get
-	End Property
-	
-	Public ReadOnly Property tblSalesItemsTRs() As System.Data.Linq.Table(Of tblSalesItemsTR)
-		Get
-			Return Me.GetTable(Of tblSalesItemsTR)
 		End Get
 	End Property
 	
@@ -226,15 +220,33 @@ Partial Public Class salesDataContext
 		End Get
 	End Property
 	
+	Public ReadOnly Property tblTrans_update_logs() As System.Data.Linq.Table(Of tblTrans_update_log)
+		Get
+			Return Me.GetTable(Of tblTrans_update_log)
+		End Get
+	End Property
+	
 	Public ReadOnly Property InventoryListAllViews() As System.Data.Linq.Table(Of InventoryListAllView)
 		Get
 			Return Me.GetTable(Of InventoryListAllView)
 		End Get
 	End Property
 	
-	Public ReadOnly Property tblTrans_update_logs() As System.Data.Linq.Table(Of tblTrans_update_log)
+	Public ReadOnly Property tblSalesItemsTRs() As System.Data.Linq.Table(Of tblSalesItemsTR)
 		Get
-			Return Me.GetTable(Of tblTrans_update_log)
+			Return Me.GetTable(Of tblSalesItemsTR)
+		End Get
+	End Property
+	
+	Public ReadOnly Property tblSalesDelivers() As System.Data.Linq.Table(Of tblSalesDeliver)
+		Get
+			Return Me.GetTable(Of tblSalesDeliver)
+		End Get
+	End Property
+	
+	Public ReadOnly Property tblUsers() As System.Data.Linq.Table(Of tblUser)
+		Get
+			Return Me.GetTable(Of tblUser)
 		End Get
 	End Property
 End Class
@@ -801,349 +813,6 @@ Partial Public Class tblSalesChargeInvoice
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblSalesDeliver")>  _
-Partial Public Class tblSalesDeliver
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _salesDeliverNo As String
-	
-	Private _transDate As System.Nullable(Of Date)
-	
-	Private _refNo As String
-	
-	Private _cardID As String
-	
-	Private _totalAmount As System.Nullable(Of Decimal)
-	
-	Private _userID As String
-	
-	Private _status As String
-	
-	Private _notimesedit As System.Nullable(Of Integer)
-	
-	Private _lastdateedit As System.Nullable(Of Date)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnsalesDeliverNoChanging(value As String)
-    End Sub
-    Partial Private Sub OnsalesDeliverNoChanged()
-    End Sub
-    Partial Private Sub OntransDateChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OntransDateChanged()
-    End Sub
-    Partial Private Sub OnrefNoChanging(value As String)
-    End Sub
-    Partial Private Sub OnrefNoChanged()
-    End Sub
-    Partial Private Sub OncardIDChanging(value As String)
-    End Sub
-    Partial Private Sub OncardIDChanged()
-    End Sub
-    Partial Private Sub OntotalAmountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OntotalAmountChanged()
-    End Sub
-    Partial Private Sub OnuserIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnuserIDChanged()
-    End Sub
-    Partial Private Sub OnstatusChanging(value As String)
-    End Sub
-    Partial Private Sub OnstatusChanged()
-    End Sub
-    Partial Private Sub OnnotimeseditChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnnotimeseditChanged()
-    End Sub
-    Partial Private Sub OnlastdateeditChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnlastdateeditChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_salesDeliverNo", DbType:="VarChar(255) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
-	Public Property salesDeliverNo() As String
-		Get
-			Return Me._salesDeliverNo
-		End Get
-		Set
-			If (String.Equals(Me._salesDeliverNo, value) = false) Then
-				Me.OnsalesDeliverNoChanging(value)
-				Me.SendPropertyChanging
-				Me._salesDeliverNo = value
-				Me.SendPropertyChanged("salesDeliverNo")
-				Me.OnsalesDeliverNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_transDate", DbType:="DateTime2")>  _
-	Public Property transDate() As System.Nullable(Of Date)
-		Get
-			Return Me._transDate
-		End Get
-		Set
-			If (Me._transDate.Equals(value) = false) Then
-				Me.OntransDateChanging(value)
-				Me.SendPropertyChanging
-				Me._transDate = value
-				Me.SendPropertyChanged("transDate")
-				Me.OntransDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_refNo", DbType:="VarChar(255)")>  _
-	Public Property refNo() As String
-		Get
-			Return Me._refNo
-		End Get
-		Set
-			If (String.Equals(Me._refNo, value) = false) Then
-				Me.OnrefNoChanging(value)
-				Me.SendPropertyChanging
-				Me._refNo = value
-				Me.SendPropertyChanged("refNo")
-				Me.OnrefNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cardID", DbType:="VarChar(255)")>  _
-	Public Property cardID() As String
-		Get
-			Return Me._cardID
-		End Get
-		Set
-			If (String.Equals(Me._cardID, value) = false) Then
-				Me.OncardIDChanging(value)
-				Me.SendPropertyChanging
-				Me._cardID = value
-				Me.SendPropertyChanged("cardID")
-				Me.OncardIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_totalAmount", DbType:="Decimal(20,2)")>  _
-	Public Property totalAmount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._totalAmount
-		End Get
-		Set
-			If (Me._totalAmount.Equals(value) = false) Then
-				Me.OntotalAmountChanging(value)
-				Me.SendPropertyChanging
-				Me._totalAmount = value
-				Me.SendPropertyChanged("totalAmount")
-				Me.OntotalAmountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_userID", DbType:="VarChar(255)")>  _
-	Public Property userID() As String
-		Get
-			Return Me._userID
-		End Get
-		Set
-			If (String.Equals(Me._userID, value) = false) Then
-				Me.OnuserIDChanging(value)
-				Me.SendPropertyChanging
-				Me._userID = value
-				Me.SendPropertyChanged("userID")
-				Me.OnuserIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_status", DbType:="VarChar(255)")>  _
-	Public Property status() As String
-		Get
-			Return Me._status
-		End Get
-		Set
-			If (String.Equals(Me._status, value) = false) Then
-				Me.OnstatusChanging(value)
-				Me.SendPropertyChanging
-				Me._status = value
-				Me.SendPropertyChanged("status")
-				Me.OnstatusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_notimesedit", DbType:="Int")>  _
-	Public Property notimesedit() As System.Nullable(Of Integer)
-		Get
-			Return Me._notimesedit
-		End Get
-		Set
-			If (Me._notimesedit.Equals(value) = false) Then
-				Me.OnnotimeseditChanging(value)
-				Me.SendPropertyChanging
-				Me._notimesedit = value
-				Me.SendPropertyChanged("notimesedit")
-				Me.OnnotimeseditChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lastdateedit", DbType:="DateTime2")>  _
-	Public Property lastdateedit() As System.Nullable(Of Date)
-		Get
-			Return Me._lastdateedit
-		End Get
-		Set
-			If (Me._lastdateedit.Equals(value) = false) Then
-				Me.OnlastdateeditChanging(value)
-				Me.SendPropertyChanging
-				Me._lastdateedit = value
-				Me.SendPropertyChanged("lastdateedit")
-				Me.OnlastdateeditChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblSalesItemsTR")>  _
-Partial Public Class tblSalesItemsTR
-	
-	Private _transNo As String
-	
-	Private _itemNo As String
-	
-	Private _qty As System.Nullable(Of Integer)
-	
-	Private _uPrice As System.Nullable(Of Decimal)
-	
-	Private _discount As System.Nullable(Of Decimal)
-	
-	Private _amount As System.Nullable(Of Decimal)
-	
-	Private _cost As System.Nullable(Of Decimal)
-	
-	Public Sub New()
-		MyBase.New
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_transNo", DbType:="VarChar(255)")>  _
-	Public Property transNo() As String
-		Get
-			Return Me._transNo
-		End Get
-		Set
-			If (String.Equals(Me._transNo, value) = false) Then
-				Me._transNo = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemNo", DbType:="VarChar(255)")>  _
-	Public Property itemNo() As String
-		Get
-			Return Me._itemNo
-		End Get
-		Set
-			If (String.Equals(Me._itemNo, value) = false) Then
-				Me._itemNo = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_qty", DbType:="Int")>  _
-	Public Property qty() As System.Nullable(Of Integer)
-		Get
-			Return Me._qty
-		End Get
-		Set
-			If (Me._qty.Equals(value) = false) Then
-				Me._qty = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_uPrice", DbType:="Decimal(20,2)")>  _
-	Public Property uPrice() As System.Nullable(Of Decimal)
-		Get
-			Return Me._uPrice
-		End Get
-		Set
-			If (Me._uPrice.Equals(value) = false) Then
-				Me._uPrice = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_discount", DbType:="Decimal(20,2)")>  _
-	Public Property discount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._discount
-		End Get
-		Set
-			If (Me._discount.Equals(value) = false) Then
-				Me._discount = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_amount", DbType:="Decimal(20,2)")>  _
-	Public Property amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._amount
-		End Get
-		Set
-			If (Me._amount.Equals(value) = false) Then
-				Me._amount = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cost", DbType:="Decimal(20,2)")>  _
-	Public Property cost() As System.Nullable(Of Decimal)
-		Get
-			Return Me._cost
-		End Get
-		Set
-			If (Me._cost.Equals(value) = false) Then
-				Me._cost = value
-			End If
-		End Set
-	End Property
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblSalesOrder")>  _
 Partial Public Class tblSalesOrder
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1169,6 +838,8 @@ Partial Public Class tblSalesOrder
 	Private _lastdateedit As System.Nullable(Of Date)
 	
 	Private _tblCardsProfile As EntityRef(Of tblCardsProfile)
+	
+	Private _tblUser As EntityRef(Of tblUser)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -1218,6 +889,7 @@ Partial Public Class tblSalesOrder
 	Public Sub New()
 		MyBase.New
 		Me._tblCardsProfile = CType(Nothing, EntityRef(Of tblCardsProfile))
+		Me._tblUser = CType(Nothing, EntityRef(Of tblUser))
 		OnCreated
 	End Sub
 	
@@ -1311,6 +983,9 @@ Partial Public Class tblSalesOrder
 		End Get
 		Set
 			If (String.Equals(Me._userID, value) = false) Then
+				If Me._tblUser.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
 				Me.OnuserIDChanging(value)
 				Me.SendPropertyChanging
 				Me._userID = value
@@ -1396,6 +1071,34 @@ Partial Public Class tblSalesOrder
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tblUser_tblSalesOrder", Storage:="_tblUser", ThisKey:="userID", OtherKey:="userID", IsForeignKey:=true)>  _
+	Public Property tblUser() As tblUser
+		Get
+			Return Me._tblUser.Entity
+		End Get
+		Set
+			Dim previousValue As tblUser = Me._tblUser.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._tblUser.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._tblUser.Entity = Nothing
+					previousValue.tblSalesOrders.Remove(Me)
+				End If
+				Me._tblUser.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.tblSalesOrders.Add(Me)
+					Me._userID = value.userID
+				Else
+					Me._userID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("tblUser")
+			End If
+		End Set
+	End Property
+	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -1438,6 +1141,8 @@ Partial Public Class tblSalesQuotation
 	Private _lastdateedit As System.Nullable(Of Date)
 	
 	Private _tblCardsProfile As EntityRef(Of tblCardsProfile)
+	
+	Private _tblUser As EntityRef(Of tblUser)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -1483,6 +1188,7 @@ Partial Public Class tblSalesQuotation
 	Public Sub New()
 		MyBase.New
 		Me._tblCardsProfile = CType(Nothing, EntityRef(Of tblCardsProfile))
+		Me._tblUser = CType(Nothing, EntityRef(Of tblUser))
 		OnCreated
 	End Sub
 	
@@ -1560,6 +1266,9 @@ Partial Public Class tblSalesQuotation
 		End Get
 		Set
 			If (String.Equals(Me._userID, value) = false) Then
+				If Me._tblUser.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
 				Me.OnuserIDChanging(value)
 				Me.SendPropertyChanging
 				Me._userID = value
@@ -1641,6 +1350,34 @@ Partial Public Class tblSalesQuotation
 					Me._cardID = CType(Nothing, String)
 				End If
 				Me.SendPropertyChanged("tblCardsProfile")
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tblUser_tblSalesQuotation", Storage:="_tblUser", ThisKey:="userID", OtherKey:="userID", IsForeignKey:=true)>  _
+	Public Property tblUser() As tblUser
+		Get
+			Return Me._tblUser.Entity
+		End Get
+		Set
+			Dim previousValue As tblUser = Me._tblUser.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._tblUser.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._tblUser.Entity = Nothing
+					previousValue.tblSalesQuotations.Remove(Me)
+				End If
+				Me._tblUser.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.tblSalesQuotations.Add(Me)
+					Me._userID = value.userID
+				Else
+					Me._userID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("tblUser")
 			End If
 		End Set
 	End Property
@@ -3362,212 +3099,6 @@ Partial Public Class tblSales_price
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.InventoryListAllView")>  _
-Partial Public Class InventoryListAllView
-	
-	Private _ITEMNO As String
-	
-	Private _ITEMDESC As String
-	
-	Private _UNIT As String
-	
-	Private _UNITCOST As System.Nullable(Of Decimal)
-	
-	Private _UNITPRICE As System.Nullable(Of Decimal)
-	
-	Private _QTY As System.Nullable(Of Decimal)
-	
-	Private _BUYABLE As String
-	
-	Private _SELLABLE As String
-	
-	Private _INVENTORABLE As String
-	
-	Private _COSTOFSALESACC As String
-	
-	Private _INCOMEACC As String
-	
-	Private _ASSETACC As String
-	
-	Private _MINQTY As Integer
-	
-	Private _UNIT_WT As Decimal
-	
-	Public Sub New()
-		MyBase.New
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ITEMNO", DbType:="VarChar(255) NOT NULL", CanBeNull:=false)>  _
-	Public Property ITEMNO() As String
-		Get
-			Return Me._ITEMNO
-		End Get
-		Set
-			If (String.Equals(Me._ITEMNO, value) = false) Then
-				Me._ITEMNO = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ITEMDESC", DbType:="VarChar(255)")>  _
-	Public Property ITEMDESC() As String
-		Get
-			Return Me._ITEMDESC
-		End Get
-		Set
-			If (String.Equals(Me._ITEMDESC, value) = false) Then
-				Me._ITEMDESC = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNIT", DbType:="VarChar(255) NOT NULL", CanBeNull:=false)>  _
-	Public Property UNIT() As String
-		Get
-			Return Me._UNIT
-		End Get
-		Set
-			If (String.Equals(Me._UNIT, value) = false) Then
-				Me._UNIT = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNITCOST", DbType:="Decimal(38,6)")>  _
-	Public Property UNITCOST() As System.Nullable(Of Decimal)
-		Get
-			Return Me._UNITCOST
-		End Get
-		Set
-			If (Me._UNITCOST.Equals(value) = false) Then
-				Me._UNITCOST = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNITPRICE", DbType:="Decimal(20,2)")>  _
-	Public Property UNITPRICE() As System.Nullable(Of Decimal)
-		Get
-			Return Me._UNITPRICE
-		End Get
-		Set
-			If (Me._UNITPRICE.Equals(value) = false) Then
-				Me._UNITPRICE = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_QTY", DbType:="Decimal(38,0)")>  _
-	Public Property QTY() As System.Nullable(Of Decimal)
-		Get
-			Return Me._QTY
-		End Get
-		Set
-			If (Me._QTY.Equals(value) = false) Then
-				Me._QTY = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BUYABLE", DbType:="VarChar(255)")>  _
-	Public Property BUYABLE() As String
-		Get
-			Return Me._BUYABLE
-		End Get
-		Set
-			If (String.Equals(Me._BUYABLE, value) = false) Then
-				Me._BUYABLE = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SELLABLE", DbType:="VarChar(255)")>  _
-	Public Property SELLABLE() As String
-		Get
-			Return Me._SELLABLE
-		End Get
-		Set
-			If (String.Equals(Me._SELLABLE, value) = false) Then
-				Me._SELLABLE = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_INVENTORABLE", DbType:="VarChar(255)")>  _
-	Public Property INVENTORABLE() As String
-		Get
-			Return Me._INVENTORABLE
-		End Get
-		Set
-			If (String.Equals(Me._INVENTORABLE, value) = false) Then
-				Me._INVENTORABLE = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_COSTOFSALESACC", DbType:="VarChar(255)")>  _
-	Public Property COSTOFSALESACC() As String
-		Get
-			Return Me._COSTOFSALESACC
-		End Get
-		Set
-			If (String.Equals(Me._COSTOFSALESACC, value) = false) Then
-				Me._COSTOFSALESACC = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_INCOMEACC", DbType:="VarChar(255)")>  _
-	Public Property INCOMEACC() As String
-		Get
-			Return Me._INCOMEACC
-		End Get
-		Set
-			If (String.Equals(Me._INCOMEACC, value) = false) Then
-				Me._INCOMEACC = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ASSETACC", DbType:="VarChar(255)")>  _
-	Public Property ASSETACC() As String
-		Get
-			Return Me._ASSETACC
-		End Get
-		Set
-			If (String.Equals(Me._ASSETACC, value) = false) Then
-				Me._ASSETACC = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MINQTY", DbType:="Int NOT NULL")>  _
-	Public Property MINQTY() As Integer
-		Get
-			Return Me._MINQTY
-		End Get
-		Set
-			If ((Me._MINQTY = value)  _
-						= false) Then
-				Me._MINQTY = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNIT_WT", DbType:="Decimal(20,0) NOT NULL")>  _
-	Public Property UNIT_WT() As Decimal
-		Get
-			Return Me._UNIT_WT
-		End Get
-		Set
-			If ((Me._UNIT_WT = value)  _
-						= false) Then
-				Me._UNIT_WT = value
-			End If
-		End Set
-	End Property
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblTrans_update_logs")>  _
 Partial Public Class tblTrans_update_log
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -3736,5 +3267,798 @@ Partial Public Class tblTrans_update_log
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.InventoryListAllView")>  _
+Partial Public Class InventoryListAllView
+	
+	Private _ITEMNO As String
+	
+	Private _ITEMDESC As String
+	
+	Private _UNIT As String
+	
+	Private _UNITCOST As System.Nullable(Of Decimal)
+	
+	Private _UNITPRICE As System.Nullable(Of Decimal)
+	
+	Private _QTY As System.Nullable(Of Decimal)
+	
+	Private _BUYABLE As String
+	
+	Private _SELLABLE As String
+	
+	Private _INVENTORABLE As String
+	
+	Private _COSTOFSALESACC As String
+	
+	Private _INCOMEACC As String
+	
+	Private _ASSETACC As String
+	
+	Private _MINQTY As Integer
+	
+	Private _PC_QTY As System.Nullable(Of Integer)
+	
+	Private _STATUS As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ITEMNO", DbType:="VarChar(255) NOT NULL", CanBeNull:=false)>  _
+	Public Property ITEMNO() As String
+		Get
+			Return Me._ITEMNO
+		End Get
+		Set
+			If (String.Equals(Me._ITEMNO, value) = false) Then
+				Me._ITEMNO = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ITEMDESC", DbType:="VarChar(255)")>  _
+	Public Property ITEMDESC() As String
+		Get
+			Return Me._ITEMDESC
+		End Get
+		Set
+			If (String.Equals(Me._ITEMDESC, value) = false) Then
+				Me._ITEMDESC = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNIT", DbType:="VarChar(255) NOT NULL", CanBeNull:=false)>  _
+	Public Property UNIT() As String
+		Get
+			Return Me._UNIT
+		End Get
+		Set
+			If (String.Equals(Me._UNIT, value) = false) Then
+				Me._UNIT = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNITCOST", DbType:="Decimal(38,6)")>  _
+	Public Property UNITCOST() As System.Nullable(Of Decimal)
+		Get
+			Return Me._UNITCOST
+		End Get
+		Set
+			If (Me._UNITCOST.Equals(value) = false) Then
+				Me._UNITCOST = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UNITPRICE", DbType:="Decimal(20,2)")>  _
+	Public Property UNITPRICE() As System.Nullable(Of Decimal)
+		Get
+			Return Me._UNITPRICE
+		End Get
+		Set
+			If (Me._UNITPRICE.Equals(value) = false) Then
+				Me._UNITPRICE = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_QTY", DbType:="Decimal(38,0)")>  _
+	Public Property QTY() As System.Nullable(Of Decimal)
+		Get
+			Return Me._QTY
+		End Get
+		Set
+			If (Me._QTY.Equals(value) = false) Then
+				Me._QTY = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BUYABLE", DbType:="VarChar(255)")>  _
+	Public Property BUYABLE() As String
+		Get
+			Return Me._BUYABLE
+		End Get
+		Set
+			If (String.Equals(Me._BUYABLE, value) = false) Then
+				Me._BUYABLE = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SELLABLE", DbType:="VarChar(255)")>  _
+	Public Property SELLABLE() As String
+		Get
+			Return Me._SELLABLE
+		End Get
+		Set
+			If (String.Equals(Me._SELLABLE, value) = false) Then
+				Me._SELLABLE = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_INVENTORABLE", DbType:="VarChar(255)")>  _
+	Public Property INVENTORABLE() As String
+		Get
+			Return Me._INVENTORABLE
+		End Get
+		Set
+			If (String.Equals(Me._INVENTORABLE, value) = false) Then
+				Me._INVENTORABLE = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_COSTOFSALESACC", DbType:="VarChar(255)")>  _
+	Public Property COSTOFSALESACC() As String
+		Get
+			Return Me._COSTOFSALESACC
+		End Get
+		Set
+			If (String.Equals(Me._COSTOFSALESACC, value) = false) Then
+				Me._COSTOFSALESACC = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_INCOMEACC", DbType:="VarChar(255)")>  _
+	Public Property INCOMEACC() As String
+		Get
+			Return Me._INCOMEACC
+		End Get
+		Set
+			If (String.Equals(Me._INCOMEACC, value) = false) Then
+				Me._INCOMEACC = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ASSETACC", DbType:="VarChar(255)")>  _
+	Public Property ASSETACC() As String
+		Get
+			Return Me._ASSETACC
+		End Get
+		Set
+			If (String.Equals(Me._ASSETACC, value) = false) Then
+				Me._ASSETACC = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MINQTY", DbType:="Int NOT NULL")>  _
+	Public Property MINQTY() As Integer
+		Get
+			Return Me._MINQTY
+		End Get
+		Set
+			If ((Me._MINQTY = value)  _
+						= false) Then
+				Me._MINQTY = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_PC_QTY", DbType:="Int")>  _
+	Public Property PC_QTY() As System.Nullable(Of Integer)
+		Get
+			Return Me._PC_QTY
+		End Get
+		Set
+			If (Me._PC_QTY.Equals(value) = false) Then
+				Me._PC_QTY = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_STATUS", DbType:="VarChar(255)")>  _
+	Public Property STATUS() As String
+		Get
+			Return Me._STATUS
+		End Get
+		Set
+			If (String.Equals(Me._STATUS, value) = false) Then
+				Me._STATUS = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblSalesItemsTR")>  _
+Partial Public Class tblSalesItemsTR
+	
+	Private _transNo As String
+	
+	Private _itemNo As String
+	
+	Private _qty As System.Nullable(Of Decimal)
+	
+	Private _uPrice As System.Nullable(Of Decimal)
+	
+	Private _discount As System.Nullable(Of Decimal)
+	
+	Private _amount As System.Nullable(Of Decimal)
+	
+	Private _cost As System.Nullable(Of Decimal)
+	
+	Private _pc As System.Nullable(Of Integer)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_transNo", DbType:="VarChar(255)")>  _
+	Public Property transNo() As String
+		Get
+			Return Me._transNo
+		End Get
+		Set
+			If (String.Equals(Me._transNo, value) = false) Then
+				Me._transNo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_itemNo", DbType:="VarChar(255)")>  _
+	Public Property itemNo() As String
+		Get
+			Return Me._itemNo
+		End Get
+		Set
+			If (String.Equals(Me._itemNo, value) = false) Then
+				Me._itemNo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_qty", DbType:="Decimal(20,2)")>  _
+	Public Property qty() As System.Nullable(Of Decimal)
+		Get
+			Return Me._qty
+		End Get
+		Set
+			If (Me._qty.Equals(value) = false) Then
+				Me._qty = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_uPrice", DbType:="Decimal(20,2)")>  _
+	Public Property uPrice() As System.Nullable(Of Decimal)
+		Get
+			Return Me._uPrice
+		End Get
+		Set
+			If (Me._uPrice.Equals(value) = false) Then
+				Me._uPrice = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_discount", DbType:="Decimal(20,2)")>  _
+	Public Property discount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._discount
+		End Get
+		Set
+			If (Me._discount.Equals(value) = false) Then
+				Me._discount = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_amount", DbType:="Decimal(20,2)")>  _
+	Public Property amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._amount
+		End Get
+		Set
+			If (Me._amount.Equals(value) = false) Then
+				Me._amount = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cost", DbType:="Decimal(20,2)")>  _
+	Public Property cost() As System.Nullable(Of Decimal)
+		Get
+			Return Me._cost
+		End Get
+		Set
+			If (Me._cost.Equals(value) = false) Then
+				Me._cost = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pc", DbType:="Int")>  _
+	Public Property pc() As System.Nullable(Of Integer)
+		Get
+			Return Me._pc
+		End Get
+		Set
+			If (Me._pc.Equals(value) = false) Then
+				Me._pc = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblSalesDeliver")>  _
+Partial Public Class tblSalesDeliver
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _salesDeliverNo As String
+	
+	Private _transDate As System.Nullable(Of Date)
+	
+	Private _refNo As String
+	
+	Private _cardID As String
+	
+	Private _totalAmount As System.Nullable(Of Decimal)
+	
+	Private _userID As String
+	
+	Private _status As String
+	
+	Private _notimesedit As System.Nullable(Of Integer)
+	
+	Private _lastdateedit As System.Nullable(Of Date)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnsalesDeliverNoChanging(value As String)
+    End Sub
+    Partial Private Sub OnsalesDeliverNoChanged()
+    End Sub
+    Partial Private Sub OntransDateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OntransDateChanged()
+    End Sub
+    Partial Private Sub OnrefNoChanging(value As String)
+    End Sub
+    Partial Private Sub OnrefNoChanged()
+    End Sub
+    Partial Private Sub OncardIDChanging(value As String)
+    End Sub
+    Partial Private Sub OncardIDChanged()
+    End Sub
+    Partial Private Sub OntotalAmountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OntotalAmountChanged()
+    End Sub
+    Partial Private Sub OnuserIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnuserIDChanged()
+    End Sub
+    Partial Private Sub OnstatusChanging(value As String)
+    End Sub
+    Partial Private Sub OnstatusChanged()
+    End Sub
+    Partial Private Sub OnnotimeseditChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnnotimeseditChanged()
+    End Sub
+    Partial Private Sub OnlastdateeditChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnlastdateeditChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_salesDeliverNo", DbType:="VarChar(255) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property salesDeliverNo() As String
+		Get
+			Return Me._salesDeliverNo
+		End Get
+		Set
+			If (String.Equals(Me._salesDeliverNo, value) = false) Then
+				Me.OnsalesDeliverNoChanging(value)
+				Me.SendPropertyChanging
+				Me._salesDeliverNo = value
+				Me.SendPropertyChanged("salesDeliverNo")
+				Me.OnsalesDeliverNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_transDate", DbType:="DateTime2")>  _
+	Public Property transDate() As System.Nullable(Of Date)
+		Get
+			Return Me._transDate
+		End Get
+		Set
+			If (Me._transDate.Equals(value) = false) Then
+				Me.OntransDateChanging(value)
+				Me.SendPropertyChanging
+				Me._transDate = value
+				Me.SendPropertyChanged("transDate")
+				Me.OntransDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_refNo", DbType:="VarChar(255)")>  _
+	Public Property refNo() As String
+		Get
+			Return Me._refNo
+		End Get
+		Set
+			If (String.Equals(Me._refNo, value) = false) Then
+				Me.OnrefNoChanging(value)
+				Me.SendPropertyChanging
+				Me._refNo = value
+				Me.SendPropertyChanged("refNo")
+				Me.OnrefNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cardID", DbType:="VarChar(255)")>  _
+	Public Property cardID() As String
+		Get
+			Return Me._cardID
+		End Get
+		Set
+			If (String.Equals(Me._cardID, value) = false) Then
+				Me.OncardIDChanging(value)
+				Me.SendPropertyChanging
+				Me._cardID = value
+				Me.SendPropertyChanged("cardID")
+				Me.OncardIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_totalAmount", DbType:="Decimal(20,2)")>  _
+	Public Property totalAmount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._totalAmount
+		End Get
+		Set
+			If (Me._totalAmount.Equals(value) = false) Then
+				Me.OntotalAmountChanging(value)
+				Me.SendPropertyChanging
+				Me._totalAmount = value
+				Me.SendPropertyChanged("totalAmount")
+				Me.OntotalAmountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_userID", DbType:="VarChar(255)")>  _
+	Public Property userID() As String
+		Get
+			Return Me._userID
+		End Get
+		Set
+			If (String.Equals(Me._userID, value) = false) Then
+				Me.OnuserIDChanging(value)
+				Me.SendPropertyChanging
+				Me._userID = value
+				Me.SendPropertyChanged("userID")
+				Me.OnuserIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_status", DbType:="VarChar(255)")>  _
+	Public Property status() As String
+		Get
+			Return Me._status
+		End Get
+		Set
+			If (String.Equals(Me._status, value) = false) Then
+				Me.OnstatusChanging(value)
+				Me.SendPropertyChanging
+				Me._status = value
+				Me.SendPropertyChanged("status")
+				Me.OnstatusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_notimesedit", DbType:="Int")>  _
+	Public Property notimesedit() As System.Nullable(Of Integer)
+		Get
+			Return Me._notimesedit
+		End Get
+		Set
+			If (Me._notimesedit.Equals(value) = false) Then
+				Me.OnnotimeseditChanging(value)
+				Me.SendPropertyChanging
+				Me._notimesedit = value
+				Me.SendPropertyChanged("notimesedit")
+				Me.OnnotimeseditChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lastdateedit", DbType:="DateTime2")>  _
+	Public Property lastdateedit() As System.Nullable(Of Date)
+		Get
+			Return Me._lastdateedit
+		End Get
+		Set
+			If (Me._lastdateedit.Equals(value) = false) Then
+				Me.OnlastdateeditChanging(value)
+				Me.SendPropertyChanging
+				Me._lastdateedit = value
+				Me.SendPropertyChanged("lastdateedit")
+				Me.OnlastdateeditChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblUsers")>  _
+Partial Public Class tblUser
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _userID As String
+	
+	Private _username As String
+	
+	Private _password As String
+	
+	Private _name As String
+	
+	Private _role As String
+	
+	Private _isActive As String
+	
+	Private _tblSalesOrders As EntitySet(Of tblSalesOrder)
+	
+	Private _tblSalesQuotations As EntitySet(Of tblSalesQuotation)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnuserIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnuserIDChanged()
+    End Sub
+    Partial Private Sub OnusernameChanging(value As String)
+    End Sub
+    Partial Private Sub OnusernameChanged()
+    End Sub
+    Partial Private Sub OnpasswordChanging(value As String)
+    End Sub
+    Partial Private Sub OnpasswordChanged()
+    End Sub
+    Partial Private Sub OnnameChanging(value As String)
+    End Sub
+    Partial Private Sub OnnameChanged()
+    End Sub
+    Partial Private Sub OnroleChanging(value As String)
+    End Sub
+    Partial Private Sub OnroleChanged()
+    End Sub
+    Partial Private Sub OnisActiveChanging(value As String)
+    End Sub
+    Partial Private Sub OnisActiveChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._tblSalesOrders = New EntitySet(Of tblSalesOrder)(AddressOf Me.attach_tblSalesOrders, AddressOf Me.detach_tblSalesOrders)
+		Me._tblSalesQuotations = New EntitySet(Of tblSalesQuotation)(AddressOf Me.attach_tblSalesQuotations, AddressOf Me.detach_tblSalesQuotations)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_userID", DbType:="VarChar(255) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property userID() As String
+		Get
+			Return Me._userID
+		End Get
+		Set
+			If (String.Equals(Me._userID, value) = false) Then
+				Me.OnuserIDChanging(value)
+				Me.SendPropertyChanging
+				Me._userID = value
+				Me.SendPropertyChanged("userID")
+				Me.OnuserIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_username", DbType:="VarChar(255)")>  _
+	Public Property username() As String
+		Get
+			Return Me._username
+		End Get
+		Set
+			If (String.Equals(Me._username, value) = false) Then
+				Me.OnusernameChanging(value)
+				Me.SendPropertyChanging
+				Me._username = value
+				Me.SendPropertyChanged("username")
+				Me.OnusernameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_password", DbType:="VarChar(255)")>  _
+	Public Property password() As String
+		Get
+			Return Me._password
+		End Get
+		Set
+			If (String.Equals(Me._password, value) = false) Then
+				Me.OnpasswordChanging(value)
+				Me.SendPropertyChanging
+				Me._password = value
+				Me.SendPropertyChanged("password")
+				Me.OnpasswordChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_name", DbType:="VarChar(255)")>  _
+	Public Property name() As String
+		Get
+			Return Me._name
+		End Get
+		Set
+			If (String.Equals(Me._name, value) = false) Then
+				Me.OnnameChanging(value)
+				Me.SendPropertyChanging
+				Me._name = value
+				Me.SendPropertyChanged("name")
+				Me.OnnameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_role", DbType:="VarChar(255)")>  _
+	Public Property role() As String
+		Get
+			Return Me._role
+		End Get
+		Set
+			If (String.Equals(Me._role, value) = false) Then
+				Me.OnroleChanging(value)
+				Me.SendPropertyChanging
+				Me._role = value
+				Me.SendPropertyChanged("role")
+				Me.OnroleChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_isActive", DbType:="VarChar(255)")>  _
+	Public Property isActive() As String
+		Get
+			Return Me._isActive
+		End Get
+		Set
+			If (String.Equals(Me._isActive, value) = false) Then
+				Me.OnisActiveChanging(value)
+				Me.SendPropertyChanging
+				Me._isActive = value
+				Me.SendPropertyChanged("isActive")
+				Me.OnisActiveChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tblUser_tblSalesOrder", Storage:="_tblSalesOrders", ThisKey:="userID", OtherKey:="userID")>  _
+	Public Property tblSalesOrders() As EntitySet(Of tblSalesOrder)
+		Get
+			Return Me._tblSalesOrders
+		End Get
+		Set
+			Me._tblSalesOrders.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="tblUser_tblSalesQuotation", Storage:="_tblSalesQuotations", ThisKey:="userID", OtherKey:="userID")>  _
+	Public Property tblSalesQuotations() As EntitySet(Of tblSalesQuotation)
+		Get
+			Return Me._tblSalesQuotations
+		End Get
+		Set
+			Me._tblSalesQuotations.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_tblSalesOrders(ByVal entity As tblSalesOrder)
+		Me.SendPropertyChanging
+		entity.tblUser = Me
+	End Sub
+	
+	Private Sub detach_tblSalesOrders(ByVal entity As tblSalesOrder)
+		Me.SendPropertyChanging
+		entity.tblUser = Nothing
+	End Sub
+	
+	Private Sub attach_tblSalesQuotations(ByVal entity As tblSalesQuotation)
+		Me.SendPropertyChanging
+		entity.tblUser = Me
+	End Sub
+	
+	Private Sub detach_tblSalesQuotations(ByVal entity As tblSalesQuotation)
+		Me.SendPropertyChanging
+		entity.tblUser = Nothing
 	End Sub
 End Class

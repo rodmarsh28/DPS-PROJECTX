@@ -38,6 +38,7 @@ Partial Class InventoryList
         Me.IncomeAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AssetAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pcQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -50,7 +51,7 @@ Partial Class InventoryList
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Item_No, Me.Description, Me.Unit, Me.Sell_Price, Me.Onhand, Me.CostAccount, Me.IncomeAccount, Me.AssetAccount, Me.Column1})
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Item_No, Me.Description, Me.Unit, Me.Sell_Price, Me.Onhand, Me.CostAccount, Me.IncomeAccount, Me.AssetAccount, Me.Column1, Me.pcQTY})
         Me.dgv.Location = New System.Drawing.Point(12, 36)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
@@ -159,6 +160,12 @@ Partial Class InventoryList
         Me.Column1.ReadOnly = True
         Me.Column1.Visible = False
         '
+        'pcQTY
+        '
+        Me.pcQTY.HeaderText = "Onhand"
+        Me.pcQTY.Name = "pcQTY"
+        Me.pcQTY.ReadOnly = True
+        '
         'InventoryList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -192,4 +199,5 @@ Partial Class InventoryList
     Friend WithEvents IncomeAccount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AssetAccount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents pcQTY As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

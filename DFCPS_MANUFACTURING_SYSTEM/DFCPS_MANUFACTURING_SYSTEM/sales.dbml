@@ -30,30 +30,6 @@
       <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblSalesDeliver" Member="tblSalesDelivers">
-    <Type Name="tblSalesDeliver">
-      <Column Name="salesDeliverNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblSalesItemsTR" Member="tblSalesItemsTRs">
-    <Type Name="tblSalesItemsTR">
-      <Column Name="transNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="itemNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="uPrice" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="discount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="amount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="cost" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblSalesOrder" Member="tblSalesOrders">
     <Type Name="tblSalesOrder">
       <Column Name="salesOrderNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -66,6 +42,7 @@
       <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
       <Association Name="tblCardsProfile_tblSalesOrder" Member="tblCardsProfile" ThisKey="cardID" OtherKey="cardID" Type="tblCardsProfile" IsForeignKey="true" />
+      <Association Name="tblUser_tblSalesOrder" Member="tblUser" ThisKey="userID" OtherKey="userID" Type="tblUser" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblSalesQuotation" Member="tblSalesQuotations">
@@ -79,6 +56,7 @@
       <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
       <Association Name="tblCardsProfile_tblSalesQuotation" Member="tblCardsProfile" ThisKey="cardID" OtherKey="cardID" Type="tblCardsProfile" IsForeignKey="true" />
+      <Association Name="tblUser_tblSalesQuotation" Member="tblUser" ThisKey="userID" OtherKey="userID" Type="tblUser" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblCardsProfile" Member="tblCardsProfiles">
@@ -187,6 +165,16 @@
       <Column Name="ref" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tblTrans_update_logs" Member="tblTrans_update_logs">
+    <Type Name="tblTrans_update_log">
+      <Column Name="UPDATE_LOG_ID" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SRC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TR_NO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DATE_OF_ACTION" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="REASON_OF_ACTION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.InventoryListAllView" Member="InventoryListAllViews">
     <Type Name="InventoryListAllView">
       <Column Name="ITEMNO" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
@@ -202,17 +190,45 @@
       <Column Name="INCOMEACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="ASSETACC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="MINQTY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UNIT_WT" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PC_QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblTrans_update_logs" Member="tblTrans_update_logs">
-    <Type Name="tblTrans_update_log">
-      <Column Name="UPDATE_LOG_ID" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SRC" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="TR_NO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="DATE_OF_ACTION" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="REASON_OF_ACTION" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+  <Table Name="dbo.tblSalesItemsTR" Member="tblSalesItemsTRs">
+    <Type Name="tblSalesItemsTR">
+      <Column Name="transNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="itemNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="qty" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="uPrice" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="discount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="cost" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="pc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSalesDeliver" Member="tblSalesDelivers">
+    <Type Name="tblSalesDeliver">
+      <Column Name="salesDeliverNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="refNo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="cardID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notimesedit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lastdateedit" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUsers" Member="tblUsers">
+    <Type Name="tblUser">
+      <Column Name="userID" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="role" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="tblUser_tblSalesOrder" Member="tblSalesOrders" ThisKey="userID" OtherKey="userID" Type="tblSalesOrder" />
+      <Association Name="tblUser_tblSalesQuotation" Member="tblSalesQuotations" ThisKey="userID" OtherKey="userID" Type="tblSalesQuotation" />
     </Type>
   </Table>
 </Database>

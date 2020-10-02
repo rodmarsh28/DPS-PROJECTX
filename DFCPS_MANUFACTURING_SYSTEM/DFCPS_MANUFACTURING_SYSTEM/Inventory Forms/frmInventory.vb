@@ -15,13 +15,13 @@ Public Class frmInventory
             checkConn()
             If ComboBox1.Text = "All" Then
                 command = 0
-                LV.Columns(5).Text = "Onhand"
+                dgv.Columns(5).HeaderText = "Onhand"
             ElseIf ComboBox1.Text = "Sold" Then
                 command = 1
-                LV.Columns(5).Text = "Qty"
+                dgv.Columns(5).HeaderText = "Qty"
             ElseIf ComboBox1.Text = "Inventoried" Then
                 command = 2
-                LV.Columns(5).Text = "Qty"
+                dgv.Columns(5).HeaderText = "Qty"
             End If
             Dim cmd As New SqlCommand("get_InventoryList", conn)
             With cmd
@@ -33,18 +33,11 @@ Public Class frmInventory
             da.SelectCommand = cmd
             dt.Rows.Clear()
             da.Fill(dt)
-            LV.Items.Clear()
-            For Each row As DataRow In dt.Rows
-                Dim lst As ListViewItem
-                lst = LV.Items.Add(If(row(0) IsNot Nothing, row(0).ToString, ""))
-                For i As Integer = 1 To dt.Columns.Count - 1
-                    lst.SubItems.Add(If(row(i) IsNot Nothing, row(i).ToString, ""))
-                Next
+            dgv.Rows.Clear()
+            For Each r As DataRow In dt.Rows
+                dgv.Rows.Add(r(0), r(1), r(2), r(3), r(4), r(5), r("PC_QTY"))
             Next
-            If rowIndex < LV.Items.Count Then
-                LV.Items(rowIndex).Selected = True
-            End If
-            lblNoCountAll.Text = Format(LV.Items.Count, "N0")
+            lblNoCountAll.Text = Format(dgv.Rows.Count, "N0")
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -71,12 +64,7 @@ Public Class frmInventory
     End Sub
 
 
-    Private Sub LV_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LV.SelectedIndexChanged
-        Try
-            rowIndex = LV.FocusedItem.Index
-        Catch ex As Exception
-        End Try
-    End Sub
+    
 
     Private Sub txtSearchAll_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSearchAll.TextChanged
         rowIndex = 0
@@ -88,7 +76,7 @@ Public Class frmInventory
         frm.btnAdd.Text = "Save Item"
         frm.MdiParent = frmInventorySystemMain
         frm.StartPosition = FormStartPosition.CenterParent
-        frm.txtItemno.Text = LV.SelectedItems(0).SubItems(0).Text
+        frm.txtItemno.Text = dgv.CurrentRow.Cells(0).Value
         frm.update_load()
         frm.Show()
     End Sub
@@ -101,5 +89,13 @@ Public Class frmInventory
 
     Private Sub frmInventory_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
 
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then
+            dgv.Columns(6).Visible = True
+        Else
+            dgv.Columns(6).Visible = False
+        End If
     End Sub
 End Class

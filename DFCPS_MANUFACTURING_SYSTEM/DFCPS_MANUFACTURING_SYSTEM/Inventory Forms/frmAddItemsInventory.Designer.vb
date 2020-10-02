@@ -48,18 +48,18 @@ Partial Class frmAddItemsInventory
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtUnitPrice = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtUnitCost = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtWt = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtUnit = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtMinQTY = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtBalQty = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtPC = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtUnit = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtUnitPrice = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtUnitCost = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -314,7 +314,7 @@ Partial Class frmAddItemsInventory
         Me.GroupBox2.Controls.Add(Me.txtBalQty)
         Me.GroupBox2.Controls.Add(Me.btnAdd)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.txtWt)
+        Me.GroupBox2.Controls.Add(Me.txtPC)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.txtUnit)
         Me.GroupBox2.Controls.Add(Me.Label9)
@@ -327,74 +327,6 @@ Partial Class frmAddItemsInventory
         Me.GroupBox2.TabIndex = 117
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Unit of Measurement"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 114)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(50, 13)
-        Me.Label9.TabIndex = 121
-        Me.Label9.Text = "Unit Cost"
-        '
-        'txtUnitPrice
-        '
-        Me.txtUnitPrice.Location = New System.Drawing.Point(282, 111)
-        Me.txtUnitPrice.Name = "txtUnitPrice"
-        Me.txtUnitPrice.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnitPrice.TabIndex = 120
-        Me.txtUnitPrice.Text = "0.00"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(201, 114)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(53, 13)
-        Me.Label10.TabIndex = 119
-        Me.Label10.Text = "Unit Price"
-        '
-        'txtUnitCost
-        '
-        Me.txtUnitCost.Location = New System.Drawing.Point(97, 111)
-        Me.txtUnitCost.Name = "txtUnitCost"
-        Me.txtUnitCost.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnitCost.TabIndex = 118
-        Me.txtUnitCost.Text = "0.00"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 44)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(32, 13)
-        Me.Label7.TabIndex = 127
-        Me.Label7.Text = "UOM"
-        '
-        'txtWt
-        '
-        Me.txtWt.Location = New System.Drawing.Point(97, 75)
-        Me.txtWt.Name = "txtWt"
-        Me.txtWt.Size = New System.Drawing.Size(87, 20)
-        Me.txtWt.TabIndex = 126
-        Me.txtWt.Text = "0.00"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(14, 72)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(74, 26)
-        Me.Label8.TabIndex = 125
-        Me.Label8.Text = "Weight per " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Unit (Optional)"
-        '
-        'txtUnit
-        '
-        Me.txtUnit.Location = New System.Drawing.Point(97, 42)
-        Me.txtUnit.Name = "txtUnit"
-        Me.txtUnit.Size = New System.Drawing.Size(87, 20)
-        Me.txtUnit.TabIndex = 124
-        Me.txtUnit.Text = "0.00"
         '
         'Label11
         '
@@ -429,6 +361,74 @@ Partial Class frmAddItemsInventory
         Me.txtBalQty.Size = New System.Drawing.Size(87, 20)
         Me.txtBalQty.TabIndex = 128
         Me.txtBalQty.Text = "0.00"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(15, 44)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(32, 13)
+        Me.Label7.TabIndex = 127
+        Me.Label7.Text = "UOM"
+        '
+        'txtPC
+        '
+        Me.txtPC.Location = New System.Drawing.Point(97, 75)
+        Me.txtPC.Name = "txtPC"
+        Me.txtPC.Size = New System.Drawing.Size(87, 20)
+        Me.txtPC.TabIndex = 126
+        Me.txtPC.Text = "0.00"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(14, 72)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(52, 26)
+        Me.Label8.TabIndex = 125
+        Me.Label8.Text = "PC QTY " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Optional)"
+        '
+        'txtUnit
+        '
+        Me.txtUnit.Location = New System.Drawing.Point(97, 42)
+        Me.txtUnit.Name = "txtUnit"
+        Me.txtUnit.Size = New System.Drawing.Size(87, 20)
+        Me.txtUnit.TabIndex = 124
+        Me.txtUnit.Text = "0.00"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(15, 114)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(50, 13)
+        Me.Label9.TabIndex = 121
+        Me.Label9.Text = "Unit Cost"
+        '
+        'txtUnitPrice
+        '
+        Me.txtUnitPrice.Location = New System.Drawing.Point(282, 111)
+        Me.txtUnitPrice.Name = "txtUnitPrice"
+        Me.txtUnitPrice.Size = New System.Drawing.Size(87, 20)
+        Me.txtUnitPrice.TabIndex = 120
+        Me.txtUnitPrice.Text = "0.00"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(201, 114)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(53, 13)
+        Me.Label10.TabIndex = 119
+        Me.Label10.Text = "Unit Price"
+        '
+        'txtUnitCost
+        '
+        Me.txtUnitCost.Location = New System.Drawing.Point(97, 111)
+        Me.txtUnitCost.Name = "txtUnitCost"
+        Me.txtUnitCost.Size = New System.Drawing.Size(87, 20)
+        Me.txtUnitCost.TabIndex = 118
+        Me.txtUnitCost.Text = "0.00"
         '
         'frmAddItemsInventory
         '
@@ -492,5 +492,5 @@ Partial Class frmAddItemsInventory
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtUnit As System.Windows.Forms.TextBox
-    Friend WithEvents txtWt As System.Windows.Forms.TextBox
+    Friend WithEvents txtPC As System.Windows.Forms.TextBox
 End Class

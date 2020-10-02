@@ -53,19 +53,22 @@ Partial Class frmSalesInvoice
         Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblTotDis = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblTotAmount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblTotWt = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearJobToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Pc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Job = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblTotAmount = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -79,14 +82,14 @@ Partial Class frmSalesInvoice
         Me.dgv.AllowUserToResizeRows = False
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column8, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column3, Me.Column7, Me.Job, Me.Column9})
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column8, Me.Column2, Me.Column4, Me.Qty, Me.Pc, Me.Column6, Me.Column3, Me.Column7, Me.Job, Me.Column9})
         Me.dgv.Location = New System.Drawing.Point(12, 129)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
         Me.dgv.RowHeadersVisible = False
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(941, 260)
+        Me.dgv.Size = New System.Drawing.Size(1011, 260)
         Me.dgv.TabIndex = 8
         '
         'Button2
@@ -94,7 +97,7 @@ Partial Class frmSalesInvoice
         Me.Button2.BackColor = System.Drawing.Color.DodgerBlue
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(1101, 379)
+        Me.Button2.Location = New System.Drawing.Point(1176, 379)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(123, 57)
         Me.Button2.TabIndex = 51
@@ -106,7 +109,7 @@ Partial Class frmSalesInvoice
         Me.Button1.BackColor = System.Drawing.Color.DodgerBlue
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(974, 379)
+        Me.Button1.Location = New System.Drawing.Point(1049, 379)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 57)
         Me.Button1.TabIndex = 50
@@ -134,7 +137,7 @@ Partial Class frmSalesInvoice
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1249, 123)
+        Me.GroupBox1.Size = New System.Drawing.Size(1320, 123)
         Me.GroupBox1.TabIndex = 52
         Me.GroupBox1.TabStop = False
         '
@@ -143,7 +146,7 @@ Partial Class frmSalesInvoice
         Me.lblSeries.AutoSize = True
         Me.lblSeries.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSeries.ForeColor = System.Drawing.Color.Maroon
-        Me.lblSeries.Location = New System.Drawing.Point(909, 40)
+        Me.lblSeries.Location = New System.Drawing.Point(1052, 39)
         Me.lblSeries.Name = "lblSeries"
         Me.lblSeries.Size = New System.Drawing.Size(28, 13)
         Me.lblSeries.TabIndex = 134
@@ -151,15 +154,15 @@ Partial Class frmSalesInvoice
         '
         'txtMemo
         '
-        Me.txtMemo.Location = New System.Drawing.Point(246, 75)
+        Me.txtMemo.Location = New System.Drawing.Point(263, 75)
         Me.txtMemo.Name = "txtMemo"
-        Me.txtMemo.Size = New System.Drawing.Size(844, 20)
+        Me.txtMemo.Size = New System.Drawing.Size(1036, 20)
         Me.txtMemo.TabIndex = 133
         '
         'lblARAcc
         '
         Me.lblARAcc.Enabled = False
-        Me.lblARAcc.Location = New System.Drawing.Point(26, 91)
+        Me.lblARAcc.Location = New System.Drawing.Point(43, 91)
         Me.lblARAcc.Name = "lblARAcc"
         Me.lblARAcc.Size = New System.Drawing.Size(160, 20)
         Me.lblARAcc.TabIndex = 132
@@ -168,7 +171,7 @@ Partial Class frmSalesInvoice
         '
         Me.LBLMEMO.AutoSize = True
         Me.LBLMEMO.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBLMEMO.Location = New System.Drawing.Point(243, 58)
+        Me.LBLMEMO.Location = New System.Drawing.Point(260, 58)
         Me.LBLMEMO.Name = "LBLMEMO"
         Me.LBLMEMO.Size = New System.Drawing.Size(44, 13)
         Me.LBLMEMO.TabIndex = 70
@@ -177,7 +180,7 @@ Partial Class frmSalesInvoice
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Location = New System.Drawing.Point(188, 72)
+        Me.Button4.Location = New System.Drawing.Point(205, 72)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(49, 39)
         Me.Button4.TabIndex = 131
@@ -187,7 +190,7 @@ Partial Class frmSalesInvoice
         'txtARAcc
         '
         Me.txtARAcc.Enabled = False
-        Me.txtARAcc.Location = New System.Drawing.Point(26, 72)
+        Me.txtARAcc.Location = New System.Drawing.Point(43, 72)
         Me.txtARAcc.Name = "txtARAcc"
         Me.txtARAcc.Size = New System.Drawing.Size(160, 20)
         Me.txtARAcc.TabIndex = 130
@@ -196,7 +199,7 @@ Partial Class frmSalesInvoice
         '
         Me.lblAR.AutoSize = True
         Me.lblAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAR.Location = New System.Drawing.Point(23, 56)
+        Me.lblAR.Location = New System.Drawing.Point(40, 56)
         Me.lblAR.Name = "lblAR"
         Me.lblAR.Size = New System.Drawing.Size(146, 13)
         Me.lblAR.TabIndex = 129
@@ -206,7 +209,7 @@ Partial Class frmSalesInvoice
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 16)
+        Me.Label2.Location = New System.Drawing.Point(40, 16)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(107, 13)
         Me.Label2.TabIndex = 68
@@ -215,7 +218,7 @@ Partial Class frmSalesInvoice
         'txtRefNo
         '
         Me.txtRefNo.Enabled = False
-        Me.txtRefNo.Location = New System.Drawing.Point(26, 32)
+        Me.txtRefNo.Location = New System.Drawing.Point(43, 32)
         Me.txtRefNo.Name = "txtRefNo"
         Me.txtRefNo.Size = New System.Drawing.Size(286, 20)
         Me.txtRefNo.TabIndex = 67
@@ -223,7 +226,7 @@ Partial Class frmSalesInvoice
         'Button3
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(318, 31)
+        Me.Button3.Location = New System.Drawing.Point(335, 31)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(46, 21)
         Me.Button3.TabIndex = 66
@@ -233,9 +236,9 @@ Partial Class frmSalesInvoice
         'btnSearchCustomer
         '
         Me.btnSearchCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchCustomer.Location = New System.Drawing.Point(848, 32)
+        Me.btnSearchCustomer.Location = New System.Drawing.Point(943, 34)
         Me.btnSearchCustomer.Name = "btnSearchCustomer"
-        Me.btnSearchCustomer.Size = New System.Drawing.Size(46, 21)
+        Me.btnSearchCustomer.Size = New System.Drawing.Size(84, 21)
         Me.btnSearchCustomer.TabIndex = 65
         Me.btnSearchCustomer.Text = ">>>"
         Me.btnSearchCustomer.UseVisualStyleBackColor = True
@@ -244,7 +247,7 @@ Partial Class frmSalesInvoice
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(947, 17)
+        Me.Label1.Location = New System.Drawing.Point(1090, 16)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 13)
         Me.Label1.TabIndex = 61
@@ -255,24 +258,24 @@ Partial Class frmSalesInvoice
         Me.txtSalesNo.Enabled = False
         Me.txtSalesNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSalesNo.ForeColor = System.Drawing.Color.Maroon
-        Me.txtSalesNo.Location = New System.Drawing.Point(950, 33)
+        Me.txtSalesNo.Location = New System.Drawing.Point(1090, 32)
         Me.txtSalesNo.Name = "txtSalesNo"
-        Me.txtSalesNo.Size = New System.Drawing.Size(140, 26)
+        Me.txtSalesNo.Size = New System.Drawing.Size(204, 26)
         Me.txtSalesNo.TabIndex = 60
         '
         'txtName
         '
         Me.txtName.Enabled = False
-        Me.txtName.Location = New System.Drawing.Point(394, 33)
+        Me.txtName.Location = New System.Drawing.Point(411, 33)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(448, 20)
+        Me.txtName.Size = New System.Drawing.Size(526, 20)
         Me.txtName.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(400, 17)
+        Me.Label3.Location = New System.Drawing.Point(417, 17)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(76, 13)
         Me.Label3.TabIndex = 64
@@ -285,7 +288,7 @@ Partial Class frmSalesInvoice
         Me.lblFormMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblFormMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFormMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblFormMode.Location = New System.Drawing.Point(966, 154)
+        Me.lblFormMode.Location = New System.Drawing.Point(1043, 154)
         Me.lblFormMode.Name = "lblFormMode"
         Me.lblFormMode.Size = New System.Drawing.Size(265, 59)
         Me.lblFormMode.TabIndex = 77
@@ -297,7 +300,7 @@ Partial Class frmSalesInvoice
         Me.lblTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.Lime
-        Me.lblTotal.Location = New System.Drawing.Point(968, 236)
+        Me.lblTotal.Location = New System.Drawing.Point(1048, 234)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(259, 102)
         Me.lblTotal.TabIndex = 75
@@ -308,7 +311,7 @@ Partial Class frmSalesInvoice
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(860, 401)
+        Me.btnSearch.Location = New System.Drawing.Point(931, 401)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(93, 35)
         Me.btnSearch.TabIndex = 80
@@ -320,7 +323,7 @@ Partial Class frmSalesInvoice
         Me.txtQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtQty.Location = New System.Drawing.Point(75, 402)
         Me.txtQty.Name = "txtQty"
-        Me.txtQty.Size = New System.Drawing.Size(779, 31)
+        Me.txtQty.Size = New System.Drawing.Size(850, 31)
         Me.txtQty.TabIndex = 79
         '
         'lblSearch
@@ -337,17 +340,17 @@ Partial Class frmSalesInvoice
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblTotFAmnt, Me.ToolStripStatusLabel6, Me.lblTotDis, Me.ToolStripStatusLabel4, Me.lblTotAmount})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblTotFAmnt, Me.ToolStripStatusLabel6, Me.lblTotDis, Me.ToolStripStatusLabel2, Me.lblTotAmount, Me.ToolStripStatusLabel4, Me.lblTotWt})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 450)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1249, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1320, 22)
         Me.StatusStrip1.TabIndex = 84
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(102, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(101, 17)
         Me.ToolStripStatusLabel1.Text = "Total Full Amount"
         Me.ToolStripStatusLabel1.Visible = False
         '
@@ -361,7 +364,7 @@ Partial Class frmSalesInvoice
         'ToolStripStatusLabel6
         '
         Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
-        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(83, 17)
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(82, 17)
         Me.ToolStripStatusLabel6.Text = "Total Discount"
         Me.ToolStripStatusLabel6.Visible = False
         '
@@ -375,14 +378,16 @@ Partial Class frmSalesInvoice
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(80, 17)
-        Me.ToolStripStatusLabel4.Text = "Total Amount"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(50, 17)
+        Me.ToolStripStatusLabel4.Text = "Total Wt"
+        Me.ToolStripStatusLabel4.Visible = False
         '
-        'lblTotAmount
+        'lblTotWt
         '
-        Me.lblTotAmount.Name = "lblTotAmount"
-        Me.lblTotAmount.Size = New System.Drawing.Size(13, 17)
-        Me.lblTotAmount.Text = "0"
+        Me.lblTotWt.Name = "lblTotWt"
+        Me.lblTotWt.Size = New System.Drawing.Size(13, 17)
+        Me.lblTotWt.Text = "0"
+        Me.lblTotWt.Visible = False
         '
         'ContextMenuStrip1
         '
@@ -423,12 +428,18 @@ Partial Class frmSalesInvoice
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 80
         '
-        'Column5
+        'Qty
         '
-        Me.Column5.HeaderText = "Qty"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 80
+        Me.Qty.HeaderText = "Qty"
+        Me.Qty.Name = "Qty"
+        Me.Qty.ReadOnly = True
+        Me.Qty.Width = 80
+        '
+        'Pc
+        '
+        Me.Pc.HeaderText = "Pc"
+        Me.Pc.Name = "Pc"
+        Me.Pc.ReadOnly = True
         '
         'Column6
         '
@@ -449,6 +460,7 @@ Partial Class frmSalesInvoice
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         Me.Column7.Visible = False
+        Me.Column7.Width = 80
         '
         'Job
         '
@@ -462,13 +474,26 @@ Partial Class frmSalesInvoice
         Me.Column9.HeaderText = "Tax"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
+        Me.Column9.Width = 80
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(79, 17)
+        Me.ToolStripStatusLabel2.Text = "Total Amount"
+        '
+        'lblTotAmount
+        '
+        Me.lblTotAmount.Name = "lblTotAmount"
+        Me.lblTotAmount.Size = New System.Drawing.Size(13, 17)
+        Me.lblTotAmount.Text = "0"
         '
         'frmSalesInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.OldLace
-        Me.ClientSize = New System.Drawing.Size(1249, 472)
+        Me.ClientSize = New System.Drawing.Size(1320, 472)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtQty)
@@ -524,7 +549,7 @@ Partial Class frmSalesInvoice
     Friend WithEvents ToolStripStatusLabel6 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents lblTotDis As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel4 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents lblTotAmount As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblTotWt As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents lblSeries As System.Windows.Forms.Label
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ClearJobToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -532,10 +557,13 @@ Partial Class frmSalesInvoice
     Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Qty As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Pc As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Job As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblTotAmount As System.Windows.Forms.ToolStripStatusLabel
 End Class

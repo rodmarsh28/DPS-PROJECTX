@@ -156,7 +156,6 @@ Public Class frmReceivePayments
     End Sub
 
     Private Sub frmReceivePayments_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        Me.Close()
     End Sub
     Public Sub load_command()
         'Me.MdiParent = frmSalesMain
@@ -181,7 +180,8 @@ Public Class frmReceivePayments
                     End If
                     MsgBox(" PAYMENT POSTED !", MsgBoxStyle.Information, "SUCCESS")
                     succesPay = True
-                    Me.Close()
+                    disposeForm()
+                    load_command()
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
