@@ -45,7 +45,7 @@ Public Class dtrReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.dtrReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.dtrReport.rpt"
         End Get
         Set
             'Do nothing

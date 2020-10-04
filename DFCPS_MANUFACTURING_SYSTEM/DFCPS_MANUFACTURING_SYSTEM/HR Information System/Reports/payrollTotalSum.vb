@@ -45,7 +45,7 @@ Public Class payrollTotalSum
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.payrollTotalSum.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.payrollTotalSum.rpt"
         End Get
         Set
             'Do nothing

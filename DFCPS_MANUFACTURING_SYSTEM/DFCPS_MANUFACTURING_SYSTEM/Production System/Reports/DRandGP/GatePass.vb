@@ -45,7 +45,7 @@ Public Class GatePass
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.GatePass.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.GatePass.rpt"
         End Get
         Set
             'Do nothing

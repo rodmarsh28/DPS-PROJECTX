@@ -62,6 +62,8 @@ Partial Class MainForm
         Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
+        Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -191,6 +193,7 @@ Partial Class MainForm
         'ABOUTToolStripMenuItem1
         '
         Me.ABOUTToolStripMenuItem1.BackColor = System.Drawing.Color.Gray
+        Me.ABOUTToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem, Me.OptionToolStripMenuItem})
         Me.ABOUTToolStripMenuItem1.Name = "ABOUTToolStripMenuItem1"
         Me.ABOUTToolStripMenuItem1.Size = New System.Drawing.Size(76, 25)
         Me.ABOUTToolStripMenuItem1.Text = "ABOUT"
@@ -237,9 +240,9 @@ Partial Class MainForm
         Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label1.Location = New System.Drawing.Point(28, 31)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(458, 31)
+        Me.Label1.Size = New System.Drawing.Size(481, 31)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "| GFLS MANAGEMENT SYSTEM |"
+        Me.Label1.Text = "| DFCPS MANAGEMENT SYSTEM |"
         '
         'Panel3
         '
@@ -441,6 +444,18 @@ Partial Class MainForm
         Me.MetroButton1.TabIndex = 21
         Me.MetroButton1.UseSelectable = True
         '
+        'CheckForUpdatesToolStripMenuItem
+        '
+        Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
+        Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for updates"
+        '
+        'OptionToolStripMenuItem
+        '
+        Me.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem"
+        Me.OptionToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.OptionToolStripMenuItem.Text = "option"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -510,4 +525,6 @@ Partial Class MainForm
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents CheckForUpdatesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

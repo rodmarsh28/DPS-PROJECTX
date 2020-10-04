@@ -45,7 +45,7 @@ Public Class phPremsPayment
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.phPremsPayment.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.phPremsPayment.rpt"
         End Get
         Set
             'Do nothing

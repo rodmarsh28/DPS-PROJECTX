@@ -45,7 +45,7 @@ Public Class circularLoomsAnalyticsReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.circularLoomsAnalyticsReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.circularLoomsAnalyticsReport.rpt"
         End Get
         Set
             'Do nothing

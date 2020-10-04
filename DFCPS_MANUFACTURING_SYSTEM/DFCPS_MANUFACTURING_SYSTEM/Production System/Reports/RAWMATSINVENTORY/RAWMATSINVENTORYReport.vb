@@ -45,7 +45,7 @@ Public Class RAWMATSINVENTORYReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.RAWMATSINVENTORYReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.RAWMATSINVENTORYReport.rpt"
         End Get
         Set
             'Do nothing

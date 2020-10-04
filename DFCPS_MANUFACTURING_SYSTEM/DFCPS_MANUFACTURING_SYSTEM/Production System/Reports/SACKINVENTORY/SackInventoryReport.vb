@@ -45,7 +45,7 @@ Public Class SackInventoryReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.SackInventoryReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.SackInventoryReport.rpt"
         End Get
         Set
             'Do nothing

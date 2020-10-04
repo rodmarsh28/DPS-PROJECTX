@@ -195,25 +195,40 @@ Public Class sales_class
         End Try
     End Function
     Sub print_DR(ByVal id As String)
-        Dim sales_dc As New salesDataContext
-        Dim data = From dr In sales_dc.tblSalesDelivers _
-                   Join c In sales_dc.tblCardsProfiles On c.cardID Equals dr.cardID _
-                   Join u In sales_dc.tblUsers On u.userID Equals dr.userID _
-                   Join tr In sales_dc.tblSalesItemsTRs On tr.transNo Equals dr.salesDeliverNo _
-                   Join I In sales_dc.InventoryListAllViews On I.ITEMNO Equals tr.itemNo _
-                   Where dr.salesDeliverNo = id
-                   Select IDNO = dr.salesDeliverNo, REFNO = dr.refNo, NAME = c.cardName, PREPAREDBY = u.name, ITEMNO = tr.itemNo, _
-                ITEMDESC = I.ITEMDESC, UNIT = I.UNIT, UNITPRICE = tr.uPrice, AMOUNT = tr.amount, PC = tr.pc, QTY = tr.qty
-        For Each x In data
-            ds.Tables("DRTABLE").Rows.Add(x.IDNO, x.REFNO, x.NAME, x.ITEMDESC, x.UNIT, x.PC, x.UNITPRICE, x.AMOUNT, x.PREPAREDBY, "", MainForm.logo, MainForm.header)
-        Next
+        Dim ds As New sales_dsTableAdapters.DRTABLETableAdapter
+        Dim dt As New sales_ds
+        ds.Fill(dt.Tables("DRTABLE"), id)
+
         Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
         rptDoc = New rpt_drandgp
-        rptDoc.SetDataSource(ds.Tables("DRTABLE"))
+        rptDoc.SetDataSource(dt.Tables("DRTABLE"))
         print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
         print_slip_viewer.ShowDialog()
     End Sub
-   
+  
+    Sub print_sales(ByVal id As String, ByVal form As String)
+        Dim ds As New sales_dsTableAdapters.salesTA
+        Dim dt As New sales_ds
+        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+        rptDoc = New rpt_sales
+        If form = "QUOTATION" Then
+            ds.qryQuote(dt.Tables("salesTable"), id)
+            rptDoc.SetParameterValue(0, form)
+        ElseIf form = "SALES ORDER" Then
+            ds.qryOrder(dt.Tables("salesTable"), id)
+        ElseIf form = "SALES CASH INVOICE" Then
+            ds.qryCash(dt.Tables("salesTable"), id)
+        ElseIf form = "SALES CHARGE INVOICE" Then
+            ds.qryCharge(dt.Tables("salesTable"), id)
+        ElseIf form = "DELIVERY" Then
+            ds.qryDeliver(dt.Tables("salesTable"), id)
+        End If
+
+        rptDoc.SetDataSource(dt.Tables("salesTable"))
+        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        rptDoc.SetParameterValue("title", form)
+        print_slip_viewer.ShowDialog()
+    End Sub
     Sub print_job_order(ByVal jono As String)
         checkConn()
         Dim ds As New sales_ds

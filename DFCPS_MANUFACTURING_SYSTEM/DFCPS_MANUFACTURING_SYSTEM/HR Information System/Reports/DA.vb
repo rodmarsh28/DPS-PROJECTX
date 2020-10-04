@@ -45,7 +45,7 @@ Public Class DA
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.DA.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.DA.rpt"
         End Get
         Set
             'Do nothing

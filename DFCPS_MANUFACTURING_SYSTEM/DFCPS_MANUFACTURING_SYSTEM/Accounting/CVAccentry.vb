@@ -45,7 +45,7 @@ Public Class CVAccentry
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.CVAccentry.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.CVAccentry.rpt"
         End Get
         Set
             'Do nothing

@@ -45,7 +45,7 @@ Public Class checkVoucher
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.checkVoucher.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.checkVoucher.rpt"
         End Get
         Set
             'Do nothing

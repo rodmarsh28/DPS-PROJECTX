@@ -1,8 +1,10 @@
-﻿Public Class MainForm
+﻿Imports MadMilkman.Ini
+Public Class MainForm
     Dim companyName As String
     Dim companyAddress As String
     Public logo() As Byte
     Public header() As Byte
+
     Private Sub ABOUTToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ABOUTToolStripMenuItem.Click
 
     End Sub
@@ -62,7 +64,7 @@
         'ProductionMain.ShowDialog()
     End Sub
 
-   
+
     Private Sub MetroButton2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MetroButton2.Click
         'MsgBox("This Module is not available right now", MsgBoxStyle.Information, "System information")
         frmInventorySystemMain.ShowDialog()
@@ -107,5 +109,13 @@
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Dim ss As New systemSettings_class
         ss.isDataupdated()
+    End Sub
+
+    Private Sub CheckForUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
+        frmUpdate.ShowDialog()
+    End Sub
+
+    Private Sub OptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OptionToolStripMenuItem.Click
+
     End Sub
 End Class

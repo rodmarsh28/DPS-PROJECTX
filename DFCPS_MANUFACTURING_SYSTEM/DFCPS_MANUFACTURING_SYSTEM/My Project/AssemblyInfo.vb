@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("DFCPS_MANUFACTURING_SYSTEM")> 
+<Assembly: AssemblyTitle("DFCPS_MANAGEMENT_SYSTEM")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("DFCPS_MANUFACTURING_SYSTEM")> 
+<Assembly: AssemblyProduct("DFCPS_MANAGEMENT_SYSTEM")> 
 <Assembly: AssemblyCopyright("Copyright ©  2019")> 
 <Assembly: AssemblyTrademark("")> 
 

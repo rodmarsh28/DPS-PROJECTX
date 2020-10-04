@@ -22,6 +22,16 @@ Public Class Account_Class
     Public job_no As String
     Public dtable As New DataTable
 
+    Public Sub reverse_accEntry(ByVal id As String, ByVal memo As String)
+        Dim ds As New account_dsTableAdapters.tblAccEntryTableAdapter
+        Dim dt As New account_ds.tblAccEntryDataTable
+        ds.Fill(dt, id)
+        For Each a As DataRow In dt.Rows
+            ds.Insert(Now, a(1), a(2), a(3), memo, a(6), a(5), a(7), a(8), a(9))
+        Next
+
+
+    End Sub
     Public Sub get_accountInfo()
         Try
             checkConn()

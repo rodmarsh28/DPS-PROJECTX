@@ -45,7 +45,7 @@ Public Class PayslipForLabor
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.PayslipForLabor.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.PayslipForLabor.rpt"
         End Get
         Set
             'Do nothing

@@ -118,7 +118,7 @@ Partial Public Class salesDataContext
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.DFCPS_MANUFACTURING_SYSTEM.My.MySettings.Default.DFCPS_MANAGEMENT_DBConnectionString1, mappingSource)
+		MyBase.New(Global.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.Default.DFCPS_MANAGEMENT_DBConnectionString1, mappingSource)
 		OnCreated
 	End Sub
 	

@@ -45,7 +45,7 @@ Public Class CV_SLIP
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.CV_SLIP.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.CV_SLIP.rpt"
         End Get
         Set
             'Do nothing

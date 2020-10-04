@@ -45,7 +45,7 @@ Public Class YarnProductionReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.YarnProductionReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.YarnProductionReport.rpt"
         End Get
         Set
             'Do nothing

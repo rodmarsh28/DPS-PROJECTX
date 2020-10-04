@@ -45,7 +45,7 @@ Public Class payable_list
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.payable_list.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.payable_list.rpt"
         End Get
         Set
             'Do nothing

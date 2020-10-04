@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DFCPS_MANUFACTURING_SYSTEM", "DFCPS_MANUFACTURING_SYSTEM\DFCPS_MANUFACTURING_SYSTEM.vbproj", "{8A29D61A-64DD-4477-B0BF-DB8EBB852E3B}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DFCPS_MANAGEMENT_SYSTEM", "DFCPS_MANUFACTURING_SYSTEM\DFCPS_MANAGEMENT_SYSTEM.vbproj", "{8A29D61A-64DD-4477-B0BF-DB8EBB852E3B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Updatetool", "Updatetool\Updatetool.vbproj", "{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,12 @@ Global
 		{8A29D61A-64DD-4477-B0BF-DB8EBB852E3B}.Release|Any CPU.ActiveCfg = Release|x86
 		{8A29D61A-64DD-4477-B0BF-DB8EBB852E3B}.Release|x86.ActiveCfg = Release|x86
 		{8A29D61A-64DD-4477-B0BF-DB8EBB852E3B}.Release|x86.Build.0 = Release|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Debug|x86.ActiveCfg = Debug|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Debug|x86.Build.0 = Debug|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Release|Any CPU.ActiveCfg = Release|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Release|x86.ActiveCfg = Release|x86
+		{5AAD705D-4B9C-47C9-A3E4-C23476FA8386}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -45,7 +45,7 @@ Public Class DRANDGP
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.DRANDGP.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.DRANDGP.rpt"
         End Get
         Set
             'Do nothing

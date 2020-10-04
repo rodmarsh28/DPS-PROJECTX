@@ -45,7 +45,7 @@ Public Class PayrollReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.PayrollReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.PayrollReport.rpt"
         End Get
         Set
             'Do nothing

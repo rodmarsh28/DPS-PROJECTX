@@ -1,21 +1,21 @@
 ﻿Public Class frmBuildInventory
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Try
-            For Each row As DataGridViewRow In dgv.Rows
-                Dim dbcontext As New accountingDataContext
-                Dim bi As New tblBuildInventory
-                bi.buildInvNo = txtNo.Text
-                bi.dateBuild = Now.Date.ToString("MM/dd/yyyy")
-                bi.itemcode = row.Cells(0).Value
-                bi.qty = CInt(row.Cells(3).Value)
-                bi.remarks = txtRemarks.Text
-                dbcontext.tblBuildInventories.InsertOnSubmit(bi)
-                dbcontext.SubmitChanges()
-            Next
-            MsgBox("Build Successfully")
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        '    Try
+        '        For Each row As DataGridViewRow In dgv.Rows
+        '            Dim dbcontext As New accountingDataContext
+        '            Dim bi As New tblBuildInventory
+        '            bi.buildInvNo = txtNo.Text
+        '            bi.dateBuild = Now.Date.ToString("MM/dd/yyyy")
+        '            bi.itemcode = row.Cells(0).Value
+        '            bi.qty = CInt(row.Cells(3).Value)
+        '            bi.remarks = txtRemarks.Text
+        '            dbcontext.tblBuildInventories.InsertOnSubmit(bi)
+        '            dbcontext.SubmitChanges()
+        '        Next
+        '        MsgBox("Build Successfully")
+        '    Catch ex As Exception
+        '        MsgBox(ex.Message)
+        '    End Try
     End Sub
 
     Sub generateNo()

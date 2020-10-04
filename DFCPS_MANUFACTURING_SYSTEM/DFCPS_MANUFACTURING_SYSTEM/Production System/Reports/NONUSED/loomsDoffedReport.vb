@@ -45,7 +45,7 @@ Public Class loomsDoffedReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.loomsDoffedReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.loomsDoffedReport.rpt"
         End Get
         Set
             'Do nothing

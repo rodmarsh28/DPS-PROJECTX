@@ -45,7 +45,7 @@ Public Class Attendance_Record_Summary
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.Attendance Record Summary.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.Attendance Record Summary.rpt"
         End Get
         Set
             'Do nothing

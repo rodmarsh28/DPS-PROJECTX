@@ -81,7 +81,7 @@ Public Class inventory_class
             MsgBox(ex.Message)
         End Try
     End Sub
-    Public Function get_inv_item_info(ByVal id As String) As DFCPS_MANUFACTURING_SYSTEM.InventoryListAllView
+    Public Function get_inv_item_info(ByVal id As String) As DFCPS_MANAGEMENT_SYSTEM.InventoryListAllView
         Dim inv_ds As New salesDataContext
         Dim data = (From inv In inv_ds.InventoryListAllViews _
                     Where inv.ITEMNO = id _

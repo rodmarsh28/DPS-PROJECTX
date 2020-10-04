@@ -45,7 +45,7 @@ Public Class PerformanceDailyReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.PerformanceDailyReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.PerformanceDailyReport.rpt"
         End Get
         Set
             'Do nothing

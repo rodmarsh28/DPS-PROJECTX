@@ -45,7 +45,7 @@ Public Class leaveReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.leaveReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.leaveReport.rpt"
         End Get
         Set
             'Do nothing

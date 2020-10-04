@@ -23,8 +23,8 @@ Partial Class frmCheck_print_preview
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.check_print_preview2 = New DFCPS_MANUFACTURING_SYSTEM.check_print_preview()
-        Me.check_print_preview1 = New DFCPS_MANUFACTURING_SYSTEM.check_print_preview()
+        Me.check_print_preview2 = New DFCPS_MANAGEMENT_SYSTEM.check_print_preview()
+        Me.check_print_preview1 = New DFCPS_MANAGEMENT_SYSTEM.check_print_preview()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -79,8 +79,8 @@ Partial Class frmCheck_print_preview
 
     End Sub
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents check_print_preview2 As DFCPS_MANUFACTURING_SYSTEM.check_print_preview
-    Friend WithEvents check_print_preview1 As DFCPS_MANUFACTURING_SYSTEM.check_print_preview
+    Friend WithEvents check_print_preview2 As DFCPS_MANAGEMENT_SYSTEM.check_print_preview
+    Friend WithEvents check_print_preview1 As DFCPS_MANAGEMENT_SYSTEM.check_print_preview
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

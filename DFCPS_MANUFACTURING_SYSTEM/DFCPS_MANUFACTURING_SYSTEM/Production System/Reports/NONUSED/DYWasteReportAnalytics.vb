@@ -45,7 +45,7 @@ Public Class DYWasteReportAnalytics
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.DYWasteReportAnalytics.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.DYWasteReportAnalytics.rpt"
         End Get
         Set
             'Do nothing

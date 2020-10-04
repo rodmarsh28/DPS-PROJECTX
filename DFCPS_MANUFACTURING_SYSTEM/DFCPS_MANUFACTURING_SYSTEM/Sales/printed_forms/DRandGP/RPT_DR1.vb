@@ -45,7 +45,7 @@ Public Class RPT_DR
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.RPT_DR.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.RPT_DR.rpt"
         End Get
         Set
             'Do nothing

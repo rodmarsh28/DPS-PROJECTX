@@ -45,7 +45,7 @@ Public Class WitholdingTaxSummaryReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.WitholdingTaxSummaryReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.WitholdingTaxSummaryReport.rpt"
         End Get
         Set
             'Do nothing

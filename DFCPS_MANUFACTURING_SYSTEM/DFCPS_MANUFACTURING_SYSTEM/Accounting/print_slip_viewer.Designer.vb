@@ -29,23 +29,37 @@ Partial Class print_slip_viewer
         '
         Me.CrystalReportViewer1.ActiveViewIndex = -1
         Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CrystalReportViewer1.CachedPageNumberPerDoc = 10
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayBackgroundEdge = False
+        Me.CrystalReportViewer1.DisplayStatusBar = False
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(962, 485)
+        Me.CrystalReportViewer1.ShowCloseButton = False
+        Me.CrystalReportViewer1.ShowCopyButton = False
+        Me.CrystalReportViewer1.ShowExportButton = False
+        Me.CrystalReportViewer1.ShowGotoPageButton = False
+        Me.CrystalReportViewer1.ShowGroupTreeButton = False
+        Me.CrystalReportViewer1.ShowLogo = False
+        Me.CrystalReportViewer1.ShowPageNavigateButtons = False
+        Me.CrystalReportViewer1.ShowParameterPanelButton = False
+        Me.CrystalReportViewer1.ShowRefreshButton = False
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(994, 972)
         Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        Me.CrystalReportViewer1.ToolPanelWidth = 100
         '
         'print_slip_viewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(962, 485)
+        Me.ClientSize = New System.Drawing.Size(994, 972)
         Me.Controls.Add(Me.CrystalReportViewer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MinimizeBox = False
         Me.Name = "print_slip_viewer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "print_slip_viewer"
+        Me.Text = "Report"
         Me.ResumeLayout(False)
 
     End Sub

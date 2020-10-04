@@ -45,7 +45,7 @@ Public Class sssLoansPayment
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.sssLoansPayment.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.sssLoansPayment.rpt"
         End Get
         Set
             'Do nothing

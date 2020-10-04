@@ -45,7 +45,7 @@ Public Class check_print_preview
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.check_print_preview.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.check_print_preview.rpt"
         End Get
         Set
             'Do nothing

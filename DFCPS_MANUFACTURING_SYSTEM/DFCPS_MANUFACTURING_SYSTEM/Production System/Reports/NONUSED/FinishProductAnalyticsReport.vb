@@ -45,7 +45,7 @@ Public Class FinishProductAnalyticsReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.FinishProductAnalyticsReport.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.FinishProductAnalyticsReport.rpt"
         End Get
         Set
             'Do nothing

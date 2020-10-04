@@ -45,7 +45,7 @@ Public Class JOForm
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.JOForm.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.JOForm.rpt"
         End Get
         Set
             'Do nothing

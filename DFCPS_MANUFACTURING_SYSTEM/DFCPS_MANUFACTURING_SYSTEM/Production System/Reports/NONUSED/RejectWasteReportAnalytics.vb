@@ -45,7 +45,7 @@ Public Class RejectWasteReportAnalytics
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.RejectWasteReportAnalytics.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.RejectWasteReportAnalytics.rpt"
         End Get
         Set
             'Do nothing

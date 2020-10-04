@@ -45,7 +45,7 @@ Public Class vouchersPayable
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.vouchersPayable.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.vouchersPayable.rpt"
         End Get
         Set
             'Do nothing

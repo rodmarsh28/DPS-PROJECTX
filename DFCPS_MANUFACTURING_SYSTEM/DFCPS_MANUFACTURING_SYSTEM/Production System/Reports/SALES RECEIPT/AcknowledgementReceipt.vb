@@ -45,7 +45,7 @@ Public Class AcknowledgementReceipt
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DFCPS_MANUFACTURING_SYSTEM.AcknowledgementReceipt.rpt"
+            Return "DFCPS_MANAGEMENT_SYSTEM.AcknowledgementReceipt.rpt"
         End Get
         Set
             'Do nothing

@@ -202,7 +202,7 @@ Public Class SalesTransactionViewer
     Private Sub DGV_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DGV.MouseDown
         If e.Button = MouseButtons.Right Then
             If DGV.SelectedRows.Count > 0 Then
-                If MODE = "SALES QUOTATION" Then
+                If MODE = "QUOTATION" Then
                     DGV.ContextMenuStrip = cmsSalesQuotation
                 ElseIf MODE = "SALES ORDER" Then
                     DGV.ContextMenuStrip = cmsSalesOrder
@@ -218,7 +218,7 @@ Public Class SalesTransactionViewer
                         tmsCancelJob.Enabled = True
                     End If
                 ElseIf MODE = "SALES DELIVER" Then
-                    DGV.ContextMenuStrip = cmsJobOrder
+                    DGV.ContextMenuStrip = cmsDeliver
                 End If
             End If
         End If
@@ -294,4 +294,23 @@ Public Class SalesTransactionViewer
     End Sub
 
   
+    Private Sub PrintToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem1.Click
+        Dim sc As New sales_class
+        sc.print_sales(DGV.CurrentRow.Cells(1).Value, "QUOTATION")
+   
+
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
+
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
+        Dim sc As New sales_class
+        sc.print_DR(DGV.CurrentRow.Cells(1).Value)
+    End Sub
 End Class

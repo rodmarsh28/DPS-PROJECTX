@@ -46,6 +46,21 @@ Public Class systemSettings_class
     Public columnName As String
     Public series As String
     Public result As String
+
+
+    Sub add_ini_keys()
+        'Dim file As New IniFile
+        'Dim section As IniSection = file.Sections.Add("Directory")
+        'Dim dir As String = My.Application.Info.DirectoryPath
+        'section.TrailingComment.Text = "Directory Path"
+
+        'Dim key As IniKey = section.Keys.Add("client", dir)
+        'key.LeadingComment.Text = "Client Directory"
+
+        'Dim key1 As IniKey = section.Keys.Add("server", "C:\xampp\htdocs\server")
+        'key1.LeadingComment.Text = "Server Directory"
+        'file.Save("Settings.ini")
+    End Sub
     Public Sub generateNo()
         Dim cmd As New SqlCommand("select max(" & columnName & ") from " & tableName & "", conn)
         checkConn()
