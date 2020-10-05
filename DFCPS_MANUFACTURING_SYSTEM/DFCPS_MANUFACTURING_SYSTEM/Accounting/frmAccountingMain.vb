@@ -75,7 +75,10 @@
     End Sub
 
     Private Sub CardToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CardToolStripMenuItem.Click
-        CardList.ShowDialog()
+        Dim frm As New CardList
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.MdiParent = Me
+        frm.Show()
     End Sub
 
     Private Sub CheckTransactionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckTransactionToolStripMenuItem.Click

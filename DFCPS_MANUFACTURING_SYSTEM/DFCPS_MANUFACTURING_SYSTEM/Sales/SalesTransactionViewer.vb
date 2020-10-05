@@ -217,6 +217,10 @@ Public Class SalesTransactionViewer
                         tmsUpdate.Enabled = True
                         tmsCancelJob.Enabled = True
                     End If
+                ElseIf MODE = "SALES CASH INVOICE" Then
+                    DGV.ContextMenuStrip = cmsCashInvoice
+                ElseIf MODE = "SALES CHARGE INVOICE" Then
+                    DGV.ContextMenuStrip = cmsChargeInvoice
                 ElseIf MODE = "SALES DELIVER" Then
                     DGV.ContextMenuStrip = cmsDeliver
                 End If
@@ -306,11 +310,21 @@ Public Class SalesTransactionViewer
     End Sub
 
     Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
-
+        Dim sc As New sales_class
+        sc.print_sales(DGV.CurrentRow.Cells(1).Value, "SALES CASH INVOICE")
     End Sub
 
     Private Sub ToolStripMenuItem3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
         Dim sc As New sales_class
         sc.print_DR(DGV.CurrentRow.Cells(1).Value)
+    End Sub
+
+    Private Sub cmsCashInvoice_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cmsCashInvoice.Opening
+
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem8.Click
+        Dim sc As New sales_class
+        sc.print_sales(DGV.CurrentRow.Cells(1).Value, "SALES CHARGE INVOICE")
     End Sub
 End Class

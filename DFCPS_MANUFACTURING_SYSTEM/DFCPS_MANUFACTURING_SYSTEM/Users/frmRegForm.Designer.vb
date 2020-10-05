@@ -156,7 +156,7 @@ Partial Class frmRegForm
         '
         Me.cmbAccRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAccRole.FormattingEnabled = True
-        Me.cmbAccRole.Items.AddRange(New Object() {"", "ADMIN", "ACCOUNTING", "HR", "PURCHASER", "SALES CLERK", "WAREHOUSE CLERK"})
+        Me.cmbAccRole.Items.AddRange(New Object() {"", "ADMIN", "ACCOUNTING", "HR", "PURCHASER", "SALES IN-CHARGE", "INVENTORY IN-CHARGE", "PRODUCTION ENCODER"})
         Me.cmbAccRole.Location = New System.Drawing.Point(621, 136)
         Me.cmbAccRole.Name = "cmbAccRole"
         Me.cmbAccRole.Size = New System.Drawing.Size(183, 21)

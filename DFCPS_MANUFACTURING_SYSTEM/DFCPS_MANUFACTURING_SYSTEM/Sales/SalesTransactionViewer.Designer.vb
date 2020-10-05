@@ -40,7 +40,8 @@ Partial Class SalesTransactionViewer
         Me.CancelSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsSalesQuotation = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmsCashInvoice = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,14 +57,19 @@ Partial Class SalesTransactionViewer
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmsChargeInvoice = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSalesOrder.SuspendLayout()
         Me.cmsSalesQuotation.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.cmsCashInvoice.SuspendLayout()
         Me.cmsJobOrder.SuspendLayout()
         Me.cmsDeliver.SuspendLayout()
+        Me.cmsChargeInvoice.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtSearch
@@ -176,19 +182,25 @@ Partial Class SalesTransactionViewer
         '
         Me.cmsSalesQuotation.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.UpdateToolStripMenuItem})
         Me.cmsSalesQuotation.Name = "cmsSalesOrder"
-        Me.cmsSalesQuotation.Size = New System.Drawing.Size(153, 70)
+        Me.cmsSalesQuotation.Size = New System.Drawing.Size(113, 48)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
         Me.ToolStripMenuItem1.Text = "Print"
         '
-        'ContextMenuStrip1
+        'UpdateToolStripMenuItem
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.UpdateInvoiceToolStripMenuItem, Me.ToolStripMenuItem4, Me.CancelInvoiceToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "cmsSalesOrder"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(189, 92)
+        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.UpdateToolStripMenuItem.Text = "Update"
+        '
+        'cmsCashInvoice
+        '
+        Me.cmsCashInvoice.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.UpdateInvoiceToolStripMenuItem, Me.ToolStripMenuItem4, Me.CancelInvoiceToolStripMenuItem})
+        Me.cmsCashInvoice.Name = "cmsSalesOrder"
+        Me.cmsCashInvoice.Size = New System.Drawing.Size(189, 92)
         '
         'ToolStripMenuItem2
         '
@@ -279,11 +291,36 @@ Partial Class SalesTransactionViewer
         Me.ToolStripMenuItem7.Size = New System.Drawing.Size(190, 22)
         Me.ToolStripMenuItem7.Text = "Cancel Invoice"
         '
-        'UpdateToolStripMenuItem
+        'cmsChargeInvoice
         '
-        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
-        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.UpdateToolStripMenuItem.Text = "Update"
+        Me.cmsChargeInvoice.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem9, Me.ToolStripMenuItem10, Me.ToolStripMenuItem11})
+        Me.cmsChargeInvoice.Name = "cmsSalesOrder"
+        Me.cmsChargeInvoice.Size = New System.Drawing.Size(189, 114)
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(188, 22)
+        Me.ToolStripMenuItem8.Text = "Print"
+        '
+        'ToolStripMenuItem9
+        '
+        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(188, 22)
+        Me.ToolStripMenuItem9.Text = "Update Invoice"
+        '
+        'ToolStripMenuItem10
+        '
+        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(188, 22)
+        Me.ToolStripMenuItem10.Text = "Prepare Sales Delivery"
+        '
+        'ToolStripMenuItem11
+        '
+        Me.ToolStripMenuItem11.Enabled = False
+        Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(188, 22)
+        Me.ToolStripMenuItem11.Text = "Cancel Invoice"
         '
         'SalesTransactionViewer
         '
@@ -301,9 +338,10 @@ Partial Class SalesTransactionViewer
         CType(Me.DGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsSalesOrder.ResumeLayout(False)
         Me.cmsSalesQuotation.ResumeLayout(False)
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.cmsCashInvoice.ResumeLayout(False)
         Me.cmsJobOrder.ResumeLayout(False)
         Me.cmsDeliver.ResumeLayout(False)
+        Me.cmsChargeInvoice.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,7 +362,7 @@ Partial Class SalesTransactionViewer
     Friend WithEvents CancelSalesOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmsSalesQuotation As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents cmsCashInvoice As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
@@ -341,4 +379,9 @@ Partial Class SalesTransactionViewer
     Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmsChargeInvoice As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem10 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem11 As System.Windows.Forms.ToolStripMenuItem
 End Class

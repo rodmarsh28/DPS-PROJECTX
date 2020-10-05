@@ -41,35 +41,34 @@ Partial Class MainForm
         Me.ABOUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SYSTEMSETTINGSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABOUTToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.MetroButton6 = New MetroFramework.Controls.MetroButton()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.MetroButton5 = New MetroFramework.Controls.MetroButton()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MetroButton6 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton5 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
-        Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -193,10 +192,16 @@ Partial Class MainForm
         'ABOUTToolStripMenuItem1
         '
         Me.ABOUTToolStripMenuItem1.BackColor = System.Drawing.Color.Gray
-        Me.ABOUTToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem, Me.OptionToolStripMenuItem})
+        Me.ABOUTToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem})
         Me.ABOUTToolStripMenuItem1.Name = "ABOUTToolStripMenuItem1"
         Me.ABOUTToolStripMenuItem1.Size = New System.Drawing.Size(76, 25)
         Me.ABOUTToolStripMenuItem1.Text = "ABOUT"
+        '
+        'CheckForUpdatesToolStripMenuItem
+        '
+        Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
+        Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for updates"
         '
         'MenuStrip1
         '
@@ -220,6 +225,47 @@ Partial Class MainForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(200, 581)
         Me.Panel1.TabIndex = 18
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Button2.Location = New System.Drawing.Point(41, 244)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(94, 31)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "SIGN OUT"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Button1.Location = New System.Drawing.Point(26, 198)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(127, 31)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "EDIT ACCOUNT"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(139, 140)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'Panel2
         '
@@ -266,112 +312,6 @@ Partial Class MainForm
         Me.Panel3.Size = New System.Drawing.Size(1299, 828)
         Me.Panel3.TabIndex = 21
         '
-        'Label7
-        '
-        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1011, 576)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(227, 16)
-        Me.Label7.TabIndex = 28
-        Me.Label7.Text = "Purchases / Requisition"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(675, 574)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(168, 31)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "Sales"
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(320, 571)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(174, 31)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "Production System"
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1011, 322)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(201, 31)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "HR Information System"
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(671, 322)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(172, 31)
-        Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Inventory System"
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(317, 323)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(172, 22)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Accounting"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 2000
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button2.Location = New System.Drawing.Point(41, 244)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(94, 31)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "SIGN OUT"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button1.Location = New System.Drawing.Point(26, 198)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(127, 31)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "EDIT ACCOUNT"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.PictureBox1.Location = New System.Drawing.Point(26, 31)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(139, 140)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
         'MetroButton6
         '
         Me.MetroButton6.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -383,6 +323,16 @@ Partial Class MainForm
         Me.MetroButton6.Size = New System.Drawing.Size(174, 181)
         Me.MetroButton6.TabIndex = 29
         Me.MetroButton6.UseSelectable = True
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(1011, 576)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(227, 16)
+        Me.Label7.TabIndex = 28
+        Me.Label7.Text = "Purchases / Requisition"
         '
         'MetroButton5
         '
@@ -396,6 +346,16 @@ Partial Class MainForm
         Me.MetroButton5.TabIndex = 27
         Me.MetroButton5.UseSelectable = True
         '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(675, 574)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(168, 31)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "Sales"
+        '
         'MetroButton4
         '
         Me.MetroButton4.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -407,6 +367,16 @@ Partial Class MainForm
         Me.MetroButton4.Size = New System.Drawing.Size(174, 181)
         Me.MetroButton4.TabIndex = 25
         Me.MetroButton4.UseSelectable = True
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(320, 571)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(174, 31)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "Production System"
         '
         'MetroButton3
         '
@@ -444,17 +414,40 @@ Partial Class MainForm
         Me.MetroButton1.TabIndex = 21
         Me.MetroButton1.UseSelectable = True
         '
-        'CheckForUpdatesToolStripMenuItem
+        'Label4
         '
-        Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
-        Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for updates"
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(1011, 322)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(201, 31)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "HR Information System"
         '
-        'OptionToolStripMenuItem
+        'Label3
         '
-        Me.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem"
-        Me.OptionToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.OptionToolStripMenuItem.Text = "option"
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(671, 322)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(172, 31)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Inventory System"
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(317, 323)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(172, 22)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Accounting"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 2000
         '
         'MainForm
         '
@@ -478,11 +471,11 @@ Partial Class MainForm
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -526,5 +519,4 @@ Partial Class MainForm
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents CheckForUpdatesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

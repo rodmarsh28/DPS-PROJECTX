@@ -96,6 +96,7 @@ Public Class sales_class
         Dim cmd As New SqlCommand("get_invoice_list", conn)
         With cmd
             .CommandType = CommandType.StoredProcedure
+            .Parameters.AddWithValue("@recvaccNo", SqlDbType.VarChar).Value = accNo
             .Parameters.AddWithValue("@searchValue", SqlDbType.VarChar).Value = searchValue
         End With
         Dim da As New SqlDataAdapter(cmd)

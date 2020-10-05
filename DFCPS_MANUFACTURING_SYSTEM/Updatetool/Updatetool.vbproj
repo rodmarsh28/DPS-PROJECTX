@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MadMilkman.Ini">
-      <HintPath>..\packages\MadMilkman.Ini\MadMilkman.Ini.dll</HintPath>
+      <HintPath>..\packages\MadMilkman.Ini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -115,7 +115,7 @@ Public Class MainForm
         frmUpdate.ShowDialog()
     End Sub
 
-    Private Sub OptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OptionToolStripMenuItem.Click
+    Private Sub OptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 End Class

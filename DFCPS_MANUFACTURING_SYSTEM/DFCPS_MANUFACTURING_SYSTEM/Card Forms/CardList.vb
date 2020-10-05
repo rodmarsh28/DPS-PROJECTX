@@ -38,7 +38,14 @@ Public Class CardList
     End Sub
 
     Private Sub btnNew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNew.Click
-        CardProfile.ShowDialog()
+        Dim frm As New CardProfile
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.MdiParent = frmAccountingMain
+        frm.Show()
+    End Sub
+
+    Private Sub CardList_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+        GetCardList()
     End Sub
 
     Private Sub CardList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -77,27 +84,41 @@ Public Class CardList
     End Sub
 
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+        Dim frm As New CardProfile
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.MdiParent = frmAccountingMain
+
         Dim ac As New Accounting_class
         ac.cardID = LV.SelectedItems(0).SubItems(0).Text
         ac.get_card_info()
-        CardProfile.txtCardNo.Text = ac.cardID
-        CardProfile.txtCardName.Text = ac.cardName
-        CardProfile.txtCardAddress.Text = ac.cardAddress
-        CardProfile.txtCardCN.Text = ac.cardCN
-        CardProfile.cmbCardType.Text = ac.cardType
-        CardProfile.cmbDesignation.Text = ac.designation
-        CardProfile.txtCardCreditLimit.Text = ac.creditlimit
+        frm.txtCardName.Text = ac.cardName
+        frm.txtCardAddress.Text = ac.cardAddress
+        frm.txtCardCN.Text = ac.cardCN
+        frm.cmbCardType.Text = ac.cardType
+        frm.txtCardNo.Text = ac.cardID
+        frm.cmbDesignation.Text = ac.designation
+        frm.txtCardCreditLimit.Text = ac.creditlimit
         If ac.allowCredit = "1" Then
-            CardProfile.chkAllowCredit.Checked = True
+            frm.chkAllowCredit.Checked = True
         Else
-            CardProfile.chkAllowCredit.Checked = False
+            frm.chkAllowCredit.Checked = False
         End If
         If ac.cardStatus = "ACTIVE" Then
-            CardProfile.chkboxInactiveCard.Checked = False
+            frm.chkboxInactiveCard.Checked = False
         Else
-            CardProfile.chkboxInactiveCard.Checked = True
+            frm.chkboxInactiveCard.Checked = True
         End If
-        CardProfile.btnSave.Text = "Update"
-        CardProfile.ShowDialog()
+        frm.btnSave.Text = "Update"
+        frm.cmbCardType.Enabled = False
+        frm.txtCardNo.Enabled = False
+        frm.Show()
+    End Sub
+
+    Private Sub cmbCardType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCardType.SelectedIndexChanged
+        GetCardList()
+    End Sub
+
+    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class

@@ -277,24 +277,24 @@
             End If
             End If
     End Sub
-    Sub get_sales_info(ByVal id As String, ByVal type As String)
-        Dim ds As New sales_dsTableAdapters.salesInfoTableAdapter
-        Dim dt As New DataTable
-        ds.Fill(dt, id)
+    'Sub get_sales_info(ByVal id As String, ByVal type As String)
+    '    Dim ds As New sales_dsTableAdapters.salesInfoTableAdapter
+    '    Dim dt As New DataTable
+    '    ds.Fill(dt, id)
 
-        txtSalesNo.Text = dt.Rows(0).Item(0).ToString
-        txtName.Text = dt.Rows(0).Item(0).ToString
-        txtRefNo.Text = dt.Rows(0).Item(0).ToString
-        txtMemo.Text = dt.Rows(0).Item(0).ToString
-        txtARAcc.Text = dt.Rows(0).Item(0).ToString
-        txtMemo.Text = dt.Rows(0).Item(0).ToString
-        CardID = dt.Rows(0).Item(0).ToString
-        dgv.Rows.Clear()
-        For Each row As DataRow In dt.Rows
-            dgv.Rows.Add(row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0))
-        Next
+    '    txtSalesNo.Text = dt.Rows(0).Item(0).ToString
+    '    txtName.Text = dt.Rows(0).Item(0).ToString
+    '    txtRefNo.Text = dt.Rows(0).Item(0).ToString
+    '    txtMemo.Text = dt.Rows(0).Item(0).ToString
+    '    txtARAcc.Text = dt.Rows(0).Item(0).ToString
+    '    txtMemo.Text = dt.Rows(0).Item(0).ToString
+    '    CardID = dt.Rows(0).Item(0).ToString
+    '    dgv.Rows.Clear()
+    '    For Each row As DataRow In dt.Rows
+    '        dgv.Rows.Add(row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0), row(0))
+    '    Next
 
-    End Sub
+    'End Sub
     Sub load_commands()
         Me.MdiParent = frmSalesMain
         generateNo()
@@ -419,6 +419,7 @@
     End Sub
     Private Sub btnSearchCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearchCustomer.Click
         frmCardListForSelection.formMode = "Sales Invoice"
+        frmCardListForSelection.filterType()
         frmCardListForSelection.ShowDialog()
         If frmCardListForSelection.itemClick = True Then
             CardID = frmCardListForSelection.LV.SelectedItems(0).SubItems(0).Text

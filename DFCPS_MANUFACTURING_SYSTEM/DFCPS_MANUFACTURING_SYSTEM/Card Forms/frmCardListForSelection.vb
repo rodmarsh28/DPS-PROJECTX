@@ -9,6 +9,8 @@ Public Class frmCardListForSelection
     Sub filterType()
         If formMode = "ReceivePayments" Then
             filterCardType = "and cardType = 'Customer' "
+        ElseIf formMode = "Sales Invoice" Then
+            filterCardType = "and cardType = 'Customer' "
         ElseIf formMode = "" Then
 
         End If

@@ -19,6 +19,9 @@
         txtCardCN.Text = ""
         txtCardCreditLimit.Text = ""
         cmbCardType.SelectedIndex = -1
+        cmbCardType.Enabled = True
+        txtCardNo.Enabled = True
+
         cmbDesignation.SelectedIndex = -1
 
     End Sub
@@ -136,8 +139,10 @@
     End Sub
 
     Private Sub cmbCardType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCardType.SelectedIndexChanged
-        ItemType()
-        generateCardNo()
+        If btnSave.Text = "Save" Then
+            ItemType()
+            generateCardNo()
+        End If
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
@@ -160,5 +165,13 @@
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub CardProfile_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class
