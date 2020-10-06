@@ -958,6 +958,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>invtry_ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Inventory Forms\invtry_ds.vb">
+      <DependentUpon>invtry_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Inventory Forms\list_for_selected accounts.Designer.vb">
       <DependentUpon>list_for_selected accounts.vb</DependentUpon>
     </Compile>

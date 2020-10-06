@@ -63,6 +63,12 @@ Partial Class frmFinishedItemDesc_Generator
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.dgvSpecs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -84,6 +90,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvSpecs.AllowUserToAddRows = False
         Me.dgvSpecs.AllowUserToDeleteRows = False
+        Me.dgvSpecs.AllowUserToResizeColumns = False
+        Me.dgvSpecs.AllowUserToResizeRows = False
+        Me.dgvSpecs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSpecs.BackgroundColor = System.Drawing.Color.White
         Me.dgvSpecs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSpecs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Size, Me.Application, Me.Column1})
@@ -102,7 +111,6 @@ Partial Class frmFinishedItemDesc_Generator
         Me.Size.HeaderText = "Size"
         Me.Size.Name = "Size"
         Me.Size.ReadOnly = True
-        Me.Size.Width = 50
         '
         'Application
         '
@@ -115,7 +123,6 @@ Partial Class frmFinishedItemDesc_Generator
         Me.Column1.HeaderText = "Code"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 50
         '
         'GroupBox1
         '
@@ -143,6 +150,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvSpecs2.AllowUserToAddRows = False
         Me.dgvSpecs2.AllowUserToDeleteRows = False
+        Me.dgvSpecs2.AllowUserToResizeColumns = False
+        Me.dgvSpecs2.AllowUserToResizeRows = False
+        Me.dgvSpecs2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSpecs2.BackgroundColor = System.Drawing.Color.White
         Me.dgvSpecs2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSpecs2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
@@ -161,7 +171,6 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn1.HeaderText = "Size"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 50
         '
         'DataGridViewTextBoxColumn2
         '
@@ -174,7 +183,6 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn3.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 50
         '
         'GroupBox2
         '
@@ -191,6 +199,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvDenier.AllowUserToAddRows = False
         Me.dgvDenier.AllowUserToDeleteRows = False
+        Me.dgvDenier.AllowUserToResizeColumns = False
+        Me.dgvDenier.AllowUserToResizeRows = False
+        Me.dgvDenier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDenier.BackgroundColor = System.Drawing.Color.White
         Me.dgvDenier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDenier.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
@@ -209,14 +220,12 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn5.HeaderText = "Type"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 60
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 50
         '
         'GroupBox3
         '
@@ -233,6 +242,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvColor2.AllowUserToAddRows = False
         Me.dgvColor2.AllowUserToDeleteRows = False
+        Me.dgvColor2.AllowUserToResizeColumns = False
+        Me.dgvColor2.AllowUserToResizeRows = False
+        Me.dgvColor2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvColor2.BackgroundColor = System.Drawing.Color.White
         Me.dgvColor2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvColor2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
@@ -256,7 +268,6 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn8.HeaderText = "Code *colors*"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 60
         '
         'GroupBox7
         '
@@ -273,6 +284,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvColor.AllowUserToAddRows = False
         Me.dgvColor.AllowUserToDeleteRows = False
+        Me.dgvColor.AllowUserToResizeColumns = False
+        Me.dgvColor.AllowUserToResizeRows = False
+        Me.dgvColor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvColor.BackgroundColor = System.Drawing.Color.White
         Me.dgvColor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvColor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn9})
@@ -290,14 +304,12 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn4.HeaderText = "Type"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 60
         '
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 50
         '
         'GroupBox4
         '
@@ -314,6 +326,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvTH.AllowUserToAddRows = False
         Me.dgvTH.AllowUserToDeleteRows = False
+        Me.dgvTH.AllowUserToResizeColumns = False
+        Me.dgvTH.AllowUserToResizeRows = False
+        Me.dgvTH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTH.BackgroundColor = System.Drawing.Color.White
         Me.dgvTH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTH.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
@@ -332,14 +347,12 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn10.HeaderText = "Type"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 60
         '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 50
         '
         'GroupBox8
         '
@@ -356,6 +369,9 @@ Partial Class frmFinishedItemDesc_Generator
         '
         Me.dgvPrinted.AllowUserToAddRows = False
         Me.dgvPrinted.AllowUserToDeleteRows = False
+        Me.dgvPrinted.AllowUserToResizeColumns = False
+        Me.dgvPrinted.AllowUserToResizeRows = False
+        Me.dgvPrinted.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPrinted.BackgroundColor = System.Drawing.Color.White
         Me.dgvPrinted.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPrinted.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13})
@@ -374,46 +390,44 @@ Partial Class frmFinishedItemDesc_Generator
         Me.DataGridViewTextBoxColumn12.HeaderText = "Type"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 60
         '
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Width = 50
         '
         'txtSpecs
         '
-        Me.txtSpecs.Location = New System.Drawing.Point(70, 424)
+        Me.txtSpecs.Location = New System.Drawing.Point(60, 424)
         Me.txtSpecs.Name = "txtSpecs"
         Me.txtSpecs.Size = New System.Drawing.Size(91, 20)
         Me.txtSpecs.TabIndex = 7
         '
         'txtDenier
         '
-        Me.txtDenier.Location = New System.Drawing.Point(282, 424)
+        Me.txtDenier.Location = New System.Drawing.Point(271, 424)
         Me.txtDenier.Name = "txtDenier"
         Me.txtDenier.Size = New System.Drawing.Size(91, 20)
         Me.txtDenier.TabIndex = 8
         '
         'txtColor
         '
-        Me.txtColor.Location = New System.Drawing.Point(462, 424)
+        Me.txtColor.Location = New System.Drawing.Point(439, 424)
         Me.txtColor.Name = "txtColor"
         Me.txtColor.Size = New System.Drawing.Size(91, 20)
         Me.txtColor.TabIndex = 9
         '
         'txtTH
         '
-        Me.txtTH.Location = New System.Drawing.Point(643, 425)
+        Me.txtTH.Location = New System.Drawing.Point(633, 425)
         Me.txtTH.Name = "txtTH"
         Me.txtTH.Size = New System.Drawing.Size(91, 20)
         Me.txtTH.TabIndex = 10
         '
         'txtPrinted
         '
-        Me.txtPrinted.Location = New System.Drawing.Point(793, 425)
+        Me.txtPrinted.Location = New System.Drawing.Point(782, 425)
         Me.txtPrinted.Name = "txtPrinted"
         Me.txtPrinted.Size = New System.Drawing.Size(91, 20)
         Me.txtPrinted.TabIndex = 11
@@ -458,12 +472,72 @@ Partial Class frmFinishedItemDesc_Generator
         Me.RemoveToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.RemoveToolStripMenuItem.Text = "Remove"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(154, 424)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(24, 20)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = ">"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(364, 424)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(24, 20)
+        Me.Button2.TabIndex = 22
+        Me.Button2.Text = ">"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(532, 423)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(24, 20)
+        Me.Button3.TabIndex = 23
+        Me.Button3.Text = ">"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(557, 423)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(24, 20)
+        Me.Button4.TabIndex = 24
+        Me.Button4.Text = "+"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(725, 425)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(24, 20)
+        Me.Button5.TabIndex = 25
+        Me.Button5.Text = ">"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(874, 425)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(24, 20)
+        Me.Button6.TabIndex = 26
+        Me.Button6.Text = ">"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'frmFinishedItemDesc_Generator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(939, 524)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtPrinted)
@@ -541,4 +615,10 @@ Partial Class frmFinishedItemDesc_Generator
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents AddToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemoveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 End Class
