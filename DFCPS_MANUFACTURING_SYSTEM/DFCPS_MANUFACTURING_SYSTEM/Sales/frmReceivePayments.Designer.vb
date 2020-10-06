@@ -23,7 +23,7 @@ Partial Class frmReceivePayments
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtCustomerName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -56,14 +56,6 @@ Partial Class frmReceivePayments
         Me.chkCheck = New System.Windows.Forms.CheckBox()
         Me.chkCash = New System.Windows.Forms.CheckBox()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtMemo = New System.Windows.Forms.RichTextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.lblDiscountAcc = New System.Windows.Forms.TextBox()
@@ -80,6 +72,14 @@ Partial Class frmReceivePayments
         Me.lblTotAmount = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtRecvAccount = New System.Windows.Forms.TextBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.groupCheck.SuspendLayout()
         Me.groupCash.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -366,72 +366,16 @@ Partial Class frmReceivePayments
         '
         Me.dgv.AllowUserToAddRows = False
         Me.dgv.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
-        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure
+        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3, Me.Column4, Me.Column6, Me.Column7, Me.Column9, Me.Column5, Me.Column8})
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3, Me.Column4, Me.Column6, Me.Column9, Me.Column7, Me.Column5, Me.Column8})
         Me.dgv.Location = New System.Drawing.Point(19, 335)
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
         Me.dgv.Size = New System.Drawing.Size(782, 141)
         Me.dgv.TabIndex = 104
-        '
-        'Column1
-        '
-        Me.Column1.Frozen = True
-        Me.Column1.HeaderText = "Invoice #"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.Frozen = True
-        Me.Column3.HeaderText = "Date"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 110
-        '
-        'Column4
-        '
-        Me.Column4.Frozen = True
-        Me.Column4.HeaderText = "Amount"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.Frozen = True
-        Me.Column6.HeaderText = "Discount"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Total Amount"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Total Amnt. Paid"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 110
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Amount Applied"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 110
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "ReceivableAccount"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
         '
         'txtMemo
         '
@@ -575,6 +519,62 @@ Partial Class frmReceivePayments
         Me.txtRecvAccount.Size = New System.Drawing.Size(160, 20)
         Me.txtRecvAccount.TabIndex = 122
         '
+        'Column1
+        '
+        Me.Column1.Frozen = True
+        Me.Column1.HeaderText = "Invoice #"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.Frozen = True
+        Me.Column3.HeaderText = "Date"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 110
+        '
+        'Column4
+        '
+        Me.Column4.Frozen = True
+        Me.Column4.HeaderText = "Amount"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.Frozen = True
+        Me.Column6.HeaderText = "Discount"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Total Amnt. Paid"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 110
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Total Amount"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Amount Applied"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 110
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "ReceivableAccount"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
+        '
         'frmReceivePayments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -680,13 +680,13 @@ Partial Class frmReceivePayments
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents lblTotAmount As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents txtRecvAccount As System.Windows.Forms.TextBox
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents txtRecvAccount As System.Windows.Forms.TextBox
 End Class

@@ -13,7 +13,14 @@ Public Class frmReceivePayments
         txtChequeNo.Text = ""
         dtpcheckDate.Value = Now
         txtCheckAmount.Text = "0.00"
+        txtCashAmount.Text = "0.00"
         txtMemo.Text = ""
+        lblTotalAmountReceived.Text = "0.00"
+        lblTotAmount.Text = "0.00"
+        lblTotDiscount.Text = "0.00"
+        lblTotalAmountApplied.Text = "0.00"
+        lblOutBalance.Text = "0.00"
+        dgv.Rows.Clear()
     End Sub
     Sub generatePaymentNo()
       Try
@@ -105,9 +112,9 @@ Public Class frmReceivePayments
                 ae.credit = 0
                 ae.insert_Acc_entry_class()
                 ae.memo = "Payment Received for Invoice No: " & row.Cells(0).Value
-                ae.account = row.Cells(7).Value
+                ae.account = txtRecvAccount.Text
                 ae.debit = 0
-                ae.credit = row.Cells(2).Value
+                ae.credit = CDec(row.Cells(3).Value) + CDec(row.Cells(6).Value)
                 ae.insert_Acc_entry_class()
             End If
         Next
@@ -146,10 +153,12 @@ Public Class frmReceivePayments
         Dim ac As New Accounting_class
         sc.accNo = txtRecvAccount.Text
         sc.searchValue = cardID
-        get_invoice_list()
+        sc.get_invoice_list()
         dgv.Rows.Clear()
         For Each row As DataRow In sc.dtable.Rows
-            dgv.Rows.Add(row(1), row(2), row(3), row(4), row(5), row(6), "0.00", "")
+            If row(6) > 0 Then
+                dgv.Rows.Add(row(1), Format(row(2), "MM/dd/yyyy"), Format(CDec(row(3)), "N"), Format(CDec(row(4)), "N"), Format(CDec(row(5)), "N"), Format((CDec(row(3)) - CDec(row(4)) - CDec(row(5))), "N"), "0.00", "")
+            End If
         Next
         ac.command = 0
         For Each row As DataGridViewRow In dgv.Rows
@@ -204,7 +213,7 @@ Public Class frmReceivePayments
         For Each row As DataGridViewRow In dgv.Rows
             discount += CDec(row.Cells(3).Value)
             amountApplied += CDec(row.Cells(6).Value)
-            totalAmount += CDec(row.Cells(2).Value)
+            totalAmount += CDec(row.Cells(5).Value)
         Next
         lblTotalAmountApplied.Text = amountApplied.ToString("N")
         lblTotAmount.Text = totalAmount.ToString("N")
@@ -263,7 +272,7 @@ Public Class frmReceivePayments
             If dgv.CurrentCell.ColumnIndex = 3 Then
                 Dim discount As Double = InputBox("Enter the Discount Amount you apply", "Discount Amount Apply")
                 dgv.CurrentRow.Cells(3).Value = Format(discount, "N")
-                dgv.CurrentRow.Cells(4).Value = Format(CDec(dgv.CurrentRow.Cells(2).Value) - discount, "N")
+                dgv.CurrentRow.Cells(5).Value = Format(CDec(dgv.CurrentRow.Cells(2).Value) - discount - CDec(dgv.CurrentRow.Cells(4).Value), "N")
             ElseIf dgv.CurrentCell.ColumnIndex = 6 Then
                 Dim amountApplied As Double = InputBox("Enter the amount you apply", "Amount Apply")
                 dgv.CurrentRow.Cells(6).Value = Format(amountApplied, "N")

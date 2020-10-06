@@ -911,6 +911,12 @@
     <Compile Include="Inventory Forms\frmAddItemsInventory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Inventory Forms\frmFinishedItemDesc_Generator.Designer.vb">
+      <DependentUpon>frmFinishedItemDesc_Generator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory Forms\frmFinishedItemDesc_Generator.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inventory Forms\frmInventory.Designer.vb">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </Compile>
@@ -946,6 +952,11 @@
     </Compile>
     <Compile Include="Inventory Forms\frmRawMaterialProduced.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory Forms\invtry_ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>invtry_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="Inventory Forms\list_for_selected accounts.Designer.vb">
       <DependentUpon>list_for_selected accounts.vb</DependentUpon>
@@ -1920,6 +1931,9 @@
     <EmbeddedResource Include="Inventory Forms\frmAddItemsInventory.resx">
       <DependentUpon>frmAddItemsInventory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory Forms\frmFinishedItemDesc_Generator.resx">
+      <DependentUpon>frmFinishedItemDesc_Generator.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory Forms\frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -2229,6 +2243,17 @@
     </None>
     <None Include="Class\account_ds.xss">
       <DependentUpon>account_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory Forms\invtry_ds.xsc">
+      <DependentUpon>invtry_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory Forms\invtry_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>invtry_ds.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Inventory Forms\invtry_ds.xss">
+      <DependentUpon>invtry_ds.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>
