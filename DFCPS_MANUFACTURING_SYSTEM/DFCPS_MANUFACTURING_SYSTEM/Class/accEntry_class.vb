@@ -6,7 +6,7 @@ Public Class accEntry_class
     Public memo As String
     Public debit As Double
     Public credit As Double
-    Public SRC As String = "Sales Invoice"
+    Public SRC As String
     Public job As String = ""
     Public cardID As String = ""
     Public Sub insert_Acc_entry_class()

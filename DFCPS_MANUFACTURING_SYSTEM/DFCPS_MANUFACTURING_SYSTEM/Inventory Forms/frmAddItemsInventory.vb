@@ -273,4 +273,13 @@
     Private Sub GroupBox2_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox2.Enter
 
     End Sub
+
+    Private Sub Button4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim frm As New frmFinishedItemDesc_Generator
+        frm.generate_clicked = False
+        frm.ShowDialog()
+        If frm.generate_clicked = True Then
+            txtItemdesc.Text = frm.generate_desc
+        End If
+    End Sub
 End Class

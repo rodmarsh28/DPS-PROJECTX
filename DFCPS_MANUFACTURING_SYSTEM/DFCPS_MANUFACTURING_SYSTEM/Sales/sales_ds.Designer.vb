@@ -1578,12 +1578,6 @@ Partial Public Class sales_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindBysalesNo(ByVal salesNo As String) As salesInfoRow
-            Return CType(Me.Rows.Find(New Object() {salesNo}),salesInfoRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As salesInfoDataTable = CType(MyBase.Clone,salesInfoDataTable)
             cln.InitVars
@@ -1667,9 +1661,7 @@ Partial Public Class sales_ds
             MyBase.Columns.Add(Me.columncardName)
             Me.columncardAddress = New Global.System.Data.DataColumn("cardAddress", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncardAddress)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnsalesNo}, true))
             Me.columnsalesNo.AllowDBNull = false
-            Me.columnsalesNo.Unique = true
             Me.columnsalesNo.MaxLength = 255
             Me.columncardID.MaxLength = 255
             Me.columnuserID.MaxLength = 255
@@ -4220,78 +4212,80 @@ Namespace sales_dsTableAdapters
                 "esCashInvoice.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress"& _ 
                 ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units."& _ 
                 "unit_desc, tblSalesItemsTR.pc, tblSalesItemsTR.qty AS wt, tblSalesItemsTR.uPrice"& _ 
-                ", tblSalesItemsTR.discount, tblSalesItemsTR.amount, tblUsers.name AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblCardsProfile INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesCashInvoice O"& _ 
-                "N tblCardsProfile.cardID = tblSalesCashInvoice.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "    tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON tblSalesItemsTR.i"& _ 
-                "temNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInvtr"& _ 
-                "y.ITEMNO = tblItem_units.itemcode ON tblSalesCashInvoice.salesCashInvoiceNo = tb"& _ 
-                "lSalesItemsTR.transNo CROSS JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSale"& _ 
-                "sCashInvoice.salesCashInvoiceNo = @no)"
+                ", tblSalesItemsTR.discount, tblSalesItemsTR.amount, tblUsers.name AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesCashInvoice O"& _ 
+                "N tblSalesItemsTR.transNo = tblSalesCashInvoice.salesCashInvoiceNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                 tblInvtry ON tblSalesItemsTR.itemNo = tblInvtry.ITEMNO INNER JO"& _ 
+                "IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInvtry.ITEMNO = tblItem_units.itemcode"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblCardsProfile ON tblSalesCashInvoice.cardID = t"& _ 
+                "blCardsProfile.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers ON tblSalesCashInvo"& _ 
+                "ice.userID = tblUsers.userID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSalesCashInvoice.salesCashInvoiceNo "& _ 
+                "= @no)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@no", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "salesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT     tblSalesChargeInvoice.salesChargeInvoiceNo as SalesNo, tblSalesChargeI"& _ 
+            Me._commandCollection(1).CommandText = "SELECT     tblSalesChargeInvoice.salesChargeInvoiceNo AS SalesNo, tblSalesChargeI"& _ 
                 "nvoice.transDate, tblSalesChargeInvoice.refNo, tblSalesChargeInvoice.totalDiscou"& _ 
                 "nt, tblSalesChargeInvoice.totalAmount, tblCardsProfile.cardName, tblCardsProfile"& _ 
                 ".cardAddress, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tb"& _ 
                 "lItem_units.unit_desc, tblSalesItemsTR.pc, tblSalesItemsTR.qty AS wt, tblSalesIt"& _ 
                 "emsTR.uPrice, tblSalesItemsTR.discount, tblSalesItemsTR.amount, tblUsers.name AS"& _ 
-                " preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblCardsProfile INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesC"& _ 
-                "hargeInvoice ON tblCardsProfile.cardID = tblSalesChargeInvoice.cardID INNER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON t"& _ 
-                "blSalesItemsTR.itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_u"& _ 
-                "nits ON tblInvtry.ITEMNO = tblItem_units.itemcode ON tblSalesChargeInvoice.sales"& _ 
-                "ChargeInvoiceNo = tblSalesItemsTR.transNo CROSS JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    (tblSalesChargeInvoice.salesChargeInvoiceNo = @no)"
+                " preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesC"& _ 
+                "hargeInvoice ON tblSalesItemsTR.transNo = tblSalesChargeInvoice.salesChargeInvoi"& _ 
+                "ceNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON tblSalesItemsTR.itemNo = tblInvt"& _ 
+                "ry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInvtry.ITEMNO = tblI"& _ 
+                "tem_units.itemcode INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblCardsProfile ON tblSalesChar"& _ 
+                "geInvoice.cardID = tblCardsProfile.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers"& _ 
+                " ON tblSalesChargeInvoice.userID = tblUsers.userID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSalesChargeInv"& _ 
+                "oice.salesChargeInvoiceNo = @no)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@no", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT     tblSalesDeliver.salesDeliverNo as salesNo, tblSalesDeliver.transDate, "& _ 
+            Me._commandCollection(2).CommandText = "SELECT     tblSalesDeliver.salesDeliverNo AS salesNo, tblSalesDeliver.transDate, "& _ 
                 "tblSalesDeliver.refNo, tblSalesDeliver.totalAmount, tblCardsProfile.cardName, tb"& _ 
                 "lCardsProfile.cardAddress, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_u"& _ 
                 "nits.unit_desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.pc, tblSalesItemsTR.qty AS w"& _ 
                 "t, tblSalesItemsTR.uPrice, tblSalesItemsTR.discount, tblSalesItemsTR.amount, tbl"& _ 
-                "Users.name AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblCardsProfile INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "    tblSalesDeliver ON tblCardsProfile.cardID = tblSalesDeliver.cardID INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON "& _ 
-                "tblSalesItemsTR.itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_"& _ 
-                "units ON tblInvtry.ITEMNO = tblItem_units.itemcode ON tblSalesDeliver.salesDeliv"& _ 
-                "erNo = tblSalesItemsTR.transNo CROSS JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
-                " (tblSalesDeliver.salesDeliverNo = @no)"
+                "Users.name AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "    tblSalesDeliver ON tblSalesItemsTR.transNo = tblSalesDeliver.salesDeliverNo "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON tblSalesItemsTR.itemNo = tblInvtry.IT"& _ 
+                "EMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInvtry.ITEMNO = tblItem_u"& _ 
+                "nits.itemcode INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblCardsProfile ON tblSalesDeliver.c"& _ 
+                "ardID = tblCardsProfile.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers ON tblSale"& _ 
+                "sDeliver.userID = tblUsers.userID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSalesDeliver.salesDeliverNo = @"& _ 
+                "no)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@no", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "salesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT     tblSalesOrder.salesOrderNo as salesNo, tblSalesOrder.transDate, tblSal"& _ 
+            Me._commandCollection(3).CommandText = "SELECT     tblSalesOrder.salesOrderNo AS salesNo, tblSalesOrder.transDate, tblSal"& _ 
                 "esOrder.refNo, tblSalesOrder.totalAmount, tblCardsProfile.cardName, tblCardsProf"& _ 
                 "ile.cardAddress, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_"& _ 
-                "desc, tblSalesItemsTR.pc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.qty AS wt, tblSale"& _ 
+                "desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.pc, tblSalesItemsTR.qty AS wt, tblSale"& _ 
                 "sItemsTR.uPrice, tblSalesItemsTR.discount, tblSalesItemsTR.amount, tblUsers.name"& _ 
-                " AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblCardsProfile INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSal"& _ 
-                "esOrder ON tblCardsProfile.cardID = tblSalesOrder.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "       tblUsers ON tblSalesOrder.userID = tblUsers.userID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON tblSalesItems"& _ 
-                "TR.itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblI"& _ 
-                "nvtry.ITEMNO = tblItem_units.itemcode ON tblSalesOrder.salesOrderNo = tblSalesIt"& _ 
-                "emsTR.transNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where salesOrderNo = @no"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                " AS preparedby"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSal"& _ 
+                "esOrder ON tblSalesItemsTR.transNo = tblSalesOrder.salesOrderNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "              tblInvtry ON tblSalesItemsTR.itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInvtry.ITEMNO = tblItem_units.itemcode IN"& _ 
+                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblCardsProfile ON tblSalesOrder.cardID = tblCardsPr"& _ 
+                "ofile.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers ON tblSalesOrder.userID = tb"& _ 
+                "lUsers.userID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSalesOrder.salesOrderNo = @no)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@no", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "salesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT     tblSalesQuotation.quoteNo as salesNo, tblSalesQuotation.transDate, tbl"& _ 
+            Me._commandCollection(4).CommandText = "SELECT     tblSalesQuotation.quoteNo AS salesNo, tblSalesQuotation.transDate, tbl"& _ 
                 "SalesQuotation.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddres"& _ 
                 "s, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_desc, tblSales"& _ 
                 "ItemsTR.pc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesItemsTR.qty AS wt, tblSalesItemsTR.uPric"& _ 
                 "e, tblSalesItemsTR.discount, tblSalesItemsTR.amount, tblUsers.name AS preparedby"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesQuotation INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblCardsProfile ON"& _ 
-                " tblSalesQuotation.cardID = tblCardsProfile.cardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                " tblUsers ON tblSalesQuotation.userID = tblUsers.userID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "      tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblInvtry ON tblSalesItemsTR"& _ 
-                ".itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblItem_units ON tblInv"& _ 
-                "try.ITEMNO = tblItem_units.itemcode ON tblSalesQuotation.quoteNo = tblSalesItems"& _ 
-                "TR.transNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where tblSalesQuotation.quoteNo = @no"
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        tblSalesItemsTR INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblSalesQuotation ON"& _ 
+                " tblSalesItemsTR.transNo = tblSalesQuotation.quoteNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "   tblInvtry ON tblSalesItemsTR.itemNo = tblInvtry.ITEMNO INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "        tblItem_units ON tblInvtry.ITEMNO = tblItem_units.itemcode INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                 tblCardsProfile ON tblSalesQuotation.cardID = tblCardsProfile.c"& _ 
+                "ardID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  tblUsers ON tblSalesQuotation.userID = tblUs"& _ 
+                "ers.userID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (tblSalesQuotation.quoteNo = @no)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@no", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "salesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

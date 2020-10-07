@@ -4,7 +4,7 @@ Imports System.Drawing.Printing
 Public Class frmsales_list_selector
     Dim rowIndex As Integer
     Public MODE As String
-    Dim cardID As String
+    Public cardID As String
     Dim cardName As String
     Dim payment As String
     Public DT As New DataTable
@@ -27,6 +27,7 @@ Public Class frmsales_list_selector
             With cmd
                 .CommandType = CommandType.StoredProcedure
                 .Parameters.AddWithValue("@COMMAND", SqlDbType.VarChar).Value = MODE
+                .Parameters.AddWithValue("@cardid", SqlDbType.VarChar).Value = cardID
                 .Parameters.AddWithValue("@searchValue", SqlDbType.VarChar).Value = txtSearch.Text
             End With
             Dim da As New SqlDataAdapter(cmd)
@@ -34,8 +35,7 @@ Public Class frmsales_list_selector
             dt.Rows.Clear()
             da.Fill(dt)
             DGV.DataSource = dt
-            DGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells)
-            DGV.Columns(1).Width = 100
+            DGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         Catch ex As Exception
         End Try
     End Sub
@@ -71,6 +71,15 @@ Public Class frmsales_list_selector
         If MsgBox("Are you sure ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "System Reminder") = MsgBoxResult.Yes Then
             successClick = True
             Me.Close()
+        End If
+    End Sub
+
+    Private Sub DGV_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DGV.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If MsgBox("Are you sure ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "System Reminder") = MsgBoxResult.Yes Then
+                successClick = True
+                Me.Close()
+            End If
         End If
     End Sub
 End Class

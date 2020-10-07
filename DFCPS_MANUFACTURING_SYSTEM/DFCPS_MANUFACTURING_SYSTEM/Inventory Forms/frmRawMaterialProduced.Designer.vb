@@ -24,6 +24,14 @@ Partial Class frmRawMaterialProduced
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv = New System.Windows.Forms.DataGridView()
+        Me.Item_Code = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit_Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AssetAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Pc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtQty = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -46,14 +54,6 @@ Partial Class frmRawMaterialProduced
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtJONo = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Item_Code = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit_Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AssetAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Pc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -73,6 +73,57 @@ Partial Class frmRawMaterialProduced
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv.Size = New System.Drawing.Size(848, 343)
         Me.dgv.TabIndex = 0
+        '
+        'Item_Code
+        '
+        Me.Item_Code.HeaderText = "Item Code"
+        Me.Item_Code.Name = "Item_Code"
+        Me.Item_Code.ReadOnly = True
+        '
+        'Description
+        '
+        Me.Description.HeaderText = "Description"
+        Me.Description.Name = "Description"
+        Me.Description.ReadOnly = True
+        Me.Description.Width = 220
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Unit"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        '
+        'Qty
+        '
+        Me.Qty.HeaderText = "Qty"
+        Me.Qty.Name = "Qty"
+        Me.Qty.ReadOnly = True
+        '
+        'Unit_Cost
+        '
+        Me.Unit_Cost.HeaderText = "Unit Cost"
+        Me.Unit_Cost.Name = "Unit_Cost"
+        Me.Unit_Cost.ReadOnly = True
+        '
+        'Amount
+        '
+        Me.Amount.HeaderText = "Amount"
+        Me.Amount.Name = "Amount"
+        Me.Amount.ReadOnly = True
+        '
+        'AssetAccount
+        '
+        Me.AssetAccount.HeaderText = "AssetAccount"
+        Me.AssetAccount.Name = "AssetAccount"
+        Me.AssetAccount.ReadOnly = True
+        Me.AssetAccount.Visible = False
+        '
+        'Pc
+        '
+        Me.Pc.HeaderText = "Pc"
+        Me.Pc.Name = "Pc"
+        Me.Pc.ReadOnly = True
+        Me.Pc.Width = 80
         '
         'txtQty
         '
@@ -241,7 +292,7 @@ Partial Class frmRawMaterialProduced
         'Button5
         '
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(1000, 87)
+        Me.Button5.Location = New System.Drawing.Point(1000, 92)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(33, 23)
         Me.Button5.TabIndex = 37
@@ -275,57 +326,6 @@ Partial Class frmRawMaterialProduced
         Me.CheckBox1.TabIndex = 38
         Me.CheckBox1.Text = "Input Pc Qty"
         Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Item_Code
-        '
-        Me.Item_Code.HeaderText = "Item Code"
-        Me.Item_Code.Name = "Item_Code"
-        Me.Item_Code.ReadOnly = True
-        '
-        'Description
-        '
-        Me.Description.HeaderText = "Description"
-        Me.Description.Name = "Description"
-        Me.Description.ReadOnly = True
-        Me.Description.Width = 220
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
-        '
-        'Qty
-        '
-        Me.Qty.HeaderText = "Qty"
-        Me.Qty.Name = "Qty"
-        Me.Qty.ReadOnly = True
-        '
-        'Unit_Cost
-        '
-        Me.Unit_Cost.HeaderText = "Unit Cost"
-        Me.Unit_Cost.Name = "Unit_Cost"
-        Me.Unit_Cost.ReadOnly = True
-        '
-        'Amount
-        '
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.Name = "Amount"
-        Me.Amount.ReadOnly = True
-        '
-        'AssetAccount
-        '
-        Me.AssetAccount.HeaderText = "AssetAccount"
-        Me.AssetAccount.Name = "AssetAccount"
-        Me.AssetAccount.ReadOnly = True
-        Me.AssetAccount.Visible = False
-        '
-        'Pc
-        '
-        Me.Pc.HeaderText = "Pc"
-        Me.Pc.Name = "Pc"
-        Me.Pc.ReadOnly = True
-        Me.Pc.Width = 80
         '
         'frmRawMaterialProduced
         '

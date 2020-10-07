@@ -1,6 +1,7 @@
 ﻿Public Class frmFinishedItemDesc_Generator
     Dim dgw As DataGridView
     Dim cms1 As String
+    Public generate_clicked As Boolean
     
     Sub command_Data(ByVal Size As String, ByVal app As String, ByVal code As String, ByVal type As String, ByVal command As String, ByVal name As String)
         Dim spec1_ds As New invtry_dsTableAdapters.specs1TableAdapter
@@ -221,7 +222,19 @@
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Try
+            txtColor.Text += dgvColor2.SelectedRows.Item(0).Cells("Code").Value
+        Catch ex As Exception
 
+        End Try
+        Try
+            For Each r As DataGridViewRow In dgvColor.SelectedRows
+                txtColor.Text += r.Cells("Code").Value
+            Next
+            txtColor.Text += "-"
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -249,7 +262,7 @@
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         txtTH.Text = ""
         Try
-            txtPrinted.Text = dgvTH.SelectedRows.Item(0).Cells("Code").Value
+            txtTH.Text = dgvTH.SelectedRows.Item(0).Cells("Code").Value
         Catch ex As Exception
         End Try
     End Sub
@@ -263,22 +276,39 @@
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        txtColor.Text = ""
-        Try
-            txtColor.Text = dgvColor2.SelectedRows.Item(0).Cells("Code").Value
-        Catch ex As Exception
-
-        End Try
         Try
             If dgvColor2.SelectedRows.Count > 0 Then
+                txtColor.Text += dgvColor2.SelectedRows.Item(0).Cells("Code").Value
                 For Each r As DataGridViewRow In dgvColor.SelectedRows
                     txtColor.Text += r.Cells("Code").Value
                 Next
 
+            Else
+                txtColor.Text += "PL" + dgvColor.SelectedRows.Item(0).Cells("Code").Value
             End If
-
         Catch ex As Exception
 
         End Try
+    End Sub
+    Public Function generate_desc() As String
+        Return txtSpecs.Text + "-" + txtDenier.Text + "-" + txtColor.Text + "-" + txtTH.Text + "-" + txtPrinted.Text
+    End Function
+
+
+    Private Sub dgvColor2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dgvColor2.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            dgvColor2.ClearSelection()
+        End If
+    End Sub
+
+    Private Sub dgvColor_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dgvColor.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            dgvColor.ClearSelection()
+        End If
+    End Sub
+
+    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+        generate_clicked = True
+        Me.Close()
     End Sub
 End Class

@@ -60,6 +60,7 @@ Partial Class frmAddItemsInventory
         Me.txtUnitPrice = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtUnitCost = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -108,6 +109,7 @@ Partial Class frmAddItemsInventory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.lblAccAsset)
         Me.GroupBox1.Controls.Add(Me.lblAccIncome)
         Me.GroupBox1.Controls.Add(Me.lblAccCost)
@@ -430,6 +432,15 @@ Partial Class frmAddItemsInventory
         Me.txtUnitCost.TabIndex = 118
         Me.txtUnitCost.Text = "0.00"
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(294, 40)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(32, 23)
+        Me.Button4.TabIndex = 20
+        Me.Button4.Text = ">"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'frmAddItemsInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -493,4 +504,5 @@ Partial Class frmAddItemsInventory
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtUnit As System.Windows.Forms.TextBox
     Friend WithEvents txtPC As System.Windows.Forms.TextBox
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class

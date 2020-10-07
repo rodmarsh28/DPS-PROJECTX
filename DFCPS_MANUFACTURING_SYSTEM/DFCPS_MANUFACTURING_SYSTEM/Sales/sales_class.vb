@@ -214,17 +214,15 @@ Public Class sales_class
         rptDoc = New rpt_sales
         If form = "QUOTATION" Then
             ds.qryQuote(dt.Tables("salesTable"), id)
-            rptDoc.SetParameterValue(0, form)
         ElseIf form = "SALES ORDER" Then
             ds.qryOrder(dt.Tables("salesTable"), id)
         ElseIf form = "SALES CASH INVOICE" Then
             ds.qryCash(dt.Tables("salesTable"), id)
         ElseIf form = "SALES CHARGE INVOICE" Then
             ds.qryCharge(dt.Tables("salesTable"), id)
-        ElseIf form = "DELIVERY" Then
+        ElseIf form = "SALES DELIVER" Then
             ds.qryDeliver(dt.Tables("salesTable"), id)
         End If
-
         rptDoc.SetDataSource(dt.Tables("salesTable"))
         print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
         rptDoc.SetParameterValue("title", form)

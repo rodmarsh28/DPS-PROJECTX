@@ -56,6 +56,7 @@
                 inventoryClass.itemNo = row.Cells(0).Value
                 inventoryClass.unitCost = row.Cells("Unit_Cost").Value
                 inventoryClass.qty = -+row.Cells("Qty").Value
+                inventoryClass.pcQty = 0
                 inventoryClass.job = txtJONo.Text
                 inventoryClass.insert_invItem_transaction()
             Next
@@ -160,10 +161,10 @@
 
 
     Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        frmJob_list.ShowDialog()
-        If frmJob_list.clickedItem = True Then
-            txtJONo.Text = frmJob_list.dgv.CurrentRow.Cells(1).Value
-            frmJob_list.clickedItem = False
+        frmsales_list_selector.MODE = "Job"
+        frmsales_list_selector.ShowDialog()
+        If frmsales_list_selector.successClick = True Then
+            txtJONo.Text = frmsales_list_selector.DGV.CurrentRow.Cells(0).Value
         End If
     End Sub
 End Class

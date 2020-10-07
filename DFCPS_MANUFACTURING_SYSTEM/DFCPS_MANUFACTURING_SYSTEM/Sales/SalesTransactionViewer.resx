@@ -312,7 +312,7 @@
     <value>527, 20</value>
   </metadata>
   <metadata name="cmsSalesQuotation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>659, 20</value>
+    <value>658, 18</value>
   </metadata>
   <metadata name="cmsCashInvoice.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>815, 20</value>

@@ -91,10 +91,6 @@ Public Class InventoryList
         getItemlist()
     End Sub
 
-    Private Sub dgv_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellContentClick
-
-    End Sub
-
     Private Sub dgv_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDoubleClick
         clickedItem = True
         If mode = "Sales" Then
@@ -128,5 +124,53 @@ Public Class InventoryList
         Else
             Me.Close()
         End If
+    End Sub
+
+    Private Sub dgv_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dgv.KeyDown
+        Try
+            If e.KeyCode = Keys.Enter Then
+                clickedItem = True
+                If mode = "Sales" Then
+                    Me.Close()
+                ElseIf mode = "Purchases" Then
+                    Me.Close()
+                ElseIf mode = "Item Requisition" Then
+                    Dim r As Integer = frmItemRequisition.dgv.Rows.Count
+                    frmItemRequisition.dgv.Rows.Add()
+                    frmItemRequisition.dgv.Item(0, r).Value = dgv.CurrentRow.Cells(0).Value
+                    frmItemRequisition.dgv.Item(1, r).Value = dgv.CurrentRow.Cells(1).Value
+                    frmItemRequisition.dgv.Item(2, r).Value = dgv.CurrentRow.Cells(2).Value
+                    frmItemRequisition.dgv.Item(3, r).Value = dgv.CurrentRow.Cells(4).Value
+                    frmItemRequisition.dgv.Item(4, r).Value = frmItemRequisition.txtQty.Text
+                    Me.Close()
+                ElseIf mode = "Issuance" Then
+                    Dim r As Integer = frmItemsIssuance.dgv.Rows.Count
+                    frmItemsIssuance.dgv.Rows.Add()
+                    frmItemsIssuance.dgv.Item(0, r).Value = dgv.CurrentRow.Cells(0).Value
+                    frmItemsIssuance.dgv.Item(1, r).Value = dgv.CurrentRow.Cells(1).Value
+                    frmItemsIssuance.dgv.Item(2, r).Value = dgv.CurrentRow.Cells(2).Value
+                    frmItemsIssuance.dgv.Item(3, r).Value = dgv.CurrentRow.Cells(4).Value
+                    frmItemsIssuance.dgv.Item(4, r).Value = frmItemsIssuance.txtQty.Text
+                    frmItemsIssuance.dgv.Item(5, r).Value = CDbl(dgv.CurrentRow.Cells(3).Value) * CDbl(frmItemsIssuance.txtQty.Text)
+                    frmItemsIssuance.dgv.Item(6, r).Value = dgv.CurrentRow.Cells(7).Value
+                    Me.Close()
+                ElseIf mode = "Order" Then
+                    Me.Close()
+                ElseIf mode = "Receiving" Then
+                    Me.Close()
+                Else
+                    Me.Close()
+                End If
+                e.SuppressKeyPress = True
+            ElseIf e.KeyCode = Keys.Escape Then
+                clickedItem = False
+                Me.Close()
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub dgv_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellContentClick
+
     End Sub
 End Class

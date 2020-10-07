@@ -70,7 +70,7 @@ Partial Class frmsales_list_selector
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(102, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(101, 17)
         Me.ToolStripStatusLabel1.Text = "Total Item Count :"
         '
         'lblItemCount
@@ -183,9 +183,6 @@ Partial Class frmsales_list_selector
         Me.ToolStripMenuItem6.Size = New System.Drawing.Size(188, 22)
         Me.ToolStripMenuItem6.Text = "Cancel Sales Order"
         '
-        'PrintDocument1
-        '
-        '
         'frmsales_list_selector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -194,6 +191,7 @@ Partial Class frmsales_list_selector
         Me.Controls.Add(Me.DGV)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.txtSearch)
+        Me.KeyPreview = True
         Me.Name = "frmsales_list_selector"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Sales List"

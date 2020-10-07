@@ -1,27 +1,29 @@
 ﻿Public Class frmSalesInvoice
 
     Public formMode As String
-    Public CardID As String
+    Public CardID As String = ""
     Public RefNo As String
     Public totalBalance As Double
     Dim checkNo As String
     Dim amountPaid As String
     Dim PAYNO As String
     Dim seriesNo As String
+    Dim series As String
     Public successPay As Boolean
     Public order_no As String
+    Public perf_command As String
 
     Sub ItemType()
         If lblFormMode.Text = "QUOTATION" Then
-            lblSeries.Text = "SQ-"
+            series = "SQ-"
         ElseIf lblFormMode.Text = "SALES ORDER" Then
-            lblSeries.Text = "SO-"
+            series = "SO-"
         ElseIf lblFormMode.Text = "SALES CASH INVOICE" Then
-            lblSeries.Text = "SCHI-"
+            series = "SCHI-"
         ElseIf lblFormMode.Text = "SALES CHARGE INVOICE" Then
-            lblSeries.Text = "SCRI-"
+            series = "SCRI-"
         ElseIf lblFormMode.Text = "SALES DELIVER" Then
-            lblSeries.Text = "DR-"
+            series = "DR-"
         End If
     End Sub
 
@@ -54,11 +56,11 @@
             ItemType()
             If OleDBDR.Read Then
                 StrID = OleDBDR.Item(0).Substring(OleDBDR.Item(0).Length - 5)
-                txtSalesNo.Text = Format(Val(StrID) + 1, "00000")
+                txtSalesNo.Text = series + Format(Val(StrID) + 1, "00000")
             Else
-                txtSalesNo.Text = "00001"
+                txtSalesNo.Text = series + "00001"
             End If
-            seriesNo = lblSeries.Text & txtSalesNo.Text
+            seriesNo = txtSalesNo.Text
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -70,15 +72,18 @@
         Dim totFA As Decimal = 0
         Dim totDis As Decimal = 0
         Dim totAmount As Decimal = 0
+        Dim totWt As Decimal = 0
         For Each row As DataGridViewRow In dgv.Rows
-            row.Cells(7).Value = (CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value)).ToString("N")
+            row.Cells(7).Value = ((CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value)) - CDec(row.Cells(6).Value)).ToString("N")
             totFA = totFA + (CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value))
             totDis = totDis + CDec(row.Cells(6).Value)
             totAmount = totAmount + CDec(row.Cells(7).Value)
+            totWt += CDec(row.Cells(4).Value)
         Next
         lblTotFAmnt.Text = totFA.ToString("N")
         lblTotDis.Text = totDis.ToString("N")
-        lblTotWt.Text = totAmount.ToString("N")
+        lblTotAmount.Text = totAmount.ToString("N")
+        lblTotWt.Text = totWt.ToString("N")
         lblTotal.Text = "Php " & totAmount.ToString("N")
         Dim ic As New inventory_class
         Try
@@ -133,7 +138,7 @@
             sc.totFAmnt = CDec(lblTotFAmnt.Text)
             sc.totDiscount = CDec(lblTotDis.Text)
             sc.totAmount = CDec(Mid(lblTotal.Text, 4))
-            sc.status = lblFormMode.Text & " POSTED"
+            sc.status = ""
             For Each row As DataGridViewRow In dgv.Rows
                 sc.itemCode = row.Cells(0).Value
                 sc.uprice = row.Cells(3).Value
@@ -152,9 +157,9 @@
                 sc.update_salesOrder_status(txtRefNo.Text, "Closed")
             ElseIf lblFormMode.Text = "SALES CHARGE INVOICE" Then
                 sc.update_salesOrder_status(txtRefNo.Text, "Closed")
-            ElseIf lblFormMode.Text = "SALES DELIVER" Then
-                sc.update_salesCash_status(txtRefNo.Text, "Closed")
-                sc.update_salesCharge_status(txtRefNo.Text, "Closed")
+            ElseIf lblFormMode.Text = "SALES DELIVER" And chkClosed.Checked = True Then
+                sc.update_salesCash_status(txtRefNo.Text, "All ordered items delivered")
+                sc.update_salesCharge_status(txtRefNo.Text, "All ordered items delivered")
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -179,46 +184,51 @@
                     ic.unitCost = CDec(row.Cells(8).Value) / CDec(row.Cells(4).Value)
                     ic.qty = "-" & row.Cells(4).Value
                     ic.pcQty = "-" & row.Cells(5).Value
-                    ic.job = "-" & row.Cells(9).Value
+                    ic.job = txtJob.Text
                     ic.insert_invItem_transaction()
                 Next
             End If
             If lblFormMode.Text = "SALES CASH INVOICE" Then
+                frmReceivePayments.MODE = "SALES INVOICE"
                 frmReceivePayments.cardID = CardID
+                frmReceivePayments.txtRecvAccount.Text = txtARAcc.Text
                 frmReceivePayments.txtCustomerName.Text = txtName.Text
                 frmReceivePayments.load_command()
                 frmReceivePayments.dgv.Rows.Clear()
-                frmReceivePayments.dgv.Rows.Add(lblSeries.Text & txtSalesNo.Text, "Open", Now.ToString("MM/dd/yyyy"), lblTotFAmnt.Text, lblTotDis.Text, lblTotWt.Text, "0.00", txtARAcc.Text)
+                frmReceivePayments.dgv.Rows.Add(txtSalesNo.Text, Now.ToString("MM/dd/yyyy"), lblTotFAmnt.Text, lblTotDis.Text, "0.00", lblTotAmount.Text, "0.00", txtARAcc.Text)
                 frmReceivePayments.ShowDialog()
-                If frmReceivePayments.succesPay = True Then
-                    invAssetEntry()
-                    insert_update_sales()
-                    MsgBox(lblFormMode.Text & " Posted !", MsgBoxStyle.Information, "System Information")
-                    Me.Close()
-                    frmReceivePayments.succesPay = False
-                Else
+                If frmReceivePayments.succesPay <> True Then
                     Exit Sub
                 End If
-            Else
-                If lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
-                    invAssetEntry()
-                End If
-                insert_update_sales()
-                MsgBox(lblFormMode.Text & " Posted !", MsgBoxStyle.Information, "System Information")
-                If lblFormMode.Text = "SALES ORDER" Then
-                    If MsgBox("DO YOU WANT TO CREATE JOB ORDER NOW?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
-                        Dim frm As New prepare_job
-                        frm.StartPosition = FormStartPosition.CenterScreen
-                        frm.Show()
-                        frm.TXTREF.Text = "SO-" & txtSalesNo.Text
-                        frm.get_sales_order_items("SO-" & txtSalesNo.Text)
-                        frm.get_card_id("SO-" & txtSalesNo.Text)
-                        frm.generateNo()
-                    End If
-                End If
-                disposeform()
-                load_commands()
             End If
+            If lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Or lblFormMode.Text = "SALES DELIVER" Then
+                invAssetEntry()
+            End If
+            insert_update_sales()
+            MsgBox(lblFormMode.Text & " Posted !", MsgBoxStyle.Information, "System Information")
+            If lblFormMode.Text = "SALES ORDER" Then
+                If MsgBox("DO YOU WANT TO CREATE JOB ORDER NOW?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
+                    Dim frm As New prepare_job
+                    frm.StartPosition = FormStartPosition.CenterScreen
+                    frm.Show()
+                    frm.TXTREF.Text = "SO-" & txtSalesNo.Text
+                    frm.get_sales_order_items("SO-" & txtSalesNo.Text)
+                    frm.get_card_id("SO-" & txtSalesNo.Text)
+                    frm.generateNo()
+                End If
+            ElseIf lblFormMode.Text = "SALES DELIVER" Then
+                If MsgBox("DO YOU WANT TO PRINT DELIVERY RECEIPT AND GATEPASS NOW?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
+                    Dim sc As New sales_class
+                    sc.print_DR(seriesNo)
+                End If
+            ElseIf lblFormMode.Text = "QUOTATION" Then
+                If MsgBox("DO YOU WANT TO PRINT QUOTATION NOW?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
+                    Dim sc As New sales_class
+                    sc.print_sales(seriesNo, lblFormMode.Text)
+                End If
+            End If
+            disposeform()
+            load_commands()
         End If
     End Sub
 
@@ -226,8 +236,11 @@
         If dgv.RowCount = 0 Then
             Exit Sub
         End If
-        If lblFormMode.Text = "SALES DELIVERY" Or lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
+        If lblFormMode.Text = "SALES DELIVER" Then
             If txtRefNo.Text = "" Then
+                Exit Sub
+            ElseIf CDec(lblTotWt.Text) <= 0 Then
+                MsgBox("Item Weight Required to proceed !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
                 Exit Sub
             End If
         End If
@@ -272,6 +285,7 @@
                     lblFormMode.Text = "QUOTATION"
                 End If
                 generateNo()
+                load_commands()
                 dgv.Rows.Clear()
                 txtRefNo.Text = ""
             End If
@@ -305,32 +319,44 @@
         ss.get_settingsValue()
         txtARAcc.Text = ss.return_settingsValue
         If lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
-            lblAR.Visible = True
-            txtARAcc.Visible = True
-            lblARAcc.Visible = True
-            Button4.Visible = True
-            LBLMEMO.Visible = True
-            txtMemo.Visible = True
+            Button4.Enabled = True
+            txtMemo.Enabled = True
         Else
-            lblAR.Visible = False
-            txtARAcc.Visible = False
-            lblARAcc.Visible = False
-            Button4.Visible = False
-            LBLMEMO.Visible = False
-            txtMemo.Visible = False
+            Button4.Enabled = False
+            txtMemo.Enabled = False
         End If
         If lblFormMode.Text = "SALES DELIVER" Or lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
-            dgv.Columns("Job").Visible = True
+            Button5.Enabled = True
         Else
-            dgv.Columns("Job").Visible = False
+            Button5.Enabled = False
+        End If
+        If lblFormMode.Text = "SALES DELIVER" Then
+            chkClosed.Visible = True
+            dgv.Columns(4).Visible = True
+            dgv.Columns(4).HeaderText = "Wt.(KG)"
+            dgv.Columns(5).HeaderText = "Pc"
+        Else
+            chkClosed.Visible = False
+            dgv.Columns(4).Visible = False
+            dgv.Columns(4).HeaderText = "Wt.(KG)"
+            dgv.Columns(5).HeaderText = "Qty"
         End If
     End Sub
+    Function isExist(ByVal id As String) As String
+        For Each row As DataGridViewRow In dgv.Rows
+            If row.Cells(0).Value = id Then
+                Return row.Index
+                Exit Function
+            End If
+        Next
+        Return "NOT EXISTED"
+    End Function
     Private Sub frmSales_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
        
     End Sub
 
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
-        If lblFormMode.Text = "SALES DELIVER" Or lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
+        If lblFormMode.Text = "SALES DELIVER" Then
             If txtRefNo.Text = "" Then
                 Exit Sub
             End If
@@ -344,8 +370,27 @@
 
         If InventoryList.clickedItem = True Then
 
-            Dim qty As Integer
+            Dim qty As Decimal
             Dim r As Integer = dgv.Rows.Count
+            If CDec(txtQty.Text) > CDec(InventoryList.dgv.CurrentRow.Cells(9).Value) Then
+                MsgBox("Our stock onhand is insufficient for your requested qty to deliver !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
+                Exit Sub
+            End If
+            Dim INDEX As String
+            INDEX = isExist(InventoryList.dgv.CurrentRow.Cells(0).Value)
+            If INDEX <> "NOT EXISTED" Then
+                If lblFormMode.Text = "SALES DELIVER" Then
+                    qty = InputBox("Please Enter Weight Qty", "Required")
+                    dgv.Rows(CInt(INDEX)).Cells(4).Value = qty
+                    dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
+                   
+                Else
+                    dgv.Rows(CInt(INDEX)).Cells(4).Value = "0"
+                    dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
+                 
+                End If
+                Exit Sub
+            End If
             With dgv
                 .Rows.Add()
                 .Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
@@ -354,7 +399,7 @@
                 .Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
                 .Item(6, r).Value = "0.00"
                 If lblFormMode.Text = "SALES DELIVER" Then
-                    qty = InputBox("Please Enter Weight Qty", 0)
+                    qty = InputBox("Please Enter Weight Qty", "Required")
                     .Item(4, r).Value = qty
                     .Item(5, r).Value = txtQty.Text
                     .Columns("Qty").Visible = True
@@ -368,8 +413,10 @@
                 .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
                 .Item(8, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
             End With
+            txtQty.Text = "1"
             GET_TOTAL()
         End If
+        dgv.Select()
     End Sub
 
     Private Sub txtSearch_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtQty.KeyDown
@@ -382,43 +429,74 @@
         Dim ae As New accEntry_class
         Dim ic As New inventory_class
         ae.refno = seriesNo
-        ae.SRC = Me.Text
-        ae.account = txtARAcc.Text
-        ae.memo = "Receivable: " & txtMemo.Text
-        ae.debit = CDec(lblTotFAmnt.Text).ToString("N")
-        ae.credit = 0
-        ae.job = order_no
-        ae.cardID = CardID
-        ae.insert_Acc_entry_class()
-        For Each row As DataGridViewRow In dgv.Rows
-            'check inventory info'
-            ac.searchValue = row.Cells(0).Value
-            ac.checkInventoryInfo()
-            'sales'
-            ae.account = ac.dtable.Rows(0).Item("ASSETACC")
-            ae.memo = "Sales: " & txtMemo.Text
-            ae.debit = 0
-            ae.credit = CDec(row.Cells(3).Value) * CDec(row.Cells(4).Value)
-            ae.job = order_no
-            ae.insert_Acc_entry_class()
-            'cost of sales'
-            ae.account = ac.dtable.Rows(0).Item("COSTOFSALESACC")
-            ae.memo = "Cost of sales: " & txtMemo.Text
-            ae.debit = ac.dtable.Rows(0).Item("UNITCOST") * CDec(row.Cells(4).Value)
+        If lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
+            ae.SRC = Me.Text
+            ae.account = txtARAcc.Text
+            ae.memo = "Receivable: " & txtMemo.Text
+            ae.debit = CDec(lblTotFAmnt.Text).ToString("N")
             ae.credit = 0
-            ae.job = order_no
+            ae.job = txtJob.Text
+            ae.cardID = CardID
             ae.insert_Acc_entry_class()
-            'inventory'
-            ae.account = ac.dtable.Rows(0).Item("ASSETACC")
-            ae.memo = "Inventory: " & txtMemo.Text
-            ae.debit = 0
-            ae.credit = ac.dtable.Rows(0).Item("UNITCOST") * CDec(row.Cells(4).Value)
-            ae.job = order_no
-            ae.insert_Acc_entry_class()
+            For Each row As DataGridViewRow In dgv.Rows
+                'check inventory info'
+                ac.searchValue = row.Cells(0).Value
+                ac.checkInventoryInfo()
+                'sales'
+                ae.SRC = row.Cells(0).Value
+                ae.account = ac.dtable.Rows(0).Item("INCOMEACC")
+                ae.memo = "Sales: " & txtMemo.Text
+                ae.debit = 0
+                ae.credit = CDec(row.Cells(7).Value)
+                ae.job = txtJob.Text
+                ae.insert_Acc_entry_class()
+            Next
+        End If
+        If lblFormMode.Text = "SALES DELIVER" Then
+            For Each row As DataGridViewRow In dgv.Rows
+                'check inventory info'
+                ac.searchValue = row.Cells(0).Value
+                ac.checkInventoryInfo()
+                'cost of sales'
+                ae.SRC = row.Cells(0).Value
+                ae.account = ac.dtable.Rows(0).Item("COSTOFSALESACC")
+                ae.memo = "Cost of sales: " & txtMemo.Text
+                ae.debit = ac.dtable.Rows(0).Item("UNITCOST") * CDec(row.Cells(4).Value)
+                ae.credit = 0
+                ae.job = txtJob.Text
+                ae.insert_Acc_entry_class()
+                'inventory'
+                ae.account = ac.dtable.Rows(0).Item("ASSETACC")
+                ae.memo = "Inventory: " & txtMemo.Text
+                ae.debit = 0
+                ae.credit = ac.dtable.Rows(0).Item("UNITCOST") * CDec(row.Cells(4).Value)
+                ae.job = txtJob.Text
+                ae.insert_Acc_entry_class()
+            Next
+        End If
+    End Sub
+    Sub get_item_from_ref(ByVal mode As String)
+        Dim sc As New sales_class
+        sc.dtable.Reset()
+        sc.commands = mode
+        sc.searchValue = frmsales_list_selector.DGV.CurrentRow.Cells(1).Value
+        sc.cardId = CardID
+        sc.get_sales_items()
+        dgv.Rows.Clear()
+        For Each row As DataRow In sc.dtable.Rows
+            CardID = row(1)
+            txtName.Text = row(2)
+            If CInt(row(10)) > 0 Then
+                dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(10)).ToString("N"), CDec(row(8)).ToString("N"), "0.00", row(9))
+            End If
         Next
+        frmsales_list_selector.successClick = False
+        GET_TOTAL()
+        dgv.ClearSelection()
     End Sub
     Private Sub btnSearchCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearchCustomer.Click
         frmCardListForSelection.formMode = "Sales Invoice"
+        frmCardListForSelection.itemClick = False
         frmCardListForSelection.filterType()
         frmCardListForSelection.ShowDialog()
         If frmCardListForSelection.itemClick = True Then
@@ -466,12 +544,7 @@
             ElseIf dgv.CurrentCell.ColumnIndex = 5 Then
                 Dim qty As Decimal = InputBox("PC Qty", "System Information")
                 dgv.CurrentRow.Cells(5).Value = Format(qty, "N")
-            ElseIf dgv.CurrentCell.ColumnIndex = 8 Then
-                frmsales_list_selector.MODE = "Job"
-                frmsales_list_selector.ShowDialog()
-                If frmsales_list_selector.successClick = True Then
-
-                End If
+                
             End If
             GET_TOTAL()
         Catch ex As Exception
@@ -495,47 +568,28 @@
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Try
-            Dim sc As New sales_class
+
             If lblFormMode.Text = "QUOTATION" Then
                 Exit Sub
             ElseIf lblFormMode.Text = "SALES ORDER" Then
-                sc.commands = "Quotation"
+                perf_command = "Quotation"
                 frmsales_list_selector.MODE = "QUOTATION"
             ElseIf lblFormMode.Text = "SALES CASH INVOICE" Then
-                sc.commands = "Sales Order"
+                perf_command = "Sales Order"
                 frmsales_list_selector.MODE = "SALES ORDER"
             ElseIf lblFormMode.Text = "SALES CHARGE INVOICE" Then
-                sc.commands = "Sales Order"
+                perf_command = "Sales Order"
                 frmsales_list_selector.MODE = "SALES ORDER"
             ElseIf lblFormMode.Text = "SALES DELIVER" Then
-                sc.commands = "Sales Invoice"
+                perf_command = "Sales Invoice"
                 frmsales_list_selector.MODE = "SALES INVOICE"
             End If
+            frmsales_list_selector.cardID = CardID
             frmsales_list_selector.ShowDialog()
             If frmsales_list_selector.successClick = True Then
                 txtRefNo.Text = frmsales_list_selector.DGV.CurrentRow.Cells(1).Value
-                If lblFormMode.Text = "SALES DELIVER" Then
-                    sc.searchValue = txtRefNo.Text
-                    sc.get_order_no()
-                    order_no = sc.dtable.Rows(0).Item(0).ToString
-                ElseIf lblFormMode.Text = "SALES CASH INVOICE" Or lblFormMode.Text = "SALES CHARGE INVOICE" Then
-                    order_no = frmsales_list_selector.DGV.CurrentRow.Cells(1).Value
-                End If
-                sc.dtable.Reset()
-                sc.searchValue = frmsales_list_selector.DGV.CurrentRow.Cells(1).Value
-                sc.get_sales_items()
-                dgv.Rows.Clear()
-                For Each row As DataRow In sc.dtable.Rows
-                    CardID = row(1)
-                    txtName.Text = row(2)
-                    If CInt(row(11)) > 0 Then
-                        dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(11)).ToString("N"), CDec(row(8)).ToString("N"), row(9), row(10), order_no)
-                    End If
-                Next
-                frmsales_list_selector.successClick = False
+                get_item_from_ref(perf_command)
             End If
-            GET_TOTAL()
-            dgv.ClearSelection()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -582,8 +636,36 @@
     Private Sub ContextMenuStrip1_Closing(ByVal sender As Object, ByVal e As System.Windows.Forms.ToolStripDropDownClosingEventArgs) Handles ContextMenuStrip1.Closing
         dgv.ContextMenuStrip = ContextMenuStrip1
     End Sub
+    
+ 
+
+  
+    Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        frmsales_list_selector.MODE = "Job"
+        frmsales_list_selector.ShowDialog()
+        If frmsales_list_selector.successClick = True Then
+            txtJob.Text = frmsales_list_selector.DGV.CurrentRow.Cells(0).Value
+        End If
+    End Sub
+
+    Private Sub txtRefNo_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles txtRefNo.MouseDown
+       
+    End Sub
 
     Private Sub txtRefNo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtRefNo.TextChanged
 
+    End Sub
+
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+        txtRefNo.Text = ""
+    End Sub
+
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        CardID = ""
+        txtName.Text = ""
+    End Sub
+
+    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+        txtJob.Text = ""
     End Sub
 End Class

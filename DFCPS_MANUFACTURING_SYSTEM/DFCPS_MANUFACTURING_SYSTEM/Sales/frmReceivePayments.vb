@@ -7,6 +7,7 @@ Public Class frmReceivePayments
     Dim dt As New DataTable
     Dim rowIndex As Integer
     Public succesPay As Boolean
+    Public MODE = "SALES INVOICE"
     Sub disposeForm()
         txtCustomerName.Text = ""
         cardID = ""
@@ -101,14 +102,14 @@ Public Class frmReceivePayments
                 ae.refno = txtPaymentNo.Text
                 ae.SRC = row.Cells(0).Value
                 ae.cardID = cardID
-                ae.memo = "Deposit: " & txtMemo.Text
-                ae.account = txtDepositAcc.Text
-                ae.debit = row.Cells(6).Value
-                ae.credit = 0
-                ae.insert_Acc_entry_class()
                 ae.memo = "Discount Amount for Invoice No: " & row.Cells(0).Value
                 ae.account = txtDiscountAcc.Text
                 ae.debit = row.Cells(3).Value
+                ae.credit = 0
+                ae.insert_Acc_entry_class()
+                ae.memo = "Amount Received: " & txtMemo.Text
+                ae.account = txtDepositAcc.Text
+                ae.debit = row.Cells(6).Value
                 ae.credit = 0
                 ae.insert_Acc_entry_class()
                 ae.memo = "Payment Received for Invoice No: " & row.Cells(0).Value
@@ -149,6 +150,7 @@ Public Class frmReceivePayments
     End Sub
 
     Sub get_invoice_list()
+        Try
         Dim sc As New sales_class
         Dim ac As New Accounting_class
         sc.accNo = txtRecvAccount.Text
@@ -156,9 +158,9 @@ Public Class frmReceivePayments
         sc.get_invoice_list()
         dgv.Rows.Clear()
         For Each row As DataRow In sc.dtable.Rows
-            If row(6) > 0 Then
-                dgv.Rows.Add(row(1), Format(row(2), "MM/dd/yyyy"), Format(CDec(row(3)), "N"), Format(CDec(row(4)), "N"), Format(CDec(row(5)), "N"), Format((CDec(row(3)) - CDec(row(4)) - CDec(row(5))), "N"), "0.00", "")
-            End If
+                If row(3) > row(5) Then
+                    dgv.Rows.Add(row(1), Format(row(2), "MM/dd/yyyy"), Format(CDec(row(3)), "N"), Format(CDec(row(4)), "N"), Format(CDec(row(5)), "N"), Format((CDec(row(3)) - CDec(row(4)) - CDec(row(5))), "N"), "0.00", "")
+                End If
         Next
         ac.command = 0
         For Each row As DataGridViewRow In dgv.Rows
@@ -166,7 +168,9 @@ Public Class frmReceivePayments
             ac.memotype = "Receivable:"
             ac.GET_ACCNO_OF_TRNO()
             row.Cells(7).Value = ac.accNo
-        Next
+            Next
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub frmReceivePayments_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
@@ -185,7 +189,7 @@ Public Class frmReceivePayments
         If chkCash.Checked = False And chkCheck.Checked = False Then
             Exit Sub
         End If
-        If lblTotalAmountApplied.Text = lblTotalAmountReceived.Text Then
+        If lblTotalAmountApplied.Text = lblTotalAmountReceived.Text And CDec(lblTotalAmountApplied.Text) > 0 Then
             If MsgBox("ARE YOU SURE YOU WANT TO RECORD PAYMENTS ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "WARNING") = MsgBoxResult.Yes Then
                 Try
                     RECORDPAYMENTS()
@@ -193,9 +197,12 @@ Public Class frmReceivePayments
                         recordCollection()
                     End If
                     MsgBox(" PAYMENT POSTED !", MsgBoxStyle.Information, "SUCCESS")
-                    succesPay = True
                     disposeForm()
                     load_command()
+                    If MODE = "SALES INVOICE" Then
+                        succesPay = True
+                        Me.Close()
+                    End If
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -275,6 +282,14 @@ Public Class frmReceivePayments
                 dgv.CurrentRow.Cells(5).Value = Format(CDec(dgv.CurrentRow.Cells(2).Value) - discount - CDec(dgv.CurrentRow.Cells(4).Value), "N")
             ElseIf dgv.CurrentCell.ColumnIndex = 6 Then
                 Dim amountApplied As Double = InputBox("Enter the amount you apply", "Amount Apply")
+                If CDec(dgv.CurrentRow.Cells(3).Value) > CDec(amountApplied) Then
+                    MsgBox("The amount you applied is not greater than discount you applied. Please input correctly", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
+                    Exit Sub
+                ElseIf CDec(dgv.CurrentRow.Cells(5).Value) < CDec(amountApplied) Then
+                    MsgBox("You Applied Greater than amount payable of this invoice. system will adjust the applied payment amount", MsgBoxStyle.Exclamation, "SYSTEM REMINDER")
+                    dgv.CurrentRow.Cells(6).Value = dgv.CurrentRow.Cells(5).Value
+                    Exit Sub
+                End If
                 dgv.CurrentRow.Cells(6).Value = Format(amountApplied, "N")
             End If
         Catch ex As Exception

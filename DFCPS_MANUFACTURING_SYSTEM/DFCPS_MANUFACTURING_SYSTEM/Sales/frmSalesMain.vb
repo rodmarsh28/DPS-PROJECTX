@@ -77,6 +77,7 @@
 
     Private Sub ReceivePaymentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReceivePaymentsToolStripMenuItem.Click
         Dim frm As New frmReceivePayments
+        frm.MODE = "RECEIVE PAYMENT"
         frm.Show()
         frm.load_command()
     End Sub
