@@ -1,3 +1,3 @@
-﻿Public Class print_slip_viewer
+﻿Public Class report_viewer
 
 End Class

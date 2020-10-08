@@ -71,8 +71,8 @@ Public Class MainForm
     End Sub
 
     Private Sub MetroButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MetroButton6.Click
-        'frmPurchaseMain.ShowDialog()
-        MsgBox("This Module is not available right now", MsgBoxStyle.Information, "System information")
+        frmPurchaseMain.ShowDialog()
+        'MsgBox("This Module is not available right now", MsgBoxStyle.Information, "System information")
     End Sub
 
     Private Sub MetroButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MetroButton5.Click

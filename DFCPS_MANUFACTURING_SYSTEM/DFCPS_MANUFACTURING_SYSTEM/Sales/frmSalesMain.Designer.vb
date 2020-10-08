@@ -38,6 +38,7 @@ Partial Class frmSalesMain
         Me.PreparePurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrepareSalesChargeInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrepareSalesDeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrepareJobOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReceivePaymentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseRequisitionHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,9 +47,12 @@ Partial Class frmSalesMain
         Me.PurchaseInvoiceHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesChargeInvoiceHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesDeliverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintSalesInvoiceReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintDeliveryReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintPaymentReceivableReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrepareJobOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -155,6 +159,12 @@ Partial Class frmSalesMain
         Me.PrepareSalesDeliveryToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.PrepareSalesDeliveryToolStripMenuItem.Text = "Prepare Sales Delivery"
         '
+        'PrepareJobOrderToolStripMenuItem
+        '
+        Me.PrepareJobOrderToolStripMenuItem.Name = "PrepareJobOrderToolStripMenuItem"
+        Me.PrepareJobOrderToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.PrepareJobOrderToolStripMenuItem.Text = "Prepare Job Order"
+        '
         'ReceivePaymentsToolStripMenuItem
         '
         Me.ReceivePaymentsToolStripMenuItem.Name = "ReceivePaymentsToolStripMenuItem"
@@ -163,7 +173,7 @@ Partial Class frmSalesMain
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseRequisitionHistoryToolStripMenuItem, Me.PurchaseOrderHistoryToolStripMenuItem, Me.JobOrderToolStripMenuItem, Me.PurchaseInvoiceHistoryToolStripMenuItem, Me.SalesChargeInvoiceHistoryToolStripMenuItem, Me.SalesDeliverToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseRequisitionHistoryToolStripMenuItem, Me.PurchaseOrderHistoryToolStripMenuItem, Me.JobOrderToolStripMenuItem, Me.PurchaseInvoiceHistoryToolStripMenuItem, Me.SalesChargeInvoiceHistoryToolStripMenuItem, Me.SalesDeliverToolStripMenuItem, Me.InventoryToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.TransactionToolStripMenuItem.Text = "View"
@@ -204,23 +214,42 @@ Partial Class frmSalesMain
         Me.SalesDeliverToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.SalesDeliverToolStripMenuItem.Text = "Sales Deliver"
         '
+        'InventoryToolStripMenuItem
+        '
+        Me.InventoryToolStripMenuItem.Name = "InventoryToolStripMenuItem"
+        Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.InventoryToolStripMenuItem.Text = "Inventory"
+        '
         'PayrollToolStripMenuItem
         '
+        Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintSalesInvoiceReportToolStripMenuItem, Me.PrintDeliveryReportToolStripMenuItem, Me.PrintPaymentReceivableReportToolStripMenuItem})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
         Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.PayrollToolStripMenuItem.Text = "Report"
+        '
+        'PrintSalesInvoiceReportToolStripMenuItem
+        '
+        Me.PrintSalesInvoiceReportToolStripMenuItem.Name = "PrintSalesInvoiceReportToolStripMenuItem"
+        Me.PrintSalesInvoiceReportToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.PrintSalesInvoiceReportToolStripMenuItem.Text = "Print Sales Invoice Report"
+        '
+        'PrintDeliveryReportToolStripMenuItem
+        '
+        Me.PrintDeliveryReportToolStripMenuItem.Name = "PrintDeliveryReportToolStripMenuItem"
+        Me.PrintDeliveryReportToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.PrintDeliveryReportToolStripMenuItem.Text = "Print Delivery Report"
+        '
+        'PrintPaymentReceivableReportToolStripMenuItem
+        '
+        Me.PrintPaymentReceivableReportToolStripMenuItem.Name = "PrintPaymentReceivableReportToolStripMenuItem"
+        Me.PrintPaymentReceivableReportToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.PrintPaymentReceivableReportToolStripMenuItem.Text = "Print Payment Receivable Report"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'PrepareJobOrderToolStripMenuItem
-        '
-        Me.PrepareJobOrderToolStripMenuItem.Name = "PrepareJobOrderToolStripMenuItem"
-        Me.PrepareJobOrderToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
-        Me.PrepareJobOrderToolStripMenuItem.Text = "Prepare Job Order"
         '
         'frmSalesMain
         '
@@ -270,4 +299,8 @@ Partial Class frmSalesMain
     Friend WithEvents ReceivePaymentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents JobOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PrepareJobOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PrintSalesInvoiceReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PrintDeliveryReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PrintPaymentReceivableReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InventoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

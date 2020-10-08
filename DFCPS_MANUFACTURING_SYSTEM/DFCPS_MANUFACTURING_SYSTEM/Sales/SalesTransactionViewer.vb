@@ -266,8 +266,8 @@ Public Class SalesTransactionViewer
         Dim pc As New print_class
         Dim sc As New sales_class
         pc.rptForm = New rpt_JO
-        pc.rptViewer = print_slip_viewer.CrystalReportViewer1
-        pc.reportForm = print_slip_viewer
+        pc.rptViewer = report_viewer.CrystalReportViewer1
+        pc.reportForm = report_viewer
         Dim ds As New sales_ds
         Dim dt As DataTable = ds.Tables("JOTABLE")
         For Each row In sc.get_info_data(DGV.CurrentRow.Cells(1).Value)

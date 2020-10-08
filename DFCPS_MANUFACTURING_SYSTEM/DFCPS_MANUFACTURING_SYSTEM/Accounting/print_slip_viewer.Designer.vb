@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class print_slip_viewer
+Partial Class report_viewer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.

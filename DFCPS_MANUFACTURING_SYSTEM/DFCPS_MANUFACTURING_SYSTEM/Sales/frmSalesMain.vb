@@ -97,4 +97,35 @@
         frm.generateNo()
         frm.Show()
     End Sub
+
+    Private Sub PrintSalesInvoiceReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintSalesInvoiceReportToolStripMenuItem.Click
+        Dim frm As New rpt_report_viewer
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.LBLMODE.Text = "SALES INVOICE"
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub PrintDeliveryReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintDeliveryReportToolStripMenuItem.Click
+        Dim frm As New rpt_report_viewer
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.LBLMODE.Text = "SALES DELIVER"
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub PrintPaymentReceivableReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintPaymentReceivableReportToolStripMenuItem.Click
+        Dim frm As New rpt_report_viewer
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.LBLMODE.Text = "PAYMENT RECEIVABLE"
+        frm.ShowDialog()
+    End Sub
+
+    
+    Private Sub InventoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InventoryToolStripMenuItem.Click
+        Dim frm As New InventoryList
+        frm.mode = "SALES_VIEW"
+        frm.StartPosition = FormStartPosition.CenterScreen
+        frm.MdiParent = Me
+        frm.clickedItem = False
+        frm.Show()
+    End Sub
 End Class

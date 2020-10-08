@@ -39,6 +39,7 @@ Partial Class InventoryList
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblItemsCount = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -57,7 +58,7 @@ Partial Class InventoryList
         Me.dgv.Name = "dgv"
         Me.dgv.ReadOnly = True
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv.Size = New System.Drawing.Size(863, 259)
+        Me.dgv.Size = New System.Drawing.Size(863, 411)
         Me.dgv.TabIndex = 6
         '
         'Item_No
@@ -137,11 +138,11 @@ Partial Class InventoryList
         '
         'btnNewItem
         '
-        Me.btnNewItem.Location = New System.Drawing.Point(13, 301)
+        Me.btnNewItem.Location = New System.Drawing.Point(16, 451)
         Me.btnNewItem.Name = "btnNewItem"
-        Me.btnNewItem.Size = New System.Drawing.Size(83, 30)
+        Me.btnNewItem.Size = New System.Drawing.Size(83, 38)
         Me.btnNewItem.TabIndex = 8
-        Me.btnNewItem.Text = "New Item"
+        Me.btnNewItem.Text = "New"
         Me.btnNewItem.UseVisualStyleBackColor = True
         '
         'Timer1
@@ -151,7 +152,7 @@ Partial Class InventoryList
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(749, 307)
+        Me.Label1.Location = New System.Drawing.Point(784, 463)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(68, 13)
         Me.Label1.TabIndex = 9
@@ -160,17 +161,27 @@ Partial Class InventoryList
         'lblItemsCount
         '
         Me.lblItemsCount.AutoSize = True
-        Me.lblItemsCount.Location = New System.Drawing.Point(823, 307)
+        Me.lblItemsCount.Location = New System.Drawing.Point(858, 463)
         Me.lblItemsCount.Name = "lblItemsCount"
         Me.lblItemsCount.Size = New System.Drawing.Size(13, 13)
         Me.lblItemsCount.TabIndex = 10
         Me.lblItemsCount.Text = "0"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(101, 451)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(83, 38)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Edit"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'InventoryList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(890, 343)
+        Me.ClientSize = New System.Drawing.Size(890, 495)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblItemsCount)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnNewItem)
@@ -201,4 +212,5 @@ Partial Class InventoryList
     Friend WithEvents AssetAccount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents pcQTY As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -270,6 +270,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accessable Form\rpt_report_viewer.Designer.vb">
+      <DependentUpon>rpt_report_viewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accessable Form\rpt_report_viewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accessable Form\TransactionViewer.Designer.vb">
       <DependentUpon>TransactionViewer.vb</DependentUpon>
     </Compile>
@@ -1522,6 +1528,18 @@
     <Compile Include="Sales\prepare_job.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sales\printed_forms\rpt_receivableReport.vb">
+      <DependentUpon>rpt_receivableReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Sales\printed_forms\rpt_salesReport.vb">
+      <DependentUpon>rpt_salesReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Sales\printed_forms\DRandGP\rpt_gp.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1600,6 +1618,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accessable Form\rpt_report_viewer.resx">
+      <DependentUpon>rpt_report_viewer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accessable Form\TransactionViewer.resx">
       <DependentUpon>TransactionViewer.vb</DependentUpon>
     </EmbeddedResource>
@@ -2282,6 +2303,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\prepare_job.resx">
       <DependentUpon>prepare_job.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\printed_forms\rpt_receivableReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_receivableReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\printed_forms\rpt_salesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_salesReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\printed_forms\DRandGP\rpt_gp.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

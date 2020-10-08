@@ -164,6 +164,25 @@ Public Class frmPurchases
         lblTotal.Text = "Php " & Format(totAmount, "N")
         'cmbPayment.SelectedIndex = 0
     End Sub
+    Sub get_total()
+        Try
+            Dim totFA As Decimal = 0
+            Dim totTax As Decimal = 0
+            Dim totAmount As Decimal = 0
+            For Each row As DataGridViewRow In dgv.Rows
+                totFA = totFA + (CDec(row.Cells(3).Value) * CDec(row.Cells(4).Value))
+                row.Cells(5).Value = (CDec(row.Cells(3).Value) * CDec(row.Cells(4).Value)).ToString("N")
+                totTax = totTax + CDec(row.Cells(6).Value)
+                totAmount = totAmount + CDec(row.Cells(5).Value) - CDec(row.Cells(6).Value)
+                row.Cells(7).Value = (CDec(row.Cells(5).Value) - CDec(row.Cells(6).Value)).ToString("N")
+            Next
+            lblTotFAmnt.Text = totFA.ToString("N")
+            lblTotTax.Text = totTax.ToString("N")
+            lblTotAmount.Text = totAmount.ToString("N")
+            lblTotal.Text = "Php " & totAmount.ToString("N")
+        Catch ex As Exception
+        End Try
+    End Sub
 
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
         If txtQty.Text = "" Then
@@ -177,22 +196,9 @@ Public Class frmPurchases
             dgv.Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
             dgv.Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
             dgv.Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
-            If lblFormMode.Text = "PURCHASE REQUISITION" Then
-                dgv.Item(3, r).Value = "0.00"
-                dgv.Item(6, r).Value = "0.00"
-                dgv.Item(5, r).Value = (CDec(dgv.Item(6, r).Value) * 0.012).ToString("N")
-            Else
-                dgv.Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
-                dgv.Item(6, r).Value = CDec(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDec(txtQty.Text)
-                dgv.Item(5, r).Value = (CDec(dgv.Item(6, r).Value) * 0.012).ToString("N")
-            End If
-            If chkVat.Checked = True Then
-                dgv.Item(6, r).Value = (CDec(dgv.Item(6, r).Value) / 0.012).ToString("N")
-                dgv.Item(7, r).Value = "Yes"
-            Else
-                dgv.Item(7, r).Value = "No"
-            End If
+            dgv.Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
             dgv.Item(4, r).Value = txtQty.Text
+            dgv.Item(5, r).Value = CDec(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDec(txtQty.Text)
             lblTotal.Text = "Php " & Format(totAmount, "N")
             InventoryList.clickedItem = False
         End If
@@ -256,14 +262,17 @@ Public Class frmPurchases
 
     Private Sub dgv_CellValueChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellValueChanged
         Try
-            dgv.CurrentRow.Cells(6).Value = (CDbl(dgv.CurrentRow.Cells(3).Value) * CDbl(dgv.CurrentRow.Cells(4).Value)).ToString("N")
-            sumofAmount()
+            get_total()
         Catch ex As Exception
         End Try
     End Sub
 
    
-    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkVat.CheckedChanged
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub dgv_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellContentClick
 
     End Sub
 End Class

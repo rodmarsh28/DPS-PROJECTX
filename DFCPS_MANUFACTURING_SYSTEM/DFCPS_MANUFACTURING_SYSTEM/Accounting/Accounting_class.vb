@@ -280,9 +280,9 @@ Public Class Accounting_class
             Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
             rptDoc = New vouchersPayable
             rptDoc.SetDataSource(ds.Tables("VOUCHERTABLE"))
-            print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+            report_viewer.CrystalReportViewer1.ReportSource = rptDoc
             frmLoading.Close()
-            print_slip_viewer.ShowDialog()
+            report_viewer.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -416,9 +416,9 @@ Public Class Accounting_class
             rptDoc = New cashRequisition
             rptDoc.SetDataSource(ds.Tables("CASHREQTABLE"))
             rptDoc.SetParameterValue("PreparedBy", MainForm.LBLNAME.Text)
-            print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+            report_viewer.CrystalReportViewer1.ReportSource = rptDoc
             frmLoading.Close()
-            print_slip_viewer.ShowDialog()
+            report_viewer.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -451,9 +451,9 @@ Public Class Accounting_class
             Next
             rptDoc = New CV_SLIP
             rptDoc.SetDataSource(ds.Tables("CVTABLE"))
-            print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+            report_viewer.CrystalReportViewer1.ReportSource = rptDoc
             frmLoading.Close()
-            print_slip_viewer.ShowDialog()
+            report_viewer.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -474,9 +474,9 @@ Public Class Accounting_class
             da.Fill(ds, "openVoucherTable")
             rptDoc = New payable_list
             rptDoc.SetDataSource(ds.Tables("openVoucherTable"))
-            print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+            report_viewer.CrystalReportViewer1.ReportSource = rptDoc
             rptDoc.SetParameterValue("PreparedBy", MainForm.LBLNAME.Text)
-            print_slip_viewer.ShowDialog()
+            report_viewer.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

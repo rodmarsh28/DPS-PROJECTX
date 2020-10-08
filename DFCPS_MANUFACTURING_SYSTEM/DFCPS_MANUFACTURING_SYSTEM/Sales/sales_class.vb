@@ -203,10 +203,10 @@ Public Class sales_class
         Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
         rptDoc = New rpt_drandgp
         rptDoc.SetDataSource(dt.Tables("DRTABLE"))
-        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
-        print_slip_viewer.ShowDialog()
+        report_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        report_viewer.ShowDialog()
     End Sub
-  
+
     Sub print_sales(ByVal id As String, ByVal form As String)
         Dim ds As New sales_dsTableAdapters.salesTA
         Dim dt As New sales_ds
@@ -224,9 +224,9 @@ Public Class sales_class
             ds.qryDeliver(dt.Tables("salesTable"), id)
         End If
         rptDoc.SetDataSource(dt.Tables("salesTable"))
-        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
         rptDoc.SetParameterValue("title", form)
-        print_slip_viewer.ShowDialog()
+        report_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        report_viewer.ShowDialog()
     End Sub
     Sub print_job_order(ByVal jono As String)
         checkConn()
@@ -252,7 +252,7 @@ Public Class sales_class
         Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
         rptDoc = New rpt_JO
         rptDoc.SetDataSource(ds.Tables("JOTABLE"))
-        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
-        print_slip_viewer.ShowDialog()
+        report_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        report_viewer.ShowDialog()
     End Sub
 End Class

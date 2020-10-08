@@ -71,8 +71,8 @@ Partial Class frmSalesInvoice
         Me.txtRefNo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -508,17 +508,6 @@ Partial Class frmSalesInvoice
         Me.GroupBox1.TabIndex = 52
         Me.GroupBox1.TabStop = False
         '
-        'Button6
-        '
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(12, 51)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(36, 17)
-        Me.Button6.TabIndex = 69
-        Me.Button6.Text = "Clear"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
         'Button7
         '
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -529,6 +518,17 @@ Partial Class frmSalesInvoice
         Me.Button7.TabIndex = 70
         Me.Button7.Text = "Clear"
         Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(12, 51)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(36, 17)
+        Me.Button6.TabIndex = 69
+        Me.Button6.Text = "Clear"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Button8
         '

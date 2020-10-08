@@ -15,9 +15,13 @@ Public Class InventoryList
         If mode = "Item Requisition" Then
             AddNewItem.ShowDialog()
         ElseIf mode = "Sales" Or mode = "Issuance" Or mode = "Purchases" Or mode = "Order" Then
-            frmAddItemsInventory.cmbItemType.SelectedIndex = 1
-            frmAddItemsInventory.btnAdd.Text = "Add Item"
-            frmAddItemsInventory.ShowDialog()
+            Dim frm As New frmAddItemsInventory
+            frm.cmbItemType.SelectedIndex = 1
+            frm.btnAdd.Text = "Add Item"
+            frm.MdiParent = frmInventorySystemMain
+            frm.StartPosition = FormStartPosition.CenterParent
+            frm.update_load()
+            frm.Show()
         Else
             frmAddItemsInventory.cmbItemType.SelectedIndex = 1
             frmAddItemsInventory.btnAdd.Text = "Add Item"
@@ -28,6 +32,12 @@ Public Class InventoryList
     Sub getItemlist()
         Dim cmd
         If mode = "Sales" Then
+            dgv.Columns(4).Visible = False
+            dgv.Columns(9).Visible = True
+            dgv.Columns(9).HeaderText = "Onhand"
+            cmd = New SqlCommand("get_item_sellable", conn)
+            dgv.Columns(3).HeaderText = "Sell Price"
+        ElseIf mode = "SALES_VIEW" Then
             dgv.Columns(4).Visible = False
             dgv.Columns(9).Visible = True
             dgv.Columns(9).HeaderText = "Onhand"
@@ -71,7 +81,7 @@ Public Class InventoryList
         da.Fill(dt)
         dgv.Rows.Clear()
         For Each row As DataRow In dt.Rows
-            dgv.Rows.Add(row(0), row(1), row(2), CDec(row(3)).ToString("N"), CDec(row(4)).ToString("N0"), row(5), row(6), row(7), CDec(row(8)).ToString("N"), CDec(row(9)).ToString("N0"))
+            dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9))
         Next
         dgv.ClearSelection()
         lblItemsCount.Text = Format(dgv.Rows.Count, "N0")
@@ -81,6 +91,10 @@ Public Class InventoryList
         If GetActiveWindow = Me.Handle Then
             getItemlist()
         End If
+    End Sub
+
+    Private Sub InventoryList_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+        getItemlist()
     End Sub
 
     Private Sub InventoryList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -95,6 +109,8 @@ Public Class InventoryList
         clickedItem = True
         If mode = "Sales" Then
             Me.Close()
+        ElseIf mode = "SALES_VIEW" Then
+            Exit Sub
         ElseIf mode = "Purchases" Then
             Me.Close()
         ElseIf mode = "Item Requisition" Then
@@ -172,5 +188,14 @@ Public Class InventoryList
 
     Private Sub dgv_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellContentClick
 
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim frm As New frmAddItemsInventory
+        frm.btnAdd.Text = "Save Item"
+        frm.StartPosition = FormStartPosition.CenterParent
+        frm.txtItemno.Text = dgv.CurrentRow.Cells(0).Value
+        frm.update_load()
+        frm.ShowDialog()
     End Sub
 End Class
