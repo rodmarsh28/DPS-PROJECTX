@@ -57,6 +57,7 @@ Partial Class frmAccountingMain
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneralLedgerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -238,7 +239,7 @@ Partial Class frmAccountingMain
         '
         'ManageToolStripMenuItem
         '
-        Me.ManageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CardToolStripMenuItem, Me.BankToolStripMenuItem, Me.CheckbookToolStripMenuItem})
+        Me.ManageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CardToolStripMenuItem, Me.BankToolStripMenuItem, Me.CheckbookToolStripMenuItem, Me.AccountsToolStripMenuItem})
         Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
         Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.ManageToolStripMenuItem.Text = "Manage"
@@ -246,19 +247,19 @@ Partial Class frmAccountingMain
         'CardToolStripMenuItem
         '
         Me.CardToolStripMenuItem.Name = "CardToolStripMenuItem"
-        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CardToolStripMenuItem.Text = "Card"
         '
         'BankToolStripMenuItem
         '
         Me.BankToolStripMenuItem.Name = "BankToolStripMenuItem"
-        Me.BankToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.BankToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BankToolStripMenuItem.Text = "Bank"
         '
         'CheckbookToolStripMenuItem
         '
         Me.CheckbookToolStripMenuItem.Name = "CheckbookToolStripMenuItem"
-        Me.CheckbookToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.CheckbookToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CheckbookToolStripMenuItem.Text = "Checkbook"
         '
         'PayrollToolStripMenuItem
@@ -279,6 +280,12 @@ Partial Class frmAccountingMain
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'AccountsToolStripMenuItem
+        '
+        Me.AccountsToolStripMenuItem.Name = "AccountsToolStripMenuItem"
+        Me.AccountsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AccountsToolStripMenuItem.Text = "Accounts"
         '
         'frmAccountingMain
         '
@@ -335,4 +342,5 @@ Partial Class frmAccountingMain
     Friend WithEvents CardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CheckTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RecordGeneralJournalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AccountsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

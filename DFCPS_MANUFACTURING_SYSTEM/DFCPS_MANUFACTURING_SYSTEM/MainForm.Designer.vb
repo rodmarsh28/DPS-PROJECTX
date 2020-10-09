@@ -34,7 +34,6 @@ Partial Class MainForm
         Me.ACCOUNTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MANAGEACCOUNTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.REGISTERACCOUNTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MANAGECHARTOFACCOUNTSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SYSTEMREPORTSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.REPORTSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LOGSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -73,7 +72,7 @@ Partial Class MainForm
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.StatusStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.LBLID, Me.ToolStripStatusLabel3, Me.LBLNAME, Me.ToolStripStatusLabel5, Me.LBLPOS})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 610)
         Me.StatusStrip1.Name = "StatusStrip1"
@@ -125,37 +124,33 @@ Partial Class MainForm
         '
         'ACCOUNTToolStripMenuItem
         '
-        Me.ACCOUNTToolStripMenuItem.BackColor = System.Drawing.Color.Gray
-        Me.ACCOUNTToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MANAGEACCOUNTToolStripMenuItem, Me.REGISTERACCOUNTToolStripMenuItem, Me.MANAGECHARTOFACCOUNTSToolStripMenuItem})
-        Me.ACCOUNTToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ACCOUNTToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent
+        Me.ACCOUNTToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
+        Me.ACCOUNTToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MANAGEACCOUNTToolStripMenuItem, Me.REGISTERACCOUNTToolStripMenuItem})
+        Me.ACCOUNTToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ACCOUNTToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.ACCOUNTToolStripMenuItem.Name = "ACCOUNTToolStripMenuItem"
         Me.ACCOUNTToolStripMenuItem.Size = New System.Drawing.Size(99, 25)
         Me.ACCOUNTToolStripMenuItem.Text = "ACCOUNT"
         '
         'MANAGEACCOUNTToolStripMenuItem
         '
+        Me.MANAGEACCOUNTToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.MANAGEACCOUNTToolStripMenuItem.Name = "MANAGEACCOUNTToolStripMenuItem"
-        Me.MANAGEACCOUNTToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
+        Me.MANAGEACCOUNTToolStripMenuItem.Size = New System.Drawing.Size(242, 26)
         Me.MANAGEACCOUNTToolStripMenuItem.Text = "MANAGE ACCOUNTS"
         '
         'REGISTERACCOUNTToolStripMenuItem
         '
+        Me.REGISTERACCOUNTToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.REGISTERACCOUNTToolStripMenuItem.Name = "REGISTERACCOUNTToolStripMenuItem"
-        Me.REGISTERACCOUNTToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
+        Me.REGISTERACCOUNTToolStripMenuItem.Size = New System.Drawing.Size(242, 26)
         Me.REGISTERACCOUNTToolStripMenuItem.Text = "REGISTER ACCOUNTS"
-        '
-        'MANAGECHARTOFACCOUNTSToolStripMenuItem
-        '
-        Me.MANAGECHARTOFACCOUNTSToolStripMenuItem.Name = "MANAGECHARTOFACCOUNTSToolStripMenuItem"
-        Me.MANAGECHARTOFACCOUNTSToolStripMenuItem.Size = New System.Drawing.Size(320, 26)
-        Me.MANAGECHARTOFACCOUNTSToolStripMenuItem.Text = "MANAGE CHART OF ACCOUNTS"
         '
         'SYSTEMREPORTSToolStripMenuItem
         '
-        Me.SYSTEMREPORTSToolStripMenuItem.BackColor = System.Drawing.Color.Gray
+        Me.SYSTEMREPORTSToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
         Me.SYSTEMREPORTSToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REPORTSToolStripMenuItem, Me.LOGSToolStripMenuItem})
-        Me.SYSTEMREPORTSToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.SYSTEMREPORTSToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SYSTEMREPORTSToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SYSTEMREPORTSToolStripMenuItem.Name = "SYSTEMREPORTSToolStripMenuItem"
         Me.SYSTEMREPORTSToolStripMenuItem.Size = New System.Drawing.Size(83, 25)
@@ -163,21 +158,23 @@ Partial Class MainForm
         '
         'REPORTSToolStripMenuItem
         '
+        Me.REPORTSToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.REPORTSToolStripMenuItem.Name = "REPORTSToolStripMenuItem"
         Me.REPORTSToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
         Me.REPORTSToolStripMenuItem.Text = "REPORTS"
         '
         'LOGSToolStripMenuItem
         '
+        Me.LOGSToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.LOGSToolStripMenuItem.Name = "LOGSToolStripMenuItem"
         Me.LOGSToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
         Me.LOGSToolStripMenuItem.Text = "LOGS"
         '
         'ABOUTToolStripMenuItem
         '
-        Me.ABOUTToolStripMenuItem.BackColor = System.Drawing.Color.Gray
+        Me.ABOUTToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
         Me.ABOUTToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SYSTEMSETTINGSToolStripMenuItem})
-        Me.ABOUTToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.ABOUTToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ABOUTToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.ABOUTToolStripMenuItem.Name = "ABOUTToolStripMenuItem"
         Me.ABOUTToolStripMenuItem.Size = New System.Drawing.Size(92, 25)
@@ -185,27 +182,30 @@ Partial Class MainForm
         '
         'SYSTEMSETTINGSToolStripMenuItem
         '
+        Me.SYSTEMSETTINGSToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.SYSTEMSETTINGSToolStripMenuItem.Name = "SYSTEMSETTINGSToolStripMenuItem"
         Me.SYSTEMSETTINGSToolStripMenuItem.Size = New System.Drawing.Size(219, 26)
         Me.SYSTEMSETTINGSToolStripMenuItem.Text = "SYSTEM SETTINGS"
         '
         'ABOUTToolStripMenuItem1
         '
-        Me.ABOUTToolStripMenuItem1.BackColor = System.Drawing.Color.Gray
+        Me.ABOUTToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
         Me.ABOUTToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckForUpdatesToolStripMenuItem})
+        Me.ABOUTToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.ABOUTToolStripMenuItem1.Name = "ABOUTToolStripMenuItem1"
         Me.ABOUTToolStripMenuItem1.Size = New System.Drawing.Size(76, 25)
         Me.ABOUTToolStripMenuItem1.Text = "ABOUT"
         '
         'CheckForUpdatesToolStripMenuItem
         '
+        Me.CheckForUpdatesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
         Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
         Me.CheckForUpdatesToolStripMenuItem.Text = "Check for updates"
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Gray
+        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ACCOUNTToolStripMenuItem, Me.SYSTEMREPORTSToolStripMenuItem, Me.ABOUTToolStripMenuItem, Me.ABOUTToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -216,7 +216,7 @@ Partial Class MainForm
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -228,7 +228,7 @@ Partial Class MainForm
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -243,7 +243,7 @@ Partial Class MainForm
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -269,7 +269,7 @@ Partial Class MainForm
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
@@ -295,6 +295,7 @@ Partial Class MainForm
         Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.Panel3.Controls.Add(Me.MetroButton6)
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(Me.MetroButton5)
@@ -384,6 +385,7 @@ Partial Class MainForm
         Me.MetroButton3.AutoSize = True
         Me.MetroButton3.BackgroundImage = CType(resources.GetObject("MetroButton3.BackgroundImage"), System.Drawing.Image)
         Me.MetroButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.MetroButton3.ForeColor = System.Drawing.Color.Transparent
         Me.MetroButton3.Location = New System.Drawing.Point(1013, 356)
         Me.MetroButton3.Name = "MetroButton3"
         Me.MetroButton3.Size = New System.Drawing.Size(174, 181)
@@ -490,7 +492,6 @@ Partial Class MainForm
     Friend WithEvents ACCOUNTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MANAGEACCOUNTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents REGISTERACCOUNTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MANAGECHARTOFACCOUNTSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SYSTEMREPORTSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents REPORTSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LOGSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

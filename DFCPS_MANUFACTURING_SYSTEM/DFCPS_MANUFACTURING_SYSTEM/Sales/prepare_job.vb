@@ -189,6 +189,7 @@ Public Class prepare_job
         If sc.update_job_data(TXTJONO.Text, TXTREF.Text, cardid, "") = "Success" Then
             For Each row As DataGridViewRow In dgv.Rows
                 If sc.update_job_items(TXTJONO.Text, row.Cells(0).Value, row.Cells(5).Value, row.Cells(4).Value, "") <> "Success" Then
+
                     Exit Sub
                 End If
             Next

@@ -20,6 +20,33 @@ Module modconn
     Public latest_row_change As DateTime
     Public hasdbupdated As Boolean
 
+
+    Public Function mb(ByVal type As String, ByVal msg As String) As Boolean
+        If Type = "reminder" Then
+            MsgBox(msg, MsgBoxStyle.Exclamation, "SYSTEM REMINDER")
+        ElseIf type = "info" Then
+            MsgBox(msg, MsgBoxStyle.Information, "SYSTEM INFORMATION")
+        ElseIf type = "yesnoinfo" Then
+            If MsgBox(msg, MsgBoxStyle.Information + MsgBoxStyle.YesNo, "SYSTEM REMINDER") <> MsgBoxResult.Yes Then
+                Return False
+                Exit Function
+            End If
+        ElseIf type = "yesno" Then
+            If MsgBox(msg, MsgBoxStyle.YesNo, "SYSTEM REMINDER") <> MsgBoxResult.Yes Then
+                Return False
+                Exit Function
+            End If
+        ElseIf type = "yesnoexcla" Then
+            If MsgBox(msg, MsgBoxStyle.YesNo + MsgBoxStyle.Exclamation, "SYSTEM REMINDER") <> MsgBoxResult.Yes Then
+                Return False
+                Exit Function
+            End If
+        ElseIf type = "error" Then
+            MsgBox(msg, MsgBoxStyle.Critical, "SYSTEM ERROR")
+        End If
+        Return True
+    End Function
+
     Public Sub ConnectDatabase()
         'strConnString = "Persist Security Info=False;Integrated Security=true;Initial Catalog=DBMATMONITORINGDBS;server=localhost"
         strConnString = "Data Source=" & My.Settings.mServer & ";" & _

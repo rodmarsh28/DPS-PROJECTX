@@ -56,8 +56,8 @@ Public Class MainForm
         'frmAccountingSystem.ShowDialog()
     End Sub
 
-    Private Sub MANAGECHARTOFACCOUNTSToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MANAGECHARTOFACCOUNTSToolStripMenuItem.Click
-        frmManageAccounts.ShowDialog()
+    Private Sub MANAGECHARTOFACCOUNTSToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
     End Sub
 
     Private Sub MetroButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -116,6 +116,32 @@ Public Class MainForm
     End Sub
 
     Private Sub OptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Try
+            Dim acc_ds As New account_dsTableAdapters.tblUsersTableAdapter
+            Dim dt = New account_ds.tblUsersDataTable
+            acc_ds.Fill(dt, LBLID.Text)
+            For Each r As DataRow In dt.Rows
+                frmRegForm.txtUserID.Text = r.Item(0).ToString
+                frmRegForm.txtUsername.Text = r.Item(1).ToString
+                frmRegForm.txtFn.Text = r.Item(3).ToString
+                frmRegForm.cmbAccRole.Text = r.Item(4).ToString
+                frmRegForm.txtPass.Text = r.Item(2).ToString
+                frmRegForm.txtRepass.Text = r.Item(2).ToString
+            Next
+            frmRegForm.btnReg.Text = "Update"
+            frmRegForm.ShowDialog()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+     
+
+
+
 
     End Sub
 End Class
