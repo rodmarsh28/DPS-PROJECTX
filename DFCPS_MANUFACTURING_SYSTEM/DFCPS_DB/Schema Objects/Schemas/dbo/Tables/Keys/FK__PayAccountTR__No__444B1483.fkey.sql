@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[PayAccountTR]
+    ADD CONSTRAINT [FK__PayAccountTR__No__444B1483] FOREIGN KEY ([No]) REFERENCES [dbo].[PayAccount] ([No]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

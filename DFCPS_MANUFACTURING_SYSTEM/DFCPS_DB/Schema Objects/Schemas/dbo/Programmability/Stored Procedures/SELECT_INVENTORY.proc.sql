@@ -1,0 +1,12 @@
+﻿CREATE PROCEDURE [dbo].[SELECT_INVENTORY]
+@SEARCHVALUE VARCHAR(255)
+AS
+BEGIN
+SELECT
+dbo.tblRMInventory.ITEMCODE,
+dbo.tblRMInventory.RMT
+
+FROM
+dbo.tblRMInventory
+WHERE dbo.tblRMInventory.RMT LIKE '%' + @SEARCHVALUE +'%'
+END

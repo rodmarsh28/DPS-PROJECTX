@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[tblAdjustment] (
+    [ADJNO]      VARCHAR (255) NOT NULL,
+    [DATE]       DATETIME2 (7) NULL,
+    [PREPAREDBY] VARCHAR (255) NULL,
+    [REMARKS]    VARCHAR (255) NULL
+);
+

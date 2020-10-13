@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[tblDR] (
+    [DRNO]    VARCHAR (255) NOT NULL,
+    [DATE]    DATETIME2 (7) NULL,
+    [REFNO]   VARCHAR (255) NULL,
+    [JONO]    VARCHAR (255) NULL,
+    [REMARKS] VARCHAR (255) NULL
+);
+

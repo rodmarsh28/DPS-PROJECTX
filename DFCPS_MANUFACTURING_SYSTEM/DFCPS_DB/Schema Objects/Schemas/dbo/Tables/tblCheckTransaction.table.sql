@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[tblCheckTransaction] (
+    [NO]          VARCHAR (255) NOT NULL,
+    [TRANSDATE]   DATETIME2 (7) NULL,
+    [CHECKBOOKID] VARCHAR (255) NULL,
+    [CHECKNO]     VARCHAR (255) NULL,
+    [CARDID]      VARCHAR (255) NULL,
+    [AMOUNT]      VARCHAR (255) NULL,
+    [CHECKDATE]   DATETIME2 (7) NULL,
+    [STATUS]      VARCHAR (255) NULL,
+    [USERID]      VARCHAR (255) NULL
+);
+

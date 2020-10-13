@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[General_Journal_TR]
+    ADD CONSTRAINT [FK__General_Jo__GRNO__438BFA74] FOREIGN KEY ([GJNO]) REFERENCES [dbo].[General Journal] ([GJNO]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

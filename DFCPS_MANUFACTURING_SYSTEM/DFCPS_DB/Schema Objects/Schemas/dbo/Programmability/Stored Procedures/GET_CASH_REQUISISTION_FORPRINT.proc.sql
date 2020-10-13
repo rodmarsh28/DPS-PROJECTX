@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[GET_CASH_REQUISISTION_FORPRINT]
+@COMMAND AS INT,
+@SEARCHVALUE AS VARCHAR(255)
+AS
+begin
+if @command = 0 begin
+SELECT
+CRSNO,TRANSDATE,tblCashRequisition.CARDID,CARDNAME,CARDADDRESS,PARTICULARS,AMOUNT,amountApplied,TOTALAMOUNTAPPLIED,REMARKS
+FROM tblCashRequisition
+INNER JOIN tblCardsProfile ON tblCashRequisition.CARDID = tblCardsProfile.CARDID
+where crsno = @searchvalue
+end
+END

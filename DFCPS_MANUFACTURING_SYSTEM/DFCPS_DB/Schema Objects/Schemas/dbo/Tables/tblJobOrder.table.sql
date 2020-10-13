@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[tblJobOrder] (
+    [JONO]    VARCHAR (255) NOT NULL,
+    [DATE]    DATETIME2 (7) NULL,
+    [REFNO]   VARCHAR (255) NULL,
+    [CARDID]  VARCHAR (255) NULL,
+    [REMARKS] VARCHAR (255) NULL
+);
+

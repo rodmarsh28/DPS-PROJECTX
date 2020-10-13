@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[TBLCHECKINOUT] (
+    [USERID]    INT           NOT NULL,
+    [CHECKTIME] DATETIME      NULL,
+    [CHECKTYPE] VARCHAR (255) COLLATE Latin1_General_CI_AS NULL
+);
+

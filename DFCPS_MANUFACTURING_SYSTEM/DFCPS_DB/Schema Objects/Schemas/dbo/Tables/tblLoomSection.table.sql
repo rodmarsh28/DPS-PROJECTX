@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[tblLoomSection] (
+    [CLSNO]         VARCHAR (255)   NOT NULL,
+    [DATEFROM]      DATETIME2 (7)   NULL,
+    [DATETO]        DATETIME2 (7)   NULL,
+    [COSTUMER]      VARCHAR (255)   NULL,
+    [MAINTENANCE]   VARCHAR (255)   NULL,
+    [VISOR]         VARCHAR (255)   NULL,
+    [LOOMSCOUNT]    VARCHAR (38)    NULL,
+    [TOTMETERSPROD] DECIMAL (20, 2) NULL,
+    [TOTEFF]        DECIMAL (20, 2) NULL,
+    [REMARKS]       VARCHAR (255)   NULL
+);
+

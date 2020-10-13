@@ -1,0 +1,1 @@
+﻿CREATE VIEW [dbo].[view_unit_info] AS select * from tblInvtry

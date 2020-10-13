@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[tblCVParticulars] (
+    [CheckVoucherNo] VARCHAR (255)   NOT NULL,
+    [PARTICULARS]    VARCHAR (255)   NULL,
+    [AMOUNTVALUE]    DECIMAL (20, 2) NULL,
+    [APPLIEDVALUE]   DECIMAL (20, 2) NULL,
+    [VOUCHERNO]      VARCHAR (255)   NULL
+);
+

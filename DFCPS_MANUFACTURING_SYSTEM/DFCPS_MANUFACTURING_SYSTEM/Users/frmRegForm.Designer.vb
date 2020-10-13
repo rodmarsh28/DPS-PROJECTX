@@ -203,7 +203,7 @@ Partial Class frmRegForm
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmRegForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmRegForm"
+        Me.Text = "User Registration"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
