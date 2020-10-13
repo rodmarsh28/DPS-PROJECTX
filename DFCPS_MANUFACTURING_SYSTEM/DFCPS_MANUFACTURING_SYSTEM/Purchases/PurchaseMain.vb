@@ -20,7 +20,7 @@
 
     Private Sub PreparePurchaseInvoiceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreparePurchaseInvoiceToolStripMenuItem.Click
         Dim frm As New frmPurchases
-        frm.lblFormMode.Text = "PURCHASE INVOICE"
+        frm.lblFormMode.Text = "PURCHASE RECEIVING"
         frm.MdiParent = Me
         frm.StartPosition = FormStartPosition.CenterScreen
         frm.dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect

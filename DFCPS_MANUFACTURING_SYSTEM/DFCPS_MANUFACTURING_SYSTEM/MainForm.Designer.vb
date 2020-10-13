@@ -43,31 +43,33 @@ Partial Class MainForm
         Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MetroButton6 = New MetroFramework.Controls.MetroButton()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.MetroButton5 = New MetroFramework.Controls.MetroButton()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnPurchasing = New MetroFramework.Controls.MetroButton()
+        Me.btnSales = New MetroFramework.Controls.MetroButton()
+        Me.btnProd = New MetroFramework.Controls.MetroButton()
+        Me.btnHR = New MetroFramework.Controls.MetroButton()
+        Me.btnInventory = New MetroFramework.Controls.MetroButton()
+        Me.btnAccounting = New MetroFramework.Controls.MetroButton()
+        Me.REQUESTEDFORAPPROVALToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TRANSACTIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -149,7 +151,7 @@ Partial Class MainForm
         'SYSTEMREPORTSToolStripMenuItem
         '
         Me.SYSTEMREPORTSToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.SYSTEMREPORTSToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REPORTSToolStripMenuItem, Me.LOGSToolStripMenuItem})
+        Me.SYSTEMREPORTSToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.REPORTSToolStripMenuItem, Me.LOGSToolStripMenuItem, Me.REQUESTEDFORAPPROVALToolStripMenuItem})
         Me.SYSTEMREPORTSToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SYSTEMREPORTSToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SYSTEMREPORTSToolStripMenuItem.Name = "SYSTEMREPORTSToolStripMenuItem"
@@ -160,14 +162,14 @@ Partial Class MainForm
         '
         Me.REPORTSToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.REPORTSToolStripMenuItem.Name = "REPORTSToolStripMenuItem"
-        Me.REPORTSToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
+        Me.REPORTSToolStripMenuItem.Size = New System.Drawing.Size(152, 26)
         Me.REPORTSToolStripMenuItem.Text = "REPORTS"
         '
         'LOGSToolStripMenuItem
         '
         Me.LOGSToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.LOGSToolStripMenuItem.Name = "LOGSToolStripMenuItem"
-        Me.LOGSToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
+        Me.LOGSToolStripMenuItem.Size = New System.Drawing.Size(152, 26)
         Me.LOGSToolStripMenuItem.Text = "LOGS"
         '
         'ABOUTToolStripMenuItem
@@ -226,6 +228,117 @@ Partial Class MainForm
         Me.Panel1.Size = New System.Drawing.Size(200, 581)
         Me.Panel1.TabIndex = 18
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(200, 29)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1063, 88)
+        Me.Panel2.TabIndex = 19
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label1.Location = New System.Drawing.Point(28, 31)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(481, 31)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "| DFCPS MANAGEMENT SYSTEM |"
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnPurchasing)
+        Me.Panel3.Controls.Add(Me.Label7)
+        Me.Panel3.Controls.Add(Me.btnSales)
+        Me.Panel3.Controls.Add(Me.Label6)
+        Me.Panel3.Controls.Add(Me.btnProd)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.btnHR)
+        Me.Panel3.Controls.Add(Me.btnInventory)
+        Me.Panel3.Controls.Add(Me.btnAccounting)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Location = New System.Drawing.Point(-36, -196)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1299, 828)
+        Me.Panel3.TabIndex = 21
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(1011, 576)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(227, 16)
+        Me.Label7.TabIndex = 28
+        Me.Label7.Text = "Purchases / Requisition"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(675, 574)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(168, 31)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "Sales"
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(320, 571)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(174, 31)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "Production System"
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(1011, 322)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(201, 31)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "HR Information System"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(671, 322)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(172, 31)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Inventory System"
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(317, 323)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(172, 22)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Accounting"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 2000
+        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer))
@@ -267,189 +380,91 @@ Partial Class MainForm
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'Panel2
+        'btnPurchasing
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(200, 29)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1063, 88)
-        Me.Panel2.TabIndex = 19
+        Me.btnPurchasing.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnPurchasing.AutoSize = True
+        Me.btnPurchasing.BackgroundImage = CType(resources.GetObject("btnPurchasing.BackgroundImage"), System.Drawing.Image)
+        Me.btnPurchasing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPurchasing.Location = New System.Drawing.Point(1015, 605)
+        Me.btnPurchasing.Name = "btnPurchasing"
+        Me.btnPurchasing.Size = New System.Drawing.Size(174, 181)
+        Me.btnPurchasing.TabIndex = 29
+        Me.btnPurchasing.UseSelectable = True
         '
-        'Label1
+        'btnSales
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label1.Location = New System.Drawing.Point(28, 31)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(481, 31)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "| DFCPS MANAGEMENT SYSTEM |"
+        Me.btnSales.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSales.AutoSize = True
+        Me.btnSales.BackgroundImage = CType(resources.GetObject("btnSales.BackgroundImage"), System.Drawing.Image)
+        Me.btnSales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSales.Location = New System.Drawing.Point(671, 606)
+        Me.btnSales.Name = "btnSales"
+        Me.btnSales.Size = New System.Drawing.Size(174, 181)
+        Me.btnSales.TabIndex = 27
+        Me.btnSales.UseSelectable = True
         '
-        'Panel3
+        'btnProd
         '
-        Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.MetroButton6)
-        Me.Panel3.Controls.Add(Me.Label7)
-        Me.Panel3.Controls.Add(Me.MetroButton5)
-        Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Controls.Add(Me.MetroButton4)
-        Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.MetroButton3)
-        Me.Panel3.Controls.Add(Me.MetroButton2)
-        Me.Panel3.Controls.Add(Me.MetroButton1)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Location = New System.Drawing.Point(-36, -196)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1299, 828)
-        Me.Panel3.TabIndex = 21
+        Me.btnProd.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnProd.AutoSize = True
+        Me.btnProd.BackgroundImage = CType(resources.GetObject("btnProd.BackgroundImage"), System.Drawing.Image)
+        Me.btnProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnProd.Location = New System.Drawing.Point(320, 605)
+        Me.btnProd.Name = "btnProd"
+        Me.btnProd.Size = New System.Drawing.Size(174, 181)
+        Me.btnProd.TabIndex = 25
+        Me.btnProd.UseSelectable = True
         '
-        'MetroButton6
+        'btnHR
         '
-        Me.MetroButton6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton6.AutoSize = True
-        Me.MetroButton6.BackgroundImage = CType(resources.GetObject("MetroButton6.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton6.Location = New System.Drawing.Point(1015, 605)
-        Me.MetroButton6.Name = "MetroButton6"
-        Me.MetroButton6.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton6.TabIndex = 29
-        Me.MetroButton6.UseSelectable = True
+        Me.btnHR.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnHR.AutoSize = True
+        Me.btnHR.BackgroundImage = CType(resources.GetObject("btnHR.BackgroundImage"), System.Drawing.Image)
+        Me.btnHR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnHR.ForeColor = System.Drawing.Color.Transparent
+        Me.btnHR.Location = New System.Drawing.Point(1013, 356)
+        Me.btnHR.Name = "btnHR"
+        Me.btnHR.Size = New System.Drawing.Size(174, 181)
+        Me.btnHR.TabIndex = 23
+        Me.btnHR.UseSelectable = True
         '
-        'Label7
+        'btnInventory
         '
-        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1011, 576)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(227, 16)
-        Me.Label7.TabIndex = 28
-        Me.Label7.Text = "Purchases / Requisition"
+        Me.btnInventory.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnInventory.AutoSize = True
+        Me.btnInventory.BackgroundImage = CType(resources.GetObject("btnInventory.BackgroundImage"), System.Drawing.Image)
+        Me.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnInventory.Location = New System.Drawing.Point(669, 356)
+        Me.btnInventory.Name = "btnInventory"
+        Me.btnInventory.Size = New System.Drawing.Size(174, 181)
+        Me.btnInventory.TabIndex = 22
+        Me.btnInventory.UseSelectable = True
         '
-        'MetroButton5
+        'btnAccounting
         '
-        Me.MetroButton5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton5.AutoSize = True
-        Me.MetroButton5.BackgroundImage = CType(resources.GetObject("MetroButton5.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton5.Location = New System.Drawing.Point(671, 606)
-        Me.MetroButton5.Name = "MetroButton5"
-        Me.MetroButton5.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton5.TabIndex = 27
-        Me.MetroButton5.UseSelectable = True
+        Me.btnAccounting.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnAccounting.AutoSize = True
+        Me.btnAccounting.BackgroundImage = CType(resources.GetObject("btnAccounting.BackgroundImage"), System.Drawing.Image)
+        Me.btnAccounting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAccounting.Location = New System.Drawing.Point(317, 356)
+        Me.btnAccounting.Name = "btnAccounting"
+        Me.btnAccounting.Size = New System.Drawing.Size(174, 181)
+        Me.btnAccounting.TabIndex = 21
+        Me.btnAccounting.UseSelectable = True
         '
-        'Label6
+        'REQUESTEDFORAPPROVALToolStripMenuItem
         '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(675, 574)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(168, 31)
-        Me.Label6.TabIndex = 26
-        Me.Label6.Text = "Sales"
+        Me.REQUESTEDFORAPPROVALToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TRANSACTIONToolStripMenuItem})
+        Me.REQUESTEDFORAPPROVALToolStripMenuItem.Name = "REQUESTEDFORAPPROVALToolStripMenuItem"
+        Me.REQUESTEDFORAPPROVALToolStripMenuItem.Size = New System.Drawing.Size(291, 26)
+        Me.REQUESTEDFORAPPROVALToolStripMenuItem.Text = "REQUESTED FOR APPROVAL"
         '
-        'MetroButton4
+        'TRANSACTIONToolStripMenuItem
         '
-        Me.MetroButton4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton4.AutoSize = True
-        Me.MetroButton4.BackgroundImage = CType(resources.GetObject("MetroButton4.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton4.Location = New System.Drawing.Point(320, 605)
-        Me.MetroButton4.Name = "MetroButton4"
-        Me.MetroButton4.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton4.TabIndex = 25
-        Me.MetroButton4.UseSelectable = True
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(320, 571)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(174, 31)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "Production System"
-        '
-        'MetroButton3
-        '
-        Me.MetroButton3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton3.AutoSize = True
-        Me.MetroButton3.BackgroundImage = CType(resources.GetObject("MetroButton3.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton3.ForeColor = System.Drawing.Color.Transparent
-        Me.MetroButton3.Location = New System.Drawing.Point(1013, 356)
-        Me.MetroButton3.Name = "MetroButton3"
-        Me.MetroButton3.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton3.TabIndex = 23
-        Me.MetroButton3.UseSelectable = True
-        '
-        'MetroButton2
-        '
-        Me.MetroButton2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton2.AutoSize = True
-        Me.MetroButton2.BackgroundImage = CType(resources.GetObject("MetroButton2.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton2.Location = New System.Drawing.Point(669, 356)
-        Me.MetroButton2.Name = "MetroButton2"
-        Me.MetroButton2.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton2.TabIndex = 22
-        Me.MetroButton2.UseSelectable = True
-        '
-        'MetroButton1
-        '
-        Me.MetroButton1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton1.AutoSize = True
-        Me.MetroButton1.BackgroundImage = CType(resources.GetObject("MetroButton1.BackgroundImage"), System.Drawing.Image)
-        Me.MetroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MetroButton1.Location = New System.Drawing.Point(317, 356)
-        Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(174, 181)
-        Me.MetroButton1.TabIndex = 21
-        Me.MetroButton1.UseSelectable = True
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1011, 322)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(201, 31)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "HR Information System"
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(671, 322)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(172, 31)
-        Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Inventory System"
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(317, 323)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(172, 22)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Accounting"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 2000
+        Me.TRANSACTIONToolStripMenuItem.Name = "TRANSACTIONToolStripMenuItem"
+        Me.TRANSACTIONToolStripMenuItem.Size = New System.Drawing.Size(192, 26)
+        Me.TRANSACTIONToolStripMenuItem.Text = "TRANSACTION"
         '
         'MainForm
         '
@@ -473,11 +488,11 @@ Partial Class MainForm
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -506,18 +521,20 @@ Partial Class MainForm
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents MetroButton6 As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnPurchasing As MetroFramework.Controls.MetroButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents MetroButton5 As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnSales As MetroFramework.Controls.MetroButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents MetroButton4 As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnProd As MetroFramework.Controls.MetroButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents MetroButton3 As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroButton1 As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnHR As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnInventory As MetroFramework.Controls.MetroButton
+    Friend WithEvents btnAccounting As MetroFramework.Controls.MetroButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents CheckForUpdatesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents REQUESTEDFORAPPROVALToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TRANSACTIONToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

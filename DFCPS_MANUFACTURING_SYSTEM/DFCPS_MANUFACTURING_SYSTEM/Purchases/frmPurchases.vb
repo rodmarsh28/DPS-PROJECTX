@@ -45,7 +45,7 @@ Public Class frmPurchases
     '    txtQty.Text = ""
     'End Sub
     Sub disposeform()
-        transNo.Text = ""
+        generateNo()
         RefNo = ""
         CardID = ""
         txtName.Text = ""
@@ -66,51 +66,36 @@ Public Class frmPurchases
 
 
     
-    Sub RECORDPURCHASES()
+    Sub RECORD_PO()
         Try
-            Dim command As Integer
-            Dim row1 As Integer
-            Dim col As Integer
-            col = 0
-            row1 = dgv.RowCount
-            While col < row1
-                If BTNSAVE.Text = "&POST" Then
-                    command = 0
-                Else
-                    command = 1
+            Dim ac As New Account_Class
+            Dim po_ds As New purchase_dsTableAdapters.tblPurchaseOrderTableAdapter
+            po_ds.Connection.ConnectionString = My.Settings.connStringValue
+            For Each row As DataGridViewRow In dgv.Rows
+                If row.Cells(4).Value > 0 Then
+                    po_ds.Insert(transNo.Text, Now, txtRefNo.Text, CardID, MainForm.LBLID.Text, row.Cells(1).Value, row.Cells(2).Value, CDec(row.Cells(3).Value), CDec(row.Cells(4).Value), CDec(row.Cells(5).Value), CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), "", 0, Now)
                 End If
-                Dim cmd As New SqlCommand("INSERT_PURCHASE_ORDER", conn)
-                conn.Close()
-                ConnectDatabase()
-                With cmd
-                    .CommandType = CommandType.StoredProcedure
-                    .Parameters.AddWithValue("@COMMAND", SqlDbType.VarChar).Value = command
-                    .Parameters.AddWithValue("@TRANSNO", SqlDbType.VarChar).Value = transNo.Text
-                    .Parameters.AddWithValue("@REFNO", SqlDbType.VarChar).Value = txtRefNo.Text
-                    .Parameters.AddWithValue("@PAYMENT", SqlDbType.Date).Value = ""
-                    .Parameters.AddWithValue("@CARDID", SqlDbType.Date).Value = CardID
-                    .Parameters.AddWithValue("@ITEMNO", SqlDbType.VarChar).Value = dgv.Item(0, col).Value
-                    .Parameters.AddWithValue("@QTY", SqlDbType.VarChar).Value = dgv.Item(4, col).Value
-                    .Parameters.AddWithValue("@UPRICE", SqlDbType.Decimal).Value = dgv.Item(3, col).Value
-                    .Parameters.AddWithValue("@AMOUNT", SqlDbType.VarChar).Value = dgv.Item(5, col).Value
-                    .Parameters.AddWithValue("@USERID", SqlDbType.VarChar).Value = MainForm.LBLID.Text
-                    .Parameters.AddWithValue("@STATUS", SqlDbType.VarChar).Value = ""
-                End With
-                cmd.ExecuteNonQuery()
-                col = col + 1
-            End While
-            Dim req As New Puchase_Requisition_class
-            'If cmbPayment.Text = "CASH" Then
-            '    req.command = command
-            '    req.transNo = transNo.Text
-            '    req.src = Form.ActiveForm.Text
-            '    req.totAmount = totAmount
-            '    req.status = "Pending for Check Voucher "
-            '    req.insert_RFP()
-            'End If
+            Next
             MsgBox(lblFormMode.Text & " POSTED !", MsgBoxStyle.Information, "SUCCESS")
-            frmPO_paymentType.Close()
-            Me.Close()
+            ac.insert_to_approval(transNo.Text, Now, "Purchase Order", "Waiting for approval")
+            disposeform()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Sub RECEIVE_PURCHASED()
+        Try
+            Dim ac As New Account_Class
+            Dim po_ds As New purchase_dsTableAdapters.tblPurchaseOrderTableAdapter
+            po_ds.Connection.ConnectionString = My.Settings.connStringValue
+            For Each row As DataGridViewRow In dgv.Rows
+                If row.Cells(4).Value > 0 Then
+                    po_ds.Insert(transNo.Text, Now, txtRefNo.Text, CardID, MainForm.LBLID.Text, row.Cells(1).Value, row.Cells(2).Value, CDec(row.Cells(3).Value), CDec(row.Cells(4).Value), CDec(row.Cells(5).Value), CDec(row.Cells(6).Value), CDec(row.Cells(7).Value), "", 0, Now)
+                End If
+            Next
+            MsgBox(lblFormMode.Text & " POSTED !", MsgBoxStyle.Information, "SUCCESS")
+            ac.insert_to_approval(transNo.Text, Now, "Purchase Order", "Waiting for approval")
+            disposeform()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -118,12 +103,18 @@ Public Class frmPurchases
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNSAVE.Click
-        If txtName.Text <> "" And txtRefNo.Text <> "" Then
+        If txtName.Text <> "" Then
             If MsgBox("Are You Sure ?", MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes Then
-                RECORDPURCHASES()
+                If lblFormMode.Text = "PURCHASE ORDER" Then
+                    RECORD_PO()
+                ElseIf lblFormMode.Text = "PURCHASE RECEIVING" Then
+                    RECEIVE_PURCHASED()
+                End If
+
             End If
         Else
-            MsgBox("Please Enter Supplier Name or Ref ", MsgBoxStyle.Critical, "Error")
+            mb("error", "Please Select Supplier")
+            Exit Sub
         End If
     End Sub
 
@@ -236,7 +227,7 @@ Public Class frmPurchases
     Private Sub lblFormMode_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lblFormMode.TextChanged
         If lblFormMode.Text = "PURCHASE ORDER" Then
             Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        ElseIf lblFormMode.Text = "PURCHASE INVOICE" Then
+        ElseIf lblFormMode.Text = "PURCHASE RECEIVING" Then
             Me.BackColor = Color.White
         End If
     End Sub

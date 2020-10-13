@@ -81,7 +81,7 @@
                 MsgBox("YOUR PASSWORD DID NOT MATCH", MsgBoxStyle.Critical, "ERROR")
                 txtPass.Text = ""
                 txtRepass.Text = ""
-            ElseIf btnReg.Text = "Update" Then
+            ElseIf btnReg.Text = "UPDATE" Then
                 updateUser()
             Else
                 save()
@@ -90,6 +90,9 @@
     End Sub
 
     Private Sub frmRegForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        selectUserId()
+        If btnReg.Text = "REGISTER" Then
+            selectUserId()
+        End If
+
     End Sub
 End Class

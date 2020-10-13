@@ -123,6 +123,9 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>249, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1901,7 +1904,7 @@
         L9Woa9yIfwJyAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MetroButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnPurchasing.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAB2dSURBVHhe7d3Lld24tYBhh9DDO1QImt2pQqgQFIJC
@@ -2034,7 +2037,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MetroButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSales.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAqZxJREFUeF7t
         vVvTZdd1HSbRcGzYKhJh5cV2UQUDDRAg0RdCVmxFegBlxUmkigw6VbGiVCWgnQdJrFQgK1aJpkQ1JYoX
@@ -2763,7 +2766,7 @@
         teO76ZlzHwU8US7F9kl4Ph/B9kdFGJ/x1cQyfD/0Q/8/6UbFASxhVeoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MetroButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnProd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAtkVJREFUeF7t
         fQm8HFWZfVRccF/GHUQQWUK6ul9CIoIKCg7KjhqCbHmvu5MAyoyoIwyiuCDgMjruGzg6I/p3l0UFBVFk
@@ -3546,7 +3549,7 @@
         eLFO3XWr1bCuWGdafS3i5psGrMd6NkC9IHQkR1Bv2rT/D+acyGlC2TvDAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MetroButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnHR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAIL9JREFUeF7t
         XQuYFNWVHlmWICHqEpdNDDGuMcZNXEPcrDEuMcZ1jeua6BrXNbtZYx77yEBwBESiBEUFNaiIqIjEJyLx
@@ -3691,7 +3694,7 @@
         0RFMJc9xQY4DZ95LxWPXiArAZ80C6Y58GDgOtHGkfEdb2/8DTk2VGrN9FB4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MetroButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnInventory.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         ZwAAD2cBKDzj8gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADtuSURBVHhe7d1p
@@ -3951,7 +3954,7 @@
         eb+8RV4pB0j67/n0u/gdhXfCA3pv6mH/H7RMwh8ukvOIAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MetroButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAccounting.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAA859JREFUeF7s
         /QvQb1dRJoxbFGVZlmVZllHkY0bkU0YZ9T/1zeggICJ4VxARUQEhCCh3URERAUUYERBxvICoyCBykYvA
@@ -4996,9 +4999,6 @@
         z7HcU9EnwwnGY1/n63i+vumb/j+tFctMSuZbawAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>249, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>72</value>
   </metadata>

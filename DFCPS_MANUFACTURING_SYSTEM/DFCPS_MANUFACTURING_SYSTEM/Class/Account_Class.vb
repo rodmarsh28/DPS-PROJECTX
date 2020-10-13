@@ -135,4 +135,22 @@ Public Class Account_Class
         da.SelectCommand = cmd
         da.Fill(dtable)
     End Sub
+    Public Sub insert_to_approval(ByVal refno As String, ByVal transdate As DateTime, ByVal type As String, ByVal status As String)
+        Dim acc_ds As New account_dsTableAdapters.tblApprovalTableAdapter
+        acc_ds.Connection.ConnectionString = My.Settings.connStringValue
+        acc_ds.Insert(refno, transdate, type, "", Now, "", "")
+    End Sub
+    Public Sub update_approval_status(ByVal refno As String, ByVal transdate As DateTime, ByVal type As String, ByVal status As String, ByVal dateUpdated As DateTime, ByVal userid As String, ByVal remarks As String)
+        Dim acc_ds As New account_dsTableAdapters.tblApprovalTableAdapter
+        Dim dst As New account_ds.tblApprovalDataTable
+        acc_ds.Fill(dst, refno)
+        For Each row As DataRow In dst.Rows
+            row.Item("refNo") = refno
+            row.Item("status") = status
+            row.Item("dateUpdated") = dateUpdated
+            row.Item("userID") = userid
+            row.Item("remarks") = remarks
+        Next
+        acc_ds.Update(dst)
+    End Sub
 End Class

@@ -31,12 +31,12 @@ Public Class frmPO_paymentType
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If MsgBox("Are You Sure ?", MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes Then
-            If cmbPaymenType.SelectedIndex <> -1 Then
-                frmPurchases.RECORDPURCHASES()
-            End If
+        'If MsgBox("Are You Sure ?", MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes Then
+        '    If cmbPaymenType.SelectedIndex <> -1 Then
+        '        frmPurchases.RECORDPURCHASES()
+        '    End If
 
-        End If
+        'End If
     End Sub
 
     Private Sub frmPO_paymentType_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed

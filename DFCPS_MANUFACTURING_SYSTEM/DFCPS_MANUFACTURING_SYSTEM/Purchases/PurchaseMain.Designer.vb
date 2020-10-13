@@ -75,7 +75,7 @@ Partial Class frmPurchaseMain
         'ToolStripStatusLabel6
         '
         Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
-        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(36, 17)
         Me.ToolStripStatusLabel6.Text = "Time:"
         '
         'lblTime
@@ -121,20 +121,20 @@ Partial Class frmPurchaseMain
         'AddEmployeesToolStripMenuItem
         '
         Me.AddEmployeesToolStripMenuItem.Name = "AddEmployeesToolStripMenuItem"
-        Me.AddEmployeesToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AddEmployeesToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.AddEmployeesToolStripMenuItem.Text = "Prepare Item Requisition"
         '
         'WidthrawItemsToolStripMenuItem
         '
         Me.WidthrawItemsToolStripMenuItem.Name = "WidthrawItemsToolStripMenuItem"
-        Me.WidthrawItemsToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.WidthrawItemsToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
         Me.WidthrawItemsToolStripMenuItem.Text = "Prepare Purchase Order"
         '
         'PreparePurchaseInvoiceToolStripMenuItem
         '
         Me.PreparePurchaseInvoiceToolStripMenuItem.Name = "PreparePurchaseInvoiceToolStripMenuItem"
-        Me.PreparePurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
-        Me.PreparePurchaseInvoiceToolStripMenuItem.Text = "Prepare Receiving Purchases"
+        Me.PreparePurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
+        Me.PreparePurchaseInvoiceToolStripMenuItem.Text = "Receiving Purchases"
         '
         'TransactionToolStripMenuItem
         '

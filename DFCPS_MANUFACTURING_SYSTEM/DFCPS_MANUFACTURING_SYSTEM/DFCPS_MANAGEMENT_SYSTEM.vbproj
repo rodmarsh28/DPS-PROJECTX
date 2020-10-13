@@ -161,6 +161,12 @@
     <Compile Include="Accessable Form\rpt_report_viewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accessable Form\TViewer.Designer.vb">
+      <DependentUpon>TViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accessable Form\TViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accessable Form\TransactionViewer.Designer.vb">
       <DependentUpon>TransactionViewer.vb</DependentUpon>
     </Compile>
@@ -210,6 +216,9 @@
     <Compile Include="Class\account_ds.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>account_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Class\account_ds.vb">
       <DependentUpon>account_ds.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmReason.Designer.vb">
@@ -1362,6 +1371,14 @@
     <Compile Include="Purchases\PurchaseMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Purchases\purchase_ds.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purchase_ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Purchases\purchase_ds.vb">
+      <DependentUpon>purchase_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="qry_class.vb" />
     <Compile Include="reportViewer.Designer.vb">
       <DependentUpon>reportViewer.vb</DependentUpon>
@@ -1505,6 +1522,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Accessable Form\rpt_report_viewer.resx">
       <DependentUpon>rpt_report_viewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accessable Form\TViewer.resx">
+      <DependentUpon>TViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accessable Form\TransactionViewer.resx">
       <DependentUpon>TransactionViewer.vb</DependentUpon>
@@ -2168,6 +2188,17 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Purchases\purchase_ds.xsc">
+      <DependentUpon>purchase_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Purchases\purchase_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>purchase_ds.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Purchases\purchase_ds.xss">
+      <DependentUpon>purchase_ds.xsd</DependentUpon>
+    </None>
     <None Include="sales.dbml.layout">
       <DependentUpon>sales.dbml</DependentUpon>
     </None>

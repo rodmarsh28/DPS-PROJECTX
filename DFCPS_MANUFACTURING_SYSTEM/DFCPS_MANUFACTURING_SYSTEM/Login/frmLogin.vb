@@ -22,6 +22,7 @@
                     MainForm.LBLID.Text = OleDBDR.Item(0)
                     MainForm.LBLNAME.Text = OleDBDR.Item(3)
                     MainForm.LBLPOS.Text = OleDBDR.Item(4)
+                    MainForm.restrictForm(OleDBDR.Item(4))
                     Me.Close()
                     MainForm.Show()
                 End If
