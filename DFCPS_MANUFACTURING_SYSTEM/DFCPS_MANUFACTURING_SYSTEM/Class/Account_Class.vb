@@ -24,6 +24,7 @@ Public Class Account_Class
 
     Public Sub reverse_accEntry(ByVal id As String, ByVal memo As String)
         Dim ds As New account_dsTableAdapters.tblAccEntryTableAdapter
+        ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim dt As New account_ds.tblAccEntryDataTable
         ds.Fill(dt, id)
         For Each a As DataRow In dt.Rows

@@ -4,6 +4,8 @@ Imports System.Data.SqlClient
 Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+Imports System.Configuration
+
 Module modconn
     Public strSQL As String
     Public OleDBC As New SqlCommand
@@ -19,10 +21,10 @@ Module modconn
     Public last_row_change As DateTime
     Public latest_row_change As DateTime
     Public hasdbupdated As Boolean
-
+    Public con As String
 
     Public Function mb(ByVal type As String, ByVal msg As String) As Boolean
-        If Type = "reminder" Then
+        If type = "reminder" Then
             MsgBox(msg, MsgBoxStyle.Exclamation, "SYSTEM REMINDER")
         ElseIf type = "info" Then
             MsgBox(msg, MsgBoxStyle.Information, "SYSTEM INFORMATION")
@@ -53,6 +55,7 @@ Module modconn
                         "Initial Catalog=" & My.Settings.mDBname & ";" & _
                         "User ID=" & My.Settings.mUserDB & ";" & _
                         "Password=" & My.Settings.mPassDB
+        My.Settings.connStringValue = strConnString
         conn.ConnectionString = strConnString
         conn.Open()
     End Sub

@@ -197,6 +197,7 @@ Public Class sales_class
     End Function
     Sub print_DR(ByVal id As String)
         Dim ds As New sales_dsTableAdapters.DRTABLETableAdapter
+        ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim dt As New sales_ds
         ds.Fill(dt.Tables("DRTABLE"), id)
 
@@ -209,6 +210,7 @@ Public Class sales_class
 
     Sub print_sales(ByVal id As String, ByVal form As String)
         Dim ds As New sales_dsTableAdapters.salesTA
+        ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim dt As New sales_ds
         Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
         rptDoc = New rpt_sales

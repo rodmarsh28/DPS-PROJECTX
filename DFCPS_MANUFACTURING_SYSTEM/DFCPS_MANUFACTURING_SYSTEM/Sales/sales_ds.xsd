@@ -4,13 +4,13 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="salesTA" GeneratorFunctionsComponentClassName="salesTA" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="salesTA" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DFCPS_MANAGEMENT_DBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.GlobalReference.Default.DFCPS_MANAGEMENT_DBConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="connString" IsAppSettingsProperty="true" Modifier="Assembly" Name="connString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.GlobalReference.Default.connString" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DFCPS_MANUFACTURING_DBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="DFCPS_MANUFACTURING_DBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.GlobalReference.Default.DFCPS_MANUFACTURING_DBConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DRTABLETableAdapter" GeneratorDataComponentClassName="DRTABLETableAdapter" Name="DRTABLE" UserDataComponentName="DRTABLETableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesDeliver.salesDeliverNo, tblSalesDeliver.refNo, tblCardsProfile.cardName, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_desc, tblSalesItemsTR.pc, tblSalesItemsTR.uPrice, tblSalesItemsTR.discount, tblSalesItemsTR.amount, 
@@ -47,7 +47,7 @@ WHERE     (tblSalesDeliver.salesDeliverNo = @SALESNO)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="salesTA" GeneratorDataComponentClassName="salesTA" Name="salesTable" UserDataComponentName="salesTA">
             <MainSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryCash" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="qryCash" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="qryCash">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryCash" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="qryCash" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="qryCash">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesCashInvoice.salesCashInvoiceNo AS salesNo, tblSalesCashInvoice.transDate, tblSalesCashInvoice.refNo, tblSalesCashInvoice.totalDiscount, tblSalesCashInvoice.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress, 
@@ -85,7 +85,7 @@ WHERE     (tblSalesCashInvoice.salesCashInvoiceNo = @no)</CommandText>
               <Mapping SourceColumn="salesNo" DataSetColumn="salesNo" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryCharge" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryCharge" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="qryCharge">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryCharge" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryCharge" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="qryCharge">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesChargeInvoice.salesChargeInvoiceNo AS SalesNo, tblSalesChargeInvoice.transDate, tblSalesChargeInvoice.refNo, tblSalesChargeInvoice.totalDiscount, tblSalesChargeInvoice.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress, 
@@ -103,7 +103,7 @@ WHERE     (tblSalesChargeInvoice.salesChargeInvoiceNo = @no)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryDeliver" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryDeliver" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="qryDeliver">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryDeliver" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryDeliver" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="qryDeliver">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesDeliver.salesDeliverNo AS salesNo, tblSalesDeliver.transDate, tblSalesDeliver.refNo, tblSalesDeliver.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_desc, 
@@ -121,7 +121,7 @@ WHERE     (tblSalesDeliver.salesDeliverNo = @no)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryOrder" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryOrder" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="qryOrder">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryOrder" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryOrder" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="qryOrder">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesOrder.salesOrderNo AS salesNo, tblSalesOrder.transDate, tblSalesOrder.refNo, tblSalesOrder.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_desc, 
@@ -139,7 +139,7 @@ WHERE     (tblSalesOrder.salesOrderNo = @no)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryQuote" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryQuote" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="qryQuote">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="qryQuote" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="qryQuote" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="qryQuote">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     tblSalesQuotation.quoteNo AS salesNo, tblSalesQuotation.transDate, tblSalesQuotation.totalAmount, tblCardsProfile.cardName, tblCardsProfile.cardAddress, tblSalesItemsTR.itemNo, tblInvtry.ITEMDESC, tblItem_units.unit_desc, tblSalesItemsTR.pc, 
@@ -161,7 +161,7 @@ WHERE     (tblSalesQuotation.quoteNo = @no)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="salesInfoTableAdapter" GeneratorDataComponentClassName="salesInfoTableAdapter" Name="salesInfo" UserDataComponentName="salesInfoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText />
@@ -214,7 +214,7 @@ WHERE     (tblSalesQuotation.quoteNo = @no)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="get_sales_reportTableAdapter" GeneratorDataComponentClassName="get_sales_reportTableAdapter" Name="get_sales_report" UserDataComponentName="get_sales_reportTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectName="DFCPS_MANAGEMENT_DB.dbo.get_sales_report" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectName="DFCPS_MANAGEMENT_DB.dbo.get_sales_report" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.get_sales_report</CommandText>
@@ -248,7 +248,7 @@ WHERE     (tblSalesQuotation.quoteNo = @no)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="get_payment_statementTableAdapter" GeneratorDataComponentClassName="get_payment_statementTableAdapter" Name="get_payment_statement" UserDataComponentName="get_payment_statementTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DFCPS_MANAGEMENT_DBConnectionString1 (MySettings)" DbObjectName="DFCPS_MANAGEMENT_DB.dbo.get_payment_statement" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="connString (MySettings)" DbObjectName="DFCPS_MANAGEMENT_DB.dbo.get_payment_statement" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.get_payment_statement</CommandText>

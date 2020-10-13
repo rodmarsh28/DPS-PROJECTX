@@ -117,12 +117,24 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;Persist Security Info=T"& _ 
-            "rue;User ID=sa;Password=passwork")>  _
-        Public ReadOnly Property DFCPS_MANAGEMENT_DBConnectionString1() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;User ID=sa;Password=pas"& _ 
+            "swork")>  _
+        Public ReadOnly Property connString() As String
             Get
-                Return CType(Me("DFCPS_MANAGEMENT_DBConnectionString1"),String)
+                Return CType(Me("connString"),String)
             End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property connStringValue() As String
+            Get
+                Return CType(Me("connStringValue"),String)
+            End Get
+            Set
+                Me("connStringValue") = value
+            End Set
         End Property
     End Class
 End Namespace

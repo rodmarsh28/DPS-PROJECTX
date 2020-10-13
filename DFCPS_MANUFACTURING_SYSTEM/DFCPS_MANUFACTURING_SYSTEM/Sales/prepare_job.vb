@@ -211,6 +211,7 @@ Public Class prepare_job
         Dim sc As New sales_class
         Dim frm As New frmsales_list_selector
         frm.MODE = "SALES ORDER"
+        frm.cardID = ""
         frm.GET_SALE_LIST()
         frm.ShowDialog()
         If frm.successClick = True Then

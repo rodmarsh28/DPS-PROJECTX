@@ -40,4 +40,8 @@
         txtPass.Text = My.Settings.mPassDB
         Button1.Focus()
     End Sub
+
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+      
+    End Sub
 End Class

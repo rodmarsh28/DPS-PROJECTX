@@ -131,7 +131,7 @@
         <classShapeMoniker Id="5eb89c57-91aa-4d40-aa90-709be473c69c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.375 : 8.21875); (6.16666666666667 : 8.21875 : JumpStart); (6.33333333333333 : 8.21875 : JumpEnd); (8.65625 : 8.21875); (8.65625 : 7.09780110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.375 : 8.21875); (8.65625 : 8.21875); (8.65625 : 7.09780110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/salesDataContext/tblUser/tblUser_tblSalesQuotation" />
       <nodes>
         <classShapeMoniker Id="d5f62de9-2314-4c15-afd1-b9384d842fde" />

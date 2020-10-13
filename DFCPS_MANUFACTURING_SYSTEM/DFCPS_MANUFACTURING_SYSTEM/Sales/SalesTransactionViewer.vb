@@ -188,7 +188,7 @@ Public Class SalesTransactionViewer
         Dim frm As New prepare_job
         frm.MdiParent = frmSalesMain
         frm.StartPosition = FormStartPosition.CenterParent
-        'frm.TXTREF.Text = DGV.CurrentRow.Cells(1).Value
+        frm.TXTREF.Text = DGV.CurrentRow.Cells(1).Value
         frm.get_sales_order_items(DGV.CurrentRow.Cells(1).Value)
         frm.get_card_id(DGV.CurrentRow.Cells(1).Value)
         frm.generateNo()
