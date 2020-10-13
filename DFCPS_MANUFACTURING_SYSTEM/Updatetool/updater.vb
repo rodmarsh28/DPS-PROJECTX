@@ -41,16 +41,10 @@ Public Class updater
     Private Sub updater_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim pslist() As Process
         Dim pExit As Boolean = False
-rescan: pslist = Process.GetProcesses()
+        pslist = Process.GetProcesses()
         For Each p As Process In pslist
             If "DFCPS_MANAGEMENT_SYSTEM" = p.ProcessName Then
-                If MsgBox("The system is detected running, please close it and click retry", MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then
-                    Process.Start(My.Application.Info.DirectoryPath + "\DFCPS_MANAGEMENT_SYSTEM.exe")
-                    Application.Exit()
-                    Exit Sub
-                Else
-                    GoTo rescan
-                End If
+                p.Kill()
             End If
         Next
             Process.Start(My.Application.Info.DirectoryPath + "\Updatetool.exe")
