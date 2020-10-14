@@ -82,6 +82,7 @@
                 Dim inventoryClass As New inventory_class
                 Dim sc As New systemSettings_class
                 If btnAdd.Text = "Save Item" Then
+                    sc.dc.Connection.ConnectionString = My.Settings.connStringValue
                     Ref = sc.insert_tr_update_logs(src, txtItemno.Text)
                     If Ref = "Cancel" Then
                         Exit Sub
@@ -175,10 +176,10 @@
         sysSettings.get_settingsValue()
         txtAccAsset.Text = sysSettings.return_settingsValue
     End Sub
-    Sub update_load()
+    Sub update_load(ByVal id As String)
 
         Dim ic As New inventory_class
-        Dim data = ic.get_inv_item_info(txtItemno.Text)
+        Dim data = ic.get_inv_item_info(id)
         txtItemdesc.Text = data.ITEMDESC
         txtAccAsset.Text = data.ASSETACC
         txtAccCost.Text = data.COSTOFSALESACC
@@ -223,7 +224,7 @@
         If btnAdd.Text = "Add Item" Then
             getAccountSettings()
         ElseIf mode = "Save Item" Then
-            update_load()
+            update_load(txtItemno.Text)
         End If
     End Sub
 

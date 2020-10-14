@@ -73,12 +73,6 @@ Partial Public Class salesDataContext
     End Sub
   Partial Private Sub DeletetblJob_item(instance As tblJob_item)
     End Sub
-  Partial Private Sub InserttblJobOrder(instance As tblJobOrder)
-    End Sub
-  Partial Private Sub UpdatetblJobOrder(instance As tblJobOrder)
-    End Sub
-  Partial Private Sub DeletetblJobOrder(instance As tblJobOrder)
-    End Sub
   Partial Private Sub InserttblInvtry1(instance As tblInvtry1)
     End Sub
   Partial Private Sub UpdatetblInvtry1(instance As tblInvtry1)
@@ -115,10 +109,16 @@ Partial Public Class salesDataContext
     End Sub
   Partial Private Sub DeletetblUser(instance As tblUser)
     End Sub
+  Partial Private Sub InserttblJobOrder(instance As tblJobOrder)
+    End Sub
+  Partial Private Sub UpdatetblJobOrder(instance As tblJobOrder)
+    End Sub
+  Partial Private Sub DeletetblJobOrder(instance As tblJobOrder)
+    End Sub
   #End Region
 	
 	Public Sub New()
-        MyBase.New(Global.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.Default.connString, mappingSource)
+		MyBase.New(Global.DFCPS_MANAGEMENT_SYSTEM.My.MySettings.Default.connString, mappingSource)
 		OnCreated
 	End Sub
 	
@@ -184,12 +184,6 @@ Partial Public Class salesDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property tblJobOrders() As System.Data.Linq.Table(Of tblJobOrder)
-		Get
-			Return Me.GetTable(Of tblJobOrder)
-		End Get
-	End Property
-	
 	Public ReadOnly Property tblInvtry1s() As System.Data.Linq.Table(Of tblInvtry1)
 		Get
 			Return Me.GetTable(Of tblInvtry1)
@@ -247,6 +241,12 @@ Partial Public Class salesDataContext
 	Public ReadOnly Property tblUsers() As System.Data.Linq.Table(Of tblUser)
 		Get
 			Return Me.GetTable(Of tblUser)
+		End Get
+	End Property
+	
+	Public ReadOnly Property tblJobOrders() As System.Data.Linq.Table(Of tblJobOrder)
+		Get
+			Return Me.GetTable(Of tblJobOrder)
 		End Get
 	End Property
 End Class
@@ -2159,155 +2159,6 @@ Partial Public Class tblJob_item
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblJobOrder")>  _
-Partial Public Class tblJobOrder
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _JONO As String
-	
-	Private _DATE As System.Nullable(Of Date)
-	
-	Private _REFNO As String
-	
-	Private _CARDID As String
-	
-	Private _REMARKS As String
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnJONOChanging(value As String)
-    End Sub
-    Partial Private Sub OnJONOChanged()
-    End Sub
-    Partial Private Sub OnDATEChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDATEChanged()
-    End Sub
-    Partial Private Sub OnREFNOChanging(value As String)
-    End Sub
-    Partial Private Sub OnREFNOChanged()
-    End Sub
-    Partial Private Sub OnCARDIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnCARDIDChanged()
-    End Sub
-    Partial Private Sub OnREMARKSChanging(value As String)
-    End Sub
-    Partial Private Sub OnREMARKSChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_JONO", DbType:="VarChar(255) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
-	Public Property JONO() As String
-		Get
-			Return Me._JONO
-		End Get
-		Set
-			If (String.Equals(Me._JONO, value) = false) Then
-				Me.OnJONOChanging(value)
-				Me.SendPropertyChanging
-				Me._JONO = value
-				Me.SendPropertyChanged("JONO")
-				Me.OnJONOChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="DATE", Storage:="_DATE", DbType:="DateTime2")>  _
-	Public Property [DATE]() As System.Nullable(Of Date)
-		Get
-			Return Me._DATE
-		End Get
-		Set
-			If (Me._DATE.Equals(value) = false) Then
-				Me.OnDATEChanging(value)
-				Me.SendPropertyChanging
-				Me._DATE = value
-				Me.SendPropertyChanged("[DATE]")
-				Me.OnDATEChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_REFNO", DbType:="VarChar(255)")>  _
-	Public Property REFNO() As String
-		Get
-			Return Me._REFNO
-		End Get
-		Set
-			If (String.Equals(Me._REFNO, value) = false) Then
-				Me.OnREFNOChanging(value)
-				Me.SendPropertyChanging
-				Me._REFNO = value
-				Me.SendPropertyChanged("REFNO")
-				Me.OnREFNOChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CARDID", DbType:="VarChar(255)")>  _
-	Public Property CARDID() As String
-		Get
-			Return Me._CARDID
-		End Get
-		Set
-			If (String.Equals(Me._CARDID, value) = false) Then
-				Me.OnCARDIDChanging(value)
-				Me.SendPropertyChanging
-				Me._CARDID = value
-				Me.SendPropertyChanged("CARDID")
-				Me.OnCARDIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_REMARKS", DbType:="VarChar(255)")>  _
-	Public Property REMARKS() As String
-		Get
-			Return Me._REMARKS
-		End Get
-		Set
-			If (String.Equals(Me._REMARKS, value) = false) Then
-				Me.OnREMARKSChanging(value)
-				Me.SendPropertyChanging
-				Me._REMARKS = value
-				Me.SendPropertyChanged("REMARKS")
-				Me.OnREMARKSChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblInvtry")>  _
 Partial Public Class tblInvtry1
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -4060,5 +3911,198 @@ Partial Public Class tblUser
 	Private Sub detach_tblSalesQuotations(ByVal entity As tblSalesQuotation)
 		Me.SendPropertyChanging
 		entity.tblUser = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.tblJobOrder")>  _
+Partial Public Class tblJobOrder
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _JONO As String
+	
+	Private _DATE As System.Nullable(Of Date)
+	
+	Private _REFNO As String
+	
+	Private _CARDID As String
+	
+	Private _pickupDate As System.Nullable(Of Date)
+	
+	Private _REMARKS As String
+	
+	Private _userID As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnJONOChanging(value As String)
+    End Sub
+    Partial Private Sub OnJONOChanged()
+    End Sub
+    Partial Private Sub OnDATEChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDATEChanged()
+    End Sub
+    Partial Private Sub OnREFNOChanging(value As String)
+    End Sub
+    Partial Private Sub OnREFNOChanged()
+    End Sub
+    Partial Private Sub OnCARDIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnCARDIDChanged()
+    End Sub
+    Partial Private Sub OnpickupDateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnpickupDateChanged()
+    End Sub
+    Partial Private Sub OnREMARKSChanging(value As String)
+    End Sub
+    Partial Private Sub OnREMARKSChanged()
+    End Sub
+    Partial Private Sub OnuserIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnuserIDChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_JONO", DbType:="VarChar(255) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property JONO() As String
+		Get
+			Return Me._JONO
+		End Get
+		Set
+			If (String.Equals(Me._JONO, value) = false) Then
+				Me.OnJONOChanging(value)
+				Me.SendPropertyChanging
+				Me._JONO = value
+				Me.SendPropertyChanged("JONO")
+				Me.OnJONOChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="DATE", Storage:="_DATE", DbType:="DateTime2")>  _
+	Public Property [DATE]() As System.Nullable(Of Date)
+		Get
+			Return Me._DATE
+		End Get
+		Set
+			If (Me._DATE.Equals(value) = false) Then
+				Me.OnDATEChanging(value)
+				Me.SendPropertyChanging
+				Me._DATE = value
+				Me.SendPropertyChanged("[DATE]")
+				Me.OnDATEChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_REFNO", DbType:="VarChar(255)")>  _
+	Public Property REFNO() As String
+		Get
+			Return Me._REFNO
+		End Get
+		Set
+			If (String.Equals(Me._REFNO, value) = false) Then
+				Me.OnREFNOChanging(value)
+				Me.SendPropertyChanging
+				Me._REFNO = value
+				Me.SendPropertyChanged("REFNO")
+				Me.OnREFNOChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CARDID", DbType:="VarChar(255)")>  _
+	Public Property CARDID() As String
+		Get
+			Return Me._CARDID
+		End Get
+		Set
+			If (String.Equals(Me._CARDID, value) = false) Then
+				Me.OnCARDIDChanging(value)
+				Me.SendPropertyChanging
+				Me._CARDID = value
+				Me.SendPropertyChanged("CARDID")
+				Me.OnCARDIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pickupDate", DbType:="DateTime2")>  _
+	Public Property pickupDate() As System.Nullable(Of Date)
+		Get
+			Return Me._pickupDate
+		End Get
+		Set
+			If (Me._pickupDate.Equals(value) = false) Then
+				Me.OnpickupDateChanging(value)
+				Me.SendPropertyChanging
+				Me._pickupDate = value
+				Me.SendPropertyChanged("pickupDate")
+				Me.OnpickupDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_REMARKS", DbType:="VarChar(255)")>  _
+	Public Property REMARKS() As String
+		Get
+			Return Me._REMARKS
+		End Get
+		Set
+			If (String.Equals(Me._REMARKS, value) = false) Then
+				Me.OnREMARKSChanging(value)
+				Me.SendPropertyChanging
+				Me._REMARKS = value
+				Me.SendPropertyChanged("REMARKS")
+				Me.OnREMARKSChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_userID", DbType:="VarChar(255)")>  _
+	Public Property userID() As String
+		Get
+			Return Me._userID
+		End Get
+		Set
+			If (String.Equals(Me._userID, value) = false) Then
+				Me.OnuserIDChanging(value)
+				Me.SendPropertyChanging
+				Me._userID = value
+				Me.SendPropertyChanged("userID")
+				Me.OnuserIDChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
 	End Sub
 End Class

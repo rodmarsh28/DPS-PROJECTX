@@ -5,12 +5,19 @@
     
     Sub command_Data(ByVal Size As String, ByVal app As String, ByVal code As String, ByVal type As String, ByVal command As String, ByVal name As String)
         Dim spec1_ds As New invtry_dsTableAdapters.specs1TableAdapter
+        spec1_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim spec2_ds As New invtry_dsTableAdapters.specs2TableAdapter
+        spec2_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim color1_ds As New invtry_dsTableAdapters.color1TableAdapter
+        color1_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim color2_ds As New invtry_dsTableAdapters.color2TableAdapter
+        color2_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim denier_ds As New invtry_dsTableAdapters.denierTableAdapter
+        denier_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim th_ds As New invtry_dsTableAdapters.tophemmedTableAdapter
+        th_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim printed_ds As New invtry_dsTableAdapters.printedTableAdapter
+        printed_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim ds
         If command = "select" Then
             dgvSpecs.DataSource = spec1_ds.GetData()

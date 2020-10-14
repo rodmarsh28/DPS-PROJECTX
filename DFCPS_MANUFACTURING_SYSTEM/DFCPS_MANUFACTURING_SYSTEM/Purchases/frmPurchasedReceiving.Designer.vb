@@ -50,10 +50,7 @@ Partial Class frmPurchasedReceiving
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtInvoice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtMemo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbPayment = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.LBLDUEDATE = New System.Windows.Forms.Label()
         Me.DTPDUEDATE = New System.Windows.Forms.DateTimePicker()
         Me.dgvAccEntry = New System.Windows.Forms.DataGridView()
@@ -71,6 +68,7 @@ Partial Class frmPurchasedReceiving
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.txtMemo = New System.Windows.Forms.RichTextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvAccEntry, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,7 +79,7 @@ Partial Class frmPurchasedReceiving
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(819, 484)
+        Me.Label4.Location = New System.Drawing.Point(816, 476)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 20)
         Me.Label4.TabIndex = 101
@@ -92,9 +90,9 @@ Partial Class frmPurchasedReceiving
         Me.lblTotal.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.Lime
-        Me.lblTotal.Location = New System.Drawing.Point(815, 508)
+        Me.lblTotal.Location = New System.Drawing.Point(815, 506)
         Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(313, 85)
+        Me.lblTotal.Size = New System.Drawing.Size(313, 94)
         Me.lblTotal.TabIndex = 100
         Me.lblTotal.Text = "Php 9,999,999.99"
         Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -122,7 +120,7 @@ Partial Class frmPurchasedReceiving
         'btnSearchCustomer
         '
         Me.btnSearchCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchCustomer.Location = New System.Drawing.Point(1032, 198)
+        Me.btnSearchCustomer.Location = New System.Drawing.Point(1044, 198)
         Me.btnSearchCustomer.Name = "btnSearchCustomer"
         Me.btnSearchCustomer.Size = New System.Drawing.Size(46, 21)
         Me.btnSearchCustomer.TabIndex = 93
@@ -144,7 +142,7 @@ Partial Class frmPurchasedReceiving
         Me.txtRefNo.Enabled = False
         Me.txtRefNo.Location = New System.Drawing.Point(813, 156)
         Me.txtRefNo.Name = "txtRefNo"
-        Me.txtRefNo.Size = New System.Drawing.Size(213, 20)
+        Me.txtRefNo.Size = New System.Drawing.Size(225, 20)
         Me.txtRefNo.TabIndex = 95
         '
         'txtName
@@ -152,13 +150,13 @@ Partial Class frmPurchasedReceiving
         Me.txtName.Enabled = False
         Me.txtName.Location = New System.Drawing.Point(814, 198)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(212, 20)
+        Me.txtName.Size = New System.Drawing.Size(224, 20)
         Me.txtName.TabIndex = 85
         '
         'Button3
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(1032, 155)
+        Me.Button3.Location = New System.Drawing.Point(1044, 155)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(46, 21)
         Me.Button3.TabIndex = 94
@@ -207,9 +205,9 @@ Partial Class frmPurchasedReceiving
         Me.Button2.BackColor = System.Drawing.Color.DodgerBlue
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(951, 605)
+        Me.Button2.Location = New System.Drawing.Point(976, 603)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(123, 57)
+        Me.Button2.Size = New System.Drawing.Size(149, 57)
         Me.Button2.TabIndex = 88
         Me.Button2.Text = "&CANCEL"
         Me.Button2.UseVisualStyleBackColor = False
@@ -219,9 +217,9 @@ Partial Class frmPurchasedReceiving
         Me.BTNSAVE.BackColor = System.Drawing.Color.DodgerBlue
         Me.BTNSAVE.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTNSAVE.ForeColor = System.Drawing.Color.White
-        Me.BTNSAVE.Location = New System.Drawing.Point(824, 605)
+        Me.BTNSAVE.Location = New System.Drawing.Point(820, 603)
         Me.BTNSAVE.Name = "BTNSAVE"
-        Me.BTNSAVE.Size = New System.Drawing.Size(121, 57)
+        Me.BTNSAVE.Size = New System.Drawing.Size(150, 57)
         Me.BTNSAVE.TabIndex = 87
         Me.BTNSAVE.Text = "&POST"
         Me.BTNSAVE.UseVisualStyleBackColor = False
@@ -255,7 +253,7 @@ Partial Class frmPurchasedReceiving
         Me.dgv.Name = "dgv"
         Me.dgv.RowHeadersVisible = False
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgv.Size = New System.Drawing.Size(784, 502)
+        Me.dgv.Size = New System.Drawing.Size(784, 542)
         Me.dgv.TabIndex = 86
         '
         'Column1
@@ -302,7 +300,7 @@ Partial Class frmPurchasedReceiving
         '
         Me.txtInvoice.Location = New System.Drawing.Point(814, 244)
         Me.txtInvoice.Name = "txtInvoice"
-        Me.txtInvoice.Size = New System.Drawing.Size(264, 20)
+        Me.txtInvoice.Size = New System.Drawing.Size(118, 20)
         Me.txtInvoice.TabIndex = 102
         '
         'Label5
@@ -315,49 +313,21 @@ Partial Class frmPurchasedReceiving
         Me.Label5.TabIndex = 103
         Me.Label5.Text = "INVOICE / DR NO."
         '
-        'txtMemo
-        '
-        Me.txtMemo.Location = New System.Drawing.Point(813, 413)
-        Me.txtMemo.Name = "txtMemo"
-        Me.txtMemo.Size = New System.Drawing.Size(316, 20)
-        Me.txtMemo.TabIndex = 104
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(817, 396)
+        Me.Label6.Location = New System.Drawing.Point(815, 393)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 13)
         Me.Label6.TabIndex = 105
         Me.Label6.Text = "MEMO"
         '
-        'cmbPayment
-        '
-        Me.cmbPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPayment.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cmbPayment.FormattingEnabled = True
-        Me.cmbPayment.Items.AddRange(New Object() {"CREDIT", "CASH"})
-        Me.cmbPayment.Location = New System.Drawing.Point(813, 456)
-        Me.cmbPayment.Name = "cmbPayment"
-        Me.cmbPayment.Size = New System.Drawing.Size(162, 21)
-        Me.cmbPayment.TabIndex = 116
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(818, 440)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(66, 13)
-        Me.Label8.TabIndex = 117
-        Me.Label8.Text = "PAYMENT"
-        '
         'LBLDUEDATE
         '
         Me.LBLDUEDATE.AutoSize = True
         Me.LBLDUEDATE.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBLDUEDATE.Location = New System.Drawing.Point(978, 440)
+        Me.LBLDUEDATE.Location = New System.Drawing.Point(947, 228)
         Me.LBLDUEDATE.Name = "LBLDUEDATE"
         Me.LBLDUEDATE.Size = New System.Drawing.Size(70, 13)
         Me.LBLDUEDATE.TabIndex = 118
@@ -366,9 +336,9 @@ Partial Class frmPurchasedReceiving
         'DTPDUEDATE
         '
         Me.DTPDUEDATE.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPDUEDATE.Location = New System.Drawing.Point(981, 456)
+        Me.DTPDUEDATE.Location = New System.Drawing.Point(944, 244)
         Me.DTPDUEDATE.Name = "DTPDUEDATE"
-        Me.DTPDUEDATE.Size = New System.Drawing.Size(148, 20)
+        Me.DTPDUEDATE.Size = New System.Drawing.Size(146, 20)
         Me.DTPDUEDATE.TabIndex = 119
         '
         'dgvAccEntry
@@ -395,13 +365,13 @@ Partial Class frmPurchasedReceiving
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvAccEntry.DefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvAccEntry.Location = New System.Drawing.Point(814, 295)
+        Me.dgvAccEntry.Location = New System.Drawing.Point(813, 307)
         Me.dgvAccEntry.MultiSelect = False
         Me.dgvAccEntry.Name = "dgvAccEntry"
         Me.dgvAccEntry.ReadOnly = True
         Me.dgvAccEntry.RowHeadersVisible = False
         Me.dgvAccEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAccEntry.Size = New System.Drawing.Size(315, 93)
+        Me.dgvAccEntry.Size = New System.Drawing.Size(315, 71)
         Me.dgvAccEntry.TabIndex = 120
         '
         'DataGridViewTextBoxColumn1
@@ -428,7 +398,7 @@ Partial Class frmPurchasedReceiving
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(816, 277)
+        Me.Label7.Location = New System.Drawing.Point(815, 289)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(137, 13)
         Me.Label7.TabIndex = 121
@@ -437,7 +407,7 @@ Partial Class frmPurchasedReceiving
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel3, Me.lblTotDeb, Me.ToolStripStatusLabel1, Me.lblTotCrd})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 663)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 677)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1140, 22)
         Me.StatusStrip1.TabIndex = 122
@@ -446,7 +416,7 @@ Partial Class frmPurchasedReceiving
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(64, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(63, 17)
         Me.ToolStripStatusLabel3.Text = "Total Debit"
         '
         'lblTotDeb
@@ -458,7 +428,7 @@ Partial Class frmPurchasedReceiving
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(68, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
         Me.ToolStripStatusLabel1.Text = "Total Credit"
         '
         'lblTotCrd
@@ -469,7 +439,7 @@ Partial Class frmPurchasedReceiving
         '
         'txtQty
         '
-        Me.txtQty.Location = New System.Drawing.Point(44, 599)
+        Me.txtQty.Location = New System.Drawing.Point(44, 640)
         Me.txtQty.Name = "txtQty"
         Me.txtQty.Size = New System.Drawing.Size(700, 20)
         Me.txtQty.TabIndex = 123
@@ -478,7 +448,7 @@ Partial Class frmPurchasedReceiving
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(9, 602)
+        Me.Label9.Location = New System.Drawing.Point(9, 643)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 13)
         Me.Label9.TabIndex = 124
@@ -487,7 +457,7 @@ Partial Class frmPurchasedReceiving
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(750, 598)
+        Me.Button1.Location = New System.Drawing.Point(750, 639)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(46, 21)
         Me.Button1.TabIndex = 125
@@ -496,7 +466,7 @@ Partial Class frmPurchasedReceiving
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(1097, 270)
+        Me.Button4.Location = New System.Drawing.Point(1096, 282)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(33, 23)
         Me.Button4.TabIndex = 127
@@ -505,19 +475,28 @@ Partial Class frmPurchasedReceiving
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(1058, 270)
+        Me.Button5.Location = New System.Drawing.Point(1057, 282)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(33, 23)
         Me.Button5.TabIndex = 126
         Me.Button5.Text = "+"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'txtMemo
+        '
+        Me.txtMemo.Location = New System.Drawing.Point(812, 409)
+        Me.txtMemo.Name = "txtMemo"
+        Me.txtMemo.Size = New System.Drawing.Size(316, 54)
+        Me.txtMemo.TabIndex = 128
+        Me.txtMemo.Text = ""
+        '
         'frmPurchasedReceiving
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1140, 685)
+        Me.ClientSize = New System.Drawing.Size(1140, 699)
+        Me.Controls.Add(Me.txtMemo)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button1)
@@ -528,9 +507,6 @@ Partial Class frmPurchasedReceiving
         Me.Controls.Add(Me.dgvAccEntry)
         Me.Controls.Add(Me.DTPDUEDATE)
         Me.Controls.Add(Me.LBLDUEDATE)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.cmbPayment)
-        Me.Controls.Add(Me.txtMemo)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtInvoice)
         Me.Controls.Add(Me.Label5)
@@ -578,10 +554,7 @@ Partial Class frmPurchasedReceiving
     Friend WithEvents dgv As System.Windows.Forms.DataGridView
     Friend WithEvents txtInvoice As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtMemo As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents cmbPayment As System.Windows.Forms.ComboBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents LBLDUEDATE As System.Windows.Forms.Label
     Friend WithEvents DTPDUEDATE As System.Windows.Forms.DateTimePicker
     Friend WithEvents dgvAccEntry As System.Windows.Forms.DataGridView
@@ -606,4 +579,5 @@ Partial Class frmPurchasedReceiving
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtMemo As System.Windows.Forms.RichTextBox
 End Class

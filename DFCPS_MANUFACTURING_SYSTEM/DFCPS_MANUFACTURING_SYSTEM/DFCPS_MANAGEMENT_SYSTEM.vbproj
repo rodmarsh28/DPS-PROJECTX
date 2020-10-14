@@ -841,10 +841,10 @@
     <Compile Include="Inventory Forms\frmMaterialWidthrawal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory Forms\frmPurchasedReceiving.Designer.vb">
+    <Compile Include="Purchases\frmPurchasedReceiving.Designer.vb">
       <DependentUpon>frmPurchasedReceiving.vb</DependentUpon>
     </Compile>
-    <Compile Include="Inventory Forms\frmPurchasedReceiving.vb">
+    <Compile Include="Purchases\frmPurchasedReceiving.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory Forms\frmRawMaterialProduced.Designer.vb">
@@ -1875,7 +1875,7 @@
     <EmbeddedResource Include="Inventory Forms\frmMaterialWidthrawal.resx">
       <DependentUpon>frmMaterialWidthrawal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory Forms\frmPurchasedReceiving.resx">
+    <EmbeddedResource Include="Purchases\frmPurchasedReceiving.resx">
       <DependentUpon>frmPurchasedReceiving.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory Forms\frmRawMaterialProduced.resx">

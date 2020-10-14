@@ -156,15 +156,18 @@ Public Class sales_class
     End Sub
     Public  Function get_info_data(ByVal id As String)
         Dim db_sales As New salesDataContext
+        db_sales.Connection.ConnectionString = My.Settings.connStringValue
         Dim data = From job In db_sales.tblJobOrders, jo_item In db_sales.tblJob_items, card In db_sales.tblCardsProfiles, item In db_sales.tblInvtries, u In db_sales.tblItem_units _
                    Where job.CARDID = card.cardID And job.JONO = jo_item.JONO And jo_item.ITEMCODE = item.ITEMNO And job.JONO = id
                    Select JOB_NO = job.JONO, REFNO = job.REFNO, trDATE = job.DATE, cardid = job.CARDID, CUSTOMER = card.cardName, _
-                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = u.unit_desc, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS Distinct
+                                    ITEMNO = jo_item.ITEMCODE, DESCRIPTION = item.ITEMDESC, UNIT = u.unit_desc, QTY = jo_item.QTY, ONHAND_QTY = jo_item.ONHAND_QTY, REMARKS = job.REMARKS _
+                                    , pDate = job.pickupDate Distinct
         Return data
     End Function
-    Public Overridable Function update_job_data(ByVal id As String, ByVal ref As String, ByVal cardid As String, ByVal remarks As String) As String
+    Public Overridable Function update_job_data(ByVal id As String, ByVal ref As String, ByVal cardid As String, ByVal remarks As String, ByVal pdate As DateTime, ByVal userID As String) As String
         Try
             Dim db_sales As New salesDataContext
+            db_sales.Connection.ConnectionString = My.Settings.connStringValue
             Dim data = (From jo In db_sales.tblJobOrders _
                         Where jo.JONO = id _
                         Select jo).FirstOrDefault
@@ -172,7 +175,9 @@ Public Class sales_class
             data.JONO = id
             data.REFNO = ref
             data.CARDID = cardid
+            data.pickupDate = data.pickupDate
             data.REMARKS = remarks
+            data.userID = userID
             db_sales.SubmitChanges()
             Return "Success"
         Catch ex As Exception
@@ -182,6 +187,7 @@ Public Class sales_class
     Public Overridable Function update_job_items(ByVal id As String, ByVal itemcode As String, ByVal qty As String, ByVal onhand_qty As String, ByVal remarks As String) As String
         Try
             Dim dbx As New salesDataContext
+            dbx.Connection.ConnectionString = My.Settings.connStringValue
             Dim X = (From jo_item In dbx.tblJob_items _
                     Where jo_item.JONO = id And jo_item.ITEMCODE = itemcode _
                     Select jo_item).FirstOrDefault
@@ -242,6 +248,7 @@ Public Class sales_class
         "tblJobOrder.ITEMNO, " & _
         "tblJobOrder.QTY, " & _
         "tblJobOrder.REMARKS " & _
+        "convert(varchar,tblJobOrder.pickupDate,101), " & _
         "FROM " & _
         "tblJobOrder " & _
         "where jono = '" & jono & "'", conn)
@@ -249,7 +256,7 @@ Public Class sales_class
         da.SelectCommand = cmd
         da.Fill(dt)
         For Each row As DataRow In dt.Rows
-            ds.Tables("JOTABLE").Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), "", MainForm.logo, MainForm.header)
+            ds.Tables("JOTABLE").Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), MainForm.LBLNAME.Text, MainForm.logo, MainForm.header)
         Next
         Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
         rptDoc = New rpt_JO

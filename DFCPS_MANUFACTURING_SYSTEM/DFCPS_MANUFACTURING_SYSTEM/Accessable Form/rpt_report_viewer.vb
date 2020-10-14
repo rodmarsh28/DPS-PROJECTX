@@ -4,6 +4,7 @@
         Try
             If command = "PAYMENT RECEIVABLE" Then
                 Dim ds As New sales_dsTableAdapters.get_payment_statementTableAdapter
+                ds.Connection.ConnectionString = My.Settings.connStringValue
                 Dim dt As New sales_ds
                 ds.Fill(dt.Tables("get_payment_statement"), command, type, id, dfrom, dto)
                 Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
@@ -12,6 +13,7 @@
                 CrystalReportViewer1.ReportSource = rptDoc
             Else
                 Dim ds As New sales_dsTableAdapters.get_sales_reportTableAdapter
+                ds.Connection.ConnectionString = My.Settings.connStringValue
                 Dim dt As New sales_ds
                 ds.Fill(dt.Tables("get_sales_report"), command, type, id, dfrom, dto)
                 Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DFCPS_MANAGEMENT_DB" Class="salesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;Persist Security Info=True;User ID=sa" SettingsObjectName="DFCPS_MANAGEMENT_SYSTEM.My.MySettings" SettingsPropertyName="connString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=DFCPS_MANAGEMENT_DB;User ID=sa" SettingsObjectName="DFCPS_MANAGEMENT_SYSTEM.My.MySettings" SettingsPropertyName="connString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblSalesCashInvoice" Member="tblSalesCashInvoices">
     <Type Name="tblSalesCashInvoice">
       <Column Name="salesCashInvoiceNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -98,15 +98,6 @@
       <Column Name="ITEMCODE" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ONHAND_QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblJobOrder" Member="tblJobOrders">
-    <Type Name="tblJobOrder">
-      <Column Name="JONO" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DATE" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="REFNO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CARDID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblInvtry" Member="tblInvtry1s">
@@ -229,6 +220,17 @@
       <Column Name="isActive" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Association Name="tblUser_tblSalesOrder" Member="tblSalesOrders" ThisKey="userID" OtherKey="userID" Type="tblSalesOrder" />
       <Association Name="tblUser_tblSalesQuotation" Member="tblSalesQuotations" ThisKey="userID" OtherKey="userID" Type="tblSalesQuotation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblJobOrder" Member="tblJobOrders">
+    <Type Name="tblJobOrder">
+      <Column Name="JONO" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="REFNO" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CARDID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="pickupDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="REMARKS" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="userID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

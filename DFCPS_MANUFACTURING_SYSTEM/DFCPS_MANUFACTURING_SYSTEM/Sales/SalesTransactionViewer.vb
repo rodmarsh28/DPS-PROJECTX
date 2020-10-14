@@ -271,7 +271,7 @@ Public Class SalesTransactionViewer
         Dim ds As New sales_ds
         Dim dt As DataTable = ds.Tables("JOTABLE")
         For Each row In sc.get_info_data(DGV.CurrentRow.Cells(1).Value)
-            dt.Rows.Add(row.job_no, row.trDate, row.CUSTOMER, row.DESCRIPTION, row.QTY, row.REMARKS, MainForm.logo, MainForm.header)
+            dt.Rows.Add(row.job_no, row.trDate, row.CUSTOMER, row.DESCRIPTION, row.QTY, row.REMARKS, row.pDate, MainForm.logo, MainForm.header)
         Next
         pc.print_data(dt)
     End Sub
@@ -289,7 +289,7 @@ Public Class SalesTransactionViewer
         Try
             If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "SYSTEM REMINDER") = MsgBoxResult.Yes Then
                 Dim sc As New sales_class
-                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished")
+                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished", "", MainForm.LBLID.Text)
                 MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
             End If
         Catch ex As Exception
@@ -373,7 +373,7 @@ Public Class SalesTransactionViewer
         Try
             If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
                 Dim sc As New sales_class
-                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished")
+                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished", "", MainForm.LBLID.Text)
                 MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
             End If
         Catch ex As Exception

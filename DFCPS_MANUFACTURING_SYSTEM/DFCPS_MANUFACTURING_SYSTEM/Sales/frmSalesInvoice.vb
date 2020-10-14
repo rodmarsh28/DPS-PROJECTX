@@ -211,9 +211,9 @@
                     Dim frm As New prepare_job
                     frm.StartPosition = FormStartPosition.CenterScreen
                     frm.Show()
-                    frm.TXTREF.Text = "SO-" & txtSalesNo.Text
-                    frm.get_sales_order_items("SO-" & txtSalesNo.Text)
-                    frm.get_card_id("SO-" & txtSalesNo.Text)
+                    frm.TXTREF.Text = txtSalesNo.Text
+                    frm.get_sales_order_items(txtSalesNo.Text)
+                    frm.get_card_id(txtSalesNo.Text)
                     frm.generateNo()
                 End If
             ElseIf lblFormMode.Text = "SALES DELIVER" Then
@@ -372,22 +372,23 @@
 
             Dim qty As Decimal
             Dim r As Integer = dgv.Rows.Count
-            If CDec(txtQty.Text) > CDec(InventoryList.dgv.CurrentRow.Cells(9).Value) Then
-                MsgBox("Our stock onhand is insufficient for your requested qty to deliver !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
-                Exit Sub
-            End If
+
             Dim INDEX As String
             INDEX = isExist(InventoryList.dgv.CurrentRow.Cells(0).Value)
             If INDEX <> "NOT EXISTED" Then
                 If lblFormMode.Text = "SALES DELIVER" Then
+                    If CDec(txtQty.Text) > CDec(InventoryList.dgv.CurrentRow.Cells(9).Value) Then
+                        MsgBox("Our stock onhand is insufficient for your requested qty to deliver !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
+                        Exit Sub
+                    End If
                     qty = InputBox("Please Enter Weight Qty", "Required")
                     dgv.Rows(CInt(INDEX)).Cells(4).Value = qty
                     dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
-                   
+
                 Else
                     dgv.Rows(CInt(INDEX)).Cells(4).Value = "0"
                     dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
-                 
+
                 End If
                 Exit Sub
             End If
@@ -486,9 +487,7 @@
         For Each row As DataRow In sc.dtable.Rows
             CardID = row(1)
             txtName.Text = row(2)
-            If CInt(row(10)) > 0 Then
-                dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(10)).ToString("N"), CDec(row(8)).ToString("N"), "0.00", row(9))
-            End If
+            dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(10)).ToString("N"), CDec(row(8)).ToString("N"), "0.00", row(9))
         Next
         frmsales_list_selector.successClick = False
         GET_TOTAL()

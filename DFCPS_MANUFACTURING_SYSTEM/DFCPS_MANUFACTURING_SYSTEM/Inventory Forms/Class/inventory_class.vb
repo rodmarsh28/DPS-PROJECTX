@@ -83,6 +83,7 @@ Public Class inventory_class
     End Sub
     Public Function get_inv_item_info(ByVal id As String) As DFCPS_MANAGEMENT_SYSTEM.InventoryListAllView
         Dim inv_ds As New salesDataContext
+        inv_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim data = (From inv In inv_ds.InventoryListAllViews _
                     Where inv.ITEMNO = id _
                     Select inv).FirstOrDefault

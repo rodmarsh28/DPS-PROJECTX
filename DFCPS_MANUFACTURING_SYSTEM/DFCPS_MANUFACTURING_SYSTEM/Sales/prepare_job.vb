@@ -151,22 +151,26 @@ Public Class prepare_job
             TXTREF.Text = xdata.REFNO
             TXTCUS.Text = xdata.CUSTOMER
             cardid = xdata.cardid
+            dtpPdate.Text = xdata.pickupDate
             dgv.Rows.Add(xdata.ITEMNO, xdata.DESCRIPTION, xdata.UNIT, xdata.QTY, xdata.ONHAND_QTY, xdata.QTY)
         Next
     End Sub
     Function insert_info_data() As String
         Dim db_sales As New salesDataContext
-
+        db_sales.Connection.ConnectionString = My.Settings.connStringValue
         Dim jobs As New tblJobOrder
         jobs.JONO = TXTJONO.Text
         jobs.DATE = Now
         jobs.REFNO = TXTREF.Text
         jobs.CARDID = cardid
+        jobs.pickupDate = CDate(dtpPdate.Value)
         jobs.REMARKS = ""
+        jobs.userID = MainForm.LBLID.Text
         db_sales.tblJobOrders.InsertOnSubmit(jobs)
         db_sales.SubmitChanges()
         For Each row As DataGridViewRow In dgv.Rows
             db_sales = New salesDataContext
+            db_sales.Connection.ConnectionString = My.Settings.connStringValue
             Dim j = New tblJob_item
             j.JONO = TXTJONO.Text
             j.ITEMCODE = row.Cells(0).Value
@@ -186,7 +190,7 @@ Public Class prepare_job
     End Function
     Sub update_info_data()
         Dim sc As New sales_class
-        If sc.update_job_data(TXTJONO.Text, TXTREF.Text, cardid, "") = "Success" Then
+        If sc.update_job_data(TXTJONO.Text, TXTREF.Text, cardid, "", dtpPdate.Value, MainForm.LBLID.Text) = "Success" Then
             For Each row As DataGridViewRow In dgv.Rows
                 If sc.update_job_items(TXTJONO.Text, row.Cells(0).Value, row.Cells(5).Value, row.Cells(4).Value, "") <> "Success" Then
 
@@ -218,6 +222,17 @@ Public Class prepare_job
             TXTREF.Text = frm.DGV.CurrentRow.Cells(1).Value
             get_sales_order_items(TXTREF.Text)
             get_card_id(TXTREF.Text)
+        End If
+    End Sub
+
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+        frmCardListForSelection.formMode = "Sales Invoice"
+        frmCardListForSelection.itemClick = False
+        frmCardListForSelection.filterType()
+        frmCardListForSelection.ShowDialog()
+        If frmCardListForSelection.itemClick = True Then
+            cardid = frmCardListForSelection.LV.SelectedItems(0).SubItems(0).Text
+            TXTCUS.Text = frmCardListForSelection.LV.SelectedItems(0).SubItems(1).Text
         End If
     End Sub
 End Class

@@ -189,7 +189,7 @@ Partial Class frmRawMaterialProduced
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Location = New System.Drawing.Point(987, 193)
+        Me.Button4.Location = New System.Drawing.Point(987, 198)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(46, 39)
         Me.Button4.TabIndex = 20

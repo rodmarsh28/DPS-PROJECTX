@@ -77,7 +77,7 @@ Public Class frmInventory
         frm.MdiParent = frmInventorySystemMain
         frm.StartPosition = FormStartPosition.CenterParent
         frm.txtItemno.Text = dgv.CurrentRow.Cells(0).Value
-        frm.update_load()
+        frm.update_load(dgv.CurrentRow.Cells(0).Value)
         frm.Show()
     End Sub
 

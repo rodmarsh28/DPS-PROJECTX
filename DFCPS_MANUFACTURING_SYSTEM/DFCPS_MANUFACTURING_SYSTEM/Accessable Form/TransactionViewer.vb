@@ -276,11 +276,11 @@ Public Class TransactionViewer
         frmPurchasedReceiving.txtRefNo.Text = LV.SelectedItems(0).SubItems(1).Text
         frmPurchasedReceiving.cardID = cardID
         frmPurchasedReceiving.txtName.Text = cardName
-        If payment = "CREDIT" Then
-            frmPurchasedReceiving.cmbPayment.SelectedIndex = 0
-        ElseIf payment = "CASH" Then
-            frmPurchasedReceiving.cmbPayment.SelectedIndex = 1
-        End If
+        'If payment = "CREDIT" Then
+        '    frmPurchasedReceiving.cmbPayment.SelectedIndex = 0
+        'ElseIf payment = "CASH" Then
+        '    frmPurchasedReceiving.cmbPayment.SelectedIndex = 1
+        'End If
         frmPurchasedReceiving.ShowDialog()
     End Sub
 

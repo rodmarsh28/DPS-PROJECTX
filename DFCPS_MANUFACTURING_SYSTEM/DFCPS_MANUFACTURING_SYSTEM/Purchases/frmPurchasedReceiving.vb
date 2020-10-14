@@ -159,7 +159,6 @@ Public Class frmPurchasedReceiving
         payable.command = 0
         payable.transNo = transNo.Text
         payable.src = Form.ActiveForm.Text
-        payable.payment = cmbPayment.Text
         payable.dueDate = Format(DTPDUEDATE.Value, "yyyy/MM/dd")
         payable.totAmount = totAmount
         payable.status = "Item Received"
@@ -305,8 +304,6 @@ Public Class frmPurchasedReceiving
         frm.ShowDialog()
         If frmGetRequisitionItemList.mouseclicked = True Then
             txtRefNo.Text = frmGetRequisitionItemList.LV.SelectedItems(0).SubItems(2).Text
-            frmGetRequisitionItemList.mouseclicked = False
-            get_purchased_items()
         End If
     End Sub
 

@@ -2636,6 +2636,8 @@ Partial Public Class sales_ds
         
         Private columnREMARKS As Global.System.Data.DataColumn
         
+        Private columnpickupDate As Global.System.Data.DataColumn
+        
         Private columnAPPROVEDBY As Global.System.Data.DataColumn
         
         Private columnlogo As Global.System.Data.DataColumn
@@ -2727,6 +2729,14 @@ Partial Public Class sales_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pickupDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpickupDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property APPROVEDBYColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnAPPROVEDBY
@@ -2786,9 +2796,9 @@ Partial Public Class sales_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddJOTABLERow(ByVal JONO As String, ByVal _DATE As String, ByVal CUSTOMER As String, ByVal DESCRIPTION As String, ByVal QTY As String, ByVal REMARKS As String, ByVal APPROVEDBY As String, ByVal logo() As Byte, ByVal header() As Byte) As JOTABLERow
+        Public Overloads Function AddJOTABLERow(ByVal JONO As String, ByVal _DATE As String, ByVal CUSTOMER As String, ByVal DESCRIPTION As String, ByVal QTY As String, ByVal REMARKS As String, ByVal pickupDate As String, ByVal APPROVEDBY As String, ByVal logo() As Byte, ByVal header() As Byte) As JOTABLERow
             Dim rowJOTABLERow As JOTABLERow = CType(Me.NewRow,JOTABLERow)
-            Dim columnValuesArray() As Object = New Object() {JONO, _DATE, CUSTOMER, DESCRIPTION, QTY, REMARKS, APPROVEDBY, logo, header}
+            Dim columnValuesArray() As Object = New Object() {JONO, _DATE, CUSTOMER, DESCRIPTION, QTY, REMARKS, pickupDate, APPROVEDBY, logo, header}
             rowJOTABLERow.ItemArray = columnValuesArray
             Me.Rows.Add(rowJOTABLERow)
             Return rowJOTABLERow
@@ -2817,6 +2827,7 @@ Partial Public Class sales_ds
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
             Me.columnQTY = MyBase.Columns("QTY")
             Me.columnREMARKS = MyBase.Columns("REMARKS")
+            Me.columnpickupDate = MyBase.Columns("pickupDate")
             Me.columnAPPROVEDBY = MyBase.Columns("APPROVEDBY")
             Me.columnlogo = MyBase.Columns("logo")
             Me.columnheader = MyBase.Columns("header")
@@ -2840,6 +2851,8 @@ Partial Public Class sales_ds
             MyBase.Columns.Add(Me.columnQTY)
             Me.columnREMARKS = New Global.System.Data.DataColumn("REMARKS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREMARKS)
+            Me.columnpickupDate = New Global.System.Data.DataColumn("pickupDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpickupDate)
             Me.columnAPPROVEDBY = New Global.System.Data.DataColumn("APPROVEDBY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAPPROVEDBY)
             Me.columnlogo = New Global.System.Data.DataColumn("logo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
@@ -4872,6 +4885,21 @@ Partial Public Class sales_ds
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pickupDate() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableJOTABLE.pickupDateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'pickupDate' in table 'JOTABLE' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableJOTABLE.pickupDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property APPROVEDBY() As String
             Get
                 Try 
@@ -4985,6 +5013,18 @@ Partial Public Class sales_ds
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetREMARKSNull()
             Me(Me.tableJOTABLE.REMARKSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspickupDateNull() As Boolean
+            Return Me.IsNull(Me.tableJOTABLE.pickupDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpickupDateNull()
+            Me(Me.tableJOTABLE.pickupDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

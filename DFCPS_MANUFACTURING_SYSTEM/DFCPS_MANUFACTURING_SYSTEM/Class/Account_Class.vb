@@ -142,6 +142,7 @@ Public Class Account_Class
     End Sub
     Public Sub update_approval_status(ByVal refno As String, ByVal transdate As DateTime, ByVal type As String, ByVal status As String, ByVal dateUpdated As DateTime, ByVal userid As String, ByVal remarks As String)
         Dim acc_ds As New account_dsTableAdapters.tblApprovalTableAdapter
+        acc_ds.Connection.ConnectionString = My.Settings.connStringValue
         Dim dst As New account_ds.tblApprovalDataTable
         acc_ds.Fill(dst, refno)
         For Each row As DataRow In dst.Rows

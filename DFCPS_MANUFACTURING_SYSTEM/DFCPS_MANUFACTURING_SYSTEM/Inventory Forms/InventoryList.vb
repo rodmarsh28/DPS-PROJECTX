@@ -20,8 +20,7 @@ Public Class InventoryList
             frm.btnAdd.Text = "Add Item"
             frm.MdiParent = frmInventorySystemMain
             frm.StartPosition = FormStartPosition.CenterParent
-            frm.update_load()
-            frm.Show()
+            frm.Show
         Else
             frmAddItemsInventory.cmbItemType.SelectedIndex = 1
             frmAddItemsInventory.btnAdd.Text = "Add Item"
@@ -81,7 +80,12 @@ Public Class InventoryList
         da.Fill(dt)
         dgv.Rows.Clear()
         For Each row As DataRow In dt.Rows
-            dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9))
+            If mode = "Order" Then
+                dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7))
+            Else
+                dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9))
+            End If
+
         Next
         dgv.ClearSelection()
         lblItemsCount.Text = Format(dgv.Rows.Count, "N0")
@@ -195,7 +199,7 @@ Public Class InventoryList
         frm.btnAdd.Text = "Save Item"
         frm.StartPosition = FormStartPosition.CenterParent
         frm.txtItemno.Text = dgv.CurrentRow.Cells(0).Value
-        frm.update_load()
+        frm.update_load(dgv.CurrentRow.Cells(0).Value)
         frm.ShowDialog()
     End Sub
 End Class
