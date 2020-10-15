@@ -123,6 +123,7 @@ Public Class prepare_job
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         InventoryList.mode = "Order"
+        InventoryList.clickedItem = False
         InventoryList.ShowDialog()
         If InventoryList.clickedItem = True Then
             Dim r As Integer = dgv.Rows.Count
@@ -132,7 +133,7 @@ Public Class prepare_job
                 .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
                 .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
                 .Item(3, r).Value = "0"
-                .Item(4, r).Value = InventoryList.dgv.CurrentRow.Cells(4).Value
+                .Item(4, r).Value = InventoryList.dgv.CurrentRow.Cells(9).Value
                 .Item(5, r).Value = "0"
             End With
         End If
@@ -151,7 +152,7 @@ Public Class prepare_job
             TXTREF.Text = xdata.REFNO
             TXTCUS.Text = xdata.CUSTOMER
             cardid = xdata.cardid
-            dtpPdate.Text = xdata.pickupDate
+            dtpPdate.Value = xdata.pDate
             dgv.Rows.Add(xdata.ITEMNO, xdata.DESCRIPTION, xdata.UNIT, xdata.QTY, xdata.ONHAND_QTY, xdata.QTY)
         Next
     End Sub

@@ -15,13 +15,12 @@ Public Class InventoryList
         If mode = "Item Requisition" Then
             AddNewItem.ShowDialog()
         ElseIf mode = "Sales" Or mode = "Issuance" Or mode = "Purchases" Or mode = "Order" Then
-            Dim frm As New frmAddItemsInventory
-            frm.cmbItemType.SelectedIndex = 1
-            frm.btnAdd.Text = "Add Item"
-            frm.MdiParent = frmInventorySystemMain
-            frm.StartPosition = FormStartPosition.CenterParent
-            frm.Show
+            frmAddItemsInventory.disposeform()
+            frmAddItemsInventory.cmbItemType.SelectedIndex = 1
+            frmAddItemsInventory.btnAdd.Text = "Add Item"
+            frmAddItemsInventory.ShowDialog()
         Else
+            frmAddItemsInventory.disposeform()
             frmAddItemsInventory.cmbItemType.SelectedIndex = 1
             frmAddItemsInventory.btnAdd.Text = "Add Item"
             frmAddItemsInventory.ShowDialog()
@@ -36,6 +35,13 @@ Public Class InventoryList
             dgv.Columns(9).HeaderText = "Onhand"
             cmd = New SqlCommand("get_item_sellable", conn)
             dgv.Columns(3).HeaderText = "Sell Price"
+        ElseIf mode = "Order" Then
+            dgv.Columns(4).Visible = True
+            dgv.Columns(3).Visible = False
+            dgv.Columns(9).Visible = True
+            dgv.Columns(9).HeaderText = "Onhand"
+            cmd = New SqlCommand("get_item_sellable", conn)
+            dgv.Columns(4).HeaderText = "Unit QTY (KG)"
         ElseIf mode = "SALES_VIEW" Then
             dgv.Columns(4).Visible = False
             dgv.Columns(9).Visible = True
@@ -80,12 +86,7 @@ Public Class InventoryList
         da.Fill(dt)
         dgv.Rows.Clear()
         For Each row As DataRow In dt.Rows
-            If mode = "Order" Then
-                dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7))
-            Else
-                dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9))
-            End If
-
+            dgv.Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9))
         Next
         dgv.ClearSelection()
         lblItemsCount.Text = Format(dgv.Rows.Count, "N0")

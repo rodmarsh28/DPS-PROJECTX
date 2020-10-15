@@ -375,14 +375,16 @@
 
             Dim INDEX As String
             INDEX = isExist(InventoryList.dgv.CurrentRow.Cells(0).Value)
+            If lblFormMode.Text = "SALES DELIVER" Then
+                If CDec(txtQty.Text) > CDec(InventoryList.dgv.CurrentRow.Cells(9).Value) Then
+                    MsgBox("Our stock onhand is insufficient for your requested qty to deliver !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
+                    Exit Sub
+                End If
+            End If
             If INDEX <> "NOT EXISTED" Then
                 If lblFormMode.Text = "SALES DELIVER" Then
-                    If CDec(txtQty.Text) > CDec(InventoryList.dgv.CurrentRow.Cells(9).Value) Then
-                        MsgBox("Our stock onhand is insufficient for your requested qty to deliver !", MsgBoxStyle.Critical, "SYSTEM INFORMATION")
-                        Exit Sub
-                    End If
-                    qty = InputBox("Please Enter Weight Qty", "Required")
-                    dgv.Rows(CInt(INDEX)).Cells(4).Value = qty
+                    'qty = InputBox("Please Enter Weight Qty", "Required")
+                    dgv.Rows(CInt(INDEX)).Cells(4).Value = (CDec(InventoryList.dgv.CurrentRow.Cells(4).Value) / CDec(InventoryList.dgv.CurrentRow.Cells(9).Value)) * CDec(txtQty.Text)
                     dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
 
                 Else
@@ -391,29 +393,30 @@
 
                 End If
                 Exit Sub
+            Else
+                With dgv
+                    .Rows.Add()
+                    .Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
+                    .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
+                    .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
+                    .Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
+                    .Item(6, r).Value = "0.00"
+                    If lblFormMode.Text = "SALES DELIVER" Then
+                        'qty = InputBox("Please Enter Weight Qty", "Required")
+                        .Item(4, r).Value = (CDec(InventoryList.dgv.CurrentRow.Cells(4).Value) / CDec(InventoryList.dgv.CurrentRow.Cells(9).Value)) * CDec(txtQty.Text)
+                        .Item(5, r).Value = txtQty.Text
+                        .Columns("Qty").Visible = True
+                        .Columns(5).HeaderText = "Pc"
+                    Else
+                        .Columns("Qty").Visible = False
+                        .Columns(5).HeaderText = "Qty"
+                        .Item(4, r).Value = "0"
+                        .Item(5, r).Value = txtQty.Text
+                    End If
+                    .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
+                    .Item(8, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
+                End With
             End If
-            With dgv
-                .Rows.Add()
-                .Item(0, r).Value = InventoryList.dgv.CurrentRow.Cells(0).Value
-                .Item(1, r).Value = InventoryList.dgv.CurrentRow.Cells(1).Value
-                .Item(2, r).Value = InventoryList.dgv.CurrentRow.Cells(2).Value
-                .Item(3, r).Value = InventoryList.dgv.CurrentRow.Cells(3).Value
-                .Item(6, r).Value = "0.00"
-                If lblFormMode.Text = "SALES DELIVER" Then
-                    qty = InputBox("Please Enter Weight Qty", "Required")
-                    .Item(4, r).Value = qty
-                    .Item(5, r).Value = txtQty.Text
-                    .Columns("Qty").Visible = True
-                    .Columns(5).HeaderText = "Pc"
-                Else
-                    .Columns("Qty").Visible = False
-                    .Columns(5).HeaderText = "Qty"
-                    .Item(4, r).Value = "0"
-                    .Item(5, r).Value = txtQty.Text
-                End If
-                .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
-                .Item(8, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
-            End With
             txtQty.Text = "1"
             GET_TOTAL()
         End If
