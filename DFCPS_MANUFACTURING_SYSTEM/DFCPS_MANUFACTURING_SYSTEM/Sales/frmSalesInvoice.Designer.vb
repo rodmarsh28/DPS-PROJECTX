@@ -24,16 +24,6 @@ Partial Class frmSalesInvoice
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Pc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblARAcc = New System.Windows.Forms.TextBox()
@@ -74,6 +64,17 @@ Partial Class frmSalesInvoice
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Pc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -87,7 +88,7 @@ Partial Class frmSalesInvoice
         Me.dgv.AllowUserToResizeRows = False
         Me.dgv.BackgroundColor = System.Drawing.Color.White
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column8, Me.Column2, Me.Column4, Me.Qty, Me.Pc, Me.Column6, Me.Column3, Me.Column7, Me.Column9})
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column8, Me.Column2, Me.Column4, Me.Qty, Me.Pc, Me.Column6, Me.Column3, Me.Column7, Me.Column9, Me.Column5})
         Me.dgv.Location = New System.Drawing.Point(12, 86)
         Me.dgv.MultiSelect = False
         Me.dgv.Name = "dgv"
@@ -96,74 +97,6 @@ Partial Class frmSalesInvoice
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv.Size = New System.Drawing.Size(928, 309)
         Me.dgv.TabIndex = 8
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Item No."
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Descrition"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 300
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Unit"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 80
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Unit Price"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 80
-        '
-        'Qty
-        '
-        Me.Qty.HeaderText = "Qty"
-        Me.Qty.Name = "Qty"
-        Me.Qty.ReadOnly = True
-        Me.Qty.Width = 80
-        '
-        'Pc
-        '
-        Me.Pc.HeaderText = "Pc"
-        Me.Pc.Name = "Pc"
-        Me.Pc.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Discount"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Visible = False
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Amount"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Cost"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Visible = False
-        Me.Column7.Width = 80
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Tax"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 80
         '
         'Button2
         '
@@ -541,6 +474,81 @@ Partial Class frmSalesInvoice
         Me.Button8.Text = "Clear"
         Me.Button8.UseVisualStyleBackColor = True
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Item No."
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Descrition"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 300
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Unit"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 80
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Unit Price"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 80
+        '
+        'Qty
+        '
+        Me.Qty.HeaderText = "Qty"
+        Me.Qty.Name = "Qty"
+        Me.Qty.ReadOnly = True
+        Me.Qty.Width = 80
+        '
+        'Pc
+        '
+        Me.Pc.HeaderText = "Pc"
+        Me.Pc.Name = "Pc"
+        Me.Pc.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Discount"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Visible = False
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Amount"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Cost"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
+        Me.Column7.Width = 80
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Tax"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 80
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "bagwt"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Visible = False
+        '
         'frmSalesInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -612,16 +620,6 @@ Partial Class frmSalesInvoice
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents txtMemo As System.Windows.Forms.RichTextBox
     Friend WithEvents lblMEMO As System.Windows.Forms.Label
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Qty As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Pc As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents chkClosed As System.Windows.Forms.CheckBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtName As System.Windows.Forms.TextBox
@@ -635,4 +633,15 @@ Partial Class frmSalesInvoice
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Qty As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Pc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

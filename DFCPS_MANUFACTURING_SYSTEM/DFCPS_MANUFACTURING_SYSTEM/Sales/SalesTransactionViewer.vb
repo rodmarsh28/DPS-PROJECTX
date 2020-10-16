@@ -359,10 +359,15 @@ Public Class SalesTransactionViewer
         Try
             If DGV.CurrentRow.Cells(4).Value = "All ordered items delivered" Or DGV.CurrentRow.Cells(4).Value = "Cancelled" Then
                 MsgBox("This transaction is not available for that command. ", MsgBoxStyle.Critical, "Error")
+            
+                Exit Sub
+
             End If
             If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
                 Dim sc As New sales_class
                 sc.update_salesCash_status(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                Dim ac As New Account_Class
+                ac.reverse_accEntry(DGV.CurrentRow.Cells(1).Value, "Cancelled")
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -389,10 +394,13 @@ Public Class SalesTransactionViewer
         Try
             If DGV.CurrentRow.Cells(4).Value = "All ordered items delivered" Or DGV.CurrentRow.Cells(4).Value = "Cancelled" Then
                 MsgBox("This transaction is not available for that command. ", MsgBoxStyle.Critical, "Error")
+                Exit Sub
             End If
             If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
                 Dim sc As New sales_class
                 sc.update_salesCharge_status(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                Dim ac As New Account_Class
+                ac.reverse_accEntry(DGV.CurrentRow.Cells(1).Value, "Cancelled")
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

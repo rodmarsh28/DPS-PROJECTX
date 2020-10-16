@@ -74,10 +74,12 @@
         Dim totAmount As Decimal = 0
         Dim totWt As Decimal = 0
         For Each row As DataGridViewRow In dgv.Rows
+
             row.Cells(7).Value = ((CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value)) - CDec(row.Cells(6).Value)).ToString("N")
             totFA = totFA + (CDec(row.Cells(3).Value) * CDec(row.Cells(5).Value))
             totDis = totDis + CDec(row.Cells(6).Value)
             totAmount = totAmount + CDec(row.Cells(7).Value)
+            row.Cells(4).Value = CDec(row.Cells(10).Value) * CDec(row.Cells(5).Value).ToString("N")
             totWt += CDec(row.Cells(4).Value)
         Next
         lblTotFAmnt.Text = totFA.ToString("N")
@@ -386,10 +388,11 @@
                     'qty = InputBox("Please Enter Weight Qty", "Required")
                     dgv.Rows(CInt(INDEX)).Cells(4).Value = (CDec(InventoryList.dgv.CurrentRow.Cells(4).Value) / CDec(InventoryList.dgv.CurrentRow.Cells(9).Value)) * CDec(txtQty.Text)
                     dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
-
+                    dgv.Rows(CInt(INDEX)).Cells(10).Value = CDec(InventoryList.dgv.CurrentRow.Cells(4).Value) / CDec(InventoryList.dgv.CurrentRow.Cells(9).Value)
                 Else
                     dgv.Rows(CInt(INDEX)).Cells(4).Value = "0"
                     dgv.Rows(CInt(INDEX)).Cells(5).Value = txtQty.Text
+                    dgv.Rows(CInt(INDEX)).Cells(10).Value = "0"
 
                 End If
                 Exit Sub
@@ -407,11 +410,13 @@
                         .Item(5, r).Value = txtQty.Text
                         .Columns("Qty").Visible = True
                         .Columns(5).HeaderText = "Pc"
+                        .Item(10, r).Value = CDec(InventoryList.dgv.CurrentRow.Cells(4).Value) / CDec(InventoryList.dgv.CurrentRow.Cells(9).Value)
                     Else
                         .Columns("Qty").Visible = False
                         .Columns(5).HeaderText = "Qty"
                         .Item(4, r).Value = "0"
                         .Item(5, r).Value = txtQty.Text
+                        .Item(10, r).Value = "0"
                     End If
                     .Item(7, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(3).Value) * CDbl(txtQty.Text)
                     .Item(8, r).Value = CDbl(InventoryList.dgv.CurrentRow.Cells(8).Value) * CDbl(txtQty.Text)
@@ -490,7 +495,7 @@
         For Each row As DataRow In sc.dtable.Rows
             CardID = row(1)
             txtName.Text = row(2)
-            dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(10)).ToString("N"), CDec(row(8)).ToString("N"), "0.00", row(9))
+            dgv.Rows.Add(row(3), row(4), row(5), CDec(row(7)).ToString("N"), CDec(row(6)).ToString("N"), CDec(row(10)).ToString("N"), CDec(row(8)).ToString("N"), "0.00", row(9), "", row(11))
         Next
         frmsales_list_selector.successClick = False
         GET_TOTAL()
