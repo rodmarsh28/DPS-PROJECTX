@@ -88,7 +88,7 @@ Public Class MainForm
     End Sub
 
     Private Sub MetroButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        HRISMain.ShowDialog()
+        'HRISMain.ShowDialog()
     End Sub
 
     Private Sub ACCOUNTLISTToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

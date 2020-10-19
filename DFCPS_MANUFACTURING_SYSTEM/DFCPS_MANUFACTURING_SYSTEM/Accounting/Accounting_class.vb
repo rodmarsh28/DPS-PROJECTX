@@ -196,7 +196,7 @@ Public Class Accounting_class
             .CommandType = CommandType.StoredProcedure
             .Parameters.AddWithValue("@COMMAND", SqlDbType.Int).Value = command
             .Parameters.AddWithValue("@SEARCHVALUE", SqlDbType.VarChar).Value = transNo
-            .Parameters.AddWithValue("@memotype", SqlDbType.VarChar).Value = memotype
+            '.Parameters.AddWithValue("@memotype", SqlDbType.VarChar).Value = memotype
         End With
         Dim reader As SqlDataReader = cmd.ExecuteReader
         If reader.HasRows Then

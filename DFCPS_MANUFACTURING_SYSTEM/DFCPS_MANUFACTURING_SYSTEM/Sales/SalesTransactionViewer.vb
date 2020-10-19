@@ -359,7 +359,7 @@ Public Class SalesTransactionViewer
         Try
             If DGV.CurrentRow.Cells(4).Value = "All ordered items delivered" Or DGV.CurrentRow.Cells(4).Value = "Cancelled" Then
                 MsgBox("This transaction is not available for that command. ", MsgBoxStyle.Critical, "Error")
-            
+
                 Exit Sub
 
             End If
@@ -368,6 +368,7 @@ Public Class SalesTransactionViewer
                 sc.update_salesCash_status(DGV.CurrentRow.Cells(1).Value, "Cancelled")
                 Dim ac As New Account_Class
                 ac.reverse_accEntry(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -376,10 +377,15 @@ Public Class SalesTransactionViewer
 
     Private Sub tmsCancelJob_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmsCancelJob.Click
         Try
-            If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
-                Dim sc As New sales_class
-                sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished", "", MainForm.LBLID.Text)
-                MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+            If DGV.CurrentRow.Cells(4).Value = "Job Finished" Or DGV.CurrentRow.Cells(4).Value = "Cancelled" Then
+                MsgBox("This transaction is not available for that command. ", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+            Else
+                If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
+                    Dim sc As New sales_class
+                    sc.update_job_data(DGV.CurrentRow.Cells(1).Value, DGV.CurrentRow.Cells(2).Value, DGV.CurrentRow.Cells(3).Value, "Job Finished", "", MainForm.LBLID.Text)
+                    MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -387,7 +393,25 @@ Public Class SalesTransactionViewer
     End Sub
 
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem6.Click
-        
+        Try
+            If DGV.CurrentRow.Cells(4).Value = "Cancelled" Then
+                MsgBox("This transaction is not available for that command. ", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+            End If
+            If MsgBox("Are you sure ?", MsgBoxStyle.YesNo, "System Reminder") = MsgBoxResult.Yes Then
+                Dim sc As New sales_class
+                sc.update_salesDeliver_status(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                Dim ac As New Account_Class
+                ac.reverse_accEntry(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                Dim inv_ds As New invtry_dsTableAdapters.tblItemTransactionTableAdapter
+                inv_ds.Connection.ConnectionString = My.Settings.connStringValue
+                inv_ds.reverseInvtry(DGV.CurrentRow.Cells(1).Value)
+                MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+      
     End Sub
 
     Private Sub ToolStripMenuItem11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem11.Click
@@ -401,6 +425,7 @@ Public Class SalesTransactionViewer
                 sc.update_salesCharge_status(DGV.CurrentRow.Cells(1).Value, "Cancelled")
                 Dim ac As New Account_Class
                 ac.reverse_accEntry(DGV.CurrentRow.Cells(1).Value, "Cancelled")
+                MsgBox("STATUS UPDATED", MsgBoxStyle.Information, "SYSTEM INFORMATION")
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

@@ -536,7 +536,7 @@ Public Class frmProductionMain
     End Sub
 
     Private Sub AddEditEmployeesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        frmAddEmployees.ShowDialog()
+        'frmAddEmployees.ShowDialog()
     End Sub
 
     'Private Sub AddAttendaceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

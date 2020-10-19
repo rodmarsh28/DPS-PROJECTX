@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{996123D5-B0FF-489A-89DE-D1C534B90DE9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DFCPSMASTERLIST.My.MyApplication</StartupObject>
+    <RootNamespace>DFCPSMASTERLIST</RootNamespace>
+    <AssemblyName>DFCPSMASTERLIST</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DFCPSMASTERLIST.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DFCPSMASTERLIST.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Text</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DFCPSMASTERLIST.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DFCPSMASTERLIST.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DFCPSMASTERLIST.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\DFCPSMASTERLIST.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DFCPS LOGO1 RBW.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="databaseConnection.Designer.vb">
+      <DependentUpon>databaseConnection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="databaseConnection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTR Forms\frmDailyTimeRecording.Designer.vb">
+      <DependentUpon>frmDailyTimeRecording.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DTR Forms\frmDailyTimeRecording.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackupDatabase.Designer.vb">
+      <DependentUpon>frmBackupDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackupDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatabaseSettings.Designer.vb">
+      <DependentUpon>frmDatabaseSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatabaseSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRISDATASET.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRISDATASET.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HRISDATASET.vb">
+      <DependentUpon>HRISDATASET.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="manualPremsCalculator.Designer.vb">
+      <DependentUpon>manualPremsCalculator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="manualPremsCalculator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmDTRhistory.Designer.vb">
+      <DependentUpon>frmDTRhistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmDTRhistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmLeaveTypeSelection.Designer.vb">
+      <DependentUpon>frmLeaveTypeSelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmLeaveTypeSelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmManageLeaveType.Designer.vb">
+      <DependentUpon>frmManageLeaveType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmManageLeaveType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\diagSpecOffensesx.Designer.vb">
+      <DependentUpon>diagSpecOffensesx.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\diagSpecOffensesx.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmInfraction_offense_list.Designer.vb">
+      <DependentUpon>frmInfraction_offense_list.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmInfraction_offense_list.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmManageInfractions.Designer.vb">
+      <DependentUpon>frmManageInfractions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmManageInfractions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmManageOffenses.Designer.vb">
+      <DependentUpon>frmManageOffenses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmManageOffenses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmNoticeofDesciplinaryAction.Designer.vb">
+      <DependentUpon>frmNoticeofDesciplinaryAction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmNoticeofDesciplinaryAction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmSCM.Designer.vb">
+      <DependentUpon>frmSCM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmSCM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmAddEmployees.Designer.vb">
+      <DependentUpon>frmAddEmployees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmAddEmployees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\master_class.vb" />
+    <Compile Include="Payroll Forms\dtrRecordDateGenerator.Designer.vb">
+      <DependentUpon>dtrRecordDateGenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\dtrRecordDateGenerator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\frmAllPayrollHistory.Designer.vb">
+      <DependentUpon>frmAllPayrollHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\frmAllPayrollHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\frmDateGenerator.Designer.vb">
+      <DependentUpon>frmDateGenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\frmDateGenerator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmDesciplinaryActionViewer.Designer.vb">
+      <DependentUpon>frmDesciplinaryActionViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmDesciplinaryActionViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmDescplinaryAction.Designer.vb">
+      <DependentUpon>frmDescplinaryAction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmDescplinaryAction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmEmpLeaveViewer.Designer.vb">
+      <DependentUpon>frmEmpLeaveViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmEmpLeaveViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\frmEmployeeName.Designer.vb">
+      <DependentUpon>frmEmployeeName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\frmEmployeeName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmFileLeave.Designer.vb">
+      <DependentUpon>frmFileLeave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmFileLeave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.vb">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRISMain.Designer.vb">
+      <DependentUpon>HRISMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HRISMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmMasterList.Designer.vb">
+      <DependentUpon>frmMasterList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmMasterList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmOngoingDesciplinaryActionViewer.Designer.vb">
+      <DependentUpon>frmOngoingDesciplinaryActionViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmOngoingDesciplinaryActionViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master List\frmOngoingLeaveEmployees.Designer.vb">
+      <DependentUpon>frmOngoingLeaveEmployees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master List\frmOngoingLeaveEmployees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\frmPayroll.Designer.vb">
+      <DependentUpon>frmPayroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\frmPayroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modconn.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Payroll Forms\frmPrintPremsPaymentSum.Designer.vb">
+      <DependentUpon>frmPrintPremsPaymentSum.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\frmPrintPremsPaymentSum.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\payrollLabor.Designer.vb">
+      <DependentUpon>payrollLabor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\payrollLabor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRISprintDialog.Designer.vb">
+      <DependentUpon>HRISprintDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HRISprintDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll Forms\payroll_class.vb" />
+    <Compile Include="Payroll Forms\SSS_contribution_table.Designer.vb">
+      <DependentUpon>SSS_contribution_table.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll Forms\SSS_contribution_table.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\payrollTotalSum.vb">
+      <DependentUpon>payrollTotalSum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\dtrReport.vb">
+      <DependentUpon>dtrReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\leaveReport.vb">
+      <DependentUpon>leaveReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\employeeListReport.vb">
+      <DependentUpon>employeeListReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\DA.vb">
+      <DependentUpon>DA.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\deduction_class.vb" />
+    <Compile Include="Reports\dtrDailyReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtrDailyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\notDA.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>notDA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\phPremsPayment.vb">
+      <DependentUpon>phPremsPayment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\piLoansPayment.vb">
+      <DependentUpon>piLoansPayment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\piPremsPayment.vb">
+      <DependentUpon>piPremsPayment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Payrollpt2.vb">
+      <DependentUpon>Payrollpt2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\PayrollReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayrollReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PayslipForLabor.vb">
+      <DependentUpon>PayslipForLabor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\HRISReportViewer.Designer.vb">
+      <DependentUpon>HRISReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HRISReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Payroll.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payroll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Payslip.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payslip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\premsReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>premsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\premsSummary.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>premsSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SCM.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCM.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\sssLoansPayment.vb">
+      <DependentUpon>sssLoansPayment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\sssPremsPayment.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sssPremsPayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\WitholdingTaxSummaryReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WitholdingTaxSummaryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="databaseConnection.resx">
+      <DependentUpon>databaseConnection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTR Forms\frmDailyTimeRecording.resx">
+      <DependentUpon>frmDailyTimeRecording.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackupDatabase.resx">
+      <DependentUpon>frmBackupDatabase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatabaseSettings.resx">
+      <DependentUpon>frmDatabaseSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manualPremsCalculator.resx">
+      <DependentUpon>manualPremsCalculator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmDTRhistory.resx">
+      <DependentUpon>frmDTRhistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmLeaveTypeSelection.resx">
+      <DependentUpon>frmLeaveTypeSelection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmManageLeaveType.resx">
+      <DependentUpon>frmManageLeaveType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\diagSpecOffensesx.resx">
+      <DependentUpon>diagSpecOffensesx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmInfraction_offense_list.resx">
+      <DependentUpon>frmInfraction_offense_list.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmManageInfractions.resx">
+      <DependentUpon>frmManageInfractions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmManageOffenses.resx">
+      <DependentUpon>frmManageOffenses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmNoticeofDesciplinaryAction.resx">
+      <DependentUpon>frmNoticeofDesciplinaryAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmSCM.resx">
+      <DependentUpon>frmSCM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmAddEmployees.resx">
+      <DependentUpon>frmAddEmployees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\dtrRecordDateGenerator.resx">
+      <DependentUpon>dtrRecordDateGenerator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\frmAllPayrollHistory.resx">
+      <DependentUpon>frmAllPayrollHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\frmDateGenerator.resx">
+      <DependentUpon>frmDateGenerator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmDesciplinaryActionViewer.resx">
+      <DependentUpon>frmDesciplinaryActionViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmDescplinaryAction.resx">
+      <DependentUpon>frmDescplinaryAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmEmpLeaveViewer.resx">
+      <DependentUpon>frmEmpLeaveViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\frmEmployeeName.resx">
+      <DependentUpon>frmEmployeeName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmFileLeave.resx">
+      <DependentUpon>frmFileLeave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRISMain.resx">
+      <DependentUpon>HRISMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmMasterList.resx">
+      <DependentUpon>frmMasterList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmOngoingDesciplinaryActionViewer.resx">
+      <DependentUpon>frmOngoingDesciplinaryActionViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master List\frmOngoingLeaveEmployees.resx">
+      <DependentUpon>frmOngoingLeaveEmployees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\frmPayroll.resx">
+      <DependentUpon>frmPayroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\frmPrintPremsPaymentSum.resx">
+      <DependentUpon>frmPrintPremsPaymentSum.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\payrollLabor.resx">
+      <DependentUpon>payrollLabor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRISprintDialog.resx">
+      <DependentUpon>HRISprintDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll Forms\SSS_contribution_table.resx">
+      <DependentUpon>SSS_contribution_table.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\payrollTotalSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>payrollTotalSum.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\dtrReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>dtrReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\leaveReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>leaveReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\employeeListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>employeeListReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DA.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\dtrDailyReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>dtrDailyReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\notDA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>notDA.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\phPremsPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>phPremsPayment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\piLoansPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>piLoansPayment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\piPremsPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>piPremsPayment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Payrollpt2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payrollpt2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PayrollReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PayrollReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PayslipForLabor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PayslipForLabor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\HRISReportViewer.resx">
+      <DependentUpon>HRISReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Payroll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payroll.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Payslip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payslip.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\premsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>premsReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\premsSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>premsSummary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SCM.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SCM.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\sssLoansPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sssLoansPayment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\sssPremsPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sssPremsPayment.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\WitholdingTaxSummaryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>WitholdingTaxSummaryReport.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="HRISDATASET.xsc">
+      <DependentUpon>HRISDATASET.xsd</DependentUpon>
+    </None>
+    <None Include="HRISDATASET.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HRISDATASET.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="HRISDATASET.xss">
+      <DependentUpon>HRISDATASET.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DFCPS LOGO1 RBW.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
